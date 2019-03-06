@@ -1,0 +1,68 @@
+package com.virtualpairprogrammers.model;
+
+public class Feedback {
+	private int id_feedback;
+	private int id_experience;
+	private int id_principi;
+	private boolean secondario;
+	private Experience experience;
+	private Principi principi;
+	
+	public Feedback (int id_feedback,Experience experience, Principi principi ) {
+		this.id_feedback = id_feedback;
+		this.id_experience = experience.getId_experience();
+		this.id_principi = principi.getId_principio();
+		this.secondario = false;
+		
+	}
+
+	public int getId_feedback() {
+		return id_feedback;
+	}
+
+	public void setId_feedback(int id_feedback) {
+		this.id_feedback = id_feedback;
+	}
+
+	public int getId_experience() {
+		return id_experience;
+	}
+
+	public void setId_experience(int id_experience) {
+		this.id_experience = id_experience;
+	}
+
+	public int getId_principi() {
+		return id_principi;
+	}
+
+	public void setId_principi(int id_principi) {
+		this.id_principi = id_principi;
+	}
+
+	public boolean isSecondario() {
+		return secondario;
+	}
+
+	public void setSecondario(boolean secondario) {
+		this.secondario = secondario;
+	}
+
+	public Experience getExperience() {
+		return experience;
+	}
+
+	public void setExperience(Experience experience) {
+		this.experience = experience;
+	}
+
+	public Principi getPrincipi() {
+		return principi;
+	}
+
+	public void setPrincipi(Principi principi) {
+		this.principi = principi;
+	}
+	
+
+}
