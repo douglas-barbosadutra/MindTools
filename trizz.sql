@@ -1,6 +1,10 @@
 -- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
+<<<<<<< HEAD
+-- Host: localhost    Database: dump20190305
+=======
 -- Host: localhost    Database: este
+>>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
 -- ------------------------------------------------------
 -- Server version	8.0.11
 
@@ -16,6 +20,39 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+<<<<<<< HEAD
+-- Table structure for table `experience`
+--
+
+DROP TABLE IF EXISTS `experience`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `experience` (
+  `id_experience` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `commento` varchar(400) NOT NULL,
+  `positivo` varchar(400) DEFAULT NULL,
+  `negativo` varchar(300) DEFAULT NULL,
+  `score` int(11) NOT NULL,
+  PRIMARY KEY (`id_experience`),
+  KEY `id_user_idx` (`id_user`),
+  CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `experience`
+--
+
+LOCK TABLES `experience` WRITE;
+/*!40000 ALTER TABLE `experience` DISABLE KEYS */;
+INSERT INTO `experience` VALUES (1,3,'mi sono divertita a risolvere il mio problema usando segmentation perchè avevo un grosso problema','superTop','Noioso',3),(2,2,'ciao','ciaoooooo','Bene',2);
+/*!40000 ALTER TABLE `experience` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+=======
+>>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
 -- Table structure for table `feedback`
 --
 
@@ -24,6 +61,17 @@ DROP TABLE IF EXISTS `feedback`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `feedback` (
   `id_feedback` int(11) NOT NULL AUTO_INCREMENT,
+<<<<<<< HEAD
+  `id_experience` int(11) NOT NULL,
+  `id_principi` int(11) NOT NULL,
+  `secondario` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id_feedback`,`id_experience`,`id_principi`),
+  KEY `id_experience_idx` (`id_experience`),
+  KEY `id_principi_idx` (`id_principi`),
+  CONSTRAINT `id_experience` FOREIGN KEY (`id_experience`) REFERENCES `experience` (`id_experience`),
+  CONSTRAINT `id_principi` FOREIGN KEY (`id_principi`) REFERENCES `principi` (`id_principi`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+=======
   `id_principi` int(11) NOT NULL,
   `valore` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_feedback`),
@@ -32,6 +80,7 @@ CREATE TABLE `feedback` (
   CONSTRAINT `id_principi` FOREIGN KEY (`id_principi`) REFERENCES `principi` (`id_principi`),
   CONSTRAINT `valore` FOREIGN KEY (`valore`) REFERENCES `score` (`id_score`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+>>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +89,10 @@ CREATE TABLE `feedback` (
 
 LOCK TABLES `feedback` WRITE;
 /*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
+<<<<<<< HEAD
+INSERT INTO `feedback` VALUES (1,1,20,1),(2,2,15,0),(3,2,2,1);
+=======
+>>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
 /*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -72,6 +125,8 @@ INSERT INTO `principi` VALUES (1,'Segmentation','Segmentazione','What happens if
 UNLOCK TABLES;
 
 --
+<<<<<<< HEAD
+=======
 -- Table structure for table `score`
 --
 
@@ -95,6 +150,7 @@ LOCK TABLES `score` WRITE;
 UNLOCK TABLES;
 
 --
+>>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
 -- Table structure for table `user`
 --
 
@@ -110,7 +166,11 @@ CREATE TABLE `user` (
   `email` varchar(27) NOT NULL,
   `tipo_user` enum('ADMIN','UTENTE') NOT NULL,
   PRIMARY KEY (`iduser`)
+<<<<<<< HEAD
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+=======
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+>>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,6 +179,10 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+<<<<<<< HEAD
+INSERT INTO `user` VALUES (1,'admin','admin','angelo','calaciura','angelo@gmail.com','ADMIN'),(2,'angelo','pippo','angelo','calaciura','angelo@gmail.com','UTENTE'),(3,'giusy','giusy','giusy','razzano','giusy@gmail.com','UTENTE');
+=======
+>>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -131,4 +195,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
+-- Dump completed on 2019-03-06 17:59:39
+=======
 -- Dump completed on 2019-02-28  3:12:45
+>>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
