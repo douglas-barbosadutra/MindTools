@@ -8,12 +8,12 @@ import com.virtualpairprogrammers.dao.PrincipiDAO;
 import com.virtualpairprogrammers.dto.PrincipiDTO;
 import com.virtualpairprogrammers.model.Principi;
 
-public class PrincipiServiceDTO {
+public class PrincipiService {
 	
 
 	private final PrincipiDAO principiDAO;
 
-	public PrincipiServiceDTO() {
+	public PrincipiService() {
 		this.principiDAO = new PrincipiDAO();
 	}
    

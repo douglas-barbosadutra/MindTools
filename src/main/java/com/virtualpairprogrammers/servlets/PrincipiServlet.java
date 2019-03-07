@@ -11,19 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.virtualpairprogrammers.dto.PrincipiDTO;
 
-import com.virtualpairprogrammers.service.PrincipiServiceDTO;
+import com.virtualpairprogrammers.service.PrincipiService;
 
 public class PrincipiServlet extends HttpServlet {
 	
-	private final PrincipiServiceDTO principiServiceDTO = new PrincipiServiceDTO();
+	private final PrincipiService principiServiceDTO = new PrincipiService();
 	private List<PrincipiDTO> allPrincipi = new ArrayList<>();
 	private PrincipiDTO principio= new PrincipiDTO();
-
+	private int id_principi=0;
+	
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		final String scelta = request.getParameter("richiesta");
 		final HttpSession session = request.getSession(true); 
-		//int id_principi=Integer.parseInt(request.getParameter("id_principi"));
+		int id_principi=Integer.parseInt(request.getParameter("id_principi"));
 		System.out.println("XD: " + scelta);
 		
 		switch (scelta) {
@@ -32,14 +33,15 @@ public class PrincipiServlet extends HttpServlet {
 			allPrincipi = this.principiServiceDTO.getAllPrincipi();
 			System.out.println("principio");
 			request.setAttribute("allPrincipi", allPrincipi);
-			getServletContext().getRequestDispatcher("/homePrincipi.jsp").forward(request, response);
+	
+			getServletContext().getRequestDispatcher("/TestPrincipi.jsp").forward(request, response);
 			break;	
 			
 		case "ShowPrincipio":
-			/*principio = this.principiServiceDTO.getPrincipio(id_principi);
+			principio = this.principiServiceDTO.getPrincipio(id_principi);
 			request.setAttribute("principio", principio);
 			//System.out.println("principio"+ principio.getDescrizione());
-			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);*/
+			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 			break;	
 			
 		}
