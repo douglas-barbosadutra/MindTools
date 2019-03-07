@@ -23,20 +23,23 @@ public class PrincipiServlet extends HttpServlet {
 
 		final String scelta = request.getParameter("richiesta");
 		final HttpSession session = request.getSession(true); 
-		int id_principi=Integer.parseInt(request.getParameter("id_principi"));
+		//int id_principi=Integer.parseInt(request.getParameter("id_principi"));
+		System.out.println("XD: " + scelta);
+		
 		switch (scelta) {
 
 		case "PrincipiManager":
 			allPrincipi = this.principiServiceDTO.getAllPrincipi();
+			System.out.println("principio");
 			request.setAttribute("allPrincipi", allPrincipi);
-			getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/homePrincipi.jsp").forward(request, response);
 			break;	
 			
 		case "ShowPrincipio":
-			principio = this.principiServiceDTO.getPrincipio(id_principi);
+			/*principio = this.principiServiceDTO.getPrincipio(id_principi);
 			request.setAttribute("principio", principio);
 			//System.out.println("principio"+ principio.getDescrizione());
-			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);*/
 			break;	
 			
 		}
