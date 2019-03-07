@@ -27,6 +27,7 @@ public class ExperienceService {
 	 * Invito chi fa i converter a fare un metodo per convertire direttamente la lista senza farli uno ad uno perchè è sporco e poco efficiente
 	 */
 	public List<ExperienceDTO> getAllExperience() {
+		
 
 		List<Experience> list = experienceDAO.getAllExperiences(user)
 		List<ExperienceDTO> listDTO = new ArrayList<>();

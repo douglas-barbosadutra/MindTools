@@ -40,15 +40,17 @@ public class ExperienceServlet extends HttpServlet {
 		 case ("InsertExperience"):
 			/*System.out.println("ritorna l'id");
 		    this.experienceService.getExperienceById_experienceAndId_user((String)session.)*/
-			 int user_id = UsersService.getUser().getIduser();
+			/* int user_id = UsersService.getUser().getIduser();*/
 			 String commento= experienceConverter.toEntity(experienceDTO).getCommento();
 		     String positivo = experienceConverter.toEntity(experienceDTO).getPositivo();
 		     String negativo = experienceConverter.toEntity(experienceDTO).getNegativo();
 		     int score = experienceConverter.toEntity(experienceDTO).getScore();
+		     int idutente = 1;
 		     experienceDTO.setCommento(commento);
 		     experienceDTO.setPositivo(positivo);
 		     experienceDTO.setNegativo(negativo);
 		     experienceDTO.setScore(score);
+		     experienceDTO.setId_user(idutente);
 		     System.out.println("Creado objeto con exito");
 		     experience = this.experienceConverter.toEntity(experienceDTO);
 		     System.out.println("Conversion hecha con exito");

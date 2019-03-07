@@ -39,7 +39,7 @@ public class UserDAO {
                 String nome = rs.getString ("nome");
                 String cognome = rs.getString ("cognome");
                 String email = rs.getString ("email");
-                String tipouser = rs.getString ("tipouser");
+                String tipouser = rs.getString ("tipo_user");
                 
                 _user = new User (0,user1,password1,nome,cognome,email,tipouser);
 	            return  _user;
