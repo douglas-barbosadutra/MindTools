@@ -3,7 +3,7 @@
 <title>Menu Admin</title>
 </head>
 <body>
-     <h1>Benvenuto <%= request.getSession().getAttribute("amministratore")%></h1>
+     
      <h2>------- MENU ADMIN -------</h2>
      <h2>    <h2>
 
