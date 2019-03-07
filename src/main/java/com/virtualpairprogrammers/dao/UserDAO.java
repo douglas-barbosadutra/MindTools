@@ -17,6 +17,8 @@ public class UserDAO {
 	private final String QUERY_INSERT_USER = "INSERT INTO user (user,password,nome, cognome,email) VALUES (?,?,?,?,?)";
 	private final String QUERY_DELETE_USER = "DELETE FROM user WHERE iduser = ? ";
 	private final String QUERY_UPDATE_USER = "UPDATE user SET user = ?, nome = ? WHERE iduser = ? ";
+	
+	
 	private final String QUERY_LOGIN ="SELECT * FROM user WHERE user = ? and password = ?";
 	
 	

@@ -15,30 +15,33 @@ public class ExperienceConverter {
 
 
 	/**
-	 * Converte un NodesDTO in Nodes
+	 * Converte una ExperienceDTO in Experience
 	 */
-	public static Experience toEntity(ExperienceDTO experienceDTO) {
+	public  Experience toEntity(ExperienceDTO experienceDTO) {
 
 		Experience experience = null;
 		if (experienceDTO != null) {
-			experience = new Experience(ExperienceDTO.getId_experience(), ExperienceDTO.getId_user(), ExperienceDTO.getCommento(), ExperienceDTO.getPositivo(),ExperienceDTO.getNegativo(), ExperienceDTO.getScore());
+			experience = new Experience(experienceDTO.getId_experience(), experienceDTO.getId_user(), experienceDTO.getCommento(),
+					experienceDTO.getPositivo(),experienceDTO.getNegativo(), experienceDTO.getScore());
 		}
 
 		return experience;
 	}
 
 	/**
-	 * Converte un Nodes in NodesDTO
+	 * Converte una Experience in ExperienceDTO
 	 */
 	public static ExperienceDTO toDTO(Experience experience) {
 
 		ExperienceDTO experienceDTO = null;
 		if (experience != null) {
-			experienceDTO = new ExperienceDTO(experience.getId_experience(), experience.getId_user(), experience.getCommento(), experience.getPositivo(), experience.getNegativo(), experience.getStore());
+			experienceDTO = new ExperienceDTO(experience.getId_experience(), experience.getId_user(), experience.getCommento(), 
+					experience.getPositivo(), experience.getNegativo(), experience.getScore());
 		}
 
 		return experienceDTO;
 	}
+	
 	
 
 }

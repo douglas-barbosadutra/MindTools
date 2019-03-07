@@ -1,10 +1,12 @@
 package com.virtualpairprogrammers.dto;
 
+
 /**
  * Il DTO (Data transfer object) è un ponte che ci permette di nascondere le
  * informazioni principali del nostro model
  * 
  */
+
 
 public class UserDTO {
 

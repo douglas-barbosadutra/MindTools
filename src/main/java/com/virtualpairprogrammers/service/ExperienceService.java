@@ -7,6 +7,7 @@ import com.virtualpairprogrammers.converter.ExperienceConverter;
 import com.virtualpairprogrammers.dao.ExperienceDAO;
 import com.virtualpairprogrammers.dto.ExperienceDTO;
 import com.virtualpairprogrammers.model.Experience;
+import com.virtualpairprogrammers.model.Misura;
 
 /**
  * Classe che si occupa di interfacciarsi con la persistenza e recuperare
@@ -27,7 +28,7 @@ public class ExperienceService {
 	 */
 	public List<ExperienceDTO> getAllExperience() {
 
-		List<Experience> list = experienceDAO.getAllExperiences();
+		List<Experience> list = experienceDAO.getAllExperiences(user)
 		List<ExperienceDTO> listDTO = new ArrayList<>();
 
 		for (Experience experience : list) {
@@ -37,9 +38,10 @@ public class ExperienceService {
 		return listDTO;
 	}
 	
-	 public ExperienceDTO getExperienceById_experienceAndId_user(String id_experience, String id_user) {
+	 public ExperienceDTO getExperienceId_by_experienceAndId_user(int id_experience, int id_user) {
 		return ExperienceConverter.toDTO(experienceDAO.login(id_experience, id_user));
 	}
+	 
 
 	 /* public boolean updateExperience (ExperienceDTO experienceDTO) {
 		return this.experienceDAO.updateExperience(ExperienceConverter.toEntity(experienceDTO));
@@ -55,7 +57,11 @@ public class ExperienceService {
 		return this.experienceDAO.insertExperience(ExperienceConverter.toEntity(experienceDTO));
 	
 } */
-		
+	
+	 public boolean insertExperience (Experience experience) {
+		    return this.experienceDAO.insertExperience(experience);
+	        
+	    }
 	
 	
 }

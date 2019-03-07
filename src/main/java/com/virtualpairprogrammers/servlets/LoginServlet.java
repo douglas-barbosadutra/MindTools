@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.virtualpairprogrammers.converter.UserConverter;
 import com.virtualpairprogrammers.dto.UserDTO;
 import com.virtualpairprogrammers.service.UsersService;
 
@@ -27,10 +28,12 @@ public class LoginServlet extends HttpServlet {
 			final String password = request.getParameter("password").toString();
 			// recuperiamo l'utente
 			final UserDTO userDTO = usersService.getUserByUsernameAndPassword(user, password);
+			
 
-			if (userDTO != null)
+			if (userDTO != null) {
 				session.setAttribute("utente", userDTO);
-
+				UsersService.setUser(UserConverter.toEntity(userDTO));
+			}
 			// verifichiamo che tipo di ruolo ha all'interno dell'applicazione
 			// e lo reindirizziamo nella jsp opportuna
 			

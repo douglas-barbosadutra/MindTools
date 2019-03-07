@@ -30,13 +30,14 @@ public class ConnectionSingleton {
                 String password ="root";
                 Class c = Class.forName(driver);
                 System.out.println("Ho caricato: " + c.getName());
-                String myUrl = "jdbc:" + vendor + "://" + host + ":" + port + "/" + dbName;
+                String myUrl = "jdbc:" + vendor + "://" + host + ":" + port + "/" + dbName+"?useSSL=false";
                 DriverManagerDataSource dataSource = new DriverManagerDataSource(myUrl, username, password);
                 dataSource.setDriverClassName(driver);
                 connection = dataSource.getConnection();
             } catch (Exception e) {
                 e.printStackTrace();
             }
+         
         }
         return connection;
     }

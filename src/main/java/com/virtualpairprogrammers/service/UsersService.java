@@ -17,9 +17,18 @@ public class UsersService {
 
 	private UserDAO userDAO;
 	private UserDTO userDTO;
+	private static User user;
 	
 	
 	
+
+	public static User getUser() {
+		return user;
+	}
+
+	public static void setUser(User user) {
+		UsersService.user = user;
+	}
 
 	public UsersService() {
 		this.userDAO = new UserDAO();
@@ -59,7 +68,7 @@ public class UsersService {
 	}
 
 	/*public boolean updateUsers (UserDTO userDTO) {
-		return this.userDAO.updateUser(UserConverter.toEntity(userDTO));
+		//return this.userDAO.updateUser(UserConverter.toEntity(userDTO));
 		
 }
 	

@@ -13,10 +13,18 @@ public class Experience {
 		this.id_experience = id_experience;
 		this.id_user = user.getIduser();
 		this.commento = commento;
-		this.commento = commento;
 		this.positivo = positivo;
 		this.negativo = negativo;
 		this.score= score;
+	}
+	public Experience() {}
+	public Experience(int id_experience, int id_user, String commento, String positivo,String negativo, int score) {
+		this.id_experience = id_experience;
+		this.id_user = id_user;
+		this.commento = commento;
+		this.positivo = positivo;
+		this.negativo = negativo;
+		this.score = score;
 	}
 
 	public int getId_experience() {
@@ -66,6 +74,8 @@ public class Experience {
 	public void setScore(int score) {
 		this.score = score;
 	}
+	
+
 
 	
 }

@@ -22,8 +22,10 @@ public class ExperienceDTO {
 		this.score = score;
 		
 	}
+	public ExperienceDTO() {}
+	
 
-	public int getId_experience() {
+	public  int getId_experience() {
 		return id_experience;
 	}
 
