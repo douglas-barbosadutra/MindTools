@@ -1,6 +1,10 @@
-package com.virtualpairprogrammers.model;
+package com.virtualpairprogrammers.dto;
 
-public class Feedback {
+import com.virtualpairprogrammers.model.Experience;
+import com.virtualpairprogrammers.model.Principi;
+
+public class FeedbackDTO 
+{
 	private int id_feedback;
 	private int id_experience;
 	private int id_principi;
@@ -8,13 +12,14 @@ public class Feedback {
 	private Experience experience;
 	private Principi principi;
 	
-	public Feedback (int id_feedback,int id_experience, int id_principi, boolean secondario ) {
+	public FeedbackDTO () {}		
+
+	public FeedbackDTO (int id_feedback,int id_experience, int id_principi, boolean secondario ) {
 		this.id_feedback = id_feedback;
 		this.id_experience = experience.getId_experience();
 		this.id_principi = principi.getId_principio();
         //secondario = false;	
-		
-	}
+	}		
 
 	public int getId_feedback() {
 		return id_feedback;
@@ -63,12 +68,5 @@ public class Feedback {
         else
         	return false;
     }
-       
-
-  /*  public String toString() {
-
-        return "Feedback: " + id_feedback + "\nExperience: " + id_experience + "\nPrincipi: " + id_principi + ";
-    }
-*/
-
-    }
+	
+}

@@ -22,17 +22,14 @@ public class FeedbackDAO {
 	 * intendiamo recuperare tutte le tuple dal db. Se volessimo creare una query
 	 * per l'inserimento, un nome identificativo potrebbe essere INSERT_ESEMPIO
 	 */
-	private final String GET_ALL = "select * from users";
-	private final String QUERY_INSERT = "INSERT INTO users (id, username, password, ruolo) values (?,?,?,?)";
-	private final String QUERY_DELETE = "DELETE FROM users WHERE id = (?)";
-	private final String QUERY_UPDATE = "UPDATE users SET username, password, ruolo =(?,?,?) WHERE id = (?)";
-	private final String QUERY_LOGIN = "select * from users where username=(?) and password=(?)";
-
+	private final String GET_ALL = "select * from feedback";
+	private final String QUERY_INSERT = "INSERT INTO feedback (id, id_experience, id_principi, secondario) values (?,?,?,?)";
 	/**
 	 * Il suddetto metodo si occupa interagire con il database e restituire tutte le
 	 * tuple al servizio che ha chiamato questo metodo
 	 */
 
+	/*
 	public Users login(String username, String password) {
 
 		Connection connection = ConnectionSingleton.getInstance();
@@ -57,10 +54,11 @@ public class FeedbackDAO {
 		}
 		return utente;
 	}
+	*/
 
-	public List<Users> getAllUsers() {
+	public List<Feedback> getAllFeedback() {
 
-		final List<Users> users = new ArrayList<>();
+		final List<Feedback> feedback = new ArrayList<>();
 		final Connection connection = ConnectionSingleton.getInstance();
 
 		try {
@@ -68,64 +66,17 @@ public class FeedbackDAO {
 			final ResultSet resultSet = statement.executeQuery(GET_ALL);
 			while (resultSet.next()) {
 				final Integer id = resultSet.getInt("id");
-				final String username = resultSet.getString("username");
-				final String password = resultSet.getString("password");
-				final String ruolo = resultSet.getString("ruolo");
+				final Integer id_experience = resultSet.getInt("id_experience");
+				final Integer id_principi = resultSet.getInt("id_principi") ;
+				final boolean secondario = resultSet.getBoolean("secondario");
 
-				users.add(new Users(id, username, password, ruolo));
+				feedback.add(new Feedback(id, id_experience, id_principi, secondario));
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		return users;
-	}
-	// Inserimento
-
-	public boolean insertUsers(Users users) {
-		Connection connection = ConnectionSingleton.getInstance();
-		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
-			preparedStatement.setInt(1, users.getId());
-			preparedStatement.setString(2, users.getUsername());
-			preparedStatement.setString(3, users.getPassword());
-			preparedStatement.setString(4, users.getRuolo());
-			return true;
-		} catch (SQLException e) {
-			GestoreEccezioni.getInstance().gestisciEccezione(e);
-			return false;
-		}
+		return feedback;
 	}
 
-	// cancella una chat
-	public boolean deleteUsers(Users users) {
-		Connection connection = ConnectionSingleton.getInstance();
-		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
-			preparedStatement.setInt(1, users.getId());
-			preparedStatement.execute();
-			return true;
-		} catch (SQLException e) {
-			GestoreEccezioni.getInstance().gestisciEccezione(e);
-			return false;
-		}
-	}
-
-	// Modifica Chat
-
-	public boolean updateUsers(Users users) {
-		Connection connection = ConnectionSingleton.getInstance();
-		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_UPDATE);
-			preparedStatement.setString(1, users.getUsername());
-			preparedStatement.setString(2, users.getPassword());
-			preparedStatement.setString(3, users.getRuolo());
-			preparedStatement.execute();
-			return true;
-		} catch (SQLException e) {
-
-			GestoreEccezioni.getInstance().gestisciEccezione(e);
-			return false;
-		}
-
-	}
+	
 }
