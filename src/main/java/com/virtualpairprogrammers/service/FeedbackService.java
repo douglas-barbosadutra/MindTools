@@ -6,6 +6,7 @@ import java.util.List;
 import com.virtualpairprogrammers.converter.FeedbackConverter;
 import com.virtualpairprogrammers.dao.FeedbackDAO;
 import com.virtualpairprogrammers.dto.FeedbackDTO;
+import com.virtualpairprogrammers.model.Experience;
 import com.virtualpairprogrammers.model.Feedback;
 
 /**
@@ -29,21 +30,20 @@ public class FeedbackService {
 	 * Come vediamo la lista recuperata è di tipo Esempio ma noi la convertiamo in EsempioDTO
 	 * Invito chi fa i converter a fare un metodo per convertire direttamente la lista senza farli uno ad uno perchè è sporco e poco efficiente
 	 */
-	/*public User  getUser() {
-		List<User> list = userDAO.getAllUser();
+	
+	public List<FeedbackDTO>  getFeedback() {
+		List<Feedback> list = feedbackDAO.getAllFeedback();
 		
-		List<UserDTO> listDTO = new ArrayList<>();
-		User user1;
-		for (User user : list) {
-			user1= UserConverter.toEntity(userDTO);
-			listDTO.add(user1);
-
+		List<FeedbackDTO> listDTO = new ArrayList<>();
+		
+		for (Feedback f : list) {
 			
-			
-		}
+			FeedbackDTO feedback= FeedbackConverter.toDTO(f);
+			listDTO.add(feedback);
+		}   
 		return listDTO;
 	}
-	*/
+	
 	
 	
 	/*public FeedbackDTO getUserByUsernameAndPassword(String username, String password) {
@@ -57,6 +57,13 @@ public class FeedbackService {
 		feedbackDTO = FeedbackConverter.toDTO(feedback1);
 		return feedbackDTO;
 		
-	}	
+	}
+	
+	public boolean insertFeedback (Feedback feedback) {
+	    return this.feedbackDAO.insertFeedback(feedback);
+        
+    }
+	
+	
 	
 }

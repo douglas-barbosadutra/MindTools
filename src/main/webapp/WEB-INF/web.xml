@@ -38,6 +38,14 @@
 		<servlet-name>NodesServlet</servlet-name>
 		<url-pattern>/NodesServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>ExperienceServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.ExperienceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExperienceServlet</servlet-name>
+		<url-pattern>/ExperienceServlet</url-pattern>
+	</servlet-mapping>
 	<session-config>
 		<session-timeout>4000</session-timeout>
 	</session-config>

@@ -4,7 +4,7 @@ public class Feedback {
 	private int id_feedback;
 	private int id_experience;
 	private int id_principi;
-	//private boolean secondario;
+	private int secondario;
 	private Experience experience;
 	private Principi principi;
 	
@@ -12,9 +12,23 @@ public class Feedback {
 		this.id_feedback = id_feedback;
 		this.id_experience = experience.getId_experience();
 		this.id_principi = principi.getId_principio();
-        //secondario = false;	
+        secondario = false;	
 		
 	}
+
+	
+
+	public int getSecondario() {
+		return secondario;
+	}
+
+
+
+	public void setSecondario(int secondario) {
+		this.secondario = secondario;
+	}
+
+
 
 	public int getId_feedback() {
 		return id_feedback;

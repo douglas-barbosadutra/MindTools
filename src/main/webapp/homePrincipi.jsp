@@ -1,6 +1,9 @@
 <!DOCTYPE jsp>
 <html lang="it">
 <a href="#example">headline</a>
+  <%@ page import="com.virtualpairprogrammers.service.PrincipiService" %>
+  <%@ page import="com.virtualpairprogrammers.dto.PrincipiDTO" %>
+  <%@ page import="java.util.*" %>
 
 <head>
 
@@ -14,7 +17,8 @@
  </head>
 
 
-
+<% PrincipiService principiService = new PrincipiService();
+List<PrincipiDTO> allPrincipi = principiService.getAllPrincipi();%>
 
 <body>
 
@@ -44,22 +48,27 @@
 	<h2>------- MENU -------</h2>
 
 
-    <h3> Login</h3>
+  <td> Login </td>
       <form action="LogoutServlet" method="post">
      <input type="submit" value="Login" name="Login">
     </form>
      
-     
+      <% 
+      for(PrincipiDTO p : allPrincipi) {
+    	  
+%>
+  
 
 
 
-	<h3>1. Segmentation</h3>
+	<label><%p.getId_principi();   %> </label>
 	<a href="https://www.google.com/search?q=segmentation&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi-wqz_2u3gAhUHmbQKHRbuBSUQ_AUIDigB&biw=1536&bih=706#imgrc=zv7Vl1CNkZ7beM:"></a>
 	<p>Divide an object into independent parts....</p>
 	<form action="MenuServlet" method="post">
 	 <button type="submit" value="esempioManager" name="richiesta">SELECT</button>
 	</form>
 	
+	<% }%>
 	
 	
 	

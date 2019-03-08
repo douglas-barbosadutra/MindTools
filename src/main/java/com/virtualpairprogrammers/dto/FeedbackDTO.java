@@ -8,8 +8,9 @@ public class FeedbackDTO
 	private int id_feedback;
 	private int id_experience;
 	private int id_principi;
-	//private boolean secondario;
+	private int secondario;
 	private Experience experience;
+	
 	private Principi principi;
 	
 	public FeedbackDTO () {}		
@@ -24,6 +25,15 @@ public class FeedbackDTO
 	public int getId_feedback() {
 		return id_feedback;
 	}
+	public int getSecondario() {
+		return secondario;
+	}
+
+	public void setSecondario(int secondario) {
+		
+		this.secondario = secondario;
+	}
+
 
 	public void setId_feedback(int id_feedback) {
 		this.id_feedback = id_feedback;

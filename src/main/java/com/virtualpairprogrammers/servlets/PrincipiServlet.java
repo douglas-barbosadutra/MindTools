@@ -14,46 +14,50 @@ import com.virtualpairprogrammers.dto.PrincipiDTO;
 import com.virtualpairprogrammers.service.PrincipiService;
 
 public class PrincipiServlet extends HttpServlet {
-	
-	private final PrincipiService principiServiceDTO = new PrincipiService();
+
+	// private final PrincipiService principiServiceDTO = new PrincipiService();
 	private List<PrincipiDTO> allPrincipi = new ArrayList<>();
-	private PrincipiDTO principio= new PrincipiDTO();
-	private int id_principi=0;
-	
+	private PrincipiDTO principio = new PrincipiDTO();
+	private PrincipiService principiServiceDTO;
+
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		principiServiceDTO = new PrincipiService();
 		final String scelta = request.getParameter("richiesta");
-		final HttpSession session = request.getSession(true); 
-		int id_principi=Integer.parseInt(request.getParameter("id_principi"));
-		System.out.println("XD: " + scelta);
-		
+		final HttpSession session = request.getSession(true);
+		// int id_principi=Integer.parseInt(request.getParameter("id_principi"));
+		// System.out.println("XD: " + scelta);
+
 		switch (scelta) {
 
 		case "PrincipiManager":
 			allPrincipi = this.principiServiceDTO.getAllPrincipi();
 			System.out.println("principio");
 			request.setAttribute("allPrincipi", allPrincipi);
-	
-			getServletContext().getRequestDispatcher("/TestPrincipi.jsp").forward(request, response);
-			break;	
-			
+
+			getServletContext().getRequestDispatcher("/mauShowAllprova.jsp").forward(request, response);
+			break;
+
 		case "ShowPrincipio":
-			principio = this.principiServiceDTO.getPrincipio(id_principi);
-			request.setAttribute("principio", principio);
+			// System.out.println(Integer.parseInt(request.getParameter("id")));
+			// int prova = Integer.parseInt(request.getParameter("id"));
+			principio = this.principiServiceDTO.getPrincipio(Integer.parseInt(request.getParameter("id")));
+			session.setAttribute("principio", principio);
 			//System.out.println("principio"+ principio.getDescrizione());
-			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-			break;	
-			
+			getServletContext().getRequestDispatcher("/SelezionaPrincipio.jsp").forward(request, response);
+			break;
+
 		}
-		
+
 	}
-		
-		/*private void showAllPrincipi(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
-			allPrincipi = this.principiServiceDTO.getAllPrincipi();
-			request.setAttribute("allPrincipi", allPrincipi);
-			getServletContext().getRequestDispatcher("/principi.jsp").forward(request, response);
-		} */
-	
+
+	/*
+	 * private void showAllPrincipi(HttpServletRequest request, HttpServletResponse
+	 * response) throws ServletException, IOException { allPrincipi =
+	 * this.principiServiceDTO.getAllPrincipi(); request.setAttribute("allPrincipi",
+	 * allPrincipi);
+	 * getServletContext().getRequestDispatcher("/principi.jsp").forward(request,
+	 * response); }
+	 */
 
 }
