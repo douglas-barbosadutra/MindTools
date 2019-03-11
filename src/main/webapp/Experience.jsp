@@ -7,34 +7,48 @@
 <html>
 
 <head>
-<% ExperienceService experienceService = new ExperienceService();
-List<ExperienceDTO> allExperience = experienceService.getAllExperience(); %>
+
 
 </head>
 
 <body>
+<%String lista = request.getAttribute("allExperiences").toString();
+out.print(lista.length());
 
-<form action="ExperienceServlet" method="post">
+ %>
+
+<form action="ExperienceServlet?action=allExperiences" method="post">
      
- <% for(ExperienceDTO experiences : allExperience) { %>
+
   
-  <table border="1" width="300">
+  <table width="300">
+
   <tr>
-    <td>nome</td>
-    <td>cognome</td>
-  </tr>
-  <tr>
-  	<td colspan=2>princio</td>
+  <%for(int i =0; i< lista.length(); i++) { %>
+    
+     <td>No.Principio</td>
+     <td>Nome</td>
+     <td>Cognome</td>
+     <td>Experienza</td>
+     <td>Score </td>  
   </tr>
     <tr>
-  	<td colspan=2><%= experiences.getCommento()%></td>
+  	<td<%lista.valueOf(i); %>></td>
+  
+
   </tr>
+    <tr>
+  	
+  </tr>
+  
+ 
 </table>
-<a href="insertExperience.jsp?idexpirience=<%= experiences.getId_experience()%>">Link</a>
+
 
 </br></br>
-
-<% } %>
+        <% 
+     }%>
+<a href="insertExperience.jsp">Link</a>
 
  <h3><a href="insertExperience.jsp">Inserisci Experience</a></h3>
 

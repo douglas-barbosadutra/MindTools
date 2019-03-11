@@ -1,5 +1,7 @@
 package com.virtualpairprogrammers.dto;
 
+import java.util.List;
+
 import com.virtualpairprogrammers.model.Principi;
 import com.virtualpairprogrammers.model.User;
 
@@ -9,6 +11,8 @@ public class ExperienceDTO {
 	private String commento;
 	private String positivo;
 	private String negativo;
+	private String nome;
+	private String cognome;
 	private int score;
 	private User user;
 	private Principi principio;
@@ -23,6 +27,15 @@ public class ExperienceDTO {
 		
 	}
 	public ExperienceDTO() {}
+	
+	public ExperienceDTO(int id_experience, String nome, String cognome, String commento, int score) {
+		this.id_experience = id_experience;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.commento = commento;
+		this.score= score;
+		
+	}
 	
 
 	public  int getId_experience() {
@@ -74,7 +87,34 @@ public class ExperienceDTO {
 	}
 	
 	public String toString() {
+
 		return commento + "+" + positivo + "-" + negativo  + "Punteggio" + score;
 	}
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getCognome() {
+		return cognome;
+	}
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public Principi getPrincipio() {
+		return principio;
+	}
+	public void setPrincipio(Principi principio) {
+		this.principio = principio;
+	}
 
+	 
 }

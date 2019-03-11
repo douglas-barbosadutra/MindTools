@@ -1,5 +1,6 @@
 body{
 	background-color: #ededed;
+	background-attachement : fixed;
 }
 
 .table {

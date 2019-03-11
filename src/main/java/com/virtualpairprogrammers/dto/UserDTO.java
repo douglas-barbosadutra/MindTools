@@ -16,6 +16,8 @@ public class UserDTO {
 	private String nome;
 	private String cognome;
 	private String tipouser;
+	private String email;
+	
 	
 	public UserDTO(Integer iduser, String user, String password, String nome,String cognome, String tipouser) {
 		super();
@@ -27,6 +29,18 @@ public class UserDTO {
 		this.tipouser = tipouser;
 		
 	}
+	public UserDTO( String user, String password, String nome,String cognome, String email, String tipouser) {
+		super();
+		this.iduser = iduser;
+		this.user = user;
+		this.password = password;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.tipouser = tipouser;
+		
+	}
+	
 	
 	public UserDTO()
 	{
@@ -85,6 +99,16 @@ public class UserDTO {
 	public String toString() {
 		return "UsersDTO [iduser=" + iduser + ", user=" + user + ", password=" + password + ", nome=" + nome
 				+ ", cognome=" + cognome + ", tipouser=" + tipouser + "]";
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setTipouser(String tipouser) {
+		this.tipouser = tipouser;
 	}
 	
 	

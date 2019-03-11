@@ -32,7 +32,8 @@ public class LoginServlet extends HttpServlet {
 
 			if (userDTO != null) {
 				session.setAttribute("utente", userDTO);
-				UsersService.setUser(UserConverter.toEntity(userDTO));
+				UsersService.user =(UserConverter.toEntity(userDTO));
+				
 			}
 			// verifichiamo che tipo di ruolo ha all'interno dell'applicazione
 			// e lo reindirizziamo nella jsp opportuna

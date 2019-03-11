@@ -54,7 +54,7 @@ List<PrincipiDTO> all_principi = principiService.getAllPrincipi();%>
          </td>
 
          <td>
-             <%=  principi.getNome()%>
+             <%=  principi.getDescrizione()%>
          </td>
 
     <td>

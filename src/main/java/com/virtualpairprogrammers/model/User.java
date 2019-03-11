@@ -24,6 +24,17 @@ public class User {
 		this.tipouser = tipouser;
 		
 	}
+	public User( String user, String password, String nome, String cognome, String email, String tipouser) {
+		
+		
+		this.user = user;
+		this.password = password;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.tipouser = tipouser;
+		
+	}
 	public User(String nome, String cognome) {
 		this.nome = nome;
 		this.cognome = cognome;

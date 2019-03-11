@@ -15,9 +15,12 @@ import com.virtualpairprogrammers.model.User;
  */
 public class UsersService {
 
+	
+
 	private UserDAO userDAO;
 	private UserDTO userDTO;
-	private static User user;
+	public static User user;
+	private static int id_usersesion;
 	
 	
 	
@@ -34,26 +37,23 @@ public class UsersService {
 		this.userDAO = new UserDAO();
 		this.userDTO = new UserDTO();
 	}
-
-	/**
-	 * Come vediamo la lista recuperata è di tipo Esempio ma noi la convertiamo in EsempioDTO
-	 * Invito chi fa i converter a fare un metodo per convertire direttamente la lista senza farli uno ad uno perchè è sporco e poco efficiente
-	 */
-	/*public User  getUser() {
-		List<User> list = userDAO.getAllUser();
-		
-		List<UserDTO> listDTO = new ArrayList<>();
-		User user1;
-		for (User user : list) {
-			user1= UserConverter.toEntity(userDTO);
-			listDTO.add(user1);
-
-			
-			
-		}
-		return listDTO;
+	public UserDTO getUserDTO() {
+		return userDTO;
 	}
-	*/
+
+	public void setUserDTO(UserDTO userDTO) {
+		this.userDTO = userDTO;
+	}
+
+	public static int getId_usersesion() {
+		return id_usersesion;
+	}
+
+	public static void setId_usersesion(int id_usersesion) {
+		UsersService.id_usersesion = id_usersesion;
+	}
+
+	
 	
 	
 	public UserDTO getUserByUsernameAndPassword(String username, String password) {
@@ -66,22 +66,26 @@ public class UsersService {
 		return userDTO;
 		
 	}
+	public List<UserDTO> getAllUsers(){
+		List<User> users = this.userDAO.getAllUser();
+    	List<UserDTO> usersDTO = new ArrayList<>();
+    	
+		for(User utente: users) {
+			usersDTO.add(UserConverter.toDTO(utente));
+		}
+		return usersDTO;
+	}
 
-	/*public boolean updateUsers (UserDTO userDTO) {
-		//return this.userDAO.updateUser(UserConverter.toEntity(userDTO));
-		
-}
-	
-	public boolean deleteUsers (UserDTO userDTO) {
-		return this.userDAO.deleteUser(UserConverter.toEntity(userDTO));
-		
-}
-	
 	public boolean insertUsers (UserDTO userDTO) {
-		return this.userDAO.insertUser(UserConverter.toEntity(userDTO));
+		return this.userDAO.InsertUser(UserConverter.toEntity(userDTO));
 	
 }
-		*/
+	
+	 public void insertUser (User user) {
+		 
+	       this.userDAO.InsertUser(user);
+	    }
+		
 	
 	
 }

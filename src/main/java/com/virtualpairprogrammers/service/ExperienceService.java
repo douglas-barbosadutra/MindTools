@@ -39,26 +39,11 @@ public class ExperienceService {
 
 		return listDTO;
 	}
-	/*
-	 public ExperienceDTO getExperienceId_by_experienceAndId_user(int id_experience, int id_user) {
-		return ExperienceConverter.toDTO(experienceDAO.login(id_experience, id_user));
+	public Experience  getExperience(int id_experience) {
+		Experience e =experienceDAO.getExperience(id_experience);
+		return e;
 	}
-	 
 
-	 /* public boolean updateExperience (ExperienceDTO experienceDTO) {
-		return this.experienceDAO.updateExperience(ExperienceConverter.toEntity(experienceDTO));
-		
-}
-	
-	public boolean deleteExperience (ExperienceDTO experienceDTO) {
-		return this.experienceDAO.deleteExperience(ExperienceConverter.toEntity(experienceDTO));
-		
-}
-	
-	public boolean insertExperience (ExperienceDTO experienceDTO) {
-		return this.experienceDAO.insertExperience(ExperienceConverter.toEntity(experienceDTO));
-	
-} */
 	
 	 public boolean insertExperience (Experience experience) {
 		    return this.experienceDAO.insertExperience(experience);
@@ -69,10 +54,16 @@ public class ExperienceService {
 		 ExperienceDTO ex = ExperienceConverter.toDTO(experienceDAO.ultimoRecord(user)) ;
 		 return ex;
 	 }
-	  /*public int getIdLastRecord(int id) {
-		  ExperienceDTO ex = ExperienceConverter.toDTO(experience);
-		  
-	  }*/
+	 public String[][] matrixGetAllExperiences(){
+		 String[][] n =  experienceDAO.matrixGetAllExperiences();
+		 return n;
+	 }
+	 
+	 public List<ExperienceDTO> getAllExperiences(){
+		 
+		 List<ExperienceDTO> list = experienceDAO.getAllExperiences();
+		 return list;
+	 } 
 	
 	
 }

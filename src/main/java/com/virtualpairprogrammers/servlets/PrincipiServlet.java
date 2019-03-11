@@ -25,27 +25,33 @@ public class PrincipiServlet extends HttpServlet {
 		principiServiceDTO = new PrincipiService();
 		final String scelta = request.getParameter("richiesta");
 		final HttpSession session = request.getSession(true);
-		// int id_principi=Integer.parseInt(request.getParameter("id_principi"));
+		int id_principi=Integer.parseInt(request.getParameter("id_principi"));
 		// System.out.println("XD: " + scelta);
 
 		switch (scelta) {
-
 		case "PrincipiManager":
 			allPrincipi = this.principiServiceDTO.getAllPrincipi();
-			System.out.println("principio");
+			
 			request.setAttribute("allPrincipi", allPrincipi);
 
 			getServletContext().getRequestDispatcher("/mauShowAllprova.jsp").forward(request, response);
 			break;
 
 		case "ShowPrincipio":
-			// System.out.println(Integer.parseInt(request.getParameter("id")));
-			// int prova = Integer.parseInt(request.getParameter("id"));
 			principio = this.principiServiceDTO.getPrincipio(Integer.parseInt(request.getParameter("id")));
 			session.setAttribute("principio", principio);
-			//System.out.println("principio"+ principio.getDescrizione());
 			getServletContext().getRequestDispatcher("/SelezionaPrincipio.jsp").forward(request, response);
 			break;
+		case "return":
+			getServletContext().getRequestDispatcher("/homeUser.jsp").forward(request, response);
+			break;
+		case "InserisciExperience":
+			
+			request.setAttribute("id_principi", id_principi);
+			getServletContext().getRequestDispatcher("/insertExperience.jsp").forward(request, response);
+			break;
+			
+			
 
 		}
 

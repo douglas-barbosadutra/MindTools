@@ -27,8 +27,8 @@
 
      
       <a href="#" class="btn-toolset">
-  <strong> <form action="LogoutServlet" method="post">
-      <button type= "submit" value= "PrincipiManager" name="richiesta">Logout</button>
+  <strong> <form action="UserServlet?action=logout" method="post">
+      <button type= "submit" value= "UserServlet?action=logout" name="richiesta">Logout</button>
      </form></strong></a>
      
      </center>

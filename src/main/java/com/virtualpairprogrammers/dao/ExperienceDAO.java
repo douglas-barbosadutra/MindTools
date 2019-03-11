@@ -12,13 +12,15 @@ import java.util.List;
 import com.mysql.fabric.xmlrpc.base.Array;
 import com.virtualpairprogrammers.model.User;
 import com.virtualpairprogrammers.service.UsersService;
+import com.virtualpairprogrammers.dto.ExperienceDTO;
 import com.virtualpairprogrammers.model.Experience;
 import com.virtualpairprogrammers.utils.ConnectionSingleton;
 import com.virtualpairprogrammers.utils.GestoreEccezioni;
 
 public class ExperienceDAO {
 	
-	private final String QUERY_ALL = "SELECT user.nome, user.cognome, experience.commento, experience.score FROM user, experience WHERE iduser = ? ";
+	private final String QUERY_ALL = "SELECT user.nome, user.cognome,  experience.commento, experience.score, feedback.id_principi FROM user, "
+			+ "experience, feedback  WHERE user.iduser = experience.id_user and experience.id_experience = feedback.id_experience ";
 	private final String QUERY_ALL_EXPERIENCE = "select * from experience";
 	private final String QUERY_INSERT = "INSERT INTO experience ( id_user, commento, positivo, negativo, score) values (?,?,?,?,?)";
 	private final String QUERY_GET_EXPERIENCE = "SELECT * FROM experience WHERE id_experience = ?";
@@ -26,29 +28,59 @@ public class ExperienceDAO {
 	public ExperienceDAO() {}
 	
 	 
-	 public List<String> getAllExperiences(User user) {
-		    List<String> experiences = new ArrayList();
+	 public String [][] matrixGetAllExperiences() {
+		 
 	        Connection connection = ConnectionSingleton.getInstance();
+	        String [][] experiences = null;
 	        try {
-	           PreparedStatement statement = connection.prepareStatement(QUERY_ALL);
-	           statement.setInt(1, user.getIduser());
-	           ResultSet resultSet = statement.executeQuery();
-	           while (resultSet.next()) {
-	        	   String nome = resultSet.getString("nome");
-	        	   String cognome = resultSet.getString("cognome");
-	        	   String commento = resultSet.getString("commento");
-	        	   int score = resultSet.getInt("score");
-	        	   experiences.add(nome);
-	        	   experiences.add(cognome);
-	        	   experiences.add(commento);
-	        	   experiences.add(Integer.toString(score));
+	           Statement statement = connection.createStatement();
+	           ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+	           resultSet.last();
+	           int count = resultSet.getRow();
+	           experiences = new String[count][5];
+	           resultSet.beforeFirst();
+	           for (int i = 0; i< count; i++) {
+	        	   while (resultSet.next()) {
+	        		   experiences[i][0]= Integer.toString(resultSet.getInt("id_principi"));
+		        	   experiences[i][1] = resultSet.getString("nome");
+		        	   experiences[i][2] =  resultSet.getString("cognome");
+		        	   experiences[i][3] = resultSet.getString("commento");
+		        	   experiences[i][4] = Integer.toString(resultSet.getInt("score"));
+		        	   break;
+		        	   
+	        	   }
+	        	   
+	        	  
 	           }
+	           
 	        }
 	        catch (SQLException e) {
 	            e.printStackTrace();
 	        }
-	        return experiences;
+	        return  experiences;
+	        
 	    }
+	 public List<ExperienceDTO> getAllExperiences() {
+		  Connection connection = ConnectionSingleton.getInstance();
+	       List<ExperienceDTO> experiences = null;
+	        try {
+	           Statement statement = connection.createStatement();
+	           ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+	        	   while (resultSet.next()) {
+	        		   int id = resultSet.getInt("id_principi");
+		        	   String nome = resultSet.getString("nome");
+		        	   String cognome =  resultSet.getString("cognome");
+		        	   String commento = resultSet.getString("commento");
+		        	   int score = resultSet.getInt("score");
+		        	   experiences.add(new ExperienceDTO( id, nome, cognome, commento,score));
+	        	   }
+	        }
+	        catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return  experiences;
+		 
+	 }
 	 public List<Experience> allExperiences(){
 		 List<Experience> experiences = new ArrayList();
 		 Experience e;

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.virtualpairprogrammers.converter.ExperienceConverter;
 import com.virtualpairprogrammers.converter.FeedbackConverter;
+import com.virtualpairprogrammers.converter.UserConverter;
 import com.virtualpairprogrammers.dao.FeedbackDAO;
 import com.virtualpairprogrammers.dto.ExperienceDTO;
 import com.virtualpairprogrammers.dto.FeedbackDTO;
@@ -41,8 +42,10 @@ public class ExperienceServlet extends HttpServlet {
 	private FeedbackDTO feedbackDTO = new FeedbackDTO();
 	private FeedbackConverter feedbackconverter = new FeedbackConverter();
 	private FeedbackService feedbackservice = new FeedbackService();
+	private UserConverter userConverter = new UserConverter();
 	private User user = new User();
 	private Feedback feedback;
+	int valore = 0;
 	
 	
 	
@@ -51,47 +54,62 @@ public class ExperienceServlet extends HttpServlet {
 		final HttpSession session = request.getSession();
 		switch (request.getParameter("action").toString()) {
 		 case("allExperiences"):
+			 
 		     List<ExperienceDTO> listaExperienceDTO = experienceService.getAllExperience();
-		     session.setAttribute("allExperiences", "listaExperienceDTO");
+		     
+		     request.setAttribute("allExperiences", "listaExperienceDTO");
        	     getServletContext().getRequestDispatcher("/Experience.jsp").forward(request, response);
 		 case ("Insert_Experience"):
-			/*System.out.println("ritorna l'id");
-		    this.experienceService.getExperienceById_experienceAndId_user((String)session.)*/
-			 int user_id = UsersService.getUser().getIduser();
-			 
+			
+		     
+		     UserDTO user = (UserDTO) session.getAttribute("utente");
+		 user.getIduser()
+		     int id_user = UserConverter.toEntity(user).getIduser();
 			 String commento= request.getParameter("commento");
 		     String positivo = request.getParameter("positivo");
 		     String negativo = request.getParameter("negativo");
-		    /* int score = Integer.parseInt(request.getParameter("score").toString());
-		     int idutente = 1;
-		     int idprincipale = 20;
-		     int secondario;
+		     int score = Integer.parseInt(request.getParameter("score"));
+		     String [] ids_principi = request.getParameterValues("ids_principi[]");
+		     
+		     int idpprincipale =  (int) session.getAttribute("id") ;
 		     experienceDTO.setCommento(commento);
 		     experienceDTO.setPositivo(positivo);
 		     experienceDTO.setNegativo(negativo);
 		     experienceDTO.setScore(score);
-		     experienceDTO.setId_user(idutente);
+		     experienceDTO.setId_user(id_user);
 		     experience = this.experienceConverter.toEntity(experienceDTO);
 		     this.experienceService.insertExperience(experience);
-		     int id_experience = experienceService.getLastRecord(user).getId_user();
-             String [] ids_principi = request.getParameterValues("ids_principi[]");
+		     
+		     int id_experience = experienceService.getLastRecord(UserConverter.toEntity(user)).getId_user();
+		     
+             
+             if( ids_principi.length > 0) {
 		     for (int i = 0; i < ids_principi.length; i ++) {
 		    	 int id = Integer.parseInt(ids_principi[i]);
-		    	 int valore;
-		    	 if(id != idprincipale)
-		    		 valore = 1;
-		    	 valore = 0;
+		    	 int second = -1;
+		    	 if(id != idpprincipale)
+		    		 second = 1;
+		    	 
 		    	 feedbackDTO.setId_experience(id_experience);
 		    	 feedbackDTO.setId_principi(id);
-		    	 feedbackDTO.setSecondario(valore);
-		    	 feedback = this.feedbackconverter.toEntity(feedbackDTO);
+		    	 feedbackDTO.setSecondario(second);
+		    	 feedback = FeedbackConverter.toEntity(feedbackDTO);
 		    	 this.feedbackservice.insertFeedback(feedback);
-		    			 
-		    		 
-		    	 
-		     }*/
+		      }
+             }
+             else {
+            	 feedbackDTO.setId_experience(id_experience);
+    	    	 feedbackDTO.setId_principi(idpprincipale);
+    	    	 feedbackDTO.setSecondario(valore);
+    	    	 feedback = FeedbackConverter.toEntity(feedbackDTO);
+    	    	 this.feedbackservice.insertFeedback(feedback);
+            	 
+             }
+            
+             /*
 		     listaExperienceDTO = experienceService.getAllExperience();
-		     request.setAttribute("allExperiences", listaExperienceDTO);
+		     request.setAttribute("allExperiences", listaExperienceDTO);*/
+             
 		     getServletContext().getRequestDispatcher("/Experience.jsp").forward(request, response);
 		     break;
 
