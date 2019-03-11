@@ -33,7 +33,7 @@ public class UserDAO {
 			  statement.setString(2, password);
 			  ResultSet rs = statement.executeQuery();
 			  if (rs.next()) {
-				 
+				int id_user = rs.getInt("iduser");
                 String user1 = rs.getString ("user");
                 String password1 = rs.getString ("password");
                 String nome = rs.getString ("nome");
@@ -41,7 +41,7 @@ public class UserDAO {
                 String email = rs.getString ("email");
                 String tipouser = rs.getString ("tipo_user");
                 
-                _user = new User (0,user1,password1,nome,cognome,email,tipouser);
+                _user = new User (id_user,user1,password1,nome,cognome,email,tipouser);
 	            return  _user;
             
 			   }

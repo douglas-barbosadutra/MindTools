@@ -18,6 +18,7 @@ public class PrincipiServlet extends HttpServlet {
 	// private final PrincipiService principiServiceDTO = new PrincipiService();
 	private List<PrincipiDTO> allPrincipi = new ArrayList<>();
 	private PrincipiDTO principio = new PrincipiDTO();
+	private PrincipiDTO idprincipio = new PrincipiDTO();
 	private PrincipiService principiServiceDTO;
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,7 +26,7 @@ public class PrincipiServlet extends HttpServlet {
 		principiServiceDTO = new PrincipiService();
 		final String scelta = request.getParameter("richiesta");
 		final HttpSession session = request.getSession(true);
-		int id_principi=Integer.parseInt(request.getParameter("id_principi"));
+		
 		// System.out.println("XD: " + scelta);
 
 		switch (scelta) {
@@ -46,9 +47,11 @@ public class PrincipiServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/homeUser.jsp").forward(request, response);
 			break;
 		case "InserisciExperience":
-			
+			idprincipio = this.principiServiceDTO.getPrincipio(Integer.parseInt(request.getParameter("id")));
+			int id_principi= idprincipio.getId_principi();
 			request.setAttribute("id_principi", id_principi);
 			getServletContext().getRequestDispatcher("/insertExperience.jsp").forward(request, response);
+		
 			break;
 			
 			

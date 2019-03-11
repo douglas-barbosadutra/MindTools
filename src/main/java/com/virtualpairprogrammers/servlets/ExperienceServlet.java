@@ -19,12 +19,14 @@ import com.virtualpairprogrammers.converter.UserConverter;
 import com.virtualpairprogrammers.dao.FeedbackDAO;
 import com.virtualpairprogrammers.dto.ExperienceDTO;
 import com.virtualpairprogrammers.dto.FeedbackDTO;
+import com.virtualpairprogrammers.dto.PrincipiDTO;
 import com.virtualpairprogrammers.dto.UserDTO;
 import com.virtualpairprogrammers.model.Experience;
 import com.virtualpairprogrammers.model.Feedback;
 import com.virtualpairprogrammers.model.User;
 import com.virtualpairprogrammers.service.ExperienceService;
 import com.virtualpairprogrammers.service.FeedbackService;
+import com.virtualpairprogrammers.service.PrincipiService;
 import com.virtualpairprogrammers.service.UsersService;
 
 
@@ -43,6 +45,8 @@ public class ExperienceServlet extends HttpServlet {
 	private FeedbackConverter feedbackconverter = new FeedbackConverter();
 	private FeedbackService feedbackservice = new FeedbackService();
 	private UserConverter userConverter = new UserConverter();
+	private PrincipiDTO principiDTO= new PrincipiDTO();
+	private PrincipiService principiServiceDTO;
 	private User user = new User();
 	private Feedback feedback;
 	int valore = 0;
@@ -52,6 +56,7 @@ public class ExperienceServlet extends HttpServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		final HttpSession session = request.getSession();
+		principiServiceDTO = new PrincipiService();
 		switch (request.getParameter("action").toString()) {
 		 case("allExperiences"):
 			 
@@ -60,18 +65,17 @@ public class ExperienceServlet extends HttpServlet {
 		     request.setAttribute("allExperiences", "listaExperienceDTO");
        	     getServletContext().getRequestDispatcher("/Experience.jsp").forward(request, response);
 		 case ("Insert_Experience"):
-			
-		     
 		     UserDTO user = (UserDTO) session.getAttribute("utente");
-		 user.getIduser()
-		     int id_user = UserConverter.toEntity(user).getIduser();
+		     int id_user = user.getIduser();
 			 String commento= request.getParameter("commento");
 		     String positivo = request.getParameter("positivo");
 		     String negativo = request.getParameter("negativo");
 		     int score = Integer.parseInt(request.getParameter("score"));
 		     String [] ids_principi = request.getParameterValues("ids_principi[]");
+		    
+		     //principiDTO = this.principiServiceDTO.getPrincipio(Integer.parseInt(request.getAttribute("id").toString()));
+			 int idpprincipale = Integer.parseInt(request.getParameter("id"));
 		     
-		     int idpprincipale =  (int) session.getAttribute("id") ;
 		     experienceDTO.setCommento(commento);
 		     experienceDTO.setPositivo(positivo);
 		     experienceDTO.setNegativo(negativo);
