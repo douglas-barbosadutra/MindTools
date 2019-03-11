@@ -1,10 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
-<<<<<<< HEAD
--- Host: localhost    Database: dump20190305
-=======
--- Host: localhost    Database: este
->>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
+-- Host: localhost    Database: trizz
 -- ------------------------------------------------------
 -- Server version	8.0.11
 
@@ -20,7 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
-<<<<<<< HEAD
 -- Table structure for table `experience`
 --
 
@@ -37,7 +32,7 @@ CREATE TABLE `experience` (
   PRIMARY KEY (`id_experience`),
   KEY `id_user_idx` (`id_user`),
   CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,13 +41,11 @@ CREATE TABLE `experience` (
 
 LOCK TABLES `experience` WRITE;
 /*!40000 ALTER TABLE `experience` DISABLE KEYS */;
-INSERT INTO `experience` VALUES (1,3,'mi sono divertita a risolvere il mio problema usando segmentation perchè avevo un grosso problema','superTop','Noioso',3),(2,2,'ciao','ciaoooooo','Bene',2);
+INSERT INTO `experience` VALUES (1,2,'MUY BIEN','RAPIDO','ENGOMBRANTE',2),(2,2,'FGDF','sfgg','dfdfg',4),(3,1,'drfgfg','dfgtfh','hgjukj',2),(4,1,'fgfg','fgfh','ghghj',3),(5,1,'ghgjyj','fgfhyh','fghh',4),(6,1,'hgfyuhnkjm,',';okp[l;,.','estrfgh',3),(7,1,'tyftrdctrf','ikpok,l','dstrdf',3),(8,1,'a','a','a',4),(9,1,'rtrtrt','fgyy','ttytu',2),(10,1,'jhjkk','jhkjkk','jkkk',5);
 /*!40000 ALTER TABLE `experience` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
-=======
->>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
 -- Table structure for table `feedback`
 --
 
@@ -61,7 +54,6 @@ DROP TABLE IF EXISTS `feedback`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `feedback` (
   `id_feedback` int(11) NOT NULL AUTO_INCREMENT,
-<<<<<<< HEAD
   `id_experience` int(11) NOT NULL,
   `id_principi` int(11) NOT NULL,
   `secondario` tinyint(4) DEFAULT NULL,
@@ -70,17 +62,7 @@ CREATE TABLE `feedback` (
   KEY `id_principi_idx` (`id_principi`),
   CONSTRAINT `id_experience` FOREIGN KEY (`id_experience`) REFERENCES `experience` (`id_experience`),
   CONSTRAINT `id_principi` FOREIGN KEY (`id_principi`) REFERENCES `principi` (`id_principi`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-=======
-  `id_principi` int(11) NOT NULL,
-  `valore` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_feedback`),
-  KEY `id_principi_idx` (`id_principi`),
-  KEY `valore_idx` (`valore`),
-  CONSTRAINT `id_principi` FOREIGN KEY (`id_principi`) REFERENCES `principi` (`id_principi`),
-  CONSTRAINT `valore` FOREIGN KEY (`valore`) REFERENCES `score` (`id_score`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,10 +71,7 @@ CREATE TABLE `feedback` (
 
 LOCK TABLES `feedback` WRITE;
 /*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
-<<<<<<< HEAD
-INSERT INTO `feedback` VALUES (1,1,20,1),(2,2,15,0),(3,2,2,1);
-=======
->>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
+INSERT INTO `feedback` VALUES (1,1,20,0),(2,1,24,1),(3,1,34,1),(4,2,1,1),(5,2,13,0);
 /*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,32 +104,6 @@ INSERT INTO `principi` VALUES (1,'Segmentation','Segmentazione','What happens if
 UNLOCK TABLES;
 
 --
-<<<<<<< HEAD
-=======
--- Table structure for table `score`
---
-
-DROP TABLE IF EXISTS `score`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `score` (
-  `id_score` int(11) NOT NULL AUTO_INCREMENT,
-  `valore` enum('1','2','3','4','5') NOT NULL,
-  PRIMARY KEY (`id_score`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `score`
---
-
-LOCK TABLES `score` WRITE;
-/*!40000 ALTER TABLE `score` DISABLE KEYS */;
-/*!40000 ALTER TABLE `score` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
->>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
 -- Table structure for table `user`
 --
 
@@ -164,13 +117,9 @@ CREATE TABLE `user` (
   `nome` varchar(25) NOT NULL,
   `cognome` varchar(25) NOT NULL,
   `email` varchar(27) NOT NULL,
-  `tipo_user` enum('ADMIN','UTENTE') NOT NULL,
+  `tipo_user` varchar(30) NOT NULL,
   PRIMARY KEY (`iduser`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
->>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,10 +128,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-<<<<<<< HEAD
-INSERT INTO `user` VALUES (1,'admin','admin','angelo','calaciura','angelo@gmail.com','ADMIN'),(2,'angelo','pippo','angelo','calaciura','angelo@gmail.com','UTENTE'),(3,'giusy','giusy','giusy','razzano','giusy@gmail.com','UTENTE');
-=======
->>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
+INSERT INTO `user` VALUES (1,'angelo','pippo','angelo','calaciura','janevito2014','user'),(2,'admin','admin','administratore','admin','fdgg','administratore'),(3,'jane','jane','Jane','Gonzalez','janevito2014@gmail.com','user');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -195,8 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD
--- Dump completed on 2019-03-06 17:59:39
-=======
--- Dump completed on 2019-02-28  3:12:45
->>>>>>> e41ec4e81a51004e8ab8eb16283f563dcc918c0d
+-- Dump completed on 2019-03-11 11:27:20
