@@ -38,6 +38,30 @@ public class PrincipiDAO {
 		return principi;
 	}
 	
+	public List<Principi> getAllPrincipiByNome(String testo){
+		
+		/* final*/List<Principi> principi = new ArrayList<>();
+		/*final*/Connection connection = ConnectionSingleton.getInstance();
+		try {
+			 Statement statement = connection.createStatement();
+			 //System.out.println(QUERY_SELECT_ALL + "where  p_chiave LIKE '%"+testo+"%';");
+	         ResultSet resultSet = statement.executeQuery(QUERY_SELECT_ALL + " where  p_chiave LIKE '%"+testo+"%';");
+	        while (resultSet.next()) {
+	        	int id = resultSet.getInt("id_principi");
+	            String nome = resultSet.getString("nome");
+	            String descrizione = resultSet.getString("descrizione");
+	            String d_punti = resultSet.getString("d_punti");
+	            String d_numeri = resultSet.getString("d_numeri");
+	            String p_chiave = resultSet.getString("p_chiave");
+	            principi.add(new Principi(id,nome,descrizione, d_punti,d_numeri, p_chiave));
+	           }
+		}
+		catch (SQLException e) {
+            e.printStackTrace();
+        }
+		return principi;
+	}
+	
 public Principi getPrincipio(int id_principi){
 		
 		Principi principio = new Principi();

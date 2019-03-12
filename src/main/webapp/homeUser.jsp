@@ -21,8 +21,8 @@
 
      
        <a href="#" class="btn-toolset">
-  <strong><form action="" method="post">
-      <button type= "submit" value= "PrincipiManager" name="richiesta">Cerca per parola chiave</button>
+  <strong><form action="PrincipiServlet" method="post">
+      <button type= "submit" value= "cercaprincipi" name="richiesta">Cerca per parola chiave</button>
      </form></strong></a>
 
      
