@@ -5,30 +5,24 @@ public class Feedback {
 	private int id_experience;
 	private int id_principi;
 	private int secondario;
-	private Experience experience;
-	private Principi principi;
-	
-	public Feedback (int id_feedback,int id_experience, int id_principi, boolean secondario ) {
+
+	public Feedback(int id_feedback, int id_experience, int id_principi, int secondario) {
 		this.id_feedback = id_feedback;
-		this.id_experience = experience.getId_experience();
-		this.id_principi = principi.getId_principio();
-        secondario = false;	
-		
+		this.id_experience = id_experience;
+		this.id_principi = id_principi;
+		this.secondario = secondario;
+
 	}
+	public Feedback() {}
 
 	
-
 	public int getSecondario() {
 		return secondario;
 	}
 
-
-
 	public void setSecondario(int secondario) {
 		this.secondario = secondario;
 	}
-
-
 
 	public int getId_feedback() {
 		return id_feedback;
@@ -54,35 +48,20 @@ public class Feedback {
 		this.id_principi = id_principi;
 	}
 
-	public Experience getExperience() {
-		return experience;
+	public boolean equals(int secondario) {
+
+		// this.secondario = secondario;
+		if (secondario == 1)
+			return true;
+		else
+			return false;
 	}
 
-	public void setExperience(Experience experience) {
-		this.experience = experience;
-	}
+	/*
+	 * public String toString() {
+	 * 
+	 * return "Feedback: " + id_feedback + "\nExperience: " + id_experience +
+	 * "\nPrincipi: " + id_principi + "; }
+	 */
 
-	public Principi getPrincipi() {
-		return principi;
-	}
-
-	public void setPrincipi(Principi principi) {
-		this.principi = principi;
-	}
-	
-    public boolean equals (int secondario) {
-    	
-    	//this.secondario = secondario;
-        if (secondario == 1) return true;
-        else
-        	return false;
-    }
-       
-
-  /*  public String toString() {
-
-        return "Feedback: " + id_feedback + "\nExperience: " + id_experience + "\nPrincipi: " + id_principi + ";
-    }
-*/
-
-    }
+}

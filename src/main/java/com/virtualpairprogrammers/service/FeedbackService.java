@@ -31,8 +31,9 @@ public class FeedbackService {
 	 * Invito chi fa i converter a fare un metodo per convertire direttamente la lista senza farli uno ad uno perchè è sporco e poco efficiente
 	 */
 	
-	public List<FeedbackDTO>  getFeedback() {
-		List<Feedback> list = feedbackDAO.getAllFeedback();
+	public List<FeedbackDTO>  getFeedback(){
+		List<Feedback> list = new ArrayList<>();
+		list = feedbackDAO.getAllFeedback();
 		
 		List<FeedbackDTO> listDTO = new ArrayList<>();
 		

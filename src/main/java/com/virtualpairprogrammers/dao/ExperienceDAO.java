@@ -13,6 +13,7 @@ import com.mysql.fabric.xmlrpc.base.Array;
 import com.virtualpairprogrammers.model.User;
 import com.virtualpairprogrammers.service.UsersService;
 import com.virtualpairprogrammers.dto.ExperienceDTO;
+import com.virtualpairprogrammers.dto.UserDTO;
 import com.virtualpairprogrammers.model.Experience;
 import com.virtualpairprogrammers.utils.ConnectionSingleton;
 import com.virtualpairprogrammers.utils.GestoreEccezioni;
@@ -145,21 +146,24 @@ public class ExperienceDAO {
          }
          return null;
     }
-     public Experience ultimoRecord(User user) {
+     public Experience ultimoRecord(UserDTO user) {
     	 Experience e = new Experience();
     	 Connection connection = ConnectionSingleton.getInstance();
     	 try {
     		 PreparedStatement statement = connection.prepareStatement(QUERY_SELECT_ULTIMO_ID);
     		 statement.setInt(1, user.getIduser());
     		 ResultSet resultset = statement.executeQuery();
-    		 while (resultset.next() && resultset.isLast()) {
-    			 int id_experience = resultset.getInt("id_experience");
-    			 int id_user = resultset.getInt("id_user");
-    			 String commento = resultset.getString("commento");
-    			 String positivo = resultset.getString("positivo");
-    			 String negativo = resultset.getString("negativo");
-    			 int score = resultset.getInt("score");
-    			 e = new Experience(id_experience,id_user, commento, positivo, negativo,score );
+    		 while (resultset.next()) {
+    			 if( resultset.isLast()) {
+    				 int id_experience = resultset.getInt("id_experience");
+        			 int id_user = resultset.getInt("id_user");
+        			 String commento = resultset.getString("commento");
+        			 String positivo = resultset.getString("positivo");
+        			 String negativo = resultset.getString("negativo");
+        			 int score = resultset.getInt("score");
+        			 e = new Experience(id_experience,id_user, commento, positivo, negativo,score ); 
+    			 }
+    			 
     					 
     		 }
     	 }
