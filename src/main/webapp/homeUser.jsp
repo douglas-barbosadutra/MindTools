@@ -1,4 +1,3 @@
-<html>
 <head>
 <title>Menu User</title>
 </head>
@@ -8,12 +7,19 @@
             <center> <h2> Menu Utente </h2> </center>
     
    
-   <center>    <a href="#" class="btn-toolset">
+   <a href="#" class="btn-toolset">
   <strong><form action="PrincipiServlet" method="post">
-     <button type= "submit" value= "PrincipiManager" name="richiesta">Visualizza tutti i principi</button>
+     <button type= "submit" value= "PrincipiManager" name="richiesta">English Principles</button>
+     
+     </form></strong></a>
+     
+     <a href="#" class="btn-toolset">
+  <strong><form action="PrincipiItaServlet" method="post">
+     <button type= "submit" value= "PrincipiItaManager" name="richiesta">Principi in Italiano</button>
+     
      </form></strong></a>
 
-     
+     <center>
        <a href="#" class="btn-toolset">
   <strong><form action="PrincipiServlet" method="post">
      <button type= "submit" value= "PrincipiManager" name="richiesta">Principio casuale</button>
@@ -21,8 +27,8 @@
 
      
        <a href="#" class="btn-toolset">
-  <strong><form action="PrincipiServlet" method="post">
-      <button type= "submit" value= "cercaprincipi" name="richiesta">Cerca per parola chiave</button>
+  <strong><form action="" method="post">
+      <button type= "submit" value= "PrincipiManager" name="richiesta">Cerca per parola chiave</button>
      </form></strong></a>
 
      

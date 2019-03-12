@@ -19,6 +19,15 @@
     <servlet-name>PrincipiServlet</servlet-name>
     <servlet-class>com.virtualpairprogrammers.servlets.PrincipiServlet</servlet-class>
   </servlet>
+  <servlet>
+  <servlet-name>PrincipiItaServlet</servlet-name>
+    <servlet-class>com.virtualpairprogrammers.servlets.PrincipiItaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PrincipiItaServlet</servlet-name>
+    <url-pattern>/PrincipiItaServlet</url-pattern>
+  </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>

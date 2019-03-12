@@ -123,6 +123,33 @@ CREATE TABLE `user` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `principiita`
+--
+
+DROP TABLE IF EXISTS `principiita`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `principiita` (
+  `idprincipioita` int(10) NOT NULL AUTO_INCREMENT,
+  `nomeprincipio` varchar(100) DEFAULT NULL,
+  `domanda` varchar(100) DEFAULT NULL,
+  `percorso` varchar(500) DEFAULT NULL,
+  `parolachiave` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idprincipioita`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `principiita`
+--
+
+LOCK TABLES `principiita` WRITE;
+/*!40000 ALTER TABLE `principiita` DISABLE KEYS */;
+INSERT INTO `principiita` VALUES (1,'Segmentazione','Che cosa accade se dividi un oggetto?','1. Dividi un oggetto in parti indipendenti; 2. Crea un oggetto che sia semplice da dividere. 3. Incrementa la capacita\' di frammentazione o segmentazione;','Trancio di pizza; Lama tagliente del coltello; Panifica piu\' piani; Puzzle da tavolo per bambini');
+/*!40000 ALTER TABLE `principiita` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping data for table `user`
 --
 

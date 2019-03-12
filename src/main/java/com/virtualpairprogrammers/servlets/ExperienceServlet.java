@@ -70,12 +70,13 @@ public class ExperienceServlet extends HttpServlet {
 			 String commento= request.getParameter("commento");
 		     String positivo = request.getParameter("positivo");
 		     String negativo = request.getParameter("negativo");
+		     System.out.println("Sono QUI 1!!!");
 		     int score = Integer.parseInt(request.getParameter("score"));
 		     String [] ids_principi = request.getParameterValues("ids_principi[]");
-		    
+		     System.out.println("Sono QUI 2!!!");
 		     //principiDTO = this.principiServiceDTO.getPrincipio(Integer.parseInt(request.getAttribute("id").toString()));
-			 int idpprincipale = Integer.parseInt(request.getParameter("id"));
-		     
+			 int idpprincipale = Integer.parseInt(request.getParameter("id"));  // <--- Non funziona da qui
+			 System.out.println("idpprincipale" + idpprincipale);
 		     experienceDTO.setCommento(commento);
 		     experienceDTO.setPositivo(positivo);
 		     experienceDTO.setNegativo(negativo);

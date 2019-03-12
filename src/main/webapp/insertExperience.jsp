@@ -11,7 +11,9 @@
 <meta charset="ISO-8859-1">
 <% PrincipiService principiService = new PrincipiService();
 List<PrincipiDTO> allPrincipi = principiService.getAllPrincipi();
-String id_principio =request.getParameter("id_principi");
+String id_principio = " ";
+id_principio = request.getParameter("id_principi"); //id_principi
+System.out.println("SEI QUI: " + id_principio);
 %>
 <title>INSERT----MY----EXPERIENCE]</title>
 </head>
