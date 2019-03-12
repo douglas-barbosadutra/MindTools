@@ -13,7 +13,9 @@ public class Feedback {
 		this.secondario = secondario;
 
 	}
+	public Feedback() {}
 
+	
 	public int getSecondario() {
 		return secondario;
 	}
