@@ -36,6 +36,10 @@ public class FeedbackConverter {
 		FeedbackDTO feedbackDTO = null;
 		if (feedback != null) {
          feedbackDTO = new FeedbackDTO();
+         feedbackDTO.setId_experience(feedback.getId_experience());
+         feedbackDTO.setId_principi(feedback.getId_principi());
+         feedbackDTO.setSecondario(feedback.getSecondario());
+         feedbackDTO.setId_feedback(feedback.getId_feedback());
 		}
 		return feedbackDTO;
 	}

@@ -31,32 +31,7 @@ public class FeedbackDAO {
 	 * tuple al servizio che ha chiamato questo metodo
 	 */
 
-	/*
-	public Users login(String username, String password) {
-
-		Connection connection = ConnectionSingleton.getInstance();
-		Users utente = null;
-		try {
-			PreparedStatement statement = connection.prepareStatement(QUERY_LOGIN);
-			statement.setString(1, username);
-			statement.setString(2, password);
-			statement.execute();
-			ResultSet resultSet = statement.getResultSet();
-
-			while (resultSet.next()) {
-				String name = resultSet.getString("username");
-				String pass = resultSet.getString("password");
-				Integer id = resultSet.getInt("id");
-				String ruolo = resultSet.getString("ruolo");
-				utente = new Users(id, name, pass, ruolo);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return utente;
-	}
-	*/
+	
 
 	public List<Feedback> getAllFeedback() {
 
@@ -67,12 +42,12 @@ public class FeedbackDAO {
 			final Statement statement = connection.createStatement();
 			final ResultSet resultSet = statement.executeQuery(GET_ALL);
 			while (resultSet.next()) {
-				final Integer id = resultSet.getInt("id");
+				final Integer id_feedback = resultSet.getInt("id_feedback");
 				final Integer id_experience = resultSet.getInt("id_experience");
 				final Integer id_principi = resultSet.getInt("id_principi") ;
-				final boolean secondario = resultSet.getBoolean("secondario");
+				final Integer secondario = resultSet.getInt("secondario");
 
-				feedback.add(new Feedback(id, id_experience, id_principi, secondario));
+				feedback.add(new Feedback(id_feedback, id_experience, id_principi, secondario));
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
