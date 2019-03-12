@@ -53,7 +53,17 @@ public class UsersService {
 		UsersService.id_usersesion = id_usersesion;
 	}
 
-	
+	public UserDTO getUserById(int id_user) {
+		List<User> list = userDAO.getAllUser();
+		UserDTO userDTO = new UserDTO() ;
+		for(User u : list) {
+			if (u.getIduser() == id_user)
+				userDTO = UserConverter.toDTO(u);
+		}
+		
+		return userDTO;
+		
+	}
 	
 	
 	public UserDTO getUserByUsernameAndPassword(String username, String password) {

@@ -1,56 +1,80 @@
-<%@ page import="com.virtualpairprogrammers.model.Experience" %>
 <%@ page import="com.virtualpairprogrammers.dto.ExperienceDTO" %>
-<%@ page import="com.virtualpairprogrammers.service.ExperienceService" %>
 <%@ page import="java.util.*" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page language="java" import="java.sql.*" %>
+ <%@ page import="com.virtualpairprogrammers.service.ExperienceService" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ 
+<!DOCTYPE html>
 <html>
-
 <head>
 
-
+<% ExperienceService ExperienceService = new ExperienceService();
+List<ExperienceDTO> all_Experience = ExperienceService.getAllExperiences();%>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
-
 <body>
-<%String lista = request.getAttribute("allExperiences").toString();
-out.print(lista.length());
 
- %>
-
-<form action="ExperienceServlet?action=allExperiences" method="post">
-     
-
-  
-  <table width="300">
-
-  <tr>
-  <%for(int i =0; i< lista.length(); i++) { %>
-    
-     <td>No.Principio</td>
-     <td>Nome</td>
-     <td>Cognome</td>
-     <td>Experienza</td>
-     <td>Score </td>  
-  </tr>
-    <tr>
-  	<td<%lista.valueOf(i); %>></td>
-  
-
-  </tr>
-    <tr>
-  	
-  </tr>
-  
+<form action="ExperienceServlet?ExperienceManager" method="post">
+ <table>
+ <tr>
+   <td>
+      Esperienze:
+   </td>
+   <td>
+   </td>
  
-</table>
+   </tr>
+     <tr>
+        <th></th>
+         <th>
+ID_PRINCIPIO
+         </th>
 
+         <th>
+            NOME
+         </th>
+         <th>
+COGNOME
+          </th>
+         <th>
+COMMENTO
+          </th>
+ <th>
+SCORE
+          </th>
 
-</br></br>
-        <% 
-     }%>
-<a href="insertExperience.jsp">Link</a>
+     </tr>
+        <%for (ExperienceDTO Experience : all_Experience) { %>
+     <tr>
+         <td>
+             <input type="checkbox" name="Experience" value="<%= Experience.getId_experience()%>"/>
+         </td>
 
- <h3><a href="insertExperience.jsp">Inserisci Experience</a></h3>
+         <td>
+             <%= Experience.getId_experience()%>
+         </td>
+
+         <td>
+             <%=  Experience.getNome()%>
+         </td>
+<td>
+             <%=  Experience.getCognome()%>
+         </td>
+<td>
+             <%=  Experience.getCommento()%>
+         </td>
+<td>
+             <%=  Experience.getScore()%>
+         </td>
+    <td>
+             <a href="ExperienceServlet?action=ShowExperienceo&id=<%=Experience.getId_experience()%>">Seleziona Esperienza</a>
+         </td>
+
+     </tr>
+     <% }%>
+ </table>
 
 </form>
 </body>

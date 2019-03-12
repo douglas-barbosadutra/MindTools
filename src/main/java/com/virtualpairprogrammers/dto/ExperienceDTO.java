@@ -16,7 +16,14 @@ public class ExperienceDTO {
 	private int score;
 	private User user;
 	private Principi principio;
+	private int id_principi;
 	
+	public int getId_principi() {
+		return id_principi;
+	}
+	public void setId_principi(int id_principi) {
+		this.id_principi = id_principi;
+	}
 	public ExperienceDTO( int id_experience, int id_user, String commento, String positivo, String negativo, int score) {
 		this.id_experience = id_experience;
 		this.id_user = id_user;
@@ -28,8 +35,8 @@ public class ExperienceDTO {
 	}
 	public ExperienceDTO() {}
 	
-	public ExperienceDTO(int id_experience, String nome, String cognome, String commento, int score) {
-		this.id_experience = id_experience;
+	public ExperienceDTO(int id_principi, String nome, String cognome, String commento, int score) {
+		this.id_principi = id_principi;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.commento = commento;

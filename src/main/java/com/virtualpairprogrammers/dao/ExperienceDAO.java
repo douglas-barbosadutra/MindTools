@@ -78,6 +78,7 @@ public class ExperienceDAO {
 	        catch (SQLException e) {
 	            e.printStackTrace();
 	        }
+	        System.out.println(experiences);
 	        return  experiences;
 		 
 	 }
