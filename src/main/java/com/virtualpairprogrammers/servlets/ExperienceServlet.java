@@ -73,12 +73,7 @@ public class ExperienceServlet extends HttpServlet {
 		     int idpprincipale = Integer.parseInt(request.getParameter("id")) ;
 		     int score = Integer.parseInt(request.getParameter("score"));
 		     String[]  ids_principi = request.getParameterValues("idsprincipi[]");
-		     int c = ids_principi.length;
-		     System.out.println(ids_principi[0].split(","));
-		     
-		     System.out.println(ids_principi[0].valueOf(0));
-		     
-		     
+		    
 		     experienceDTO.setCommento(commento);
 		     experienceDTO.setPositivo(positivo);
 		     experienceDTO.setNegativo(negativo);
@@ -86,16 +81,13 @@ public class ExperienceServlet extends HttpServlet {
 		     experienceDTO.setId_user(id_user);
 		     experience = this.experienceConverter.toEntity(experienceDTO);
 		     this.experienceService.insertExperience(experience);
-		     
 		     Experience ex = experienceService.getLastRecord(user);
 		     int id_experience = ex.getId_experience();
-		     
-             
-             if( ids_principi.length > 0) {
+             if( ids_principi !=null) {
             	 feedbackDTO.setId_experience(id_experience);
     	    	 feedbackDTO.setId_principi(idpprincipale);
     	    	 feedbackDTO.setSecondario(valore);
-    	    	 feedback = this..toEntity(feedbackDTO);
+    	    	 feedback = FeedbackConverter.toEntity(feedbackDTO);
     	    	 this.feedbackservice.insertFeedback(feedback);
 		     for (int i = 0; i < ids_principi.length; i ++) {
 		    	 String a = ids_principi[i];
@@ -120,9 +112,6 @@ public class ExperienceServlet extends HttpServlet {
             	 
              }
             
-             /*
-		     listaExperienceDTO = experienceService.getAllExperience();
-		     request.setAttribute("allExperiences", listaExperienceDTO);*/
              
 		     getServletContext().getRequestDispatcher("/Experience.jsp").forward(request, response);
 		     break;
