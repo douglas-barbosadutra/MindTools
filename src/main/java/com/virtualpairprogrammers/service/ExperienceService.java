@@ -7,6 +7,7 @@ import com.virtualpairprogrammers.converter.ExperienceConverter;
 import com.virtualpairprogrammers.dao.ExperienceDAO;
 import com.virtualpairprogrammers.dao.UserDAO;
 import com.virtualpairprogrammers.dto.ExperienceDTO;
+import com.virtualpairprogrammers.dto.UserDTO;
 import com.virtualpairprogrammers.model.Experience;
 import com.virtualpairprogrammers.model.User;
 
@@ -50,8 +51,8 @@ public class ExperienceService {
 	        
 	    }
 	 
-	 public ExperienceDTO getLastRecord(User user) {
-		 ExperienceDTO ex = ExperienceConverter.toDTO(experienceDAO.ultimoRecord(user)) ;
+	 public Experience getLastRecord(UserDTO user) {
+		 Experience ex = experienceDAO.ultimoRecord(user) ;
 		 return ex;
 	 }
 	 public String[][] matrixGetAllExperiences(){

@@ -70,13 +70,15 @@ public class ExperienceServlet extends HttpServlet {
 			 String commento= request.getParameter("commento");
 		     String positivo = request.getParameter("positivo");
 		     String negativo = request.getParameter("negativo");
-		     System.out.println("Sono QUI 1!!!");
+		     int idpprincipale = Integer.parseInt(request.getParameter("id")) ;
 		     int score = Integer.parseInt(request.getParameter("score"));
-		     String [] ids_principi = request.getParameterValues("ids_principi[]");
-		     System.out.println("Sono QUI 2!!!");
-		     //principiDTO = this.principiServiceDTO.getPrincipio(Integer.parseInt(request.getAttribute("id").toString()));
-			 int idpprincipale = Integer.parseInt(request.getParameter("id"));  // <--- Non funziona da qui
-			 System.out.println("idpprincipale" + idpprincipale);
+		     String[]  ids_principi = request.getParameterValues("idsprincipi[]");
+		     int c = ids_principi.length;
+		     System.out.println(ids_principi[0].split(","));
+		     
+		     System.out.println(ids_principi[0].valueOf(0));
+		     
+		     
 		     experienceDTO.setCommento(commento);
 		     experienceDTO.setPositivo(positivo);
 		     experienceDTO.setNegativo(negativo);
@@ -85,13 +87,20 @@ public class ExperienceServlet extends HttpServlet {
 		     experience = this.experienceConverter.toEntity(experienceDTO);
 		     this.experienceService.insertExperience(experience);
 		     
-		     int id_experience = experienceService.getLastRecord(UserConverter.toEntity(user)).getId_user();
+		     Experience ex = experienceService.getLastRecord(user);
+		     int id_experience = ex.getId_experience();
 		     
              
              if( ids_principi.length > 0) {
+            	 feedbackDTO.setId_experience(id_experience);
+    	    	 feedbackDTO.setId_principi(idpprincipale);
+    	    	 feedbackDTO.setSecondario(valore);
+    	    	 feedback = this..toEntity(feedbackDTO);
+    	    	 this.feedbackservice.insertFeedback(feedback);
 		     for (int i = 0; i < ids_principi.length; i ++) {
-		    	 int id = Integer.parseInt(ids_principi[i]);
-		    	 int second = -1;
+		    	 String a = ids_principi[i];
+		    	 int id = Integer.parseInt(a);
+		    	 int second = 0;
 		    	 if(id != idpprincipale)
 		    		 second = 1;
 		    	 

@@ -11,9 +11,8 @@
 <meta charset="ISO-8859-1">
 <% PrincipiService principiService = new PrincipiService();
 List<PrincipiDTO> allPrincipi = principiService.getAllPrincipi();
-String id_principio = " ";
-id_principio = request.getParameter("id_principi"); //id_principi
-System.out.println("SEI QUI: " + id_principio);
+int idprincipio =Integer.parseInt(request.getParameter("id"));
+
 %>
 <title>INSERT----MY----EXPERIENCE]</title>
 </head>
@@ -24,7 +23,7 @@ System.out.println("SEI QUI: " + id_principio);
 
 
  <a href="PrincipiServlet?richiesta=return" name="richiesta" method="post">Home </a>
-     <form action="ExperienceServlet?action=allExperiences" method="post">
+     <form action="ExperienceServlet?action=allExperiences&id=<%=idprincipio%>" method="post">
      <h3>Quanto e stato utile questo principio per te? </h3>
      	
      	<h4>Commento: <br> <textarea  id = "experience" name ="commento" placeholder = "inseriscicommento" rows="10" cols="50" ></textarea></h4>
@@ -44,20 +43,20 @@ System.out.println("SEI QUI: " + id_principio);
   <tr>
 	  <td>
 	 <% for(int i = 0 ; i< 8 ; i++ ) { %>
-	  <input type = "checkbox"   name = "ids_principi[]" value = "<%allPrincipi.get(i).getId_principi(); %>" >
+	  <input type = "checkbox"   name = "idsprincipi[]" value = "<%= allPrincipi.get(i).getId_principi()%>" >
 	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getDescrizione() %> <br>
 	  <% }%> 
 	
 	 </td>
 	  <td>
 	 <% for(int i = 8 ; i< 16 ; i++ ) { %>
-	  <input type = "checkbox"  name = "ids_principi[]" value = "<%allPrincipi.get(i).getId_principi(); %>" >
+	  <input type = "checkbox"  name = "idsprincipi[]" value = "<%= allPrincipi.get(i).getId_principi()%>" >
 	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getDescrizione() %> <br> 
 	 <% }%> 
 	  </td>
 	 <td>
 	 <% for(int i = 16 ; i< 24 ; i++ ) { %>
-	  <input type = "checkbox"  name = "ids_principi[]" value = "<%allPrincipi.get(i).getId_principi(); %>" >
+	  <input type = "checkbox"  name = "idsprincipi[]" value = "<%=allPrincipi.get(i).getId_principi()%>" >
 	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getDescrizione() %>  <br>
 	  <% }%> 
 	 </td>
@@ -65,14 +64,14 @@ System.out.println("SEI QUI: " + id_principio);
 	 <td>
 	 
 	 <% for(int i = 24 ; i< 32 ; i++ ) { %>
-	  <input type = "checkbox"  name = "ids_principi[]" value = "<%allPrincipi.get(i).getId_principi(); %>" >
+	  <input type = "checkbox"  name = "idsprincipi[]" value = "<%= allPrincipi.get(i).getId_principi()%>" >
 	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getDescrizione() %>  <br>
 	  <% }%>
 	   </td>
 	 
      <td>
 	 <% for(int i = 32 ; i< 40 ; i++ ) { %>
-	  <input type = "checkbox"  name = "ids_principi[]" value = "<%allPrincipi.get(i).getId_principi(); %>" >
+	  <input type = "checkbox"  name = "idsprincipi[]" value = "<%= allPrincipi.get(i).getId_principi()%>" >
 	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getDescrizione() %> <br> 
 	 <% }%>
 	 </td> 
@@ -87,7 +86,7 @@ System.out.println("SEI QUI: " + id_principio);
      	
      <input type="submit" name="action" value="Insert Experience">
      
-       <a href="ExperienceServlet?action=Insert_Experience&id=<%=id_principio%>"></a>
+       <a href="ExperienceServlet?action=Insert_Experience&id=<%=idprincipio%>"></a>
      	
      </form>
      

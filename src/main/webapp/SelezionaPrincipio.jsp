@@ -41,7 +41,8 @@
 				
 				<td>
              <a href="PrincipiServlet?richiesta=InserisciExperience&id=<%=principio.getId_principi()%>">Inserisci Esperienza</a>
-              <a href="ExperienceServlet?action=Insert_Experience&id=<%=principio.getId_principi()%>"></a>
+             
+              
          </td>
 				
 				
