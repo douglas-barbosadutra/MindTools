@@ -11,10 +11,11 @@ import java.util.List;
 import com.mysql.fabric.xmlrpc.base.Array;
 import com.virtualpairprogrammers.model.Experience;
 import com.virtualpairprogrammers.model.Feedback;
+import com.virtualpairprogrammers.model.User;
 import com.virtualpairprogrammers.utils.ConnectionSingleton;
 import com.virtualpairprogrammers.utils.GestoreEccezioni;
 
-public class FeedbackDAO {
+public class FeedbackDAO<Id_experience> {
 
 	/**
 	 * Qui possiamo se vogliamo dichiarare delle stringhe rappresentanti le query
@@ -25,7 +26,7 @@ public class FeedbackDAO {
 	 */
 	private final String GET_ALL = "select * from feedback";
 	private final String QUERY_INSERT = "INSERT INTO feedback ( id_experience, id_principi, secondario) values (?,?,?)";
-	
+	private final String QUERY_SELECT_ID = "SELECT *  from feedback WHERE id_experience = ?  ";	
 	/**
 	 * Il suddetto metodo si occupa interagire con il database e restituire tutte le
 	 * tuple al servizio che ha chiamato questo metodo
@@ -69,6 +70,29 @@ public class FeedbackDAO {
 	        	return false;
 	        }
 	    }
-
+	
+	 public Feedback getFeedbackByIdExperience(int id_experience) {
+    	
+    	 Connection connection = ConnectionSingleton.getInstance();
+    	 try {
+    		 PreparedStatement statement = connection.prepareStatement(QUERY_SELECT_ID);
+			statement.setInt(1,id_experience );
+    		 ResultSet resultSet = statement.executeQuery();
+    		 Feedback f = new Feedback();
+ 			while (resultSet.next()) {
+				f.setId_feedback(resultSet.getInt("id_feedback"));
+				f.setId_experience(resultSet.getInt("id_experience"));
+				f.setSecondario(resultSet.getInt("secondario"));
+				f.setId_principi(resultSet.getInt("id_principi"));
+				
+				statement.close();
+                return f;
+			}
+		} catch (final SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return null;
+     }
 	
 }

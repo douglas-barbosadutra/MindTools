@@ -66,5 +66,13 @@ public class FeedbackService {
     }
 	
 	
-	
+	 public FeedbackDTO getFeedbackByIdExperience(int id_experience)
+	 {
+			Feedback feedback = feedbackDAO.getFeedbackByIdExperience(id_experience);
+		
+			feedbackDTO = FeedbackConverter.toDTO(feedback);
+			return feedbackDTO;
+			
+		}
+
 }
