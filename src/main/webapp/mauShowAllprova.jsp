@@ -65,7 +65,7 @@ List<PrincipiDTO> all_principi = principiService.getAllPrincipi();%>
          </td>
          
          <td>
-             <a href="PrincipiServlet?richiesta=ShowPrincipio&id=<%=principi.getId_principi()%>">Seleziona Principio</a>
+             <a href="PrincipiServlet?richiesta=ShowPrincipio&id=<%=principi.getId_principi()%>">Selection</a>
          </td>
       
 	 
@@ -118,22 +118,22 @@ List<PrincipiDTO> all_principi = principiService.getAllPrincipi();%>
          </td>
          
          <td>
-             <a href="PrincipiServlet?richiesta=ShowPrincipio&id=<%=principi.getId_principi()%>">Seleziona Principio</a>
+             <a href="PrincipiServlet?richiesta=ShowPrincipio&id=<%=principi.getId_principi()%>">Seleziona</a>
          </td>
            </tr>
  
- </table>
+ 
 
-      
+ </form>     
 	 
 	 <%}
 	} %>
 	  
     
 
+</table>
 
 
-</form>
 
 </body>
 

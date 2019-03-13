@@ -32,7 +32,6 @@
 		<td></td>
 
 				<td><%=idprincipio%></td>
-				<td><%=principio.getDescrizione()%></td>
 				<td><%=principio.getD_punti()%></td>
 				<td><%=principio.getD_numeri()%></td>
 				<td><%=principio.getP_chiave()%></td>
