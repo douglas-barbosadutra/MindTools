@@ -14,7 +14,7 @@ import com.virtualpairprogrammers.model.User;
 
 public class UserDAO {
 	private final String QUERY_ALL = "SELECT * FROM user";
-	private final String QUERY_INSERT_USER = "INSERT INTO user (user,password,nome, cognome,email,tipouser,lingua) VALUES (?,?,?,?,?,?,?)";
+	private final String QUERY_INSERT_USER = "INSERT INTO user (user,password,nome, cognome,email,tipo_user, lingua) VALUES (?,?,?,?,?,?,?)";
 	private final String QUERY_DELETE_USER = "DELETE FROM user WHERE iduser = ? ";
 	private final String QUERY_UPDATE_USER = "UPDATE user SET user = ?, nome = ? WHERE iduser = ? ";
 	
@@ -55,36 +55,14 @@ public class UserDAO {
 	}
 	
 	
-	 public boolean insertUtente (User users) {
-		 
-        Connection connection = ConnectionSingleton.getInstance();
-        try {
-            PreparedStatement statement = connection.prepareStatement(QUERY_INSERT_USER);
-            statement.setString(1, users.getUser());
-            statement.setString(2, users.getPassword());
-            statement.setString(3, users.getNome());
-            statement.setString(4, users.getCognome());
-            statement.setString(5, users.getEmail());   
-            statement.setString(6, "user" );
-            statement.execute();
-            return true;
-            
-        }
-        catch (SQLException e) {
-            GestoreEccezioni.getInstance().gestisciEccezione(e);
-            return false;
-            
-        }
-
-	 }
 	 
 	 
-	 public int Insert(User user){
+	 public boolean Insert(User user){
 	        Connection connection = ConnectionSingleton.getInstance();
-	        int id = -1;
+	        
 	        try {
-	            String generatedColumns[] = { "id" };
-	            PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT_USER, generatedColumns);
+	            
+	            PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT_USER);
 	            preparedStatement.setString(1,user.getUser());
 	            preparedStatement.setString(2,user.getPassword());
 	            preparedStatement.setString(3,user.getNome());
@@ -92,19 +70,19 @@ public class UserDAO {
 	            preparedStatement.setString(5,user.getEmail());
 	            preparedStatement.setString(6,user.getTipoUser());
 	            preparedStatement.setString(7,user.getLingua());
-	            preparedStatement.execute();
-	            ResultSet resultSet = preparedStatement.getGeneratedKeys();
-	            while (resultSet.next()) {
-	                id = resultSet.getInt(1);
-	            }
-	            preparedStatement.close();
-
+	           
+	            
+	            return preparedStatement.execute();
+	            
+	            
+	            
+	            
 	        } catch (Exception e) {
 	            GestoreEccezioni.getInstance().gestisciEccezione(e);
-	            return -1;
+	            return false;
 	        }
 
-	        return id;
+	        
 	    }
 	 
 	 

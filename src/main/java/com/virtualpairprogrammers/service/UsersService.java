@@ -88,6 +88,9 @@ public class UsersService {
 
 
 		
-	
+	public boolean insert (User user)
+	{
+		return this.userDAO.Insert(user);
+	}
 	
 }

@@ -13,7 +13,7 @@
   </servlet>
   <servlet>
     <servlet-name>RegistrazioneServlet</servlet-name>
-    <servlet-class>com.virtualpairprogrammers.servlets.LogoutServlet</servlet-class>
+    <servlet-class>com.virtualpairprogrammers.servlets.RegistrazioneServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>NodesServlet</servlet-name>
@@ -68,5 +68,9 @@
   <servlet-mapping>
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegistrazioneServlet</servlet-name>
+    <url-pattern>/RegistrazioneServlet</url-pattern>
   </servlet-mapping>
 </web-app>
