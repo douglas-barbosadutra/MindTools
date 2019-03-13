@@ -5,20 +5,28 @@
 <body>
      
             <center> <h2> Menu Utente </h2> </center>
-    
-   
+    <center>
+ <table> 
+ <tr>
+ <td>
    <a href="#" class="btn-toolset">
   <strong><form action="PrincipiServlet" method="post">
      <button type= "submit" value= "PrincipiManager" name="richiesta">English Principles</button>
      
      </form></strong></a>
-     
+   </td>
+   <td>  
      <a href="#" class="btn-toolset">
   <strong><form action="PrincipiItaServlet" method="post">
      <button type= "submit" value= "PrincipiItaManager" name="richiesta">Principi in Italiano</button>
      
      </form></strong></a>
 
+</td>
+</tr>
+
+</table> 
+</center>
      <center>
        <a href="#" class="btn-toolset">
   <strong><form action="PrincipiServlet" method="post">
