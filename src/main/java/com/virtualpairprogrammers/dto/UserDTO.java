@@ -21,7 +21,7 @@ public class UserDTO {
 	
 	
 	public UserDTO(Integer iduser, String user, String password, String nome,String cognome, String tipouser, String lingua) {
-		super();
+		
 		this.iduser = iduser;
 		this.user = user;
 		this.password = password;
@@ -37,9 +37,9 @@ public class UserDTO {
 	public void setLingua(String lingua) {
 		this.lingua = lingua;
 	}
-	public UserDTO( String user, String password, String nome,String cognome, String email, String tipouser, String lingua) {
-		super();
-		this.iduser = iduser;
+	public UserDTO( String user, String password, String nome,String cognome, String email,String tipouser,String lingua) {
+		
+		
 		this.user = user;
 		this.password = password;
 		this.nome = nome;

@@ -1,4 +1,5 @@
 <%@ page import="com.virtualpairprogrammers.dto.PrincipiDTO" %>
+<%@ page import="com.virtualpairprogrammers.dto.UserDTO" %>
 <%@ page import="java.util.*" %>
  <%@ page import="com.virtualpairprogrammers.service.PrincipiService" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -16,10 +17,16 @@ List<PrincipiDTO> all_principi = principiService.getAllPrincipi();%>
 <body>
 
 <form action="PrincipiServlet?PrincipiManager" method="post">
+<%
+    UserDTO user= (UserDTO) session.getAttribute("utente") ;
+	if (user.getLingua().equals("inglese")) {
+		
+		%>
  <table>
  <tr>
+ 
    <td>
-      Principi:
+      Principles:
    </td>
    <td>
    </td>
@@ -28,7 +35,60 @@ List<PrincipiDTO> all_principi = principiService.getAllPrincipi();%>
      <tr>
         <th></th>
          <th>
-             ID_PRINCIPI
+             NUMBER
+         </th>
+
+         <th>
+            NAME
+         </th>
+         <th>
+        
+        
+         <th>
+          </th>
+         <th>
+          </th>
+
+     </tr>
+        <%for (PrincipiDTO principi : all_principi) { %>
+     <tr>
+         <td>
+             <input type="checkbox" name="principi" value="<%= principi.getId_principi()%>"/>
+         </td>
+
+         <td>
+             <%= principi.getId_principi()%>
+         </td>
+
+         <td>
+             <%=  principi.getNome()%>
+         </td>
+         
+         <td>
+             <a href="PrincipiServlet?richiesta=ShowPrincipio&id=<%=principi.getId_principi()%>">Seleziona Principio</a>
+         </td>
+      
+	 
+	 <%}
+        
+	}else { 
+	 
+	 
+	 %>
+	 <table>
+ <tr>
+ 
+   <td>
+      Principles:
+   </td>
+   <td>
+   </td>
+ 
+   </tr>
+     <tr>
+        <th></th>
+         <th>
+             NUMERO
          </th>
 
          <th>
@@ -54,17 +114,27 @@ List<PrincipiDTO> all_principi = principiService.getAllPrincipi();%>
          </td>
 
          <td>
-             <%=  principi.getDescrizione()%>
+             <%=  principi.getNomeita()%>
          </td>
-
-    <td>
+         
+         <td>
              <a href="PrincipiServlet?richiesta=ShowPrincipio&id=<%=principi.getId_principi()%>">Seleziona Principio</a>
          </td>
-
-     </tr>
-     <% }%>
+           </tr>
+ 
  </table>
 
+      
+	 
+	 <%}
+	} %>
+	  
+    
+
+
+
 </form>
+
 </body>
+
 </html>

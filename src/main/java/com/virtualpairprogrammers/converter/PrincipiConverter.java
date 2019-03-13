@@ -9,8 +9,8 @@ public class PrincipiConverter {
 		Principi principi = null;
 		if (principiDTO != null) {
 			principi = new Principi(principiDTO.getId_principi(), principiDTO.getNome(),
-					principiDTO.getDescrizione(), principiDTO.getD_numeri(),principiDTO.getD_punti(),
-					principiDTO.getP_chiave());
+					principiDTO.getD_numeri(),principiDTO.getD_punti(),
+					principiDTO.getP_chiave(),principiDTO.getNomeita(),principiDTO.getD_numeriIta(),principiDTO.getD_punti(),principiDTO.getP_chiaveIta());
 		}
 		return principi;		
 	}
@@ -19,8 +19,9 @@ public class PrincipiConverter {
 		
 		PrincipiDTO principiDTO = null;
 		if (principi != null) {
-			principiDTO = new PrincipiDTO (principi.getId_principio(), principi.getNome(),principi.getDescrizione(),
-					principi.getD_numeri(),principi.getD_punti(),principi.getParole_chiave());
+			principiDTO = new PrincipiDTO (principi.getId_principi(), principi.getNome(),
+					principi.getD_numeri(),principi.getD_punti(),principi.getP_chiave(),
+					principi.getNomeita(),principi.getD_numeriIta(),principi.getD_puntiIta(),principi.getP_chiaveIta());
 		}
 		
 		return principiDTO;

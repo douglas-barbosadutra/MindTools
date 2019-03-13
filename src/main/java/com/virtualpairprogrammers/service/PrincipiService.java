@@ -41,7 +41,7 @@ public class PrincipiService {
 	}
 
 	public PrincipiDTO getPrincipio(int id_principi) {
-		return PrincipiConverter.toDTO(principiDAO.getPrincipio(id_principi));
+		return PrincipiConverter.toDTO(principiDAO.getPrincipi(id_principi));
 	}
 
 }

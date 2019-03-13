@@ -15,28 +15,32 @@ public class PrincipiDAO {
 	public PrincipiDAO() {}
 	
 	public List<Principi> getAllPrincipi(){
-		
 		/* final*/List<Principi> principi = new ArrayList<>();
 		/*final*/Connection connection = ConnectionSingleton.getInstance();
-		
 		try {
 			 Statement statement = connection.createStatement();
 	         ResultSet resultSet = statement.executeQuery(QUERY_SELECT_ALL);
 	        while (resultSet.next()) {
 	        	int id = resultSet.getInt("id_principi");
 	            String nome = resultSet.getString("nome");
-	            String descrizione = resultSet.getString("descrizione");
 	            String d_punti = resultSet.getString("d_punti");
 	            String d_numeri = resultSet.getString("d_numeri");
 	            String p_chiave = resultSet.getString("p_chiave");
-	            principi.add(new Principi(id,nome,descrizione, d_punti,d_numeri, p_chiave));
+	            String nomeita =resultSet.getString("nomeita");
+	            String d_puntiIta = resultSet.getString("d_puntiIta");
+	            String d_numeriIta = resultSet.getString("d_numeriIta");
+	            String p_chiaveIta =resultSet.getString("p_chiaveIta");
+	            principi.add(new Principi(id,nome, d_punti,d_numeri, p_chiave, nomeita,d_puntiIta,d_numeriIta,p_chiaveIta));
 	           }
 		}
 		catch (SQLException e) {
             e.printStackTrace();
         }
 		return principi;
+		
 	}
+		
+		
 	
 	public List<Principi> getAllPrincipiByNome(String testo){
 		
@@ -49,11 +53,15 @@ public class PrincipiDAO {
 	        while (resultSet.next()) {
 	        	int id = resultSet.getInt("id_principi");
 	            String nome = resultSet.getString("nome");
-	            String descrizione = resultSet.getString("descrizione");
+	           
 	            String d_punti = resultSet.getString("d_punti");
 	            String d_numeri = resultSet.getString("d_numeri");
 	            String p_chiave = resultSet.getString("p_chiave");
-	            principi.add(new Principi(id,nome,descrizione, d_punti,d_numeri, p_chiave));
+	            String nomeita =resultSet.getString("nomeita");
+	            String d_puntiIta = resultSet.getString("d_puntiIta");
+	            String d_numeriIta = resultSet.getString("d_numeriIta");
+	            String p_chiaveIta =resultSet.getString("p_chiaveIta");
+	            principi.add(new Principi(id,nome, d_punti,d_numeri, p_chiave, nomeita,d_puntiIta,d_numeriIta,p_chiaveIta));
 	           }
 		}
 		catch (SQLException e) {
@@ -62,9 +70,9 @@ public class PrincipiDAO {
 		return principi;
 	}
 	
-public Principi getPrincipio(int id_principi){
+public Principi getPrincipi(int id_principi){
 		
-		Principi principio = new Principi();
+		Principi principi = new Principi();
 		Connection connection = ConnectionSingleton.getInstance();
 		
 		try {
@@ -76,17 +84,21 @@ public Principi getPrincipio(int id_principi){
 	        	
 	        	int id = resultSet.getInt("id_principi");
 	            String nome = resultSet.getString("nome");
-	            String descrizione = resultSet.getString("descrizione");
 	            String d_punti = resultSet.getString("d_punti");
 	            String d_numeri = resultSet.getString("d_numeri");
 	            String p_chiave = resultSet.getString("p_chiave");
-	            principio = new Principi(id,nome,descrizione, d_punti,d_numeri, p_chiave);
+	            String nomeita =resultSet.getString("nomeita");
+	            String d_puntiIta = resultSet.getString("d_puntiIta");
+	            String d_numeriIta = resultSet.getString("d_numeriIta");
+	            String p_chiaveIta =resultSet.getString("p_chiaveIta");
+	            
+	            principi=new Principi(id,nome, d_punti,d_numeri, p_chiave, nomeita,d_puntiIta,d_numeriIta,p_chiaveIta);
 	           }
 		}
 		catch (SQLException e) {
             e.printStackTrace();
         }
-		return principio;
+		return principi;
 	}
 	public List<Principi> getByP_Chiave(String parola){
 
@@ -102,11 +114,16 @@ public Principi getPrincipio(int id_principi){
 	         while(rs.next()){
 	        	 int id = rs.getInt("id_principi");
 	        	 String nome = rs.getString("nome");
-	        	 String descrizione = rs.getString("descrizione");
+	        	
 	        	 String d_punti = rs.getString("d_punti");
 	        	 String d_numeri = rs.getString("d_numeri");
 	        	 String p_chiave = rs.getString("p_chiave");
-	        	 principi.add(new Principi(id,nome,descrizione,d_punti,d_numeri,p_chiave));
+	        	 String nomeita =rs.getString("nomeita");
+		         String d_puntiIta = rs.getString("d_puntiIta");
+		         String d_numeriIta = rs.getString("d_numeriIta");
+		         String p_chiaveIta =rs.getString("p_chiaveIta");
+		            
+		            principi.add(new Principi(id,nome, d_punti,d_numeri, p_chiave, nomeita,d_puntiIta,d_numeriIta,p_chiaveIta));
 	          }
 	         
 		}
@@ -117,7 +134,7 @@ public Principi getPrincipio(int id_principi){
       return principi;
 	 }
 	public Principi ShowPrincipiCasual(int casual){
-		Principi p = new Principi();
+		Principi principi = new Principi();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement statement = connection.prepareStatement(QUERY_SELECT_CASUAL);
@@ -126,17 +143,21 @@ public Principi getPrincipio(int id_principi){
 			while (rs.next()) {
 				int id = rs.getInt("id_principi");
 	        	 String nome = rs.getString("nome");
-	        	 String descrizione = rs.getString("descrizione");
+	        	
 	        	 String d_punti = rs.getString("d_punti");
 	        	 String d_numeri = rs.getString("d_numeri");
 	        	 String p_chiave = rs.getString("p_chiave");
-	        	 p = new Principi(id,nome,descrizione,d_punti,d_numeri,p_chiave);
+	        	 String nomeita =rs.getString("nomeita");
+		         String d_puntiIta = rs.getString("d_puntiIta");
+		         String d_numeriIta = rs.getString("d_numeriIta");
+		         String p_chiaveIta =rs.getString("p_chiaveIta");
+		            principi=new Principi(id,nome, d_punti,d_numeri, p_chiave, nomeita,d_puntiIta,d_numeriIta,p_chiaveIta);
 			}
 		}
 		catch (SQLException e) {
             GestoreEccezioni.getInstance().gestisciEccezione(e);
         }
-		return p;
+		return principi;
 		
 	}
 

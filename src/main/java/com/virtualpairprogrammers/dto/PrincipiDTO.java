@@ -3,22 +3,31 @@ package com.virtualpairprogrammers.dto;
 public class PrincipiDTO {
 	private int id_principi;
 	private String nome;
-	private String descrizione;
 	private String d_punti;
 	private String d_numeri;
 	private String p_chiave;
+	private String nomeita;
+	private String d_puntiIta;
+	private String d_numeriIta;
+	private String p_chiaveIta;
 	
-	public PrincipiDTO(int id_principi, String nome, String descrizione, String d_punti, String d_numeri,
-			String p_chiave) {
+	
+	
+	public PrincipiDTO(int id_principi, String nome,  String d_punti, String d_numeri,
+			String p_chiave, String nomeita, String d_puntiIta, String d_numeriIta, String p_chiaveIta) {
 		
 		this.id_principi = id_principi;
 		this.nome = nome;
-		this.descrizione = descrizione;
 		this.d_punti = d_punti;
 		this.d_numeri = d_numeri;
 		this.p_chiave = p_chiave;
+		this.nomeita = nomeita;
+		this.d_puntiIta = d_puntiIta;
+		this.d_numeriIta = d_numeriIta;
+		this.p_chiaveIta = p_chiaveIta;
+		
 	}
-
+	
 	public PrincipiDTO() {
 
 	}
@@ -39,12 +48,36 @@ public class PrincipiDTO {
 		this.nome = nome;
 	}
 
-	public String getDescrizione() {
-		return descrizione;
+	public String getNomeita() {
+		return nomeita;
 	}
 
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
+	public void setNomeita(String nomeita) {
+		this.nomeita = nomeita;
+	}
+
+	public String getD_puntiIta() {
+		return d_puntiIta;
+	}
+
+	public void setD_puntiIta(String d_puntiIta) {
+		this.d_puntiIta = d_puntiIta;
+	}
+
+	public String getD_numeriIta() {
+		return d_numeriIta;
+	}
+
+	public void setD_numeriIta(String d_numeriIta) {
+		this.d_numeriIta = d_numeriIta;
+	}
+
+	public String getP_chiaveIta() {
+		return p_chiaveIta;
+	}
+
+	public void setP_chiaveIta(String p_chiaveIta) {
+		this.p_chiaveIta = p_chiaveIta;
 	}
 
 	public String getD_punti() {

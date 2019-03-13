@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		final HttpSession session = request.getSession();
-		session.setAttribute("utente", request);
+		session.setAttribute("utente", null);
 		
 
 		if (request != null) {
@@ -38,18 +38,18 @@ public class LoginServlet extends HttpServlet {
 			// verifichiamo che tipo di ruolo ha all'interno dell'applicazione
 			// e lo reindirizziamo nella jsp opportuna
 			
-			switch (usersService.getUserByUsernameAndPassword(user, password).getTipouser()) {
-			case "amministratore":
+			/*switch (usersService.getUserByUsernameAndPassword(user, password).getTipouser()) {
+	     	case "amministratore":
 				getServletContext().getRequestDispatcher("/homeAdmin.jsp").forward(request, response);
 				break;
 				
-			case "user":
+			case "user":*/
 				getServletContext().getRequestDispatcher("/homeUser.jsp").forward(request, response);
-				break;
+				/*break;
 			default:
 				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 				break;
-			}
+			}*/
 		}
 	}
 
