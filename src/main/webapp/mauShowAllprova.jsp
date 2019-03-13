@@ -79,7 +79,7 @@ List<PrincipiDTO> all_principi = principiService.getAllPrincipi();%>
  <tr>
  
    <td>
-      Principles:
+      Principi:
    </td>
    <td>
    </td>
