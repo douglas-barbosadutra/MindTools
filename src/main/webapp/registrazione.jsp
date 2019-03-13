@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>Completa i campi per la registrazione</h3>
-<form action="RegistrazioneServlet?richiesta=registrazione" method="post">
+<form action="RegistrazioneServlet" method="post">
      	
      	<h4>Username: <input type = "text" id = "user" name ="username" placeholder = "inserisci username"></h4>
      	
