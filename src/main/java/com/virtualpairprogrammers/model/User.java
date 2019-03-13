@@ -3,16 +3,30 @@ package com.virtualpairprogrammers.model;
 public class User {
 	
 	private int iduser;
-	private String user, password, nome, cognome, email, tipouser;
+	private String user, password, nome, cognome, email, tipouser, lingua;
 	
 	public User () {
 		
 	}
-	
-	public User(int iduser, String user, String password, String nome, String cognome, String email) {
-		
+	public User( int iduser,String user, String password, String nome, String cognome, String email, String lingua, String tipouser) 
+	{	
+		this.iduser = iduser;
+		this.user = user;
+		this.password = password;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.lingua = lingua;
+		this.tipouser = tipouser;
 	}
+	
 
+	public String getLingua() {
+		return lingua;
+	}
+	public void setLingua(String lingua) {
+		this.lingua = lingua;
+	}
 	public User(int iduser, String user, String password, String nome, String cognome, String email, String tipouser) {
 	
 		this.iduser = iduser;
@@ -40,6 +54,10 @@ public class User {
 		this.cognome = cognome;
 		
 	}
+	
+	
+	
+	
 	/* public User(int iduser, String user, String password, String nome, String cognome, String email) {
 		
 		this.iduser = iduser;
@@ -107,13 +125,15 @@ public class User {
 	public void setTipoUser(String tipouser) {
 		this.tipouser = tipouser;
 	}
-
 	@Override
 	public String toString() {
 		return "User [iduser=" + iduser + ", user=" + user + ", password=" + password + ", nome=" + nome + ", cognome="
-				+ cognome + ", email=" + email + ", tipo_user=" + tipouser + "]";
+				+ cognome + ", email=" + email + ", tipouser=" + tipouser + ", lingua=" + lingua + "]";
+	}
+
+	
+	
 	}
 	
 
 	
-}
