@@ -7,11 +7,8 @@ import com.virtualpairprogrammers.converter.ExperienceConverter;
 import com.virtualpairprogrammers.dao.ExperienceDAO;
 import com.virtualpairprogrammers.dao.UserDAO;
 import com.virtualpairprogrammers.dto.ExperienceDTO;
-<<<<<<< HEAD
 import com.virtualpairprogrammers.dto.ExperienceUserFeedbackDTO;
 import com.virtualpairprogrammers.dto.FeedbackDTO;
-=======
->>>>>>> 003afc68ec0395c065755f7ffe306c0a4ee11fce
 import com.virtualpairprogrammers.dto.UserDTO;
 import com.virtualpairprogrammers.model.Experience;
 import com.virtualpairprogrammers.model.User;
@@ -25,11 +22,13 @@ import com.virtualpairprogrammers.model.User;
 public class ExperienceService {
 
 	private ExperienceDAO experienceDAO;
+	private ExperienceDTO experienceDTO;
 	private UsersService usersService;
 	private FeedbackService feedBackService;
 	
 	public ExperienceService() {
 		this.experienceDAO = new ExperienceDAO();
+		this.experienceDTO = new ExperienceDTO();
 		this.usersService = new UsersService();
 		this.feedBackService = new FeedbackService();
 	}
@@ -53,15 +52,10 @@ public class ExperienceService {
 		    return this.experienceDAO.insertExperience(experience);
 	        
 	    }
-	 
-	 public Experience getLastRecord(UserDTO user) {
-		 Experience ex = experienceDAO.ultimoRecord(user) ;
-		 return ex;
-	 }
-	 public String[][] matrixGetAllExperiences(){
+	/* public String[][] matrixGetAllExperiences(){
 		 String[][] n =  experienceDAO.matrixGetAllExperiences();
 		 return n;
-	 }
+	 } */
 	 
 	 public List<ExperienceDTO> getAllExperiences(){
 		 
@@ -71,15 +65,9 @@ public class ExperienceService {
 	
 	 public List<ExperienceUserFeedbackDTO> getAllExperienceUserFeedbackDTO(){
 		 List<ExperienceUserFeedbackDTO> listaexperienceUserFeedbackDTO = new ArrayList<ExperienceUserFeedbackDTO>();
-		 
-		 //List<ExperienceDTO> list = experienceDAO.getAllExperiences();
-		 //corregere chiamata per convertere il DTO
-		 
-		 for (ExperienceDTO experienceDTO : list) {
+		 for (ExperienceUserFeedbackDTO experienceDTO : listaexperienceUserFeedbackDTO) {
 			 UserDTO userDTO = this.usersService.getUserById(experienceDTO.getId_user());
 
-			 //Creare methodo in FeedbackDAO chiamata per prendere il FeedbackDTO
-			 //Creare methodo in feedBackService per prendere la lista de uSer converer DTO
 			 FeedbackDTO feedbackDTO = this.feedBackService.getFeedbackByIdExperience(experienceDTO.getId_experience());
 			 
 			 ExperienceUserFeedbackDTO nuovoDTO = new ExperienceUserFeedbackDTO();
@@ -94,4 +82,14 @@ public class ExperienceService {
 		 
 		 return listaexperienceUserFeedbackDTO;
 	 } 
-}
+     public ExperienceDTO getExperiencebyIdUser(int id_user) {
+    	 
+    	 Experience experience = experienceDAO.getExperiencebyIdUser(id_user);
+    	 
+    	 experienceDTO = ExperienceConverter.toDTO(experience);
+    	 return experienceDTO;
+    	 
+    	 
+     }
+
+     }
