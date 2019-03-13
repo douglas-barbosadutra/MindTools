@@ -8,7 +8,7 @@ public class User {
 	public User () {
 		
 	}
-	public User( int iduser,String user, String password, String nome, String cognome, String email, String lingua, String tipouser) 
+	public User( int iduser,String user, String password, String nome, String cognome, String email, String tipouser, String lingua) 
 	{	
 		this.iduser = iduser;
 		this.user = user;
@@ -16,10 +16,21 @@ public class User {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
-		this.lingua = lingua;
 		this.tipouser = tipouser;
+		this.lingua = lingua;
 	}
 	
+	public User(String user, String password, String nome, String cognome, String email, String tipouser, String lingua) 
+	{	
+		
+		this.user = user;
+		this.password = password;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.tipouser = tipouser;
+		this.lingua = lingua;
+	}
 
 	public String getLingua() {
 		return lingua;

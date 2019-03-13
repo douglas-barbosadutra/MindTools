@@ -47,6 +47,7 @@ public class RegistrazioneServlet extends HttpServlet
 				User user = UserConverter.toEntity(userDTO);
 				
 				userService.insert(user);
+				response.sendRedirect("index.jsp");
 				
 			}
 	     }
