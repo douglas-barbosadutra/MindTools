@@ -102,7 +102,7 @@ public class UserDTO {
 	public void setTipoUser(String tipouser) {
 		this.tipouser = tipouser;
 	}
-
+	
 	
 	
 	@Override

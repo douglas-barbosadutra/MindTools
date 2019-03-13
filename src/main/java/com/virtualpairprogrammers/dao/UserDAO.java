@@ -14,7 +14,7 @@ import com.virtualpairprogrammers.model.User;
 
 public class UserDAO {
 	private final String QUERY_ALL = "SELECT * FROM user";
-	private final String QUERY_INSERT_USER = "INSERT INTO user (user,password,nome, cognome,email,lingua,tipouser) VALUES (?,?,?,?,?,?,?)";
+	private final String QUERY_INSERT_USER = "INSERT INTO user (user,password,nome, cognome,email,tipouser,lingua) VALUES (?,?,?,?,?,?,?)";
 	private final String QUERY_DELETE_USER = "DELETE FROM user WHERE iduser = ? ";
 	private final String QUERY_UPDATE_USER = "UPDATE user SET user = ?, nome = ? WHERE iduser = ? ";
 	
@@ -42,7 +42,7 @@ public class UserDAO {
                 String tipouser = rs.getString ("tipo_user");
                 String lingua = rs.getString ("lingua");
                 
-                _user = new User (id_user,user1,password1,nome,cognome,email,lingua,tipouser);
+                _user = new User (id_user,user1,password1,nome,cognome,email,tipouser,lingua);
 	            return  _user;
             
 			   }
@@ -90,8 +90,8 @@ public class UserDAO {
 	            preparedStatement.setString(3,user.getNome());
 	            preparedStatement.setString(4,user.getCognome());
 	            preparedStatement.setString(5,user.getEmail());
-	            preparedStatement.setString(6,user.getLingua());
 	            preparedStatement.setString(6,user.getTipoUser());
+	            preparedStatement.setString(7,user.getLingua());
 	            preparedStatement.execute();
 	            ResultSet resultSet = preparedStatement.getGeneratedKeys();
 	            while (resultSet.next()) {
