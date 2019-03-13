@@ -14,7 +14,7 @@ import com.virtualpairprogrammers.model.User;
 
 public class UserDAO {
 	private final String QUERY_ALL = "SELECT * FROM user";
-	private final String QUERY_INSERT_USER = "INSERT INTO user (user,password,nome, cognome,email, tipo_user) VALUES (?,?,?,?,?,?)";
+	private final String QUERY_INSERT_USER = "INSERT INTO user (user,password,nome, cognome,email,tipouser,lingua) VALUES (?,?,?,?,?,?,?)";
 	private final String QUERY_DELETE_USER = "DELETE FROM user WHERE iduser = ? ";
 	private final String QUERY_UPDATE_USER = "UPDATE user SET user = ?, nome = ? WHERE iduser = ? ";
 	
@@ -34,14 +34,15 @@ public class UserDAO {
 			  ResultSet rs = statement.executeQuery();
 			  if (rs.next()) {
 				int id_user = rs.getInt("iduser");
-                String user1 = rs.getString ("user");
+				String user1 = rs.getString ("user");
                 String password1 = rs.getString ("password");
                 String nome = rs.getString ("nome");
                 String cognome = rs.getString ("cognome");
                 String email = rs.getString ("email");
                 String tipouser = rs.getString ("tipo_user");
+                String lingua = rs.getString ("lingua");
                 
-                _user = new User (id_user,user1,password1,nome,cognome,email,tipouser);
+                _user = new User (id_user,user1,password1,nome,cognome,email,tipouser,lingua);
 	            return  _user;
             
 			   }
@@ -54,7 +55,7 @@ public class UserDAO {
 	}
 	
 	
-	 public boolean InsertUser (User users) {
+	 public boolean insertUtente (User users) {
 		 
         Connection connection = ConnectionSingleton.getInstance();
         try {
@@ -76,6 +77,39 @@ public class UserDAO {
         }
 
 	 }
+	 
+	 
+	 public int Insert(User user){
+	        Connection connection = ConnectionSingleton.getInstance();
+	        int id = -1;
+	        try {
+	            String generatedColumns[] = { "id" };
+	            PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT_USER, generatedColumns);
+	            preparedStatement.setString(1,user.getUser());
+	            preparedStatement.setString(2,user.getPassword());
+	            preparedStatement.setString(3,user.getNome());
+	            preparedStatement.setString(4,user.getCognome());
+	            preparedStatement.setString(5,user.getEmail());
+	            preparedStatement.setString(6,user.getTipoUser());
+	            preparedStatement.setString(7,user.getLingua());
+	            preparedStatement.execute();
+	            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+	            while (resultSet.next()) {
+	                id = resultSet.getInt(1);
+	            }
+	            preparedStatement.close();
+
+	        } catch (Exception e) {
+	            GestoreEccezioni.getInstance().gestisciEccezione(e);
+	            return -1;
+	        }
+
+	        return id;
+	    }
+	 
+	 
+	 
+	 
 	 
 	 public boolean DeleteUser (int iduser) {
 		 

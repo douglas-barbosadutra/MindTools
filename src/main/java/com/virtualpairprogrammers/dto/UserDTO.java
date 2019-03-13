@@ -17,9 +17,10 @@ public class UserDTO {
 	private String cognome;
 	private String tipouser;
 	private String email;
+	private String lingua;
 	
 	
-	public UserDTO(Integer iduser, String user, String password, String nome,String cognome, String tipouser) {
+	public UserDTO(Integer iduser, String user, String password, String nome,String cognome, String tipouser, String lingua) {
 		super();
 		this.iduser = iduser;
 		this.user = user;
@@ -27,9 +28,16 @@ public class UserDTO {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.tipouser = tipouser;
+		this.lingua = lingua;
 		
 	}
-	public UserDTO( String user, String password, String nome,String cognome, String email, String tipouser) {
+	public String getLingua() {
+		return lingua;
+	}
+	public void setLingua(String lingua) {
+		this.lingua = lingua;
+	}
+	public UserDTO( String user, String password, String nome,String cognome, String email, String tipouser, String lingua) {
 		super();
 		this.iduser = iduser;
 		this.user = user;
@@ -38,7 +46,7 @@ public class UserDTO {
 		this.cognome = cognome;
 		this.email = email;
 		this.tipouser = tipouser;
-		
+		this.lingua = lingua;
 	}
 	
 	
@@ -94,13 +102,14 @@ public class UserDTO {
 	public void setTipoUser(String tipouser) {
 		this.tipouser = tipouser;
 	}
-
+	
+	
+	
 	@Override
 	public String toString() {
-		return "UsersDTO [iduser=" + iduser + ", user=" + user + ", password=" + password + ", nome=" + nome
-				+ ", cognome=" + cognome + ", tipouser=" + tipouser + "]";
+		return "UserDTO [iduser=" + iduser + ", user=" + user + ", password=" + password + ", nome=" + nome
+				+ ", cognome=" + cognome + ", tipouser=" + tipouser + ", email=" + email + ", lingua=" + lingua + "]";
 	}
-	
 	public String getEmail() {
 		return email;
 	}

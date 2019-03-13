@@ -86,15 +86,7 @@ public class UsersService {
 		return usersDTO;
 	}
 
-	public boolean insertUsers (UserDTO userDTO) {
-		return this.userDAO.InsertUser(UserConverter.toEntity(userDTO));
-	
-}
-	
-	 public void insertUser (User user) {
-		 
-	       this.userDAO.InsertUser(user);
-	    }
+
 		
 	
 	

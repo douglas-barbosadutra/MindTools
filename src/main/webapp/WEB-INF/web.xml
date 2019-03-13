@@ -12,6 +12,10 @@
     <servlet-class>com.virtualpairprogrammers.servlets.LogoutServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>RegistrazioneServlet</servlet-name>
+    <servlet-class>com.virtualpairprogrammers.servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>NodesServlet</servlet-name>
     <servlet-class>com.virtualpairprogrammers.servlets.NodesServlet</servlet-class>
   </servlet>

@@ -22,7 +22,8 @@ public class UserConverter {
 		User user = null;
 		//UserDTO usersDTO = new UserDTO();
 		if (userDTO != null) {
-			 user = new User(userDTO.getIduser(), userDTO.getUser(), userDTO.getPassword(), userDTO.getNome(), userDTO.getCognome(), userDTO.getTipouser());
+			 user = new User(userDTO.getIduser(), userDTO.getUser(), userDTO.getPassword(), userDTO.getNome(), userDTO.getCognome(), userDTO.getTipouser(), userDTO.getLingua());
+					
 		}
 
 		return user;
@@ -35,7 +36,7 @@ public class UserConverter {
 
 		UserDTO usersDTO = null;
 		if (user != null) {
-			usersDTO = new UserDTO(user.getIduser(), user.getUser(), user.getPassword(), user.getNome(), user.getCognome(), user.getTipoUser());
+			usersDTO = new UserDTO(user.getIduser(), user.getUser(), user.getPassword(), user.getNome(), user.getCognome(), user.getTipoUser(), user.getLingua());
 		}
 
 		return usersDTO;
