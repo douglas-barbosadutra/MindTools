@@ -28,7 +28,6 @@
 	<tr>
 				<th></th>
 				<th>No.</th>
-				<th>Description</th>
 				<th>Question</th>
 				<th>Path</th>
 				<th>Key Word</th>
@@ -42,8 +41,8 @@
 
 				<td><%=idprincipio%></td>
 				
-				<td><%=principio.getD_punti()%></td>
 				<td><%=principio.getD_numeri()%></td>
+				<td><%=principio.getD_punti()%></td>			
 				<td><%=principio.getP_chiave()%></td>
 				<td></td>
 				<td></td>
@@ -71,7 +70,6 @@
 	<tr>
 				<th></th>
 				<th>No.</th>
-				<th>Descrizione</th>
 				<th>Domanda</th>
 				<th>Percorso</th>
 				<th>Parola chiave</th>
@@ -83,10 +81,10 @@
 		
 		<td></td>
 
-				<td><%=idprincipio%></td>
+					<td><%=idprincipio%></td>
 				
-				<td><%=principio.getD_puntiIta()%></td>
 				<td><%=principio.getD_numeriIta()%></td>
+				<td><%=principio.getD_puntiIta()%></td>			
 				<td><%=principio.getP_chiaveIta()%></td>
 				<td></td>
 				<td></td>

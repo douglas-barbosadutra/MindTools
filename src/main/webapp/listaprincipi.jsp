@@ -32,7 +32,7 @@ List<PrincipiDTO> all_principi = (List<PrincipiDTO>) request.getAttribute("lista
          </td>
 
          <td>
-             <%=  principi.getDescrizione()%>
+             <%=  principi.getNome()%>
          </td>
 
      </tr>

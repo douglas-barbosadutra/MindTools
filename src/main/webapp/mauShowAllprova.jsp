@@ -14,126 +14,66 @@ List<PrincipiDTO> all_principi = principiService.getAllPrincipi();%>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
 
+<body>
 <form action="PrincipiServlet?PrincipiManager" method="post">
 <%
     UserDTO user= (UserDTO) session.getAttribute("utente") ;
 	if (user.getLingua().equals("inglese")) {
 		
 		%>
- <table>
- <tr>
  
-   <td>
-      Principles:
-   </td>
-   <td>
-   </td>
- 
-   </tr>
-     <tr>
-        <th></th>
-         <th>
-             NUMBER
-         </th>
+   
 
-         <th>
-            NAME
-         </th>
-         <th>
-        
-        
-         <th>
-          </th>
-         <th>
-          </th>
-
-     </tr>
-        <%for (PrincipiDTO principi : all_principi) { %>
-     <tr>
-         <td>
-             <input type="checkbox" name="principi" value="<%= principi.getId_principi()%>"/>
-         </td>
-
-         <td>
-             <%= principi.getId_principi()%>
-         </td>
-
-         <td>
-             <%=  principi.getNome()%>
-         </td>
+ <%
+ 		int i;
+        for (i=0; i < all_principi.size(); i++) { 
+        PrincipiDTO principi = all_principi.get(i);
+  %>
+    
          
-         <td>
-             <a href="PrincipiServlet?richiesta=ShowPrincipio&id=<%=principi.getId_principi()%>">Selection</a>
-         </td>
+         
+   <a ondblclick="(function(){
+	    window.location.href = 'PrincipiServlet?richiesta=ShowPrincipio&id=<%=principi.getId_principi()%>'; 
+	    return false;})();
+	    return false;" 
+	    onClick="(function(){
+	    document.getElementById('img<%=i%>').src='card/<%=i %>retro.jpg'; 
+	    return false;})();
+	    return false;"> 
+   <img id="img<%=i %>" src="card/<%=i %>front.jpg" width="170" height="180"></a>
+		
       
 	 
 	 <%}
         
 	}else { 
 	 
+		
 	 
 	 %>
-	 <table>
- <tr>
+	
  
-   <td>
-      Principi:
-   </td>
-   <td>
-   </td>
+        <%
+        int i;
+        for (i=0; i < all_principi.size(); i++) { 
+        PrincipiDTO principi = all_principi.get(i);
+        %>
+     
+      <a ondblclick="(function(){
+	    window.location.href = 'PrincipiServlet?richiesta=ShowPrincipio&id=<%=principi.getId_principi()%>'; 
+	    return false;})();
+	    return false;" 
+	    onClick="(function(){
+	    document.getElementById('img<%=i%>').src='card/<%=i %>retro.jpg'; 
+	    return false;})();
+	    return false;"> 
+        <img id="img<%=i %>" src="card/<%=i %>front.jpg" width="170" height="180"></a>
  
-   </tr>
-     <tr>
-        <th></th>
-         <th>
-             NUMERO
-         </th>
-
-         <th>
-            NOME
-         </th>
-         <th>
-        
-        
-         <th>
-          </th>
-         <th>
-          </th>
-
-     </tr>
-        <%for (PrincipiDTO principi : all_principi) { %>
-     <tr>
-         <td>
-             <input type="checkbox" name="principi" value="<%= principi.getId_principi()%>"/>
-         </td>
-
-         <td>
-             <%= principi.getId_principi()%>
-         </td>
-
-         <td>
-             <%=  principi.getNomeita()%>
-         </td>
-         
-         <td>
-             <a href="PrincipiServlet?richiesta=ShowPrincipio&id=<%=principi.getId_principi()%>">Seleziona</a>
-         </td>
-           </tr>
- 
- 
-
- </form>     
-	 
 	 <%}
 	} %>
-	  
-    
 
-</table>
-
-
+ </form> 
 
 </body>
 
