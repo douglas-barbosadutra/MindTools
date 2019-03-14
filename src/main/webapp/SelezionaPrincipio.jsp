@@ -15,9 +15,9 @@
 		<title>SelezionaPrincipio</title>
 	</head>
 	
-	<%
+	<% 
 	UserDTO user= (UserDTO) session.getAttribute("utente") ;
-	if (user.getLingua().equals("inglese")) {
+	if (user.getLingua().equals("inglese")) { 
 		
 		%>
 	
@@ -49,7 +49,7 @@
 				<td></td>
 				
 				<td>
-             <a href="PrincipiServlet?richiesta=InserisciExperience&id=<%=principio.getId_principi()%>">Inserisci Esperienza</a>
+             <a href="ExperienceServlet?richiesta=Insert_Experience&id=<%=principio.getId_principi()%>">Insert Experience</a>
              
               
          </td>
@@ -71,10 +71,10 @@
 	<tr>
 				<th></th>
 				<th>No.</th>
-				<th>Description</th>
-				<th>Question</th>
-				<th>Path</th>
-				<th>Key Word</th>
+				<th>Descrizione</th>
+				<th>Domanda</th>
+				<th>Percorso</th>
+				<th>Parola chiave</th>
 				<th></th>
 				<th></th>
 

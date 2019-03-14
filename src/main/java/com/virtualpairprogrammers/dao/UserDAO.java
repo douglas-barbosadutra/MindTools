@@ -42,7 +42,7 @@ public class UserDAO {
 				String tipouser = rs.getString("tipo_user");
 				String lingua = rs.getString("lingua");
 
-				_user = new User(id_user, user1, password1, nome, cognome, email, lingua, tipouser);
+				_user = new User(id_user, user1, password1, nome, cognome, email,  tipouser, lingua);
 				return _user;
 
 			}
