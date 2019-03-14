@@ -71,7 +71,7 @@ SCORE
              <%=  Experience.getScore()%>
          </td>
     <td>
-             <a href="ExperienceServlet?action=ShowExperienceo&id=<%=Experience.getId_experience()%>">Seleziona Esperienza</a>
+             <a href="FeedbackServlets?action=chooseFeedback&id=<%=Experience.getId_experience()%>">Seleziona Esperienza</a>
          </td>
 
      </tr>

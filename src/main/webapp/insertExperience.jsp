@@ -44,20 +44,20 @@ int idprincipio =Integer.parseInt(request.getParameter("id"));
 	  <td>
 	 <% for(int i = 0 ; i< 8 ; i++ ) { %>
 	  <input type = "checkbox"   name = "idsprincipi[]" value = "<%= allPrincipi.get(i).getId_principi()%>" >
-	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getDescrizione() %> <br>
+	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getNomeita() %> <br>
 	  <% }%> 
 	
 	 </td>
 	  <td>
 	 <% for(int i = 8 ; i< 16 ; i++ ) { %>
 	  <input type = "checkbox"  name = "idsprincipi[]" value = "<%= allPrincipi.get(i).getId_principi()%>" >
-	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getDescrizione() %> <br> 
+	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getNomeita() %> <br> 
 	 <% }%> 
 	  </td>
 	 <td>
 	 <% for(int i = 16 ; i< 24 ; i++ ) { %>
 	  <input type = "checkbox"  name = "idsprincipi[]" value = "<%=allPrincipi.get(i).getId_principi()%>" >
-	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getDescrizione() %>  <br>
+	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getNomeita() %>  <br>
 	  <% }%> 
 	 </td>
 	 
@@ -65,14 +65,14 @@ int idprincipio =Integer.parseInt(request.getParameter("id"));
 	 
 	 <% for(int i = 24 ; i< 32 ; i++ ) { %>
 	  <input type = "checkbox"  name = "idsprincipi[]" value = "<%= allPrincipi.get(i).getId_principi()%>" >
-	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getDescrizione() %>  <br>
+	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getNomeita() %>  <br>
 	  <% }%>
 	   </td>
 	 
      <td>
 	 <% for(int i = 32 ; i< 40 ; i++ ) { %>
 	  <input type = "checkbox"  name = "idsprincipi[]" value = "<%= allPrincipi.get(i).getId_principi()%>" >
-	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getDescrizione() %> <br> 
+	 <%= allPrincipi.get(i).getId_principi()%> <%= allPrincipi.get(i).getNomeita() %> <br> 
 	 <% }%>
 	 </td> 
 	 

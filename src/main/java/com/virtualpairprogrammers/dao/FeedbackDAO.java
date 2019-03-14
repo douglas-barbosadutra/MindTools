@@ -27,6 +27,7 @@ public class FeedbackDAO<Id_experience> {
 	private final String GET_ALL = "select * from feedback";
 	private final String QUERY_INSERT = "INSERT INTO feedback ( id_experience, id_principi, secondario) values (?,?,?)";
 	private final String QUERY_SELECT_ID = "SELECT *  from feedback WHERE id_experience = ?  ";	
+	
 	/**
 	 * Il suddetto metodo si occupa interagire con il database e restituire tutte le
 	 * tuple al servizio che ha chiamato questo metodo
@@ -56,6 +57,8 @@ public class FeedbackDAO<Id_experience> {
 		return feedback;
 	}
 	
+	
+	
 	 public boolean insertFeedback(Feedback feedback) {
 	        Connection connection = ConnectionSingleton.getInstance();
 	        try {
@@ -71,28 +74,31 @@ public class FeedbackDAO<Id_experience> {
 	        }
 	    }
 	
-	 public Feedback getFeedbackByIdExperience(int id_experience) {
+	 public List<Feedback> getFeedbackByIdExperience(int id_experience) {
     	
     	 Connection connection = ConnectionSingleton.getInstance();
     	 try {
     		 PreparedStatement statement = connection.prepareStatement(QUERY_SELECT_ID);
-			statement.setInt(1,id_experience );
+			 statement.setInt(1,id_experience );
     		 ResultSet resultSet = statement.executeQuery();
-    		 Feedback f = new Feedback();
+    		 List<Feedback> lista = new ArrayList<>();
  			while (resultSet.next()) {
+ 				Feedback f = new Feedback();
 				f.setId_feedback(resultSet.getInt("id_feedback"));
 				f.setId_experience(resultSet.getInt("id_experience"));
 				f.setSecondario(resultSet.getInt("secondario"));
 				f.setId_principi(resultSet.getInt("id_principi"));
+				lista.add(f);
 				
-				statement.close();
-                return f;
+              
 			}
+ 			return lista;
+ 			
 		} catch (final SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
-		return null;
+		
      }
 	
 }

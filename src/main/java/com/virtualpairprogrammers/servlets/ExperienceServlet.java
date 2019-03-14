@@ -75,8 +75,7 @@ public class ExperienceServlet extends HttpServlet {
 		     int idpprincipale = Integer.parseInt(request.getParameter("id")) ;
 		     int score = Integer.parseInt(request.getParameter("score"));
 		     String[]  ids_principi = request.getParameterValues("idsprincipi[]");
-		    
-		    
+		     
 		     experienceDTO.setCommento(commento);
 		     experienceDTO.setPositivo(positivo);
 		     experienceDTO.setNegativo(negativo);
@@ -114,7 +113,7 @@ public class ExperienceServlet extends HttpServlet {
     	    	 this.feedbackservice.insertFeedback(feedback);
             	 
              }
-            
+		 case ("chooseFeedbackManagement"):       
              
 		     getServletContext().getRequestDispatcher("/Experience.jsp").forward(request, response);
 		     break;

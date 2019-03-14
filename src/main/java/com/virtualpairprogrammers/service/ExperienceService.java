@@ -69,7 +69,7 @@ public class ExperienceService {
 		 List<ExperienceUserFeedbackDTO> listaexperienceUserFeedbackDTO = new ArrayList<ExperienceUserFeedbackDTO>();
 		 List<UserDTO> users = this.usersService.getAllUsers();
 		 List<ExperienceDTO> experiences = getAllExperiences();
-		 List<FeedbackDTO> feedbacks = this.feedBackService.getFeedback();
+		 List<FeedbackDTO> feedbacks = this.feedBackService.AllFeedback();
 		 for (UserDTO u : users) {
 			 for (ExperienceDTO e : experiences) {
 				 for (FeedbackDTO f :feedbacks) {

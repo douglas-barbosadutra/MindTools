@@ -18,7 +18,8 @@ public class FeedbackDTO
 	public FeedbackDTO (int id_feedback,int id_experience, int id_principi, boolean secondario ) {
 		this.id_feedback = id_feedback;
 		this.id_experience = experience.getId_experience();
-		this.id_principi = principi.getId_principio();
+		this.id_principi = principi.getId_principi();
+		
         //secondario = false;	
 	}		
 
