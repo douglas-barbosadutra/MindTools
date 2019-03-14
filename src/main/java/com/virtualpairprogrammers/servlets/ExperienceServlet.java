@@ -18,6 +18,7 @@ import com.virtualpairprogrammers.converter.FeedbackConverter;
 import com.virtualpairprogrammers.converter.UserConverter;
 import com.virtualpairprogrammers.dao.FeedbackDAO;
 import com.virtualpairprogrammers.dto.ExperienceDTO;
+import com.virtualpairprogrammers.dto.ExperienceUserFeedbackDTO;
 import com.virtualpairprogrammers.dto.FeedbackDTO;
 import com.virtualpairprogrammers.dto.PrincipiDTO;
 import com.virtualpairprogrammers.dto.UserDTO;
@@ -60,7 +61,8 @@ public class ExperienceServlet extends HttpServlet {
 		switch (request.getParameter("action").toString()) {
 		 case("allExperiences"):
 			 
-		     List<ExperienceDTO> listaExperienceDTO = experienceService.getAllExperience();
+			 
+			 List<ExperienceUserFeedbackDTO>  listaExperienceDTO = experienceService.getAllExperienceUserFeedbackDTO();
 		     
 		     request.setAttribute("allExperiences", "listaExperienceDTO");
        	     getServletContext().getRequestDispatcher("/Experience.jsp").forward(request, response);
@@ -73,6 +75,7 @@ public class ExperienceServlet extends HttpServlet {
 		     int idpprincipale = Integer.parseInt(request.getParameter("id")) ;
 		     int score = Integer.parseInt(request.getParameter("score"));
 		     String[]  ids_principi = request.getParameterValues("idsprincipi[]");
+		    
 		    
 		     experienceDTO.setCommento(commento);
 		     experienceDTO.setPositivo(positivo);

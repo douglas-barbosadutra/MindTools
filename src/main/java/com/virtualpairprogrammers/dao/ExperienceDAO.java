@@ -22,7 +22,7 @@ public class ExperienceDAO {
 	private final String QUERY_ALL_EXPERIENCE = "select * from experience";
 	private final String QUERY_INSERT = "INSERT INTO experience ( id_user, commento, positivo, negativo, score) values (?,?,?,?,?)";
 	private final String QUERY_GET_EXPERIENCE = "SELECT * FROM experience WHERE id_experience = ?";
-	private final String QUERY_SELECT_ULTIMO_ID = "SELECT *  from experience WHERE id_user = ? ";
+	private final String QUERY_SELECT_ID = "SELECT *  from experience WHERE id_user = ? ";
 
 	public ExperienceDAO() {
 	}
@@ -98,7 +98,7 @@ public class ExperienceDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 		List<Experience> experiences = new ArrayList<Experience>();
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_SELECT_ULTIMO_ID);
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_SELECT_ID);
 			preparedStatement.setInt(1, userId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			Experience experience = new Experience();
@@ -118,5 +118,33 @@ public class ExperienceDAO {
 		return experiences;
 
 	}
+
+    public Experience ultimoRecord(UserDTO user) {
+   	 Experience e = new Experience();
+   	 Connection connection = ConnectionSingleton.getInstance();
+   	 try {
+   		 PreparedStatement statement = connection.prepareStatement(QUERY_SELECT_ID);
+   		 statement.setInt(1, user.getIduser());
+   		 ResultSet resultset = statement.executeQuery();
+   		 while (resultset.next()) {
+   			 if( resultset.isLast()) {
+   				 int id_experience = resultset.getInt("id_experience");
+       			 int id_user = resultset.getInt("id_user");
+       			 String commento = resultset.getString("commento");
+       			 String positivo = resultset.getString("positivo");
+       			 String negativo = resultset.getString("negativo");
+       			 int score = resultset.getInt("score");
+       			 e = new Experience(id_experience,id_user, commento, positivo, negativo,score ); 
+   			 }
+   			 
+   					 
+   		 }
+   	 }
+   	 catch (SQLException o) {
+	            o.printStackTrace();
+	        }
+   	 return e;
+    }
+
 
 }

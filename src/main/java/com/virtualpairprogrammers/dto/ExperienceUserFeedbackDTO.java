@@ -11,7 +11,16 @@ public class ExperienceUserFeedbackDTO {
 	private String cognome;
 	private int score;
 	private int id_principi;
+	private int id_experience;
 	
+	public int getId_experience() {
+		return id_experience;
+	}
+
+	public void setId_experience(int id_experience) {
+		this.id_experience = id_experience;
+	}
+
 	public ExperienceUserFeedbackDTO() {
 		
 	}

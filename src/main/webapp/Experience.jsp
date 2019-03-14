@@ -1,4 +1,5 @@
 <%@ page import="com.virtualpairprogrammers.dto.ExperienceDTO" %>
+<%@ page import="com.virtualpairprogrammers.dto.ExperienceUserFeedbackDTO" %>
 <%@ page import="java.util.*" %>
 <%@ page language="java" import="java.sql.*" %>
  <%@ page import="com.virtualpairprogrammers.service.ExperienceService" %>
@@ -10,7 +11,8 @@
 <head>
 
 <% ExperienceService ExperienceService = new ExperienceService();
-List<ExperienceDTO> all_Experience = ExperienceService.getAllExperiences();%>
+List<ExperienceUserFeedbackDTO> all_Experience = ExperienceService.getAllExperienceUserFeedbackDTO();
+//List<ExperienceUserFeedbackDTO> all_Experience1 = (List<ExperienceUserFeedbackDTO>) request.getAttribute("allExperiences"); %>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -29,7 +31,7 @@ List<ExperienceDTO> all_Experience = ExperienceService.getAllExperiences();%>
      <tr>
         <th></th>
          <th>
-ID_PRINCIPIO
+PRINCIPIO
          </th>
 
          <th>
@@ -46,14 +48,14 @@ SCORE
           </th>
 
      </tr>
-        <%for (ExperienceDTO Experience : all_Experience) { %>
+        <%for (ExperienceUserFeedbackDTO Experience : all_Experience) { %>
      <tr>
          <td>
-             <input type="checkbox" name="Experience" value="<%= Experience.getId_experience()%>"/>
+           
          </td>
 
          <td>
-             <%= Experience.getId_experience()%>
+            <%=  Experience.getId_principi()%>
          </td>
 
          <td>
