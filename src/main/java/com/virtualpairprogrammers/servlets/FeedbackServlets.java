@@ -13,12 +13,14 @@ import javax.servlet.http.HttpSession;
 import com.virtualpairprogrammers.dto.ExperienceDTO;
 import com.virtualpairprogrammers.dto.FeedbackDTO;
 import com.virtualpairprogrammers.dto.FeedbackPrincipiExperienceDTO;
+import com.virtualpairprogrammers.dto.PrincipiDTO;
 import com.virtualpairprogrammers.service.FeedbackService;
 
 public class FeedbackServlets extends HttpServlet {
 
 private  FeedbackService feedbackService;
 private FeedbackPrincipiExperienceDTO feedbacks;
+private List<PrincipiDTO> secondari = new ArrayList();
 
 
  @Override
@@ -32,6 +34,9 @@ final HttpSession session = request.getSession();
 			case "chooseFeedback":{
 			feedbacks = this.feedbackService.getAllFeedbackPrincipiExperienceDTO(Integer.parseInt(request.getParameter("id").toString()));
 			request.setAttribute("feedbackList", feedbacks);
+			int id = Integer.parseInt(request.getAttribute("id").toString());
+			secondari = this.feedbackService.listaPrincipiSecondari(id);
+		    request.setAttribute("secondari", secondari);
 			getServletContext().getRequestDispatcher("/NewFeedback.jsp").forward(request, response);
 			
 			break;

@@ -128,5 +128,15 @@ public class FeedbackService {
 		 return nuovoFeedback;
 		 
 	 }
+	 
+	 public List<PrincipiDTO> listaPrincipiSecondari(int id_experience)
+	 {
+		 FeedbackPrincipiExperienceDTO principiSeconda = getAllFeedbackPrincipiExperienceDTO (id_experience);
+		 
+		 List<PrincipiDTO> este = principiSeconda.getSecondari();
+          return este;		 
+	 }
+	 
+	 
 
 }
