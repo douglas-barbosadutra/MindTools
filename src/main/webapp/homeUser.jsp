@@ -28,7 +28,7 @@
      <center>
        <a href="#" class="btn-toolset">
   <strong><form action="PrincipiServlet" method="post">
-     <button type= "submit" value= "PrincipiManager" name="richiesta">Random Principles/ Principi casuali</button>
+     <button type= "submit" value= "PrincipiRandom" name="richiesta">Random Principles/ Principi casuali</button>
      </form></strong></a>
 
      

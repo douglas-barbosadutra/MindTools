@@ -61,6 +61,13 @@ public class PrincipiServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/insertExperience.jsp").forward(request, response);
 		
 			break;
+		case "PrincipiRandom":
+			int casual = (int) (Math.random()*40+1);
+			principio = this.principiServiceDTO.getPrincipio(casual);
+			request.setAttribute("principio", principio);
+			getServletContext().getRequestDispatcher("/SelezionaPrincipio.jsp").forward(request, response);
+			break;
+			
 			
 			
 
