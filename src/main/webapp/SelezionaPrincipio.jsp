@@ -10,7 +10,8 @@
 		<meta charset="UTF-8">
 		<link href = "Stile.css" rel = "stylesheet" media = "screen">
 		<%PrincipiDTO principio = (PrincipiDTO) request.getAttribute("principio"); %>
-		<% int  idprincipio =principio.getId_principi(); %>
+		<% int  idprincipio =principio.getId_principi();
+		%>
 		
 		<title>SelezionaPrincipio</title>
 	</head>

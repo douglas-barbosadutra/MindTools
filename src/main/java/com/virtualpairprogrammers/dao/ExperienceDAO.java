@@ -21,6 +21,7 @@ public class ExperienceDAO {
 
 	private final String QUERY_ALL_EXPERIENCE = "select * from experience";
 	private final String QUERY_INSERT = "INSERT INTO experience ( id_user, commento, positivo, negativo, score) values (?,?,?,?,?)";
+	                     
 	private final String QUERY_GET_EXPERIENCE = "SELECT * FROM experience WHERE id_experience = ?";
 	private final String QUERY_SELECT_ID = "SELECT *  from experience WHERE id_user = ? ";
 
@@ -52,19 +53,20 @@ public class ExperienceDAO {
 	}
 
 	public boolean insertExperience(Experience experience) {
-		Connection connection = ConnectionSingleton.getInstance();
-		try {
-			PreparedStatement statement = connection.prepareStatement(QUERY_INSERT);
-			statement.setInt(1, experience.getId_user());
-			statement.setString(2, experience.getCommento());
-			statement.setString(3, experience.getPositivo());
-			statement.setString(4, experience.getNegativo());
-			statement.setInt(5, experience.getScore());
-			return statement.execute();
-		} catch (SQLException e) {
-			/* ((Object) GestoreEccezioni.getInstance()).gestisciEccezione(e); */
-			return false;
-		}
+		 Connection connection = ConnectionSingleton.getInstance();
+	        try {
+	            PreparedStatement statement = connection.prepareStatement(QUERY_INSERT);
+	            statement.setInt(1,  experience.getId_user());
+	            statement.setString(2, experience.getCommento());
+	            statement.setString(3,  experience.getPositivo());
+	            statement.setString(4, experience.getNegativo());
+	            statement.setInt(5, experience.getScore());
+	            return statement.execute();
+	        }
+	        catch (SQLException e) {
+	           /* ((Object) GestoreEccezioni.getInstance()).gestisciEccezione(e);*/
+	        	return false;
+	        }
 	}
 
 	public Experience getExperience(int id_experience) {

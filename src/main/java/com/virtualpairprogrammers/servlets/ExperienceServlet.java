@@ -81,9 +81,10 @@ public class ExperienceServlet extends HttpServlet {
 		     experienceDTO.setScore(score);
 		     experienceDTO.setId_user(id_user);
 		     experience = this.experienceConverter.toEntity(experienceDTO);
-		     this.experienceService.insertExperience(experience);
+		     this.experienceService.insertExperience(experience); 
 		     Experience ex = experienceService.getLastRecord(user);
 		     int id_experience = ex.getId_experience();
+		   //  int id_experience = this.experienceService.insertExperience(experience); 
              if( ids_principi !=null) {
             	 feedbackDTO.setId_experience(id_experience);
     	    	 feedbackDTO.setId_principi(idpprincipale);
@@ -113,7 +114,8 @@ public class ExperienceServlet extends HttpServlet {
             	 
              }
 		 case ("chooseFeedbackManagement"):       
-             
+			 listaexperienceDTO=this.experienceService.getAllExperienceUserFeedbackDTO();
+		     request.setAttribute("allExperiences", listaexperienceDTO);
 		     getServletContext().getRequestDispatcher("/Experience.jsp").forward(request, response);
 		     break;
 
