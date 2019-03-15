@@ -138,7 +138,7 @@ public class UserDAO {
                String nome = resultSet.getString("nome");
                String cognome = resultSet.getString("cognome");
                String email = resultSet.getString("email");
-               String tipouser = resultSet.getString("tipouser");
+               String tipouser = resultSet.getString("tipo_user");
                users.add(new User(iduser, user , password, nome, cognome, email, tipouser));
            }
         }

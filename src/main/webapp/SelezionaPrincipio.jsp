@@ -9,7 +9,7 @@
 	
 		<meta charset="UTF-8">
 		<link href = "Stile.css" rel = "stylesheet" media = "screen">
-		<%PrincipiDTO principio = (PrincipiDTO) session.getAttribute("principio"); %>
+		<%PrincipiDTO principio = (PrincipiDTO) request.getAttribute("principio"); %>
 		<% int  idprincipio =principio.getId_principi(); %>
 		
 		<title>SelezionaPrincipio</title>
@@ -48,7 +48,7 @@
 				<td></td>
 				
 				<td>
-             <a href="ExperienceServlet?richiesta=Insert_Experience&id=<%=principio.getId_principi()%>">Insert Experience</a>
+             <a href="PrincipiServlet?richiesta=InserisciExperience&id=<%=principio.getId_principi()%>">Inserisci Esperienza</a>
              
               
          </td>

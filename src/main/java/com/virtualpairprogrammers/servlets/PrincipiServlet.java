@@ -40,7 +40,7 @@ public class PrincipiServlet extends HttpServlet {
 
 		case "ShowPrincipio":
 			principio = this.principiServiceDTO.getPrincipio(Integer.parseInt(request.getParameter("id")));
-			session.setAttribute("principio", principio);
+			request.setAttribute("principio", principio);
 			getServletContext().getRequestDispatcher("/SelezionaPrincipio.jsp").forward(request, response);
 			break;
 		case "return":
@@ -56,9 +56,8 @@ public class PrincipiServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/listaprincipi.jsp").forward(request, response);
 			break;	
 		case "InserisciExperience":
-			idprincipio = this.principiServiceDTO.getPrincipio(Integer.parseInt(request.getParameter("id")));
-			int id_principi= idprincipio.getId_principi();
-			request.setAttribute("id_principi", id_principi);
+			allPrincipi = this.principiServiceDTO.getAllPrincipi();
+			request.setAttribute("listaprincipi", allPrincipi);
 			getServletContext().getRequestDispatcher("/insertExperience.jsp").forward(request, response);
 		
 			break;

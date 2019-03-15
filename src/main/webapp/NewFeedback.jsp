@@ -9,9 +9,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<% FeedbackService feedbackService = new FeedbackService();
-int id = 1;
-FeedbackPrincipiExperienceDTO all_feedback = feedbackService.getAllFeedbackPrincipiExperienceDTO(id);
+<% 
+
+FeedbackPrincipiExperienceDTO all_feedback = (FeedbackPrincipiExperienceDTO)request.getAttribute("feedbackList");
 List<PrincipiDTO> secondari = all_feedback.getSecondari(); %>
 
 <meta charset="ISO-8859-1">
@@ -61,22 +61,22 @@ List<PrincipiDTO> secondari = all_feedback.getSecondari(); %>
              <%=all_feedback.getNome_principioITA()
               %>
             
-              <%for (PrincipiDTO d: secondari) { %>
-              <%d.getId_principi(); %>
-              
-         </td>
-          <%} %>
+             
+         </
   <th></th>
   <th></th>
         
   <th></th>
   <th></th>
        <td>
-          
-   
+           <%for (PrincipiDTO d: secondari) { %>
+              <%d.getId_principi(); %>
+              
+   </td>td
      </tr>
     
-     
+    
+          <%} %>
      
      <tr>
        

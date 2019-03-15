@@ -110,9 +110,10 @@ public class FeedbackService {
 						 nuovoFeedback.setNome_principioITA(p.getNomeita());
 						 nuovoFeedback.setNome_principiING(p.getNome());
 						 nuovoFeedback.setSecondario(f.getSecondario());
-						 
+						 break;
 					 }
-					 else {
+					 else 
+					 {
 						 secondari.add(p);
 						 break;
 					 }

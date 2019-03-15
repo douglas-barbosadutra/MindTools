@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -48,6 +49,7 @@ public class ExperienceServlet extends HttpServlet {
 	private UserConverter userConverter = new UserConverter();
 	private PrincipiDTO principiDTO= new PrincipiDTO();
 	private PrincipiService principiServiceDTO;
+	private List<ExperienceUserFeedbackDTO> listaexperienceDTO = new ArrayList();
 	private User user = new User();
 	private Feedback feedback;
 	int valore = 0;
@@ -60,11 +62,8 @@ public class ExperienceServlet extends HttpServlet {
 		principiServiceDTO = new PrincipiService();
 		switch (request.getParameter("action").toString()) {
 		 case("allExperiences"):
-			 
-			 
-			 List<ExperienceUserFeedbackDTO>  listaExperienceDTO = experienceService.getAllExperienceUserFeedbackDTO();
-		     
-		     request.setAttribute("allExperiences", "listaExperienceDTO");
+			 listaexperienceDTO = this.experienceService.getAllExperienceUserFeedbackDTO();
+		     request.setAttribute("allExperiences", listaexperienceDTO);
        	     getServletContext().getRequestDispatcher("/Experience.jsp").forward(request, response);
 		 case ("Insert_Experience"):
 		     UserDTO user = (UserDTO) session.getAttribute("utente");

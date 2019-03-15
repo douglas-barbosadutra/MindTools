@@ -89,22 +89,7 @@ public class ExperienceService {
 			 }
 		 }
 		 
-		 /*
-		 for (ExperienceUserFeedbackDTO experienceDTO : listaexperienceUserFeedbackDTO) {
-			 UserDTO userDTO = this.usersService.getUserById(experienceDTO.getId_user());
-
-			 FeedbackDTO feedbackDTO = this.feedBackService.getFeedbackByIdExperience(experienceDTO.getId_experience());
 			 
-			 
-			 nuovoDTO.setCognome(userDTO.getCognome());
-			 nuovoDTO.setNome(userDTO.getNome());
-			 nuovoDTO.setCommento(experienceDTO.getCommento());
-			 nuovoDTO.setScore(experienceDTO.getScore());
-			 nuovoDTO.setId_principi(feedbackDTO.getId_principi());
-
-			 listaexperienceUserFeedbackDTO.add(nuovoDTO);
-		 }*/
-		 
 		 return listaexperienceUserFeedbackDTO;
 	 } 
      public List<ExperienceDTO>getExperiencebyIdUser(int id_user) {

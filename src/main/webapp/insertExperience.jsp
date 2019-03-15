@@ -9,9 +9,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<% PrincipiService principiService = new PrincipiService();
-List<PrincipiDTO> allPrincipi = principiService.getAllPrincipi();
+<% List<PrincipiDTO> allPrincipi = (List<PrincipiDTO>) request.getAttribute("listaprincipi");
 int idprincipio =Integer.parseInt(request.getParameter("id"));
+
 
 %>
 <title>INSERT----MY----EXPERIENCE]</title>
@@ -23,7 +23,7 @@ int idprincipio =Integer.parseInt(request.getParameter("id"));
 
 
  <a href="PrincipiServlet?richiesta=return" name="richiesta" method="post">Home </a>
-     <form action="ExperienceServlet?action=allExperiences&id=<%=idprincipio%>" method="post">
+     <form action="ExperienceServlet?action=allExperiences" method="post">
      <h3>Quanto e stato utile questo principio per te? </h3>
      	
      	<h4>Commento: <br> <textarea  id = "experience" name ="commento" placeholder = "inseriscicommento" rows="10" cols="50" ></textarea></h4>

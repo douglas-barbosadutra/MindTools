@@ -1,6 +1,7 @@
 package com.virtualpairprogrammers.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,13 +12,15 @@ import javax.servlet.http.HttpSession;
 
 import com.virtualpairprogrammers.dto.ExperienceDTO;
 import com.virtualpairprogrammers.dto.FeedbackDTO;
+import com.virtualpairprogrammers.dto.FeedbackPrincipiExperienceDTO;
 import com.virtualpairprogrammers.service.FeedbackService;
 
 public class FeedbackServlets extends HttpServlet {
 
-private final FeedbackService feedbackService = new FeedbackService();
+private  FeedbackService feedbackService;
+private FeedbackPrincipiExperienceDTO feedbacks;
 
-private static int idFeedback = 0;
+
  @Override
 public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 final HttpSession session = request.getSession();
@@ -27,24 +30,15 @@ final HttpSession session = request.getSession();
 			switch(action) {
 
 			case "chooseFeedback":{
-
-			idFeedback = Integer.parseInt(request.getParameter("id").toString());
-			//session.setAttribute("idFeedbackScelto", idFeedback);
-		//	session.setAttribute("showFeedback", "list");
-			//callShowView(session, request, response);
+			feedbacks = this.feedbackService.getAllFeedbackPrincipiExperienceDTO(Integer.parseInt(request.getParameter("id").toString()));
+			request.setAttribute("feedbackList", feedbacks);
+			getServletContext().getRequestDispatcher("/NewFeedback.jsp").forward(request, response);
+			
 			break;
-			case "choose":
-
-				if(idFeedback == 0)
-						getServletContext().getRequestDispatcher("/ExperienceServlet?action=chooseFeedbackManagement").forward(request, response);
-				else {
-
-						session.setAttribute("showExperience", "choose");
-
-						callShowView(session, request, response);
-					}
-			break;
-				
+			}
+			
+			
+			
 			case "return":
 				getServletContext().getRequestDispatcher("/Experience.jsp").forward(request, response);
 				break;
@@ -54,23 +48,9 @@ final HttpSession session = request.getSession();
 			
 			}
 			
-			}
 			
-			
-		}
  }
 
-/*
-	private void callShowView(HttpSession session, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		
-
-		List<FeedbackDTO> feedback = feedbackService.getFeedback();
-
-		session.setAttribute("feedbackList", feedback);
-
-		getServletContext().getRequestDispatcher("/ExperienceJsp.jsp").forward(request, response);
-
-	}*/
-
+}
+ 
 }

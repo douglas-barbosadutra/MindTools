@@ -10,9 +10,8 @@
 <html>
 <head>
 
-<% ExperienceService ExperienceService = new ExperienceService();
-List<ExperienceUserFeedbackDTO> all_Experience = ExperienceService.getAllExperienceUserFeedbackDTO();
-//List<ExperienceUserFeedbackDTO> all_Experience1 = (List<ExperienceUserFeedbackDTO>) request.getAttribute("allExperiences"); %>
+<% 
+List<ExperienceUserFeedbackDTO> all_Experience1 = (List<ExperienceUserFeedbackDTO>) request.getAttribute("allExperiences"); %>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -48,7 +47,7 @@ SCORE
           </th>
 
      </tr>
-        <%for (ExperienceUserFeedbackDTO Experience : all_Experience) { %>
+        <%for (ExperienceUserFeedbackDTO Experience : all_Experience1) { %>
      <tr>
          <td>
            
