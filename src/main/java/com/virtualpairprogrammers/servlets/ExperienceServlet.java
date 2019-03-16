@@ -65,6 +65,7 @@ public class ExperienceServlet extends HttpServlet {
 			 listaexperienceDTO = this.experienceService.getAllExperienceUserFeedbackDTO();
 		     request.setAttribute("allExperiences", listaexperienceDTO);
        	     getServletContext().getRequestDispatcher("/Experience.jsp").forward(request, response);
+       	     break;
 		 case ("Insert_Experience"):
 		     UserDTO user = (UserDTO) session.getAttribute("utente");
 		     int id_user = user.getIduser();

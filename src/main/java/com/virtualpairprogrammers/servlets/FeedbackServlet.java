@@ -16,33 +16,32 @@ import com.virtualpairprogrammers.dto.FeedbackPrincipiExperienceDTO;
 import com.virtualpairprogrammers.dto.PrincipiDTO;
 import com.virtualpairprogrammers.service.FeedbackService;
 
-public class FeedbackServlets extends HttpServlet {
+public class FeedbackServlet extends HttpServlet {
 
 private  FeedbackService feedbackService;
-private FeedbackPrincipiExperienceDTO feedbacks;
+private FeedbackPrincipiExperienceDTO feedbacks = new FeedbackPrincipiExperienceDTO();
 private List<PrincipiDTO> secondari = new ArrayList();
 
 
  @Override
 public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 final HttpSession session = request.getSession();
+feedbackService = new FeedbackService();
 		if (request != null) {
 			final String action = request.getParameter("action").toString();
 			if(action != null) {
 			switch(action) {
 
 			case "chooseFeedback":{
-			feedbacks = this.feedbackService.getAllFeedbackPrincipiExperienceDTO(Integer.parseInt(request.getParameter("id").toString()));
-			request.setAttribute("feedbackList", feedbacks);
-			int id = Integer.parseInt(request.getAttribute("id").toString());
-			secondari = this.feedbackService.listaPrincipiSecondari(id);
-		    request.setAttribute("secondari", secondari);
-			getServletContext().getRequestDispatcher("/NewFeedback.jsp").forward(request, response);
+				int id = Integer.parseInt(request.getParameter("id"));
+				feedbacks = this.feedbackService.getFeedbackPrincipiExperienceDTO(id);
+				secondari = this.feedbackService.listaPrincipiSecondari(id);
+				request.setAttribute("feedbackList", feedbacks);
+				request.setAttribute("secondari", secondari);
+				getServletContext().getRequestDispatcher("/NewFeedback.jsp").forward(request, response);
 			
 			break;
 			}
-			
-			
 			
 			case "return":
 				getServletContext().getRequestDispatcher("/Experience.jsp").forward(request, response);

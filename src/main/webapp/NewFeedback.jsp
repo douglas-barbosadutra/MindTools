@@ -11,13 +11,10 @@
 <head>
 <% 
 
-int id_experience= 1;
-FeedbackService feedbackservice = new FeedbackService();
-FeedbackPrincipiExperienceDTO all_feedback = feedbackservice.getAllFeedbackPrincipiExperienceDTO(id_experience);
-FeedbackPrincipiExperienceDTO all_feedback1 = (FeedbackPrincipiExperienceDTO)request.getAttribute("feedbackList");
-FeedbackPrincipiExperienceDTO principio =new FeedbackPrincipiExperienceDTO();
 
-List<PrincipiDTO> secondari = feedbackservice.listaPrincipiSecondari(id_experience);
+FeedbackPrincipiExperienceDTO all_feedback = (FeedbackPrincipiExperienceDTO)request.getAttribute("feedbackList");
+List<PrincipiDTO> secondari = (List<PrincipiDTO>)request.getAttribute("secondari");
+
 
  %>
 
@@ -27,61 +24,56 @@ List<PrincipiDTO> secondari = feedbackservice.listaPrincipiSecondari(id_experien
 <title>Visualizza Feedback</title>
 </head>
 <body>
-<a href="FeedbackServlet?action=choose" name="action" method="post">Experiences </a>
-<form action="FeedabckServlets?chooseFeedback" method="post">
+ <a href="ExperienceServlet?action=allExperiences">Experiences</a>
+
+<form action="FeedbackServlet?chooseFeedback" method="post">
 
  <table>
 	
 				<th></th>
 				<th>EXPERIENCE</th>
+				
 				<th>PRINCIPIO</th>
+				
+				
+				
+				
 				<th>ALTRI PRINCIPI USATI</th>
 				
 				<tr>
 		
 		<td></td>
 
-   	<td><%=all_feedback.getId_experience()
-              %></td>
+    	<td>
+     	<%=all_feedback.getId_experience()
+       %></td>
+		<td><%=all_feedback.getId_principi()%>
+		
+		  <%=all_feedback.getNome_principioITA()%>
+			              
+              </td>
 				
-				<td><%=all_feedback.getNome_principioITA()
-              %></td>
         <td>
-           
-				
+            <%for (PrincipiDTO s : secondari) { %>
+                <td> 
 				 
-				<td>
-				<%= //principio.getSecondari();
-              	secondari.get(0).getId_principi()
+				
+				<%= 
+              	s.getId_principi()
               
-              	 %>
-              	 </td>
+              	 %> 
+              	 <%= 
+              	s.getNome() 
+              
+              	 %> </td> 
+            </td>
 				
               
-   <td>
+  
+    <% }%>
+    
+    
    
-   </td>
-
-    
-    
-    
-    </table>
-    
-  <th></th>
-  <th></th>
-        
-  <th></th>
-  <th></th>
-      
-     </tr>
-    
-    
-          <%//} %>
-     
-     <tr>
-       
-      </tr>
-  </table>    
  
 </body>
 </html>

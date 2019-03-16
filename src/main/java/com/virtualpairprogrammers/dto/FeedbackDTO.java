@@ -10,7 +10,6 @@ public class FeedbackDTO
 	private int id_principi;
 	private int secondario;
 	private Experience experience;
-	
 	private Principi principi;
 	
 	public FeedbackDTO () {}		

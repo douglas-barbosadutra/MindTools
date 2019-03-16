@@ -89,7 +89,7 @@ int idprincipio =Integer.parseInt(request.getParameter("id"));
      	
      <input type="submit" name="action" value="Insert Experience">
      
-       <a href="ExperienceServlet?action=Insert_Experience&id=<%=idprincipio%>"></a>
+       <a href="ExperienceServlet?action=allExperiences"></a>
      	
      </form>
 
@@ -173,7 +173,7 @@ int idprincipio =Integer.parseInt(request.getParameter("id"));
      	
      <input type="submit" name="action" value="Insert Experience">
      
-       <a href="ExperienceServlet?action=Insert_Experience&id=<%=idprincipio%>"></a>
+       <a href="ExperienceServlet?action=allExperiences"></a>
      	
      </form>
   

@@ -11,9 +11,11 @@
 <head>
 
 <% 
-List<ExperienceUserFeedbackDTO> all_Experience1 = (List<ExperienceUserFeedbackDTO>) request.getAttribute("allExperiences"); %>
+List<ExperienceUserFeedbackDTO> all_Experience1 = (List<ExperienceUserFeedbackDTO>) request.getAttribute("allExperiences");
+
+%>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Experiences</title>
 </head>
 <body>
 
@@ -70,7 +72,7 @@ SCORE
              <%=  Experience.getScore()%>
          </td>
     <td>
-             <a href="FeedbackServlets?action=chooseFeedback&id=<%=Experience.getId_experience()%>">Seleziona Esperienza</a>
+             <a href="FeedbackServlet?action=chooseFeedback&id=<%=Experience.getId_experience()%>">Seleziona Esperienza</a>
          </td>
 
      </tr>

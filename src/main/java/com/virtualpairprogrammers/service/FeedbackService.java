@@ -22,6 +22,7 @@ public class FeedbackService {
 	private FeedbackDAO feedbackDAO;
 	private FeedbackDTO feedbackDTO;
 	private PrincipiService principiService ;
+	private FeedbackPrincipiExperienceDTO feedbackPrincipiDTO;
 	
 
 	
@@ -30,6 +31,7 @@ public class FeedbackService {
 		this.feedbackDAO = new FeedbackDAO();
 		this.feedbackDTO = new FeedbackDTO();
 		this.principiService =  new PrincipiService();
+		this.feedbackPrincipiDTO = new FeedbackPrincipiExperienceDTO();
 	}
 
 	/**
@@ -40,7 +42,6 @@ public class FeedbackService {
 	public List<FeedbackDTO>  AllFeedback(){
 		List<Feedback> list = new ArrayList<>();
 		list = feedbackDAO.getAllFeedback();
-		
 		List<FeedbackDTO> listDTO = new ArrayList<>();
 		
 		for (Feedback f : list) {
@@ -64,12 +65,6 @@ public class FeedbackService {
 		return listDTO;
 	}
 	
-	
-	
-	/*public FeedbackDTO getUserByUsernameAndPassword(String username, String password) {
-		return UserConverter.toDTO(userDAO.login(username, password));
-	}
-	*/
 	
 	public FeedbackDTO getFeedbackByDAO(FeedbackDAO feedbackDAO) {
 		List<Feedback> list = feedbackDAO.getAllFeedback();
@@ -96,7 +91,7 @@ public class FeedbackService {
 			
 		}
 	 
-	 public FeedbackPrincipiExperienceDTO getAllFeedbackPrincipiExperienceDTO (int id_experience){
+	 public FeedbackPrincipiExperienceDTO getFeedbackPrincipiExperienceDTO (int id_experience){
 		 List<FeedbackDTO> feedbacks = getFeedbackByIdExperience(id_experience);
 		 List<PrincipiDTO> principi = this.principiService.getAllPrincipi();
 		 FeedbackPrincipiExperienceDTO nuovoFeedback = new FeedbackPrincipiExperienceDTO();
@@ -131,7 +126,7 @@ public class FeedbackService {
 	 
 	 public List<PrincipiDTO> listaPrincipiSecondari(int id_experience)
 	 {
-		 FeedbackPrincipiExperienceDTO principiSeconda = getAllFeedbackPrincipiExperienceDTO (id_experience);
+		 FeedbackPrincipiExperienceDTO principiSeconda = getFeedbackPrincipiExperienceDTO (id_experience);
 		 
 		 List<PrincipiDTO> este = principiSeconda.getSecondari();
           return este;		 

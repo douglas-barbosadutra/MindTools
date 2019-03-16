@@ -36,7 +36,10 @@
   <strong><form action="" method="post">
       <button type= "submit" value= "PrincipiManager" name="richiesta">Search by key word/ Cerca per parola chiave</button>
      </form></strong></a>
-
+  <a href="#" class="btn-toolset">
+  <strong><form action="ExperienceServlet" method="post">
+      <button type= "submit" value= "allExperiences" name="action">EXPERIENCES</button>
+     </form></strong></a>
      
       <a href="#" class="btn-toolset">
   <strong> <form action="UserServlet?action=logout" method="post">

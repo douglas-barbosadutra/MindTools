@@ -15,10 +15,7 @@
     <servlet-name>RegistrazioneServlet</servlet-name>
     <servlet-class>com.virtualpairprogrammers.servlets.RegistrazioneServlet</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>NodesServlet</servlet-name>
-    <servlet-class>com.virtualpairprogrammers.servlets.NodesServlet</servlet-class>
-  </servlet>
+ 
   <servlet>
     <servlet-name>PrincipiServlet</servlet-name>
     <servlet-class>com.virtualpairprogrammers.servlets.PrincipiServlet</servlet-class>
@@ -44,9 +41,13 @@
     <servlet-name>PrincipiServlet</servlet-name>
     <url-pattern>/PrincipiServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <servlet-class>com.virtualpairprogrammers.servlets.FeedbackServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
-    <servlet-name>NodesServlet</servlet-name>
-    <url-pattern>/NodesServlet</url-pattern>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <url-pattern>/FeedbackServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>ExperienceServlet</servlet-name>
