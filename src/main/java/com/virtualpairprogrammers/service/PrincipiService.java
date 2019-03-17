@@ -18,7 +18,7 @@ public class PrincipiService {
 
 	public List<PrincipiDTO> getAllPrincipi() {
 
-		List<Principi> list = principiDAO.getAllPrincipi();
+		List<Principi> list = PrincipiDAO.getAllPrincipi();
 		List<PrincipiDTO> listDTO = new ArrayList<>();
 
 		for (Principi principi : list) {

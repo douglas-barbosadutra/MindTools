@@ -8,15 +8,15 @@ import com.virtualpairprogrammers.utils.ConnectionSingleton;
 import com.virtualpairprogrammers.utils.GestoreEccezioni;
 
 public class PrincipiDAO {
-	private final String QUERY_SELECT_ALL = "SELECT * FROM principi";
+	private final static String QUERY_SELECT_ALL = "SELECT * FROM principi";
 	private final String QUERY_SELECT_PRINCIPIO = "SELECT * FROM principi WHERE id_principi = ?";
 	private final String QUERY_SELECT_BY_P_CHIAVE = "SELECT* FROM principi  where p_chiave like ?";
 	private final String QUERY_SELECT_CASUAL = " SELECT* FROM principi  where id_principi = ? ";
-	public PrincipiDAO() {}
 	
-	public List<Principi> getAllPrincipi(){
-		/* final*/List<Principi> principi = new ArrayList<>();
-		/*final*/Connection connection = ConnectionSingleton.getInstance();
+	
+	public static List<Principi> getAllPrincipi(){
+		List<Principi> principi = new ArrayList<>();
+		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			 Statement statement = connection.createStatement();
 	         ResultSet resultSet = statement.executeQuery(QUERY_SELECT_ALL);
@@ -44,12 +44,11 @@ public class PrincipiDAO {
 	
 	public List<Principi> getAllPrincipiByNome(String testo){
 		
-		/* final*/List<Principi> principi = new ArrayList<>();
-		/*final*/Connection connection = ConnectionSingleton.getInstance();
+		List<Principi> principi = new ArrayList<>();
+		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			 Statement statement = connection.createStatement();
-			 //System.out.println(QUERY_SELECT_ALL + "where  p_chiave LIKE '%"+testo+"%';");
-	         ResultSet resultSet = statement.executeQuery(QUERY_SELECT_ALL + " where  p_chiave LIKE '%"+testo+"%';");
+		      ResultSet resultSet = statement.executeQuery(QUERY_SELECT_ALL + " where  p_chiave LIKE '%"+testo+"%' OR p_chiaveIta LIKE '%"+testo+"%'");
 	        while (resultSet.next()) {
 	        	int id = resultSet.getInt("id_principi");
 	            String nome = resultSet.getString("nome");
@@ -70,7 +69,7 @@ public class PrincipiDAO {
 		return principi;
 	}
 	
-public Principi getPrincipi(int id_principi){
+public List<Principi> getPrincipi(int id_principi){
 		
 		Principi principi = new Principi();
 		Connection connection = ConnectionSingleton.getInstance();
@@ -92,13 +91,13 @@ public Principi getPrincipi(int id_principi){
 	            String d_numeriIta = resultSet.getString("d_numeriIta");
 	            String p_chiaveIta =resultSet.getString("p_chiaveIta");
 	            
-	            principi=new Principi(id,nome, d_punti,d_numeri, p_chiave, nomeita,d_puntiIta,d_numeriIta,p_chiaveIta);
+	            principi=new Principi(id_principi,nome, d_punti,d_numeri, p_chiave, nomeita,d_puntiIta,d_numeriIta,p_chiaveIta);
 	           }
 		}
 		catch (SQLException e) {
             e.printStackTrace();
         }
-		return principi;
+		return (List<Principi>) principi;
 	}
 	public List<Principi> getByP_Chiave(String parola){
 
