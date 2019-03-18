@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PrincipiDTO {
 
-	private Integer id_principi;
+	private Integer idPrincipi;
 	private String nome;
-	private String d_punti;
-	private String d_numeri;
-	private String p_chiave;
-	private String nomeita;
-	private String d_puntiIta;
-	private String d_numeriIta;
-	private String p_chiaveIta;
+	private String dPunti;
+	private String dPumeri;
+	private String pChiave;
+	private String nomeIta;
+	private String dPuntiIta;
+	private String dNumeriIta;
+	private String pChiaveIta;
 }
