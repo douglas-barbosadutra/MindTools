@@ -43,6 +43,7 @@ public class UserDTO {
 		this.user = user;
 		this.password = password;
 		this.nome = nome;
+
 		this.cognome = cognome;
 		this.email = email;
 		this.tipouser = tipouser;

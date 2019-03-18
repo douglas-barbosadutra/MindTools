@@ -13,11 +13,17 @@
 
 <center>
  <table> 
+ 
+ <%
+    UserDTO user= (UserDTO) session.getAttribute("utente") ;
+	if (user.getLingua().equals("inglese")) {
+		
+		%>
  <tr>
  <td>
    <a href="#" class="btn-toolset">
   <strong><form action="PrincipiServlet" method="post">
-     <button type= "submit" value= "PrincipiManager" name="richiesta">All Principles/ Tutti i Principi</button>
+     <button type= "submit" value= "PrincipiManager" name="richiesta">All Principles</button>
      
      </form></strong></a>
    </td>
@@ -28,27 +34,72 @@
      <center>
        <a href="#" class="btn-toolset">
   <strong><form action="PrincipiServlet" method="post">
-     <button type= "submit" value= "PrincipiRandom" name="richiesta">Random Principles/ Principi casuali</button>
+     <button type= "submit" value= "PrincipiRandom" name="richiesta">Random Principles</button>
      </form></strong></a>
 
      
        <a href="#" class="btn-toolset">
   <strong><form action="PrincipiServlet" method="post">
-      <button type= "submit" value= "cercaprincipi" name="richiesta">Search by key word/ Cerca per parola chiave</button>
+      <button type= "submit" value= "cercaprincipi" name="richiesta">Search by key word</button>
      </form></strong></a>
      
   <a href="#" class="btn-toolset">
   <strong><form action="ExperienceServlet" method="post">
-      <button type= "submit" value= "allExperiences" name="action">EXPERIENCES</button>
+      <button type= "submit" value= "allExperiences" name="action">All Experiences</button>
      </form></strong></a>
      
       <a href="#" class="btn-toolset">
-  <strong> <form action="UserServlet?action=logout" method="post">
-      <button type= "submit" value= "UserServlet?action=logout" name="richiesta">Logout</button>
+  <strong> <form action="PrincipiServlet?richiesta=logout" method="post">
+      <button type= "submit" value= "PrincipiServlet?action=logout" name="richiesta">Logout</button>
      </form></strong></a>
      
      </center>
     
+     <%}
+        
+	else { 
+	 
+		
+	 
+	 %>
+	 
+	  <tr>
+ <td>
+   <a href="#" class="btn-toolset">
+  <strong><form action="PrincipiServlet" method="post">
+     <button type= "submit" value= "PrincipiManager" name="richiesta">Tutti i Principi</button>
+     
+     </form></strong></a>
+   </td>
+</tr>
+
+</table> 
+</center>
+     <center>
+       <a href="#" class="btn-toolset">
+  <strong><form action="PrincipiServlet" method="post">
+     <button type= "submit" value= "PrincipiRandom" name="richiesta">Principi casuali</button>
+     </form></strong></a>
+
+     
+       <a href="#" class="btn-toolset">
+  <strong><form action="PrincipiServlet" method="post">
+      <button type= "submit" value= "cercaprincipi" name="richiesta">Cerca per parola chiave</button>
+     </form></strong></a>
+     
+  <a href="#" class="btn-toolset">
+  <strong><form action="ExperienceServlet" method="post">
+      <button type= "submit" value= "allExperiences" name="action">Tutte le esperienze</button>
+     </form></strong></a>
+     
+      <a href="#" class="btn-toolset">
+  <strong> <form action="PrincipiServlet?richiesta=logout" method="post" name="richiesta">Logout
+<!--       <button type= "submit" value= "PrincipiServlet?action=logout" name="richiesta">Logout</button> -->
+     </form></strong></a>
+     
+     </center>
+	 <%
+	} %>
 
 </table>
 </body>

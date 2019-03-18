@@ -26,7 +26,7 @@ public class PrincipiServlet extends HttpServlet {
 		final String scelta = request.getParameter("richiesta");
 		final HttpSession session = request.getSession(true);
 		
-		// System.out.println("XD: " + scelta);
+		
 
 		switch (scelta) {
 		case "PrincipiManager":
@@ -70,21 +70,17 @@ public class PrincipiServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/SelezionaPrincipio.jsp").forward(request, response);
 			break;
 		
-			
-			
-			
+		case "Indietro":
+			response.sendRedirect("homeUser.jsp");
+			break;
+		case "logout":
+			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		break;
 
 		}
 
 	}
 
-	/*
-	 * private void showAllPrincipi(HttpServletRequest request, HttpServletResponse
-	 * response) throws ServletException, IOException { allPrincipi =
-	 * this.principiServiceDTO.getAllPrincipi(); request.setAttribute("allPrincipi",
-	 * allPrincipi);
-	 * getServletContext().getRequestDispatcher("/principi.jsp").forward(request,
-	 * response); }
-	 */
+
 
 }

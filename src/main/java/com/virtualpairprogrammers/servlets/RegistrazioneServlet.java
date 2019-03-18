@@ -27,7 +27,7 @@ public class RegistrazioneServlet extends HttpServlet
 	
 	 public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	 {
-		 final HttpSession session = request.getSession();
+		// final HttpSession session = request.getSession();
 		 
 		 if (request != null) 
 		 {
@@ -44,6 +44,7 @@ public class RegistrazioneServlet extends HttpServlet
 				String lingua = request.getParameter("lingua").toString();
 				
 				UserDTO userDTO = new UserDTO(username, password, nome, cognome, email, tipouser, lingua);
+				System.out.println(userDTO);
 				User user = UserConverter.toEntity(userDTO);
 				
 				userService.insert(user);

@@ -103,7 +103,9 @@
 	
 	<% } %>
 	
-	
+	 <form action="PrincipiServlet" method=post>
+		<button type="submit" value="Indietro" name="richiesta">Indietro</button>
+	</form>
 	
 	
 	</body>

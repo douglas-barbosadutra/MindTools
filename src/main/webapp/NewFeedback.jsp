@@ -25,6 +25,10 @@ List<PrincipiDTO> secondari = (List<PrincipiDTO>)request.getAttribute("secondari
 </head>
 <body>
  <a href="ExperienceServlet?action=allExperiences">Experiences</a>
+ 
+  <form action="PrincipiServlet" method=post>
+		<button type="submit" value="Indietro" name="richiesta">Indietro</button>
+	</form>
 
 <form action="FeedbackServlet?chooseFeedback" method="post">
 
@@ -72,7 +76,7 @@ List<PrincipiDTO> secondari = (List<PrincipiDTO>)request.getAttribute("secondari
   
     <% }%>
     
-    
+   
    
  
 </body>
