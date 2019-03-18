@@ -24,20 +24,30 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idUser;
 
-	@Column(name = "username")
+	@Column(name = "user")
 	@NotNull
-	private String username;
+	private String user;
 
 	@Column(name = "password")
 	@NotNull
 	private String password;
 
 	@NotNull
-	@Column(name = "ruolo")
-	private String ruolo;
+	@Column(name = "nome")
+	private String nome;
 
-	@Nullable
+	@NotNull
+	@Column(name = "cognome")
+	private String cognome;
+	
+	@NotNull
 	@Column(name = "email")
 	private String email;
+	
+	@NotNull
+	@Column(name = "lingua")
+	private String lingua;
+	
+	
 
 }
