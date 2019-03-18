@@ -69,7 +69,7 @@ public class PrincipiDAO {
 		return principi;
 	}
 	
-public List<Principi> getPrincipi(int id_principi){
+public Principi getPrincipi(int id_principi){
 		
 		Principi principi = new Principi();
 		Connection connection = ConnectionSingleton.getInstance();
@@ -97,7 +97,7 @@ public List<Principi> getPrincipi(int id_principi){
 		catch (SQLException e) {
             e.printStackTrace();
         }
-		return (List<Principi>) principi;
+		return principi;
 	}
 	public List<Principi> getByP_Chiave(String parola){
 
