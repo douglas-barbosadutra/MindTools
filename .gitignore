@@ -13,5 +13,6 @@
 .settings
 .springBeans
 .sts4-cache
+.sql
 
 src/main/resources/application.properties
