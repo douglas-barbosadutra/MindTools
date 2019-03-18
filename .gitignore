@@ -1,0 +1,17 @@
+# Mac
+.DS_Store
+
+#Eclipse
+/bin
+/target
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+src/main/resources/application.properties
