@@ -1,5 +1,4 @@
 package com.pCarpet.model;
-
 import java.util.List;
 
 import javax.persistence.Column;
@@ -7,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
@@ -22,40 +23,39 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User {
 
+
+public class Experience {
 	@Id
-	@Column(name = "idUser")
+	@Column(name = "idExperience")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idUser;
-
-	@Column(name = "username")
-	@NotNull
-	private String username;
-
-	@Column(name = "password")
-	@NotNull
-	private String password;
-
-	@NotNull
-	@Column(name = "nome")
-	private String nome;
-
-	@NotNull
-	@Column(name = "cognome")
-	private String cognome;
+	private Integer idExperience;
 	
-	@NotNull
-	@Column(name = "email")
-	private String email;
+	@ManyToOne
+	@JoinColumn(name="idUser")
+	private User user;
 	
-	@NotNull
-	@Column(name = "lingua")
-	private String lingua;
+	@Column(name = "commento")
+	private String commento;
 	
-	@OneToMany(mappedBy="user")
+	@Column(name = "positivo")
+	private String positivo;
+	
+	@Column(name = "negativo")
+	private String negativo;
+	
+	@Column(name = "score")
+	@NotNull
+	private Integer score;
+	
+	@OneToMany(mappedBy="experience")
 	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Experience> experience;
+	private List<Feedback> feedback;
 	
+	
+	
+	
+
+
 
 }
