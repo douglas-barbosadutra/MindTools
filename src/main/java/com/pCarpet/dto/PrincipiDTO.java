@@ -2,9 +2,12 @@ package com.pCarpet.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class PrincipiDTO {
@@ -12,7 +15,7 @@ public class PrincipiDTO {
 	private Integer idPrincipi;
 	private String nome;
 	private String dPunti;
-	private String dPumeri;
+	private String dNumeri;
 	private String pChiave;
 	private String nomeIta;
 	private String dPuntiIta;
