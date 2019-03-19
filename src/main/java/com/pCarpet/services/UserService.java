@@ -1,60 +1,48 @@
 package com.pCarpet.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pCarpet.converter.ConverterUser;
-import com.pCarpet.dao.UserRepository;
+import com.pCarpet.dao.UserDAO;
 import com.pCarpet.dto.UserDTO;
 import com.pCarpet.model.User;
+import com.pCarpet.converter.ConverterUser;
 
 @Service
 public class UserService {
 
-	private final UserRepository userRepository;
+	private UserDAO userDAO;
+
+	private static User user = null;
 
 	@Autowired
-	public UserService(UserRepository userRepository) {
-		this.userRepository = userRepository;
+	public UserService(UserDAO userDAO) {
+		this.userDAO = userDAO;
 	}
 
-	public List<UserDTO> getListaUserDTO() {
-		return ConverterUser.toListDTO((List<User>) userRepository.findAll());
+	public void deleteUser(int id) {
+		this.userDAO.deleteById(id);
 	}
 
-	public UserDTO getUserDTOById(Integer id) {
-		return ConverterUser.toDTO(userRepository.findById(id).get());
+	public void insertUser(UserDTO userdto) {
+		userDAO.save(ConverterUser.toEntity(userdto));
 	}
 
-	public UserDTO getByUsernameAndPassword(String username, String password) {
-
-		final User user = userRepository.findUserByUsernameAndPassword(username, password);
-
-		return ConverterUser.toDTO(user);
+	public List<UserDTO> getAllUsers() {
+		return ConverterUser.toListDTO(userDAO.findAll());
 	}
 
-	public boolean insertUser(UserDTO userDTO) {
-		return userRepository.save(ConverterUser.toEntity(userDTO)) != null;
-	}
-
-	public boolean updateUser(UserDTO userDTO) {
-		return userRepository.save(ConverterUser.toEntity(userDTO)) != null;
-	}
+	/*
+	 * public User findUserById(int id) { return userDAO.findUserById(id); }
+	 */
 	
-	public void deleteUserById(Integer id) {
-		userRepository.deleteById(id);
+	public static void setUserSession(User u) {
+		user = u;
 	}
-	
-	public List<UserDTO> findUserDTOByUsername(String username) {
-		
-		final List<User> list = userRepository.findAllByUsername(username);
-		final List<UserDTO> userDTOs = new ArrayList<>();
-		list.forEach(i -> userDTOs.add(ConverterUser.toDTO(i)));
-		return userDTOs;
-		
-	
+
+	public static User getUserSession() {
+		return user;
 	}
 }
