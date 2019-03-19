@@ -27,7 +27,7 @@ public class Principi {
 	@Id
 	@Column(name = "idPrincipi")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_principi;
+	private Integer idPrincipi;
 
 	@Column(name = "nome")
 	@NotNull
