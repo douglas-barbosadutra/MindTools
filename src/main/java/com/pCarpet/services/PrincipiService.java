@@ -14,7 +14,7 @@ import com.pCarpet.model.Principi;
 @Service
 public class PrincipiService {
 
-	private  PrincipiDAO principiDAO;
+	private final PrincipiDAO principiDAO;
 	
 @Autowired
 	public PrincipiService(PrincipiDAO principiDAO) {
@@ -23,16 +23,18 @@ public class PrincipiService {
 
 	public List<PrincipiDTO> getAllPrincipi() {
 
-		List<Principi> list = (List<Principi>) principiDAO.getAllPrincipi();
+		return PrincipiConverter.toListDTO((List<Principi>) principiDAO.findAll());
+		
+		/*List<Principi> list =  (List<Principi>) principiDAO.findAll();
 		List<PrincipiDTO> listDTO = new ArrayList<>();
         list.forEach(i->listDTO.add(PrincipiConverter.convertToDto(i)));
-		return listDTO;
+		return listDTO; */
 		
 
 	}
 	
-	public PrincipiDTO getPrincipio(Integer idPrincipi) {
-		Principi p = this.principiDAO.SelezionaPrincipio(idPrincipi);
+	public PrincipiDTO getPrincipio(int id) {
+		Principi p = this.principiDAO.findByIdPrincipi(id);
 		return PrincipiConverter.convertToDto(p);
 	}
 

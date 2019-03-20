@@ -1,5 +1,8 @@
 package com.pCarpet.converter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.pCarpet.dto.PrincipiDTO;
 import com.pCarpet.model.Principi;
 
@@ -33,6 +36,18 @@ public class PrincipiConverter {
 		principi.setPChiaveIta(i.getPChiaveIta());
 		return principi;	
 	  	}
+	public static List<PrincipiDTO> toListDTO(List<Principi> list) {
+		List<PrincipiDTO> principiDTO = new ArrayList<>();
+		if (!list.isEmpty()) {
+			for (Principi p : list) {
+				principiDTO.add(PrincipiConverter.convertToDto(p));
+			}
+		}
+		return principiDTO;
+	}
+	
+	
+	 
 	
 
 }

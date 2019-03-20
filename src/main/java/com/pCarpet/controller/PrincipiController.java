@@ -1,7 +1,7 @@
 package com.pCarpet.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -28,18 +28,18 @@ public class PrincipiController {
 	}
 	
 	@RequestMapping(value = "/ShowAllPrincipi", method = RequestMethod.GET)
-	public String ShowAll(HttpServletRequest request, Model model) {
+	public String ShowAll(HttpServletRequest request) {
 		 List <PrincipiDTO> listaPrincipi = principiService.getAllPrincipi();
-		 model.addAttribute("listaPrincipi", listaPrincipi);
+		 request.getSession().setAttribute("listaPrincipi", listaPrincipi);
 		 return "ShowAllPrincipi";	
 	}
 	
 	@RequestMapping(value = "/SelezionaPrincipio", method = RequestMethod.GET)
-	public String SelezionaPrincipio(HttpServletRequest request, Model model) {
-		int id = Integer.parseInt(request.getParameter("id_principi"));
+	public String SelezionaPrincipio(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("idPrincipi"));
 		PrincipiDTO principio = principiService.getPrincipio(id);
-		model.addAttribute("Principio", principio);
-		return "SelezionaPrincipio";
+		request.getSession().setAttribute("Principio", principio);
+		return "PrincipioView";
 	}
 	
 	

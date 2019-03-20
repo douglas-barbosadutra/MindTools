@@ -15,11 +15,9 @@ import com.pCarpet.model.Principi;
 @Transactional
 public interface PrincipiDAO extends CrudRepository<Principi, Integer> {
 	
-	@Query(value = "select * from principi", nativeQuery=true)
-	List<Principi> getAllPrincipi ();
+	//public List<Principi> findAll();
 	
-	@Query(value = "select* FROM principi WHERE id_principi = ?" , nativeQuery=true )
-	Principi SelezionaPrincipio(Integer idPrincipi) ;
+	public Principi findByIdPrincipi(Integer id);
 	
 	
 }
