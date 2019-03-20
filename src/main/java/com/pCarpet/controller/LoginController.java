@@ -34,7 +34,7 @@ public class LoginController {
 			UserService.setUserSession(user);
 			request.getSession().setAttribute("utente", user);
 			
-			return "Home";
+			return "homeUser";
 		}
 		
 		return "index";
