@@ -29,13 +29,13 @@ public class HomeController {
 
 	}
 
-	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
+	/* @RequestMapping(value = "/userManagement", method = RequestMethod.GET)
 	public String userManagement(HttpServletRequest request) {
 		List<UserDTO> allUser = this.userService.getListaUserDTO();
 		request.setAttribute("allUserDTO", allUser);
-		return "homeUser";
+		return "homeUser"; 
 
-	}
+	}*/
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {

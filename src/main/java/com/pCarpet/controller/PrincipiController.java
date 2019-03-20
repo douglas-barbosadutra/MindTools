@@ -27,11 +27,11 @@ public class PrincipiController {
 		
 	}
 	
-	@RequestMapping(value = "/ShowAll", method = RequestMethod.GET)
+	@RequestMapping(value = "/ShowAllPrincipi", method = RequestMethod.GET)
 	public String ShowAll(HttpServletRequest request, Model model) {
 		 List <PrincipiDTO> listaPrincipi = principiService.getAllPrincipi();
 		 model.addAttribute("listaPrincipi", listaPrincipi);
-		 return "listaPrincipi";	
+		 return "ShowAllPrincipi";	
 	}
 	
 	@RequestMapping(value = "/SelezionaPrincipio", method = RequestMethod.GET)
