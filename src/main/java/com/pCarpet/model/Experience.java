@@ -52,8 +52,8 @@ public class Experience {
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	private List<Feedback> feedback;
 	
-	
-	
+	@Column(name = "imagePath")
+	private String imagePath;
 	
 
 
