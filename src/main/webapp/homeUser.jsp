@@ -40,7 +40,7 @@
      
   <a href="#" class="btn-toolset">
  <strong><form class="form-signin" action="/homeUser/Experience" method="post">
-    <a href="/homeUser/Experience"> All Principles</a></form>
+    <a href="/homeUser/Experience"> All Experience</a></form>
      
       <a href="#" class="btn-toolset">
   <strong> <form action="PrincipiServlet?richiesta=logout" method="post">

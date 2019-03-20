@@ -18,28 +18,23 @@
 	
 	<body>
 	<form class="form-signin" action="/homeUser/SelezionaPrincipio" method="GET">
-	<table>
 	
-	<img src="/card/<%=idprincipio%>front.jpg">     
+	<center><table>
+	
+	
+	<tr><td><img src="/card/<%=idprincipio%>front.jpg"  width="400" height="500"></td><td>     
 
-	<img src="/card/<%=idprincipio%>retro.jpg">     
+	<img src="/card/<%=idprincipio%>retro.jpg" width="400" height="500"></td></tr>    
 	
-	
-	
-             <a href="homeUser/SelezionaPrincipio/insertExperience&principio=<%=principio%>">Insert Experience</a>
-             
-              
-         </td>
-				
-				
-		</tr>
-	</table>
+
 	</form>
+	 <tr><td>  <form action="PrincipiServlet" method=post>
+		<button type="submit" value="Indietro" name="richiesta">Indietro</button> 
+	 <a href="homeUser/SelezionaPrincipio/insertExperience&principio=<%=principio%>">Insert Experience</a></td><td> 
+	 
+	</form></td></tr> 
 	
-	 <form action="PrincipiServlet" method=post>
-		<button type="submit" value="Indietro" name="richiesta">Indietro</button>
-	</form>
-	
+	</table></center>
 	
 	</body>
 	</html>
