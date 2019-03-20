@@ -30,7 +30,8 @@ List<PrincipiDTO> all_principi = (List<PrincipiDTO>) session.getAttribute("lista
 	    document.getElementById('img<%=i%>').src='/card/<%=i %>retro.jpg'; 
 	    return false;})();
 	    return false;"> 
-   <img id="img<%=i %>" src="/card/<%=i %>front.jpg" width="170" height="180"></a>
+	    
+      <img id="img<%=i %>" src="/card/<%=i %>front.jpg" width="170" height="180"></a>
 		
   <% } %>
         
