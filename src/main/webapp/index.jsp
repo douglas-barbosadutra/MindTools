@@ -12,25 +12,24 @@
 		
 		<div style="width:25%; margin-top:15%; margin-left:35%;">
 		
-			<h1 >MINDTOOLS</h1>
+			<center><h1 >MINDTOOLS</h1></center>
 			
 			<form action="/Login/authentication" method="post">
 		
-				<div >
+				
 					<label ">Username</label>
 					<input type="text"  name="username">
-					
+					<br>
 					<label >Password</label>
 					<input type="password"  name="password">
-				</div>
+					<br>
+					<button style="margin-top:2%"  type="submit" value="Login">Login</button>
 				
-				<div >
-					<button style="margin-top:2%" class="btn btn-primary" type="submit" value="Login">Login</button>
-				</div>
-			
 			</form>
 			
-		</div>		
-		
+			<form action="/Login/registrazione" method="post">
+				<button style="margin-top:2%"  type="submit" value="Registrazione">Registrazione</button>
+			</form>
+		</div>
 	</body>
 </html>

@@ -28,6 +28,7 @@ public class UserService {
 
 	public void insertUser(UserDTO userdto) {
 		userDAO.save(ConverterUser.toEntity(userdto));
+		
 	}
 
 	public List<UserDTO> getAllUsers() {
