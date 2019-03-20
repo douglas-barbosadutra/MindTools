@@ -13,7 +13,7 @@
 List<PrincipiDTO> all_principi = (List<PrincipiDTO>) request.getAttribute("listaprincipi");
 %>
 <body>
-<form class="form-signin" action="/homeUser/ShowAll" method="GET">
+<form class="form-signin" action="/homeUser/ShowAllPrincipi" method="GET">
 <%
  		int i;
         for (i=0; i < all_principi.size(); i++) { 
@@ -22,7 +22,7 @@ List<PrincipiDTO> all_principi = (List<PrincipiDTO>) request.getAttribute("lista
     
          
    <a ondblclick="(function(){
-	    window.location.href = 'homeUser/SelezionaPrincipio&id=<%=principi.getIdPrincipi()%>'; 
+	    window.location.href = 'ShowAllPrincipi/SelezionaPrincipio&id=<%=principi.getIdPrincipi()%>'; 
 	    return false;})();
 	    return false;" 
 	    onClick="(function(){
