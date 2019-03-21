@@ -7,29 +7,21 @@
 		
 		<title>Login</title>
 	</head>
-	
-	<body >
-		
-		<div style="width:25%; margin-top:15%; margin-left:35%;">
-		
-			<center><h1 >MINDTOOLS</h1></center>
-			
-			<form action="/Login/authentication" method="post">
-		
-				
-					<label ">Username</label>
-					<input type="text"  name="username">
-					<br>
-					<label >Password</label>
-					<input type="password"  name="password">
-					<br>
-					<button style="margin-top:2%"  type="submit" value="Login">Login</button>
-				
-			</form>
-			
-			<form action="/Login/registrazione" method="post">
-				<button style="margin-top:2%"  type="submit" value="Registrazione">Registrazione</button>
-			</form>
-		</div>
+<body background ="imagen/brainviolet.png">
+<div style="width:55%; margin-top:17%; margin-left:35%;">
+  <form action="/Login/authentication" method="post">
+        <label>Username</label>
+		<input type="text"  name="username">
+		<br>
+		<br>
+	    <label>Password</label>
+		<input type="password"  name="password">
+	    <br>
+		<button style="margin-top:2%"  type="submit" value="Login">Login</button>
+	</form>
+	 <form action="/Login/registrazione" method="post">
+	  <button style="margin-top:1%"  type="submit" value="Registrazione">Registrazione</button>
+		</form>
+ </div>
 	</body>
 </html>

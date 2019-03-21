@@ -25,12 +25,6 @@ public class PrincipiService {
 
 		return PrincipiConverter.toListDTO((List<Principi>) principiDAO.findAll());
 		
-		/*List<Principi> list =  (List<Principi>) principiDAO.findAll();
-		List<PrincipiDTO> listDTO = new ArrayList<>();
-        list.forEach(i->listDTO.add(PrincipiConverter.convertToDto(i)));
-		return listDTO; */
-		
-
 	}
 	
 	public PrincipiDTO getPrincipio(int id) {
