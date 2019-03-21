@@ -10,17 +10,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.pCarpet.converter.ConverterUser;
+import com.pCarpet.converter.ExperienceConverter;
+import com.pCarpet.converter.FeedbackConverter;
+import com.pCarpet.dto.ExperienceDTO;
+import com.pCarpet.dto.FeedbackDTO;
 import com.pCarpet.dto.PrincipiDTO;
 import com.pCarpet.dto.UserDTO;
+import com.pCarpet.model.Experience;
 import com.pCarpet.model.User;
 import com.pCarpet.services.ExperienceService;
+import com.pCarpet.services.FeedbackService;
 import com.pCarpet.services.PrincipiService;
+
+import lombok.Data;
 
 @Controller
 @RequestMapping("/Experience")
 public class ExperienceController {
 	private final ExperienceService experienceService;
 	private final PrincipiService principiService;
+	private FeedbackService feedbackservice;
+	private ExperienceDTO experienceDTO = new ExperienceDTO();
+	private Experience experience = new Experience();
+	private ExperienceConverter experienceConverter = new ExperienceConverter();
+	private FeedbackDTO feedbackDTO = new FeedbackDTO();
+	private FeedbackConverter feedbackconverter = new FeedbackConverter();
+	
 	
 	@Autowired
 	public ExperienceController (ExperienceService experienceService,PrincipiService principiService ) {
@@ -41,22 +56,24 @@ public class ExperienceController {
 	public String insertUser(HttpServletRequest request) {
 		 User user =  (User) request.getSession().getAttribute("utente");
 		 UserDTO userDTO = ConverterUser.toDTO(user);
-		
+		 
 		 String commento= request.getParameter("commento");
 	     String positivo = request.getParameter("positivo");
 	     String negativo = request.getParameter("negativo");
-	     int idpprincipale = Integer.parseInt(request.getParameter("id")) ;
+	     int idpprincipale = (int) request.getSession().getAttribute("principio");
 	     int score = Integer.parseInt(request.getParameter("score"));
 	     String[]  ids_principi = request.getParameterValues("idsprincipi[]");
-	     /*
+	     
 	     experienceDTO.setCommento(commento);
 	     experienceDTO.setPositivo(positivo);
 	     experienceDTO.setNegativo(negativo);
 	     experienceDTO.setScore(score);
-	     experienceDTO.setId_user(id_user);
-	     experience = this.experienceConverter.toEntity(experienceDTO);
-	     this.experienceService.insertExperience(experience); 
-	     Experience ex = experienceService.getLastRecord(user);
+	    /* experienceDTO.setId_user(id_user);*/
+	     /*experience = this.experienceConverter.toEntity(experienceDTO);*/
+	     
+	     ExperienceDTO ex = experienceService.insertExperience(experienceDTO);
+	  
+	    /* Experience ex = experienceService.getLastRecord(user);
 	     int id_experience = ex.getId_experience();
 	    
         if( ids_principi !=null) {
@@ -85,8 +102,8 @@ public class ExperienceController {
 	    	 feedbackDTO.setSecondario(valore);
 	    	 feedback = FeedbackConverter.toEntity(feedbackDTO);
 	    	 this.feedbackservice.insertFeedback(feedback);
-       	 */
-
+       	 
+*/
 		
 		
 		return "Experience";

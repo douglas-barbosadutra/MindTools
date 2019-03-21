@@ -19,5 +19,5 @@ public class FeedbackDTO {
 	private Integer idFeedback;
 	private Experience experience;
 	private Principi principi;
-	private Feedback secondario;
+	private Integer secondario;
 	}

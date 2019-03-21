@@ -22,12 +22,7 @@ public class FeedbackController {
 		this.feedbackService = feedbackService;
 	}
 	
-	@RequestMapping(value = "/ShowPatologia", method = RequestMethod.GET)
-	public String HomePatologia(HttpServletRequest request) {
-		List<FeedbackDTO> lista = FeedbackService.getAll();
-		request session.Attribute
-		return "patologiaView";
-	}
+	
 
 	private String showFeedback(HttpServletRequest request) {
 		String showFeedback = request.getParameter("showFeedback");

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import com.pCarpet.converter.ExperienceConverter;
 import com.pCarpet.converter.FeedbackConverter;
 
 import com.pCarpet.dao.FeedbackRepository;
@@ -17,14 +18,13 @@ import com.pCarpet.model.Principi;
 
 
 @Service
-
 public class FeedbackService {
 		
 
-private FeedbackRepository FeedbackRepository;
+private final FeedbackRepository FeedbackRepository;
 
-@Autowired
- 	public FeedbackService(PrincipiService principiservice, FeedbackRepository feedbackrepository) {
+   @Autowired
+ 	public FeedbackService( FeedbackRepository feedbackrepository) {
 
 		this.FeedbackRepository = feedbackrepository;
 
@@ -69,7 +69,8 @@ public static List<Feedback> findByExperience(Experience e) {
 
 	
 	public boolean insertFeedback (Feedback feedback) {
-	    return feedback != null;
+		Feedback ex = FeedbackRepository.save(feedback);
+	    return ex != null;
         
     }
 	

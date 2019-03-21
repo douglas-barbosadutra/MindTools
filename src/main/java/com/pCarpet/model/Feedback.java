@@ -30,7 +30,7 @@ public class Feedback {
 	
 	@Column(name = "secondario")
 	@NotNull
-	private Feedback secondario;
+	private Integer secondario;
 	
 	@NotNull
 	@ManyToOne
