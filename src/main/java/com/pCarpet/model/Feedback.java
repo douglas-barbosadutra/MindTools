@@ -24,9 +24,9 @@ import lombok.NoArgsConstructor;
 
 public class Feedback {
 	@Id
-	@Column(name = "idfeedback")
+	@Column(name = "idFeedback")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idfeedback;
+	private Integer idFeedback;
 	
 	@Column(name = "secondario")
 	@NotNull
@@ -42,5 +42,8 @@ public class Feedback {
 	@ManyToOne
 	@JoinColumn(name="idExperience")
 	private Experience experience;
+
+
+	
 
 }
