@@ -23,7 +23,7 @@ public class PrincipiConverter {
 		return principiDTO;		
 		}
 
-	public static Principi convertToSintomo(Principi i) {
+	public static Principi convertToEntity(PrincipiDTO i) {
 		Principi principi= new Principi();
 		principi.setIdPrincipi(i.getIdPrincipi());
 		principi.setNome(i.getNome());

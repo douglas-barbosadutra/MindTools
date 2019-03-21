@@ -68,10 +68,9 @@ public static List<Feedback> findByExperience(Experience e) {
 	
 
 	
-	public boolean insertFeedback (Feedback feedback) {
-		Feedback ex = FeedbackRepository.save(feedback);
-	    return ex != null;
-        
+	public void insertFeedback (FeedbackDTO feedback) {
+		 FeedbackRepository.save(FeedbackConverter.toEntity(feedback));
+	    
     }
 	
 	/* public List<FeedbackDTO> getFeedbackByIdExperience(int id_experience)

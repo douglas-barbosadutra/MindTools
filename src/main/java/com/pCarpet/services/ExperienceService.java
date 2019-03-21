@@ -1,5 +1,7 @@
 package com.pCarpet.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +19,13 @@ public class ExperienceService {
 		this.experienceRepository = experienceRepository;
 	}
 	
-	public ExperienceDTO insertExperience(ExperienceDTO experienceDTO) {
+	public Experience insertExperience(ExperienceDTO experienceDTO) {
+		Experience e = experienceRepository.saveAndFlush(ExperienceConverter.toEntity(experienceDTO));
 		
-		Experience ex = experienceRepository.save(ExperienceConverter.toEntity(experienceDTO));
-		return ExperienceConverter.toDTO(ex);
+		return e;
 	}
+	
+	 
 	
 	
 

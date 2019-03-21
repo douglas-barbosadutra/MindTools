@@ -24,11 +24,14 @@ public class FeedbackConverter {
  
 public static Feedback toEntity(FeedbackDTO feedbackDTO) {
 	Feedback feedback = null;
-	feedback = new Feedback();
-	feedback.setIdFeedback(feedbackDTO.getIdFeedback());
-	feedback.setExperience(feedbackDTO.getExperience());
-	feedback.setPrincipi(feedbackDTO.getPrincipi());
-	feedback.setSecondario(feedbackDTO.getSecondario());
+	if (feedbackDTO != null) {
+		feedback = new Feedback();
+		feedback.setIdFeedback(feedbackDTO.getIdFeedback());
+		feedback.setExperience(feedbackDTO.getExperience());
+		feedback.setPrincipi(feedbackDTO.getPrincipi());
+		feedback.setSecondario(feedbackDTO.getSecondario());
+	}
+	
 	
 	return feedback;
 }

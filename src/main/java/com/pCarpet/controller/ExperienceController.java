@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.pCarpet.converter.ConverterUser;
 import com.pCarpet.converter.ExperienceConverter;
 import com.pCarpet.converter.FeedbackConverter;
+import com.pCarpet.converter.PrincipiConverter;
 import com.pCarpet.dto.ExperienceDTO;
 import com.pCarpet.dto.FeedbackDTO;
 import com.pCarpet.dto.PrincipiDTO;
 import com.pCarpet.dto.UserDTO;
 import com.pCarpet.model.Experience;
+import com.pCarpet.model.Feedback;
 import com.pCarpet.model.User;
 import com.pCarpet.services.ExperienceService;
 import com.pCarpet.services.FeedbackService;
@@ -32,9 +34,12 @@ public class ExperienceController {
 	private FeedbackService feedbackservice;
 	private ExperienceDTO experienceDTO = new ExperienceDTO();
 	private Experience experience = new Experience();
+	private Feedback feedback = new Feedback();
 	private ExperienceConverter experienceConverter = new ExperienceConverter();
 	private FeedbackDTO feedbackDTO = new FeedbackDTO();
 	private FeedbackConverter feedbackconverter = new FeedbackConverter();
+	private PrincipiConverter principiConverter = new PrincipiConverter();
+	int valore = 0;
 	
 	
 	@Autowired
@@ -56,7 +61,7 @@ public class ExperienceController {
 	public String insertUser(HttpServletRequest request) {
 		 User user =  (User) request.getSession().getAttribute("utente");
 		 UserDTO userDTO = ConverterUser.toDTO(user);
-		 
+		 int id_user = userDTO.getIdUser();
 		 String commento= request.getParameter("commento");
 	     String positivo = request.getParameter("positivo");
 	     String negativo = request.getParameter("negativo");
@@ -68,20 +73,16 @@ public class ExperienceController {
 	     experienceDTO.setPositivo(positivo);
 	     experienceDTO.setNegativo(negativo);
 	     experienceDTO.setScore(score);
-	    /* experienceDTO.setId_user(id_user);*/
-	     /*experience = this.experienceConverter.toEntity(experienceDTO);*/
+	     experienceDTO.setUser(user);
+	     Experience ex = experienceService.insertExperience(experienceDTO);
+	     int id_experience = ex.getIdExperience();
 	     
-	     ExperienceDTO ex = experienceService.insertExperience(experienceDTO);
-	  
-	    /* Experience ex = experienceService.getLastRecord(user);
-	     int id_experience = ex.getId_experience();
-	    
-        if( ids_principi !=null) {
-       	 feedbackDTO.setId_experience(id_experience);
-	    	 feedbackDTO.setId_principi(idpprincipale);
+         if( ids_principi !=null) {
+       	     feedbackDTO.setExperience(ex);
+       	     PrincipiDTO p = principiService.getPrincipio(idpprincipale);
+	    	 feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
 	    	 feedbackDTO.setSecondario(valore);
-	    	 feedback = FeedbackConverter.toEntity(feedbackDTO);
-	    	 this.feedbackservice.insertFeedback(feedback);
+	    	 this.feedbackservice.insertFeedback(feedbackDTO);
 	     for (int i = 0; i < ids_principi.length; i ++) {
 	    	 String a = ids_principi[i];
 	    	 int id = Integer.parseInt(a);
@@ -89,22 +90,20 @@ public class ExperienceController {
 	    	 if(id != idpprincipale)
 	    		 second = 1;
 	    	 
-	    	 feedbackDTO.setId_experience(id_experience);
-	    	 feedbackDTO.setId_principi(id);
+	    	 feedbackDTO.setExperience(ex);
+	    	 PrincipiDTO b = principiService.getPrincipio(id);
+	         feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(b));
 	    	 feedbackDTO.setSecondario(second);
-	    	 feedback = FeedbackConverter.toEntity(feedbackDTO);
-	    	 this.feedbackservice.insertFeedback(feedback);
+	    	 this.feedbackservice.insertFeedback(feedbackDTO);
 	      }
         }
         else {
-       	 feedbackDTO.setId_experience(id_experience);
-	    	 feedbackDTO.setId_principi(idpprincipale);
-	    	 feedbackDTO.setSecondario(valore);
-	    	 feedback = FeedbackConverter.toEntity(feedbackDTO);
-	    	 this.feedbackservice.insertFeedback(feedback);
-       	 
-*/
-		
+        	feedbackDTO.setExperience(ex);
+        	PrincipiDTO p = principiService.getPrincipio(idpprincipale);
+        	feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
+        	feedbackDTO.setSecondario(valore);
+	    	this.feedbackservice.insertFeedback(feedbackDTO);
+        }
 		
 		return "Experience";
 	}
