@@ -28,9 +28,9 @@
 	
 
 	</form>
-	 <tr><td>  <form action="PrincipiServlet" method=post>
+	 <tr><td>  <form action="/Experience/openInsertExperience" method="GET">
 		<button type="submit" value="Indietro" name="richiesta">Indietro</button> 
-	 <a href="homeUser/SelezionaPrincipio/insertExperience&principio=<%=principio%>">Insert Experience</a></td><td> 
+	 <a href="/Experience/openInsertExperience?principio=<%=idprincipio%>">Insert Experience</a></td><td> 
 	 
 	</form></td></tr> 
 	

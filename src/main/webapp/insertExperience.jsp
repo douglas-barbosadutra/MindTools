@@ -10,8 +10,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<% List<PrincipiDTO> allPrincipi = (List<PrincipiDTO>) request.getAttribute("allPrincipi");
-int idprincipio =Integer.parseInt(request.getParameter("id"));
+<% List<PrincipiDTO> allPrincipi = (List<PrincipiDTO>) session.getAttribute("listaPrincipi");
+int idprincipio = Integer.parseInt(session.getAttribute("principio").toString());
 
 %>
 <title>INSERT----MY----EXPERIENCE]</title>
@@ -23,7 +23,7 @@ int idprincipio =Integer.parseInt(request.getParameter("id"));
 
 
  <a href="PrincipiServlet?richiesta=return" name="richiesta" method="post">Home </a>
-     <form action="Experience/insertExperience" method="post">
+     <form action="/Experience/insertExperience" method="GET">
      <h3>How much was this principle useful for you? </h3>
      	
      	<h4>Comment: <br> <textarea  id = "experience" name ="commento" placeholder = "InsertComment" rows="10" cols="50" ></textarea></h4>
@@ -75,14 +75,11 @@ int idprincipio =Integer.parseInt(request.getParameter("id"));
   </tr>
   
 
-
 </table>
-
-  
      	
      <input type="submit" name="action" value="Insert Experience">
      
-       <a href="ExperienceServlet?action=allExperiences"></a>
+       <a href="/Experience/insertExperience"></a>
      	
      </form>
 
