@@ -31,6 +31,21 @@ public class PrincipiService {
 		Principi p = this.principiDAO.findByIdPrincipi(id);
 		return PrincipiConverter.convertToDto(p);
 	}
+	
+	public List<PrincipiDTO> findByPChiave(String pChiave) {
+		
+
+		List<Principi> list = principiDAO.findAllByPChiave(pChiave);
+		
+		List<PrincipiDTO> listDTO = new ArrayList<>();
+
+		for (Principi principi : list) 
+			listDTO.add(PrincipiConverter.convertToDto(principi));
+		
+		return listDTO;
+
+	}
+	
 
 
 /*	public List<PrincipiDTO> getAllPrincipiByNome(String testo) {
@@ -44,5 +59,5 @@ public class PrincipiService {
 
 	}*/
 
-
+	
 }

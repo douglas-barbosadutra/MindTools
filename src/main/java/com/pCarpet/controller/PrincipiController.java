@@ -42,6 +42,27 @@ public class PrincipiController {
 		return "PrincipioView";
 	}
 	
+	@RequestMapping(value = "/PrincipiByParola", method = RequestMethod.GET)
+	public String findByPChiave(HttpServletRequest request) {
+		String pChiave = request.getParameter("pChiave"); 
+		List <PrincipiDTO> listaPrincipi = principiService.findByPChiave(pChiave);
+		request.getSession().setAttribute("listaprincipi", listaPrincipi); 		
+		return "PrincipiByParola";
+		
+	}
+	
+	@RequestMapping(value = "/PrincipioRandom", method = RequestMethod.GET)
+	public String PrincipioRandom(HttpServletRequest request) {
+		int casual = (int) (Math.random()*40+1);
+		PrincipiDTO principio = principiService.getPrincipio(casual);
+		request.getSession().setAttribute("Principio", principio);
+		return "PrincipioView";
+	}
+	
+	
+	
+	
+	
 	
 	
 }

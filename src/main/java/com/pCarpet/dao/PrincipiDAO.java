@@ -14,11 +14,9 @@ import com.pCarpet.model.Principi;
 @Repository
 @Transactional
 public interface PrincipiDAO extends CrudRepository<Principi, Integer> {
-	
-	//public List<Principi> findAll();
-	
+		
 	public Principi findByIdPrincipi(Integer id);
-	
+	public List<Principi> findAllByPChiave(String pChiave);
 	
 }
 	

@@ -15,12 +15,16 @@
    <a href="#" class="myButton"><button style="margin-top:1%"  type="submit" value="homeUser" >All Principles</button></a></form>
  <br>
  <br>  
-<form class="form-signin" action="/homeUser/PrincipiRandom" method="post">
-    <a href="/homeUser/PrincipiRandom"> Principi Random</a></form>
+ <form action="/homeUser/PrincipioRandom" method="get">
+   <a href="#" class="myButton"><button style="margin-top:1%"  type="submit" value="homeUser" >Principio Random</button></a></form>
  <br>
  <br>
-  <form class="form-signin" action="/homeUser/PrincipiRandom" method="post">
-    <a href="/homeUser/PrincipiRandom"> Show by key word</a></form>
+ <h2>Search By Key Word</h2>
+  <form action="/homeUser/PrincipiByParola" method="get">
+   <input type = "text" id="testo" name="pChiave" placeholder = "inserisci "testo">
+   <button style="margin-top:1%"  type="submit" value="homeUser" >Cerca</button></form>
+     </form>
+
      <br>
      <br>
  <form class="form-signin" action="/homeUser/Experience" method="post">
