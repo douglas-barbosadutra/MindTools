@@ -27,12 +27,14 @@ public class FeedbackController {
 	
 	@RequestMapping(value="/showFeedback",method= RequestMethod.GET)
 	public String showFeedback(HttpServletRequest request) {
-		int idprincipio = Integer.parseInt(request.getParameter("id"));
+		
+	int idprincipio = Integer.parseInt(request.getParameter("id"));
 		FeedbackPrincipiExperienceDTO feedb = feedbackService.getFeedbackPrincipiExperienceDTO(idprincipio);
 		List<PrincipiDTO> secondari = feedbackService.listaPrincipiSecondari(idprincipio);
+		
 		request.getSession().setAttribute("feedback", feedb);
 		request.getSession().setAttribute("secondari", secondari);
-		
+		System.out.print(" secondari" + secondari);
 		return "AllFeedback";
 
 	}

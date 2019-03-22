@@ -10,8 +10,8 @@
 <html>
 <head>
 <% 
-FeedbackPrincipiExperienceDTO all_feedback = (FeedbackPrincipiExperienceDTO)request.getAttribute("feedback");
-List<PrincipiDTO> secondari = (List<PrincipiDTO>)request.getAttribute("secondari");
+FeedbackPrincipiExperienceDTO all_feedback = (FeedbackPrincipiExperienceDTO)session.getAttribute("feedback");
+List<PrincipiDTO> secondari = (List<PrincipiDTO>)session.getAttribute("secondari");
 
  %>
 
@@ -23,7 +23,7 @@ List<PrincipiDTO> secondari = (List<PrincipiDTO>)request.getAttribute("secondari
 <body>
  <a href="Feedback/showFeedback">Experiences</a>
  
-  <form action="PrincipiServlet" method=post>
+  <form action="PrincipiServlet" method=GET>
 		<button type="submit" value="Indietro" name="richiesta">Indietro</button>
 	</form>
 

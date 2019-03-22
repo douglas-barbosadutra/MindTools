@@ -77,9 +77,9 @@ int idprincipio = Integer.parseInt(session.getAttribute("principio").toString())
 
 </table>
      	
-     <input type="submit" name="action" value="Insert Experience">
+     <input type="submit" name="/Feedback" value="Insert Experience">
      
-       <a href="/Experience/insertExperience"></a>
+       <a href="/Experience/showFeedback"></a>
      	
      </form>
 
