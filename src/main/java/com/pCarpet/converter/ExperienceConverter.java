@@ -35,9 +35,11 @@ public class ExperienceConverter {
 			experienceDTO.setPositivo(experience.getPositivo());
 			experienceDTO.setNegativo(experience.getNegativo());
 			experienceDTO.setScore(experience.getScore());
+			experienceDTO.setUser(experience.getUser());
 		}
 
 		return experienceDTO;
 	}
+	 
 
 }

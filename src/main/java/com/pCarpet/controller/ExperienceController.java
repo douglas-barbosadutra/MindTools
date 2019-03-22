@@ -14,6 +14,7 @@ import com.pCarpet.converter.ExperienceConverter;
 import com.pCarpet.converter.FeedbackConverter;
 import com.pCarpet.converter.PrincipiConverter;
 import com.pCarpet.dto.ExperienceDTO;
+import com.pCarpet.dto.ExperienceUserFeedbackDTO;
 import com.pCarpet.dto.FeedbackDTO;
 import com.pCarpet.dto.PrincipiDTO;
 import com.pCarpet.dto.UserDTO;
@@ -88,7 +89,6 @@ public class ExperienceController {
 	    	 int second = 0;
 	    	 if(id != idpprincipale)
 	    		 second = 1;
-	    	 
 	    	 feedbackDTO.setExperience(ex);
 	    	 PrincipiDTO b = principiService.getPrincipio(id);
 	         feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(b));
@@ -103,11 +103,15 @@ public class ExperienceController {
         	feedbackDTO.setSecondario(valore);
 	    	this.feedbackservice.insertFeedback(feedbackDTO);
         }
-		
-		return "Experience";
+        List<ExperienceUserFeedbackDTO> EUF = experienceService.getAllExperienceUserFeedbackDTO();
+ 		request.getSession().setAttribute("euf", EUF); 
+ 		return "AllExperience";
 	}
 	@RequestMapping(value="/ShowAllExperience", method= RequestMethod.GET)
-	public String ShowAllExperience() {
+	public String ShowAllExperience(HttpServletRequest request) {
+		List<ExperienceUserFeedbackDTO> EUF = experienceService.getAllExperienceUserFeedbackDTO();
+		request.getSession().setAttribute("euf", EUF); 
+		return "AllExperience";
 		
 	}
 	

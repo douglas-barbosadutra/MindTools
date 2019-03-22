@@ -23,8 +23,8 @@ public class FeedbackController {
 	}
 	
 	
-
-	private String showFeedback(HttpServletRequest request) {
+	@RequestMapping(value="/showFeedback",method= RequestMethod.GET)
+	public String showFeedback(HttpServletRequest request) {
 		String showFeedback = request.getParameter("showFeedback");
 		final List<FeedbackDTO> List = null;
 		request.getSession().setAttribute("feedback_list", showFeedback);

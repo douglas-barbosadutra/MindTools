@@ -27,8 +27,8 @@
 
      <br>
      <br>
- <form class="form-signin" action="/homeUser/Experience" method="post">
-    <a href="/homeUser/Experience"> All Experience</a></form>
+ <form class="form-signin" action="/Experience/ShowAllExperience" method="GET">
+    <a href="/Experience/ShowAllExperience"> All Experience</a></form>
       <br>
       <br>
   <strong> <form action="PrincipiServlet?richiesta=logout" method="post">
