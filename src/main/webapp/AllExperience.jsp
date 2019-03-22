@@ -10,8 +10,9 @@
 <html>
 <head>
 
-<% 
-List<ExperienceUserFeedbackDTO> all_Experience1 = (List<ExperienceUserFeedbackDTO>) request.getAttribute("allExperiences");
+<%
+System.out.print("feaaaaaa");
+List<ExperienceUserFeedbackDTO> all_Experience1 = (List<ExperienceUserFeedbackDTO>) session.getAttribute("euf");
 
 %>
 <meta charset="ISO-8859-1">
@@ -19,7 +20,7 @@ List<ExperienceUserFeedbackDTO> all_Experience1 = (List<ExperienceUserFeedbackDT
 </head>
 <body>
 
-<form action="ExperienceServlet?ExperienceManager" method="post">
+
  <table>
  <tr>
    <td>
@@ -49,30 +50,30 @@ SCORE
           </th>
 
      </tr>
-        <%for (ExperienceUserFeedbackDTO Experience : all_Experience1) { %>
+        <%for (ExperienceUserFeedbackDTO experience : all_Experience1) { %>
      <tr>
+         <td>
+           
+         </td>
+            <%=  experience.getPrincipi().getIdPrincipi()%>
          <td>
            
          </td>
 
          <td>
-            <%=  Experience.getId_principi()%>
-         </td>
-
-         <td>
-             <%=  Experience.getNome()%>
+             <%=  experience.getNome()%>
          </td>
 <td>
-             <%=  Experience.getCognome()%>
+             <%=  experience.getCognome()%>
          </td>
 <td>
-             <%=  Experience.getCommento()%>
+             <%=  experience.getCommento()%>
          </td>
 <td>
-             <%=  Experience.getScore()%>
+             <%=  experience.getScore()%>
          </td>
     <td>
-             <a href="FeedbackServlet?action=chooseFeedback&id=<%=Experience.getId_experience()%>">Seleziona Esperienza</a>
+             <a href="/Feedback/showFeedback?id=<%=experience.getExperience().getIdExperience()%>">Seleziona Esperienza</a>
          </td>
 
      </tr>
@@ -81,6 +82,6 @@ SCORE
      
  </table>
  
-</form>
+
 </body>
 </html>

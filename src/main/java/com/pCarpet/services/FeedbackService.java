@@ -10,6 +10,7 @@ import com.pCarpet.converter.ExperienceConverter;
 import com.pCarpet.converter.FeedbackConverter;
 
 import com.pCarpet.dao.FeedbackRepository;
+import com.pCarpet.dto.ExperienceDTO;
 import com.pCarpet.dto.FeedbackDTO;
 import com.pCarpet.dto.PrincipiDTO;
 import com.pCarpet.model.Experience;
@@ -74,6 +75,12 @@ public static List<Feedback> findByExperience(Experience e) {
 		FeedbackRepository.save(FeedbackConverter.toEntity(feedback));
 	    
     }
+	public List<FeedbackDTO> getAllFeedback(){
+		List<FeedbackDTO> fb = new ArrayList();
+		List<Feedback> entity = (List<Feedback>) FeedbackRepository.findAll();
+		entity.forEach(feedback->fb.add(FeedbackConverter.toDTO(feedback)));
+		return fb;
+	}
 	
 	/* public List<FeedbackDTO> getFeedbackByIdExperience(int id_experience)
 	 {
