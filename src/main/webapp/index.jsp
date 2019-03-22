@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		
+		<link href="stile.css" rel="stylesheet" media="screen">
 		<title>Login</title>
 	</head>
 <body background ="imagen/brainviolet.png">
