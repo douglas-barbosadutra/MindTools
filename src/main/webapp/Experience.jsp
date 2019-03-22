@@ -1,8 +1,8 @@
-<%@ page import="com.virtualpairprogrammers.dto.ExperienceDTO" %>
-<%@ page import="com.virtualpairprogrammers.dto.ExperienceUserFeedbackDTO" %>
+<%@ page import="com.pCarpet.dto.ExperienceDTO" %>
+<%@ page import="com.pCarpet.dto.ExperienceUserFeedbackDTO" %>
 <%@ page import="java.util.*" %>
 <%@ page language="java" import="java.sql.*" %>
- <%@ page import="com.virtualpairprogrammers.service.ExperienceService" %>
+ <%@ page import="com.pCarpet.services.ExperienceService" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  

@@ -31,7 +31,7 @@ import lombok.Data;
 public class ExperienceController {
 	private final ExperienceService experienceService;
 	private final PrincipiService principiService;
-	private FeedbackService feedbackservice;
+	private final FeedbackService feedbackservice;
 	private ExperienceDTO experienceDTO = new ExperienceDTO();
 	private Experience experience = new Experience();
 	private Feedback feedback = new Feedback();
@@ -43,9 +43,10 @@ public class ExperienceController {
 	
 	
 	@Autowired
-	public ExperienceController (ExperienceService experienceService,PrincipiService principiService ) {
+	public ExperienceController (ExperienceService experienceService,PrincipiService principiService, FeedbackService feedbackservice ) {
 		this.experienceService = experienceService;
 		this.principiService = principiService;
+		this.feedbackservice = feedbackservice;
 	}
 	
 	@RequestMapping(value="/openInsertExperience",method= RequestMethod.GET)
@@ -75,8 +76,6 @@ public class ExperienceController {
 	     experienceDTO.setScore(score);
 	     experienceDTO.setUser(user);
 	     Experience ex = experienceService.insertExperience(experienceDTO);
-	     int id_experience = ex.getIdExperience();
-	     
          if( ids_principi !=null) {
        	     feedbackDTO.setExperience(ex);
        	     PrincipiDTO p = principiService.getPrincipio(idpprincipale);
@@ -107,6 +106,12 @@ public class ExperienceController {
 		
 		return "Experience";
 	}
+	@RequestMapping(value="/ShowAllExperience", method= RequestMethod.GET)
+	public String ShowAllExperience() {
+		
+	}
+	
+	
 	
 
 }
