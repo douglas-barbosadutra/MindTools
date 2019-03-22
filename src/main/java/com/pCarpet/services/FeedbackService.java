@@ -10,6 +10,8 @@ import com.pCarpet.converter.ExperienceConverter;
 import com.pCarpet.converter.FeedbackConverter;
 
 import com.pCarpet.dao.FeedbackRepository;
+import com.pCarpet.dto.FeedbackPrincipiExperienceDTO;
+import com.pCarpet.dao.PrincipiDAO;
 import com.pCarpet.dto.ExperienceDTO;
 import com.pCarpet.dto.FeedbackDTO;
 import com.pCarpet.dto.PrincipiDTO;
@@ -23,11 +25,15 @@ public class FeedbackService {
 		
 
 private final FeedbackRepository FeedbackRepository;
+private final PrincipiService PrincipiService;
+private FeedbackPrincipiExperienceDTO feedbackPrincipiExperienceDTO;
 
    @Autowired
- 	public FeedbackService( FeedbackRepository feedbackrepository) {
+ 	public FeedbackService( FeedbackRepository feedbackrepository, PrincipiService PrincipiService) {
 
 		this.FeedbackRepository = feedbackrepository;
+		this.PrincipiService = PrincipiService;
+		//this.feedbackPrincipiExperienceDTO = feedbackPrincipiExperienceDTO;
 
 	}
 
@@ -35,26 +41,7 @@ public List<FeedbackDTO> getListaFeedbackDTO() {
 return FeedbackConverter.toListDTO ((List<Feedback>) FeedbackRepository.findAll());
 }
 
-/*public List<FeedbackDTO> getAllFeedback(Experience experience, Principi principi){
-	Experience e = new Experience();
-	Principi p = new Principi();
 
-	e.getIdExperience(experience);
-    p.getIdPrincipi(principi);
-    
-	return(FeedbackConverter.convertToDTO(this.FeedbackRepository.findByPrincipi()));
-} */
-
-
-	
-public static List<Feedback> findByPrincipi(Principi p) {
-	List<Feedback> listDTO = new ArrayList<>();
-	for (Feedback f : listDTO) {
-//		FeedbackDTO feedback= FeedbackConverter.convertToDTO(f);
-		listDTO.add(f);
-	}   
-	return listDTO;
-}
 
 public static List<Feedback> findByExperience(Experience e) {
 	List<Feedback> listDTO = new ArrayList<>();
@@ -75,6 +62,7 @@ public static List<Feedback> findByExperience(Experience e) {
 		FeedbackRepository.save(FeedbackConverter.toEntity(feedback));
 	    
     }
+	
 	public List<FeedbackDTO> getAllFeedback(){
 		List<FeedbackDTO> fb = new ArrayList();
 		List<Feedback> entity = (List<Feedback>) FeedbackRepository.findAll();
@@ -82,30 +70,29 @@ public static List<Feedback> findByExperience(Experience e) {
 		return fb;
 	}
 	
-	/* public List<FeedbackDTO> getFeedbackByIdExperience(int id_experience)
+	public List<FeedbackDTO> getFeedbackByIdExperience(int id_experience)
 	 {
-		 List<Feedback> lista = feedbackDAO.getFeedbackByIdExperience(id_experience);
-		 List<FeedbackDTO> feedbackDTO = new ArrayList();
-		 for (Feedback f : lista ) {
-			 feedbackDTO.add(FeedbackConverter.toDTO(f));
-		 }
-			return feedbackDTO;
+		Experience ex = new Experience();
+		ex.setIdExperience(id_experience);
+		 List<Feedback> lista = FeedbackRepository.findAllByExperience(ex);
+		 List<FeedbackDTO> listfeedbackDTO = new ArrayList();
+		 lista.forEach(feedback->listfeedbackDTO.add(FeedbackConverter.toDTO(feedback)));
+		 
+			return listfeedbackDTO;
 			
 		}
-	 
-	 
 	 public FeedbackPrincipiExperienceDTO getFeedbackPrincipiExperienceDTO (int id_experience){
 		 List<FeedbackDTO> feedbacks = getFeedbackByIdExperience(id_experience);
-		 List<PrincipiDTO> principi = this.principiService.getAllPrincipi();
+		 List<PrincipiDTO> principi = this.PrincipiService.getAllPrincipi();
 		 FeedbackPrincipiExperienceDTO nuovoFeedback = new FeedbackPrincipiExperienceDTO();
 		 List<PrincipiDTO> secondari = new ArrayList<PrincipiDTO>();
 		 for (FeedbackDTO f: feedbacks) {
 			 for (PrincipiDTO p : principi ) {
-				 if( f.getId_experience() == id_experience && f.getId_principi() == p.getId_principi()) { 
+				 if( f.getExperience().getIdExperience() == id_experience && f.getPrincipi().getIdPrincipi() == p.getIdPrincipi()) { 
 					 if(f.getSecondario() == 0) {
-						 nuovoFeedback.setId_principi(f.getId_principi());
-						 nuovoFeedback.setId_experience(f.getId_experience());
-						 nuovoFeedback.setNome_principioITA(p.getNomeita());
+						 nuovoFeedback.setId_principi(f.getPrincipi().getIdPrincipi());
+						 nuovoFeedback.setId_experience(f.getExperience().getIdExperience());
+						 nuovoFeedback.setNome_principioITA(p.getNomeIta());
 						 nuovoFeedback.setNome_principiING(p.getNome());
 						 nuovoFeedback.setSecondario(f.getSecondario());
 						 break;
@@ -127,22 +114,19 @@ public static List<Feedback> findByExperience(Experience e) {
 		 
 	 } 
 	 
-	 public List<PrincipiDTO> listaPrincipiSecondari(List<PrincipiDTO> id_experience)
+	 public List<PrincipiDTO> listaPrincipiSecondari(int id_experience)
 	 {
 		 FeedbackPrincipiExperienceDTO principiSeconda = getFeedbackPrincipiExperienceDTO (id_experience);
 		 
-		
-          return id_experience;		 
+		 List<PrincipiDTO> este = principiSeconda.getSecondari();
+          return este;		 
 	 }
 
-	private FeedbackPrincipiExperienceDTO getFeedbackPrincipiExperienceDTO(int id_experience) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	 
 	 
 
-} */
+} 
 
 
 
@@ -153,4 +137,3 @@ public static List<Feedback> findByExperience(Experience e) {
 
     
 
-}

@@ -16,7 +16,7 @@ import javax.transaction.Transactional;
 @Transactional
  
 public interface FeedbackRepository extends CrudRepository<Feedback, Integer> {
-	public Feedback findByExperience(Experience e);
+	public List<Feedback> findAllByExperience(Experience id ); 
 	public Feedback findByPrincipi(Principi p);
 }
 

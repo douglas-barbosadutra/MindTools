@@ -2,9 +2,18 @@ package com.pCarpet.dto;
 
 import com.pCarpet.model.Experience;
 import com.pCarpet.model.Principi;
+import com.pCarpet.model.User;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class FeedbackPrincipiExperienceDTO {
 
 	private int id_experience;
@@ -13,9 +22,7 @@ public class FeedbackPrincipiExperienceDTO {
 	private String nome_principiING;
 	private int secondario;
 	List<PrincipiDTO> secondari;
-
-	public FeedbackPrincipiExperienceDTO() {}
-	
+	/*
 	public FeedbackPrincipiExperienceDTO(int id_experience, int id_principi,String nome_principioITA, String nome_principiING, List<PrincipiDTO> secondari ) {	
 	super();
 	this.id_experience = id_experience;
@@ -23,7 +30,8 @@ public class FeedbackPrincipiExperienceDTO {
 	this.nome_principioITA = nome_principioITA;
 	this.nome_principiING = nome_principiING;
 	this.secondari = secondari;
-}
+}*/
+	/*
 	public FeedbackPrincipiExperienceDTO(int id_experience, int id_principi,String nome_principioITA, String nome_principiING ) {	
 		super();
 		this.id_experience = id_experience;
@@ -31,7 +39,7 @@ public class FeedbackPrincipiExperienceDTO {
 		this.nome_principioITA = nome_principioITA;
 		this.nome_principiING = nome_principiING;
 		
-	}
+	}*/
 	public List<PrincipiDTO> getSecondari() {
 		return secondari;
 	}
