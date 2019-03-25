@@ -1,6 +1,6 @@
 package com.pCarpet.converter;
-//import java.util.ArrayList;
-//import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.pCarpet.dto.PercorsoDTO;
 import com.pCarpet.model.Experience;
@@ -48,13 +48,13 @@ public class PercorsoConverter {
 		return percorso;
 	}
 
-	/*public static List<WBSDTO> toListDTO(List<WBS> list){
-		List<WBSDTO> listWbsDto = new ArrayList<>();
+	public static List<PercorsoDTO> toListDTO(List<Percorso> list){
+		List<PercorsoDTO> listPercorsoDto = new ArrayList<>();
 		if(list != null) {
-			for(WBS wbs: list) {
-				listWbsDto.add(WBSConverter.convertToDto(wbs));
+			for(Percorso percorso: list) {
+				listPercorsoDto.add(PercorsoConverter.convertToDto(percorso));
 			}
 		}
-		return listWbsDto;
-	} */
+		return listPercorsoDto;
+	} 
 }
