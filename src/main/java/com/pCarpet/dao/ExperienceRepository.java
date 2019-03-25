@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface ExperienceRepository extends JpaRepository<Experience, Integer> {
 	
-
+	Experience findByIdExperience(Integer id);
 }

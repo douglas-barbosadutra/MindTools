@@ -17,13 +17,21 @@ int idprincipio = Integer.parseInt(session.getAttribute("principio").toString())
 <title>INSERT----MY----EXPERIENCE]</title>
 </head>
 <body>
-
+<form method="post" action="/Imagen/savefile" enctype="multipart/form-data">
+<p><label for="image">Choose Image</label></p>
+<p><input name="file" id="fileToUpload" type="file" /></p>
+<p><input type="submit" value="Upload"></p>
+</form>
 
 <h2><center>------- Insert Experience -------</center></h2>
 
 
  <a href="PrincipiServlet?richiesta=return" name="richiesta" method="post">Home </a>
      <form action="/Experience/insertExperience" method="GET">
+     
+     
+
+
      <h3>How much was this principle useful for you? </h3>
      	
      	<h4>Comment: <br> <textarea  id = "experience" name ="commento" placeholder = "InsertComment" rows="10" cols="50" ></textarea></h4>
@@ -77,6 +85,7 @@ int idprincipio = Integer.parseInt(session.getAttribute("principio").toString())
 
 </table>
      	
+
      <input type="submit" name="/Feedback" value="Insert Experience">
      
        <a href="/Experience/showFeedback"></a>

@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import com.pCarpet.model.Experience;
+import com.pCarpet.model.Imagen;
 
 @Data
 @AllArgsConstructor
@@ -22,6 +23,7 @@ public class ExperienceUserFeedbackDTO {
 	private int score;
 	private Principi principi;
 	private Experience experience;
+	private Imagen imagen;
 	
 	
 	

@@ -8,9 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
-
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,6 +44,14 @@ public class Feedback {
 	@ManyToOne
 	@JoinColumn(name="idExperience")
 	private Experience experience;
+	
+	@OneToOne(mappedBy = "feedback")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+    private NodoP nodop;
+	
+	@OneToOne(mappedBy = "feedback")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+    private NodoF nodof;
 
 
 	

@@ -1,4 +1,5 @@
 package com.pCarpet.model;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -7,14 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import org.springframework.lang.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,38 +23,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Experience {
+
+public class NodoF {
 	@Id
-	@Column(name = "idExperience")
+	@Column(name = "idNodof")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idExperience;
+	private Integer idnodof;
 	
-	@ManyToOne
-	@JoinColumn(name="idUser")
-	private User user;
-	
-	@Column(name = "commento")
-	private String commento;
-	
-	@Column(name = "positivo")
-	private String positivo;
-	
-	@Column(name = "negativo")
-	private String negativo;
-	
-	@Column(name = "score")
+	@Column(name = "nome")
 	@NotNull
-	private Integer score;
+	private String nome;
 	
-	@OneToMany(mappedBy="experience")
-	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Feedback> feedback;
+	@Column(name = "descrizione")
+	@NotNull
+	private String descrizione;
 	
 	@OneToOne
-	@JoinColumn(name = "idImagen")
-    private Imagen imagen;
+	@JoinColumn(name = "idFeedback")
+    private Feedback feedback;
 	
-
-
+	@OneToMany(mappedBy="nodoF")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private List<Grafo> grafo;
 
 }

@@ -1,28 +1,41 @@
 package com.pCarpet.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
+import javax.persistence.criteria.Path;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.pCarpet.converter.ConverterUser;
 import com.pCarpet.converter.ExperienceConverter;
 import com.pCarpet.converter.FeedbackConverter;
+import com.pCarpet.converter.ImagenConverter;
 import com.pCarpet.converter.PrincipiConverter;
 import com.pCarpet.dto.ExperienceDTO;
 import com.pCarpet.dto.ExperienceUserFeedbackDTO;
 import com.pCarpet.dto.FeedbackDTO;
+import com.pCarpet.dto.ImagenDTO;
 import com.pCarpet.dto.PrincipiDTO;
 import com.pCarpet.dto.UserDTO;
 import com.pCarpet.model.Experience;
 import com.pCarpet.model.Feedback;
+import com.pCarpet.model.Imagen;
 import com.pCarpet.model.User;
 import com.pCarpet.services.ExperienceService;
 import com.pCarpet.services.FeedbackService;
+import com.pCarpet.services.ImagenService;
 import com.pCarpet.services.PrincipiService;
 
 import lombok.Data;
@@ -33,10 +46,13 @@ public class ExperienceController {
 	private final ExperienceService experienceService;
 	private final PrincipiService principiService;
 	private final FeedbackService feedbackservice;
+	private final ImagenService imagenService;
 	private ExperienceDTO experienceDTO = new ExperienceDTO();
+	private ImagenDTO imagenDTO = new ImagenDTO();
 	private Experience experience = new Experience();
 	private Feedback feedback = new Feedback();
 	private ExperienceConverter experienceConverter = new ExperienceConverter();
+	private ImagenConverter imagenConverter = new ImagenConverter();
 	private FeedbackDTO feedbackDTO = new FeedbackDTO();
 	private FeedbackConverter feedbackconverter = new FeedbackConverter();
 	private PrincipiConverter principiConverter = new PrincipiConverter();
@@ -44,10 +60,11 @@ public class ExperienceController {
 	
 	
 	@Autowired
-	public ExperienceController (ExperienceService experienceService,PrincipiService principiService, FeedbackService feedbackservice ) {
+	public ExperienceController (ExperienceService experienceService,PrincipiService principiService, FeedbackService feedbackservice, ImagenService imagenService ) {
 		this.experienceService = experienceService;
 		this.principiService = principiService;
 		this.feedbackservice = feedbackservice;
+		this.imagenService = imagenService;
 	}
 	
 	@RequestMapping(value="/openInsertExperience",method= RequestMethod.GET)
@@ -61,6 +78,12 @@ public class ExperienceController {
 	
 	@RequestMapping(value="/insertExperience", method= RequestMethod.GET)
 	public String insertUser(HttpServletRequest request) {
+		/*String filename=file.getOriginalFilename();
+	    byte barr[]=file.getBytes(); 
+	    imagenDTO.setNome(filename);
+	    imagenDTO.setArchivo(barr);
+	    Imagen g = imagenService.insertImagen(imagenDTO);*/
+		 Imagen g = (Imagen) request.getSession().getAttribute("imagen");
 		 User user =  (User) request.getSession().getAttribute("utente");
 		 UserDTO userDTO = ConverterUser.toDTO(user);
 		 int id_user = userDTO.getIdUser();
@@ -76,6 +99,7 @@ public class ExperienceController {
 	     experienceDTO.setNegativo(negativo);
 	     experienceDTO.setScore(score);
 	     experienceDTO.setUser(user);
+	     experienceDTO.setImagen(g);
 	     Experience ex = experienceService.insertExperience(experienceDTO);
          if( ids_principi !=null) {
        	     feedbackDTO.setExperience(ex);
@@ -114,6 +138,21 @@ public class ExperienceController {
 		return "AllExperience";
 		
 	}
+	
+	@RequestMapping(value="/getImage", method= RequestMethod.GET)
+	public void getImage(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		int id =Integer.parseInt(request.getParameter("id"));
+		
+		
+		ExperienceDTO experienceDTO = experienceService.getExperienceByID(id);
+		
+		//System.out.println(experienceDTO.getImagen().getIdImagen());
+        byte[] content = experienceDTO.getImagen().getArchivo();
+        response.setContentType("image/jpg");
+        response.setContentLength(content.length);
+        response.getOutputStream().write(content);
+	}
+	
 	
 	
 	

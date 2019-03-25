@@ -57,6 +57,7 @@ public class ExperienceService {
 								 nuovoDTO.setScore(e.getScore());
 								 nuovoDTO.setPrincipi(f.getPrincipi());
 								 nuovoDTO.setExperience(f.getExperience());
+								 nuovoDTO.setImagen(e.getImagen());
 								 listaexperienceUserFeedbackDTO.add(nuovoDTO);
 							 }
 						 }
@@ -71,7 +72,9 @@ public class ExperienceService {
 	 } 
 
 	
-	 
+		public ExperienceDTO getExperienceByID(Integer id){
+			return ExperienceConverter.toDTO(experienceRepository.getOne(id));
+		}
 	
 	
 

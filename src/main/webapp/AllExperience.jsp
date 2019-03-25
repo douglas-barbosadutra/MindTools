@@ -11,7 +11,7 @@
 <head>
 
 <%
-System.out.print("feaaaaaa");
+
 List<ExperienceUserFeedbackDTO> all_Experience1 = (List<ExperienceUserFeedbackDTO>) session.getAttribute("euf");
 
 %>
@@ -37,10 +37,10 @@ PRINCIPIO
          </th>
 
          <th>
-            NOME
+            
          </th>
          <th>
-COGNOME
+NOME
           </th>
          <th>
 COMMENTO
@@ -48,16 +48,22 @@ COMMENTO
  <th>
 SCORE
           </th>
+          <th>
+
+          </th>
 
      </tr>
         <%for (ExperienceUserFeedbackDTO experience : all_Experience1) { %>
      <tr>
-         <td>
+         
            
          </td>
-            <%=  experience.getPrincipi().getIdPrincipi()%>
+           
          <td>
            
+         
+          <td>
+             <img src="/Experience/getImage?id=<%=experience.getExperience().getIdExperience()%>" />
          </td>
 
          <td>
@@ -82,6 +88,7 @@ SCORE
      
  </table>
  
+
 
 </body>
 </html>

@@ -38,6 +38,8 @@
    <button style="margin-top:1%"  type="submit" value="homeUser" class="btn-toolset">Logout</button></form></center>
    <br>
    <br>
+  <center> <form action="/Grafo/openInsertWizard" method="get">
+   <button style="margin-top:1%"  type="submit" value="homeUser" class="btn-toolset">Wizard</button></form></center>
 </div>
 
 </body>
