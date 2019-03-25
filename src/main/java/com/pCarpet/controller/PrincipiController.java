@@ -59,7 +59,10 @@ public class PrincipiController {
 		return "PrincipioView";
 	}
 	
-	
+	@RequestMapping(value = "/showPath", method = RequestMethod.POST)
+	public String ShowPath(HttpServletRequest request) {
+		return "showPath";
+	}
 	
 	
 	
