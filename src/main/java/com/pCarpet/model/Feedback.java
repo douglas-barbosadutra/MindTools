@@ -45,13 +45,7 @@ public class Feedback {
 	@JoinColumn(name="idExperience")
 	private Experience experience;
 	
-	@OneToOne(mappedBy = "feedback")
-	@OnDelete(action=OnDeleteAction.CASCADE)
-    private NodoP nodop;
 	
-	@OneToOne(mappedBy = "feedback")
-	@OnDelete(action=OnDeleteAction.CASCADE)
-    private NodoF nodof;
 
 
 	
