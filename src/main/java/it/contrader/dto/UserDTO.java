@@ -1,4 +1,4 @@
-package com.pCarpet.dto;
+package it.contrader.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

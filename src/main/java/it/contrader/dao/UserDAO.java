@@ -1,11 +1,11 @@
-package com.pCarpet.dao;
+package it.contrader.dao;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
 
-import com.pCarpet.model.User;
+import it.contrader.model.User;
 
 
 public interface UserDAO extends CrudRepository<User, Integer>{

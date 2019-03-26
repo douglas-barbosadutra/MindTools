@@ -30,13 +30,13 @@ import it.contrader.dto.ImagenDTO;
 import it.contrader.dto.PrincipiDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.model.Experience;
-import it.contradert.model.Feedback;
+import it.contrader.model.Feedback;
 import it.contrader.model.Imagen;
 import it.contrader.model.User;
-import it.contrader.services.ExperienceService;
-import it.contrader.services.FeedbackService;
-import it.contrader.services.ImagenService;
-import it.contrader.services.PrincipiService;
+import it.contrader.service.ExperienceService;
+import it.contrader.service.FeedbackService;
+import it.contrader.service.ImagenService;
+import it.contrader.service.PrincipiService;
 
 import lombok.Data;
 

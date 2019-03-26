@@ -1,8 +1,8 @@
-package com.pCarpet.dto;
+package it.contrader.dto;
 
-import com.pCarpet.model.Experience;
-import com.pCarpet.model.Principi;
-import com.pCarpet.model.User;
+import it.contrader.model.Experience;
+import it.contrader.model.Principi;
+import it.contrader.model.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,24 +22,7 @@ public class FeedbackPrincipiExperienceDTO {
 	private String nome_principiING;
 	private int secondario;
 	List<PrincipiDTO> secondari;
-	/*
-	public FeedbackPrincipiExperienceDTO(int id_experience, int id_principi,String nome_principioITA, String nome_principiING, List<PrincipiDTO> secondari ) {	
-	super();
-	this.id_experience = id_experience;
-	this.id_principi = id_principi;
-	this.nome_principioITA = nome_principioITA;
-	this.nome_principiING = nome_principiING;
-	this.secondari = secondari;
-}*/
-	/*
-	public FeedbackPrincipiExperienceDTO(int id_experience, int id_principi,String nome_principioITA, String nome_principiING ) {	
-		super();
-		this.id_experience = id_experience;
-		this.id_principi = id_principi;
-		this.nome_principioITA = nome_principioITA;
-		this.nome_principiING = nome_principiING;
-		
-	}*/
+	
 	public List<PrincipiDTO> getSecondari() {
 		return secondari;
 	}

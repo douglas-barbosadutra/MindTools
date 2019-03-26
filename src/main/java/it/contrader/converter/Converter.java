@@ -1,4 +1,4 @@
-package com.pCarpet.converter;
+package it.contrader.converter;
 
 public interface Converter<Entity,DTO> {
 

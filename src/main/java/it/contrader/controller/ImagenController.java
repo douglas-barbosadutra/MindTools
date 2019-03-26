@@ -1,4 +1,4 @@
-package com.pCarpet.controller;
+package it.contrader.controller;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import it.contrader.dto.ImagenDTO;
 import it.contrader.model.Imagen;
-import it.contrader.services.ImagenService;
+import it.contrader.service.ImagenService;
 
 @Controller
 @RequestMapping("/Imagen")

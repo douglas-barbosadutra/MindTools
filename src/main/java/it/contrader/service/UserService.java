@@ -1,14 +1,14 @@
-package com.pCarpet.services;
+package it.contrader.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pCarpet.dao.UserDAO;
-import com.pCarpet.dto.UserDTO;
-import com.pCarpet.model.User;
-import com.pCarpet.converter.ConverterUser;
+import it.contrader.dao.UserDAO;
+import it.contrader.dto.UserDTO;
+import it.contrader.model.User;
+import it.contrader.converter.ConverterUser;
 
 @Service
 public class UserService {

@@ -1,4 +1,4 @@
-package com.pCarpet.controller;
+package it.contrader.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.pCarpet.model.User;
-import com.pCarpet.services.UserService;
-import com.pCarpet.dto.UserDTO;
+import it.contrader.model.User;
+import it.contrader.service.UserService;
+import it.contrader.dto.UserDTO;
 
 @Controller
 @RequestMapping("/Registrazione")

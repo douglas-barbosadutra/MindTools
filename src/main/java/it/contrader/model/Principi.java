@@ -61,9 +61,9 @@ public class Principi {
 	@NotNull
 	private String pChiaveIta;
 	
-	/*@OneToMany(mappedBy="principi")
+	@OneToMany(mappedBy="principi")
 	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Feedback> feedback;*/
+	private List<Feedback> feedback;
 
 }
 

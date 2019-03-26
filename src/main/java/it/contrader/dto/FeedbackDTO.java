@@ -1,8 +1,8 @@
-package com.pCarpet.dto;
+package it.contrader.dto;
 
-import com.pCarpet.model.Experience;
-import com.pCarpet.model.Feedback;
-import com.pCarpet.model.Principi;
+import it.contrader.model.Experience;
+import it.contrader.model.Feedback;
+import it.contrader.model.Principi;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

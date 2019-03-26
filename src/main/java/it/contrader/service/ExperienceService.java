@@ -1,4 +1,4 @@
-package it.contrader.services;
+package it.contrader.service;
 
 import java.util.ArrayList;
 import java.util.List;

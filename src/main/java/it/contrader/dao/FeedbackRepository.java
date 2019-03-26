@@ -1,12 +1,12 @@
-package com.pCarpet.dao;
+package it.contrader.dao;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.pCarpet.model.Experience;
-import com.pCarpet.model.Feedback;
-import com.pCarpet.model.Principi;
+import it.contrader.model.Experience;
+import it.contrader.model.Feedback;
+import it.contrader.model.Principi;
 
 import java.util.List;
 

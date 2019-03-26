@@ -1,10 +1,10 @@
-package com.pCarpet.converter;
+package it.contrader.converter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pCarpet.dto.UserDTO;
-import com.pCarpet.model.User;
+import it.contrader.dto.UserDTO;
+import it.contrader.model.User;
 
 public class ConverterUser {
 

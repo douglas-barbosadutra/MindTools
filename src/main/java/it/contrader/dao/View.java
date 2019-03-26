@@ -1,4 +1,4 @@
-package com.pCarpet.dao;
+package it.contrader.dao;
 
 public class View {
 	private int id_principi;

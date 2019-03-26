@@ -1,10 +1,10 @@
-package com.pCarpet.services;
+package it.contrader.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pCarpet.dao.UserDAO;
-import com.pCarpet.model.User;
+import it.contrader.dao.UserDAO;
+import it.contrader.model.User;
 
 @Service
 public class LoginService {

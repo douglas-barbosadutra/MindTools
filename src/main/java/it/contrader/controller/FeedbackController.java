@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import it.contrader.dto.FeedbackDTO;
 import it.contrader.dto.FeedbackPrincipiExperienceDTO;
 import it.contrader.dto.PrincipiDTO;
-import it.contrader.services.FeedbackService;
+import it.contrader.service.FeedbackService;
 
 import java.util.List;
 
