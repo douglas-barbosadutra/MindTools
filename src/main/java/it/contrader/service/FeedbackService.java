@@ -1,4 +1,4 @@
-package com.pCarpet.services;
+package it.contrader.services;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,18 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import com.pCarpet.converter.ExperienceConverter;
-import com.pCarpet.converter.FeedbackConverter;
+import it.contrader.converter.ExperienceConverter;
+import it.contrader.converter.FeedbackConverter;
 
-import com.pCarpet.dao.FeedbackRepository;
-import com.pCarpet.dto.FeedbackPrincipiExperienceDTO;
-import com.pCarpet.dao.PrincipiDAO;
-import com.pCarpet.dto.ExperienceDTO;
-import com.pCarpet.dto.FeedbackDTO;
-import com.pCarpet.dto.PrincipiDTO;
-import com.pCarpet.model.Experience;
-import com.pCarpet.model.Feedback;
-import com.pCarpet.model.Principi;
+import it.contrader.dao.FeedbackRepository;
+import it.contrader.dto.FeedbackPrincipiExperienceDTO;
+import it.contrader.dao.PrincipiDAO;
+import it.contrader.dto.ExperienceDTO;
+import it.contrader.dto.FeedbackDTO;
+import it.contrader.dto.PrincipiDTO;
+import it.contrader.model.Experience;
+import it.contrader.model.Feedback;
+import it.contrader.model.Principi;
 
 
 @Service

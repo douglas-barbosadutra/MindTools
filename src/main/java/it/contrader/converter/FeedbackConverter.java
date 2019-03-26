@@ -1,11 +1,11 @@
-package com.pCarpet.converter;
+package com.it.contrader.converter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pCarpet.dto.FeedbackDTO;
-import com.pCarpet.model.Feedback;
-import com.pCarpet.model.Experience;
-import com.pCarpet.model.Principi;
+import com.it.contrader.dto.FeedbackDTO;
+import com.it.contrader.model.Feedback;
+import com.it.contrader.model.Experience;
+import com.it.contrader.model.Principi;
 
 public class FeedbackConverter {
 	
