@@ -1,13 +1,13 @@
-package com.pCarpet.controller;
+package it.contrader.controller;
 
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.pCarpet.dto.PrincipiDTO;
+import it.contrader.dto.PrincipiDTO;
 
-import com.pCarpet.services.PrincipiService;
+import it.contrader.service.PrincipiService;
 
 import java.util.List;
 
