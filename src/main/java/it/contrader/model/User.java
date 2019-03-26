@@ -1,40 +1,61 @@
-package it.contrader.model;
+package com.pCarpet.model;
 
-import java.io.Serializable;
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.lang.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-
-/**
- * The persistent class for the users database table.
- * 
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="users")
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
-public class User implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class User {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="user_id")
-	private int userId;
+	@Column(name = "idUser")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idUser;
 
-	@Column(name="user_user")
-	private String userUser;
+	@Column(name = "username")
+	@NotNull
+	private String username;
+
+	@Column(name = "password")
+	@NotNull
+	private String password;
+
+	@NotNull
+	@Column(name = "nome")
+	private String nome;
+
+	@NotNull
+	@Column(name = "cognome")
+	private String cognome;
 	
-	@Column(name="user_pass")
-	private String userPass;
-
-	@Column(name="user_type")
-	private String userType;
+	@NotNull
+	@Column(name = "email")
+	private String email;
+	
+	@NotNull
+	@Column(name = "lingua")
+	private String lingua;
+	
+	@OneToMany(mappedBy="user")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private List<Experience> experience;
+	
 
 }

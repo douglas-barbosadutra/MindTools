@@ -1,10 +1,10 @@
-package it.contrader.converter;
+package com.pCarpet.converter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import it.contrader.dto.UserDTO;
-import it.contrader.model.User;
+import com.pCarpet.dto.UserDTO;
+import com.pCarpet.model.User;
 
 public class ConverterUser {
 
@@ -12,11 +12,13 @@ public class ConverterUser {
 		UserDTO userDTO = null;
 		if (user != null) {
 			userDTO = new UserDTO();
-			userDTO.setUserId(user.getUserId());
-			userDTO.setUserUser(user.getUserUser());
-			userDTO.setUserPass(user.getUserPass());
-			//userDTO.setEmail(user.getEmail());
-			userDTO.setUserType(user.getUserType());
+			userDTO.setIdUser(user.getIdUser());
+			userDTO.setUsername(user.getUsername());
+			userDTO.setPassword(user.getPassword());
+			userDTO.setNome(user.getNome());
+			userDTO.setCognome(user.getCognome());
+			userDTO.setEmail(user.getEmail());
+			userDTO.setLingua(user.getLingua());
 		}
 		return userDTO;
 	}
@@ -25,11 +27,13 @@ public class ConverterUser {
 		User user = null;
 		if (userDTO != null) {
 			user = new User();
-			user.setUserId(userDTO.getUserId());
-			user.setUserUser(userDTO.getUserUser());
-			user.setUserPass(userDTO.getUserPass());
-			//user.setEmail(userDTO.getEmail());
-			user.setUserType(userDTO.getUserType());
+			user.setIdUser(userDTO.getIdUser());
+			user.setUsername(userDTO.getUsername());
+			user.setPassword(userDTO.getPassword());
+			user.setNome(userDTO.getNome());
+			user.setCognome(userDTO.getCognome());
+			user.setEmail(userDTO.getEmail());
+			user.setLingua(userDTO.getLingua());
 		}
 		return user;
 	}

@@ -1,15 +1,11 @@
-package it.contrader.dao;
+package com.pCarpet.dao;
 
 import org.springframework.data.repository.CrudRepository;
-
-import it.contrader.model.User;
-
+import com.pCarpet.model.User;
 import java.util.List;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
 
-	public User findUserByUserUserAndUserPass(String username,String password);
-	
-	public List<User> findAll();
-	
+	public User findUserByUsernameAndPassword(String username,String password);
+	public List<User> findAllByUsername(String username);
 }
