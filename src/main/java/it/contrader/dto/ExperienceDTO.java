@@ -1,7 +1,7 @@
-package com.pCarpet.dto;
+package it.contrader.dto;
 
-import com.pCarpet.model.Imagen;
-import com.pCarpet.model.User;
+import it.contrader.model.Imagen;
+import it.contrader.model.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

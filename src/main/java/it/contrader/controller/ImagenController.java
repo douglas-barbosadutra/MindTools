@@ -15,9 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pCarpet.dto.ImagenDTO;
-import com.pCarpet.model.Imagen;
-import com.pCarpet.services.ImagenService;
+import it.contrader.dto.ImagenDTO;
+import it.contrader.model.Imagen;
+import it.contrader.services.ImagenService;
 
 @Controller
 @RequestMapping("/Imagen")

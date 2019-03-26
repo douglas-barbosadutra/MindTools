@@ -1,4 +1,4 @@
-package com.pCarpet.model;
+package it.contrader.model;
 import java.util.List;
 
 import javax.persistence.Column;

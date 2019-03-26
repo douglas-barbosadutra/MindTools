@@ -1,16 +1,16 @@
-package com.pCarpet.dto;
+package it.contrader.dto;
 
 import java.util.List;
 
-import com.pCarpet.model.Principi;
-import com.pCarpet.model.User;
+import it.contrader.model.Principi;
+import it.contrader.model.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import com.pCarpet.model.Experience;
-import com.pCarpet.model.Imagen;
+import it.contrader.model.Experience;
+import it.contrader.model.Imagen;
 
 @Data
 @AllArgsConstructor

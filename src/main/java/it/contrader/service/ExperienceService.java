@@ -1,4 +1,4 @@
-package com.pCarpet.services;
+package it.contrader.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pCarpet.converter.ExperienceConverter;
-import com.pCarpet.dao.ExperienceRepository;
-import com.pCarpet.dto.ExperienceDTO;
-import com.pCarpet.dto.ExperienceUserFeedbackDTO;
-import com.pCarpet.dto.FeedbackDTO;
-import com.pCarpet.dto.UserDTO;
-import com.pCarpet.model.Experience;
+import it.contrader.converter.ExperienceConverter;
+import it.contrader.dao.ExperienceRepository;
+import it.contrader.dto.ExperienceDTO;
+import it.contrader.dto.ExperienceUserFeedbackDTO;
+import it.contrader.dto.FeedbackDTO;
+import it.contrader.dto.UserDTO;
+import it.contrader.model.Experience;
 
 @Service
 public class ExperienceService {

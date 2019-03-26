@@ -1,4 +1,4 @@
-package com.pCarpet.services;
+package it.contrader.services;
 
 import java.io.IOException;
 
@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.pCarpet.converter.ImagenConverter;
-import com.pCarpet.dao.ImagenRepository;
-import com.pCarpet.dto.ImagenDTO;
-import com.pCarpet.model.Imagen;
+import it.contrader.converter.ImagenConverter;
+import it.contrader.dao.ImagenRepository;
+import it.contrader.dto.ImagenDTO;
+import it.contrader.model.Imagen;
 
 @Service
 public class ImagenService {

@@ -1,7 +1,7 @@
-package com.pCarpet.converter;
+package it.contrader.converter;
 
-import com.pCarpet.dto.ImagenDTO;
-import com.pCarpet.model.Imagen;
+import it.contrader.dto.ImagenDTO;
+import it.contrader.model.Imagen;
 
 public class ImagenConverter {
 	public static ImagenDTO toDTO(Imagen imagen) {

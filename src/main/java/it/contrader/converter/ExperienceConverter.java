@@ -1,8 +1,8 @@
-package com.pCarpet.converter;
+package it.contrader.converter;
 
-import com.pCarpet.dto.ExperienceDTO;
-import com.pCarpet.model.Experience;
-import com.pCarpet.model.User;
+import it.contrader.dto.ExperienceDTO;
+import it.contrader.model.Experience;
+import it.contrader.model.User;
 
 public class ExperienceConverter {
 	public static Experience toEntity(ExperienceDTO experienceDTO) {
