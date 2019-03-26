@@ -1,4 +1,4 @@
-package com.pCarpet.controller;
+package it.contrader.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,10 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.pCarpet.dto.FeedbackDTO;
-import com.pCarpet.dto.FeedbackPrincipiExperienceDTO;
-import com.pCarpet.dto.PrincipiDTO;
-import com.pCarpet.services.FeedbackService;
+import it.contrader.dto.FeedbackDTO;
+import it.contrader.dto.FeedbackPrincipiExperienceDTO;
+import it.contrader.dto.PrincipiDTO;
+import it.contrader.services.FeedbackService;
 
 import java.util.List;
 
