@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     }
     ngOnInit() {
         console.log('arrivato');
+
     }
 
     login(f: NgForm): void {
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
                 this.user = response;
                 sessionStorage.setItem('user', JSON.stringify(this.user));
                 console.log('Username: ' + this.user.username);
-                
+                this.router.navigateByUrl("/home-user");
             }
         });
     }

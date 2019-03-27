@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeUserComponent } from './components/home-user/home-user.component';
 
 
 
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     PrincipiComponent,
     LoginComponent,
+    HomeUserComponent,
     
 ],
   imports: [
