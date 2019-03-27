@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PrincipiComponent } from './principi/principi.component';
+import { PrincipiComponent } from './components/principi/principi.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -11,7 +12,8 @@ import { PrincipiComponent } from './principi/principi.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PrincipiComponent
+    PrincipiComponent,
+    LoginComponent
 ],
   imports: [
     BrowserModule,
