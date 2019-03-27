@@ -8,11 +8,11 @@ export class User {
     cognome: string;
     email: string;
     lingua:string;
-    Experience: Experience[];
+    experience: Experience[];
 
 
     // tslint:disable-next-line:max-line-length
-    constructor( idUser: number, username: string, password: string, nome:  string, cognome: string,  email: string, lingua:string,  Experience: Experience[]) {
+    constructor( idUser: number, username: string, password: string, nome:  string, cognome: string,  email: string, lingua:string,  experience: Experience[]) {
         this.idUser = idUser;
         this.username = username;
         this.password = password;
@@ -20,7 +20,7 @@ export class User {
         this.cognome = cognome;
         this.email = email;
         this.lingua = lingua;
-        this.Experience = Experience;
+        this.experience = experience;
     }
 
 }
