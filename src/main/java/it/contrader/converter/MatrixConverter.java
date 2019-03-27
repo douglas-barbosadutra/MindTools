@@ -8,7 +8,7 @@ public class MatrixConverter {
 	public static MatrixDTO toDTO(Matrix m) {
 		MatrixDTO matrixDTO = null;
 		if(m != null) {
-			
+			matrixDTO = new MatrixDTO();
 			matrixDTO.setId(m.getId());
 			matrixDTO.setP1(m.getP1());
 			matrixDTO.setP2(m.getP2());
