@@ -28,14 +28,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/liviorossit/.m2/repository/mysql/mysql-connector-java/5.1.44/mysql-connector-java-5.1.44.jar" sourcepath="C:/Users/liviorossit/.m2/repository/mysql/mysql-connector-java/5.1.44/mysql-connector-java-5.1.44-sources.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="mysql"/>
-			<attribute name="maven.artifactId" value="mysql-connector-java"/>
-			<attribute name="maven.version" value="5.1.44"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import com.mysql.jdbc.Blob;
+//import com.mysql.jdbc.Blob;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package it.contrader.dto;
 
-import com.mysql.jdbc.Blob;
+//import com.mysql.jdbc.Blob;
 import it.contrader.model.User;
 
 import lombok.AllArgsConstructor;
