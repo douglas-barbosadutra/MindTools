@@ -30,13 +30,7 @@ export class LoginComponent implements OnInit {
                 this.user = response;
                 sessionStorage.setItem('user', JSON.stringify(this.user));
                 console.log('Username: ' + this.user.username);
-                if (response.userType === 'admin') {
-                    this.router.navigateByUrl('/homeAdmin');
-                } else if (response.userType === 'bo') {
-                    this.router.navigateByUrl('/homeBO');
-                } else if (response.userType === 'dfsd') {
-                    this.router.navigateByUrl('/installer');
-                }
+                
             }
         });
     }
