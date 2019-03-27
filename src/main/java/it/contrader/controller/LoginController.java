@@ -1,17 +1,17 @@
 package it.contrader.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import it.contrader.model.User;
+import it.contrader.dto.UserDTO;
 import it.contrader.service.LoginService;
-import it.contrader.service.UserService;
 
-@Controller
+@CrossOrigin(value="*")
+@RestController
 @RequestMapping("/Login")
 public class LoginController {
 	
@@ -22,33 +22,9 @@ public class LoginController {
 		loginService = ls;
 	}
 	
-	@RequestMapping(value="/authentication", method= RequestMethod.POST)
-	public String authentication(HttpServletRequest request) {
-		
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		
-		final User user = loginService.login(username, password);
-		
-		if (user != null) {
-			UserService.setUserSession(user);
-			request.getSession().setAttribute("utente", user);
-			
-			return "homeUser";
-		}
-		
-		return "index";
+	@RequestMapping(value = "/authentication", method = RequestMethod.POST)
+	public UserDTO login(@RequestParam("username") String username, @RequestParam("password") String password) {
+		return(loginService.login(username, password));
 	}
 	
-	@RequestMapping(value="/registrazione", method= RequestMethod.POST)
-	public String registrazione(HttpServletRequest request) {
-		
-		return "Registrazione";
-		
-	}
-	
-	
-	
-	
-
 }

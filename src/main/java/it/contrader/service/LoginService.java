@@ -3,8 +3,11 @@ package it.contrader.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+//import it.contrader.model.User;
+import it.contrader.dto.UserDTO;
 import it.contrader.dao.UserDAO;
-import it.contrader.model.User;
+import it.contrader.converter.ConverterUser;
 
 @Service
 public class LoginService {
@@ -16,7 +19,7 @@ public class LoginService {
         this.userDAO = userDAO;
     }
 
-    public User login(String username, String password) {
-        return this.userDAO.findUserByUsernameAndPassword(username, password);
+    public UserDTO login(String username, String password) {
+        return ConverterUser.toDTO(this.userDAO.findUserByUsernameAndPassword(username, password));
     }
 }
