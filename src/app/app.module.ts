@@ -13,6 +13,8 @@ import { HomeUserComponent } from './components/home-user/home-user.component';
 
 import { PrincipiReadComponent } from './components/principi/principi-read/principi-read.component';
 
+import { FeedbackComponent } from './components/feedback/feedback.component';
+
 
 
 
@@ -24,7 +26,7 @@ import { PrincipiReadComponent } from './components/principi/principi-read/princ
     LoginComponent,
     HomeUserComponent,
     PrincipiReadComponent,
-
+    FeedbackComponent,
     
 ],
   imports: [

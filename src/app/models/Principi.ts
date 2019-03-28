@@ -11,10 +11,10 @@ export class Principi {
     dPuntiIta: string;
     dNumeriIta: string;  
     pChiaveIta: string;
-    feddback: Feedback[];
+    feedback: Feedback[];
 
     // tslint:disable-next-line:max-line-length
-    constructor( idPrincipi: number, nome: string,dPunti: string, dNumeri: string, pChiave: string,  nomeIta: string, dPuntiIta: string, dNumeriIta: string, pChiaveIta: string, feddback: Feedback[]  ) {
+    constructor( idPrincipi: number, nome: string,dPunti: string, dNumeri: string, pChiave: string,  nomeIta: string, dPuntiIta: string, dNumeriIta: string, pChiaveIta: string, feedback: Feedback[]  ) {
         this.idPrincipi = idPrincipi;    
         this.nome = nome;
         this.dPunti = dPunti;
@@ -23,7 +23,7 @@ export class Principi {
         this.nomeIta = nomeIta;
         this.dNumeriIta = dNumeriIta;
         this.pChiaveIta = pChiaveIta;
-        this.feddback = feddback;
+        this.feedback = feedback;
     }
 
 }
