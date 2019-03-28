@@ -1,3 +1,82 @@
 <p>
   feedback works!
 </p>
+
+
+
+  <h1 class="element-margin-left">Ecco i feedback</h1>
+  <table class="bordo rcorners" >	
+
+    <tr>
+
+  <th><h4>FEEDBACK</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="feedback"></td></tr>
+
+  
+
+<tr>
+
+     
+
+      <th>
+
+          ID FEEDBACK
+
+      </th>
+
+
+
+      <th>
+
+         EXPERIENCE
+
+      </th>
+
+      
+
+      <th>PRINCIPI
+
+      
+
+       </th>
+
+       <th>ALTRI PRINCIPI
+
+      
+
+      </th>
+
+      <th>
+
+       </th>
+
+
+
+  </tr>
+
+
+
+  <tr *ngFor="let f of feedback">	<!--inserisci router link dentro il tr-->
+
+  <td>{{f.idfeedback}}</td>
+
+  <td >{{f.idexperience}}</td>
+
+  <td>{{f.idprincipi}}</td>
+
+  <td>{{f.secondario}}</td>
+
+  <td>{{f.idimagen}</td>
+
+ 
+
+  </tr>
+  
+
+</table> 
+
+
+
+<a class="btn lg btn-primary"
+
+ href="/#/gestionePatologie">Indietro</a>
+
