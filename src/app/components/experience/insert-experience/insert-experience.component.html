@@ -1,3 +1,33 @@
-<p>
-  insert-experience works!
-</p>
+
+<h1>Inserisci Experienza</h1>
+
+<div id="container"> 
+  <form #f= ngForm>
+      <form method="post" action="/Imagen/savefile" enctype="multipart/form-data">
+        <p><label for="image">Choose Image</label></p>
+        <p><input name="file" id="fileToUpload" type="file" /></p>
+        <p><input type="submit" value="Upload"></p>
+        </form>
+        <h3>How much was this principle useful for you? </h3>
+    <label>Commento</label>
+    <textarea type="text" name="commento" placeholder="Inserisci Commento" ngModel></textarea>
+    <label>Aspetto Positivo</label>
+    <input type="text" name="positivo" placeholder="Inserisci Aspetto Positivo" ngModel>
+    <label>Aspetto Negativo</label>
+    <input type="text" name="positivo" placeholder="Inserisci Aspetto Negativo" ngModel>
+    <h4>Score: <input type = "radio"  id = "experience " name = "score" value = "1"> 1 
+      <input type = "radio"  id = "experience " name = "score" value = "2"> 2 
+       <input type = "radio"  id = "experience " name = "score" value = "3"> 3 
+        <input type = "radio"  id = "experience " name = "score" value = "4"> 4 
+         <input type = "radio"  id = "experience " name = "score" value = "5"> 5
+     </h4>
+     <div class="form-group">
+        <label>Altri Principi utilizati</label> <br />
+        <select  multiple="multiple" name="secondari" ngModel>
+            <option *ngFor="let itemInput of itemsInputInsert" [attr.value]="itemInput.itemId">{{itemInput.itemName}}</option>
+        </select>
+    </div>
+    
+              
+
+</div>>

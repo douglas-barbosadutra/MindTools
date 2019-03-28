@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Principi } from 'src/app/models/Principi';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,9 @@ export class PrincipiService {
 }
 
 readPrincipi():Observable <Array<Principi>> {
-  return this.http.get<Array<Principi>> ("http://localhost:8080/homeUser/ShowAllPrincipi")
+  return this.http.get<any>("http://localhost:8080/Principi/ShowAllPrincipi")
+  .pipe(tap((response) => console.log('allPrincipi'), catchError(this.handleError('error', {})))
+            );
 }
 
 }

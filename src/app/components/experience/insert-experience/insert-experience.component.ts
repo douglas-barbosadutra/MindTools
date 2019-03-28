@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {NgForm} from '@angular/forms';
+import{Experience} from 'src/app/models/Experience';
+import{Principi} from 'src/app/models/Principi';
+import {ExperienceService} from 'src/app/services/experience.service';
+import{PrincipiService} from 'src/app/services/'
 
 @Component({
   selector: 'app-insert-experience',
@@ -7,9 +13,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsertExperienceComponent implements OnInit {
 
-  constructor() { }
+  private experience : Experience;
+  public secondari: Array<Principi>;
+
+  constructor(private router: Router, private experienceService: ExperienceService) { }
 
   ngOnInit() {
   }
+   insertExperience(f: NgFrom){
+     this.experience = new Experience(f.)
+   }
+
+   secondari
 
 }
