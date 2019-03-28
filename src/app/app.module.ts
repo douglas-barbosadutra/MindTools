@@ -14,6 +14,7 @@ import { HomeUserComponent } from './components/home-user/home-user.component';
 import { PrincipiReadComponent } from './components/principi/principi-read/principi-read.component';
 
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
 
 
 
@@ -27,6 +28,7 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     HomeUserComponent,
     PrincipiReadComponent,
     FeedbackComponent,
+    RegistrazioneComponent
     
 ],
   imports: [
