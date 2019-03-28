@@ -27,10 +27,10 @@ public class ExperienceService {
 		this.userService = userService;
 	}
 	
-	public Experience insertExperience(ExperienceDTO experienceDTO) {
+	public ExperienceDTO insertExperience(ExperienceDTO experienceDTO) {
 		Experience e = experienceRepository.saveAndFlush(ExperienceConverter.toEntity(experienceDTO));
 		
-		return e;
+		return ExperienceConverter.toDTO(e);
 	}
 	public List<ExperienceDTO> allExperience(){
 		List<ExperienceDTO> ex = new ArrayList();

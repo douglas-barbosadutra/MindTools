@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -40,7 +42,8 @@ import it.contrader.service.PrincipiService;
 
 import lombok.Data;
 
-@Controller
+@CrossOrigin(value="*")
+@RestController
 @RequestMapping("/Experience")
 public class ExperienceController {
 	private final ExperienceService experienceService;
@@ -77,12 +80,7 @@ public class ExperienceController {
 	}
 	
 	@RequestMapping(value="/insertExperience", method= RequestMethod.GET)
-	public String insertUser(HttpServletRequest request) {
-		/*String filename=file.getOriginalFilename();
-	    byte barr[]=file.getBytes(); 
-	    imagenDTO.setNome(filename);
-	    imagenDTO.setArchivo(barr);
-	    Imagen g = imagenService.insertImagen(imagenDTO);*/
+	public ExperienceDTO insertUser(HttpServletRequest request) {
 		 Imagen g = (Imagen) request.getSession().getAttribute("imagen");
 		 User user =  (User) request.getSession().getAttribute("utente");
 		 UserDTO userDTO = ConverterUser.toDTO(user);
@@ -93,16 +91,15 @@ public class ExperienceController {
 	     int idpprincipale = (int) request.getSession().getAttribute("principio");
 	     int score = Integer.parseInt(request.getParameter("score"));
 	     String[]  ids_principi = request.getParameterValues("idsprincipi[]");
-	     
 	     experienceDTO.setCommento(commento);
 	     experienceDTO.setPositivo(positivo);
 	     experienceDTO.setNegativo(negativo);
 	     experienceDTO.setScore(score);
 	     experienceDTO.setUser(user);
 	     experienceDTO.setImagen(g);
-	     Experience ex = experienceService.insertExperience(experienceDTO);
+	     ExperienceDTO ex = experienceService.insertExperience(experienceDTO);
          if( ids_principi !=null) {
-       	     feedbackDTO.setExperience(ex);
+       	     feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
        	     PrincipiDTO p = principiService.getPrincipio(idpprincipale);
 	    	 feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
 	    	 feedbackDTO.setSecondario(valore);
@@ -113,7 +110,7 @@ public class ExperienceController {
 	    	 int second = 0;
 	    	 if(id != idpprincipale)
 	    		 second = 1;
-	    	 feedbackDTO.setExperience(ex);
+	    	 feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
 	    	 PrincipiDTO b = principiService.getPrincipio(id);
 	         feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(b));
 	    	 feedbackDTO.setSecondario(second);
@@ -121,7 +118,7 @@ public class ExperienceController {
 	      }
         }
         else {
-        	feedbackDTO.setExperience(ex);
+        	feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
         	PrincipiDTO p = principiService.getPrincipio(idpprincipale);
         	feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
         	feedbackDTO.setSecondario(valore);
@@ -129,7 +126,8 @@ public class ExperienceController {
         }
         List<ExperienceUserFeedbackDTO> EUF = experienceService.getAllExperienceUserFeedbackDTO();
  		request.getSession().setAttribute("euf", EUF); 
- 		return "AllExperience";
+ 		
+ 		return experienceDTO;
 	}
 	@RequestMapping(value="/ShowAllExperience", method= RequestMethod.GET)
 	public String ShowAllExperience(HttpServletRequest request) {
