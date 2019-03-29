@@ -23,9 +23,9 @@ public class RegistrazioneController {
 		this.userService = userService;
 	}
 	
-	@RequestMapping(value = "/reg", method = RequestMethod.POST)
-	public void insert(@RequestBody UserDTO user) {
-		userService.insertUser(user);
+	@RequestMapping(value="/reg", method= RequestMethod.POST)
+	public UserDTO insertUser(@RequestBody UserDTO user) {
+		return userService.insertUser(user);
 	}
 	
 	

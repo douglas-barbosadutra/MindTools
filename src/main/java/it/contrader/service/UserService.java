@@ -26,9 +26,10 @@ public class UserService {
 		this.userDAO.deleteById(id);
 	}
 
-	public void insertUser(UserDTO userdto) {
-		userDAO.save(ConverterUser.toEntity(userdto));
-		
+	public UserDTO insertUser(UserDTO userDTO) {
+		User user = ConverterUser.toEntity(userDTO);
+		userDAO.saveAndFlush(user);
+		return ConverterUser.toDTO(user);
 	}
 
 	public List<UserDTO> getAllUsers() {
