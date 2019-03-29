@@ -16,12 +16,12 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'login', component: LoginComponent},
   {path: 'home-user', component: HomeUserComponent},
-  {path: 'principi-read', component:  PrincipiReadComponent},
+  {path: 'PrincipiRead', component:  PrincipiReadComponent},
   {path: 'feedback', component:  FeedbackComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{useHash: true,onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
