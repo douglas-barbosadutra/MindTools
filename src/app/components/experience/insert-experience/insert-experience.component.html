@@ -9,12 +9,13 @@
         <button type="submit" (click)="insertImagen(imagen)">Upload</button>
         </form>
         <h3>How much was this principle useful for you? </h3>
-    <label>Commento</label>
-    <textarea type="text" name="commento" placeholder="Inserisci Commento" ngModel></textarea>
-    <label>Aspetto Positivo</label>
-    <input type="text" name="positivo" placeholder="Inserisci Aspetto Positivo" ngModel>
-    <label>Aspetto Negativo</label>
-    <input type="text" name="negativo" placeholder="Inserisci Aspetto Negativo" ngModel>
+    <h4><label>Commento</label><br>
+    <textarea type="text" name="commento" placeholder="Inserisci Commento" ngModel></textarea><br> </h4>
+    <h4></h4><label>Aspetto Positivo</label><br>
+
+    <input type="text" name="positivo" placeholder="Inserisci Aspetto Positivo" ngModel><br></h4>
+    <h4><label>Aspetto Negativo</label><br>
+    <input type="text" name="negativo" placeholder="Inserisci Aspetto Negativo" ngModel><br></h4>
     <h4>Score: <input type = "radio"  id = "experience " name = "score" value = "1"> 1 
       <input type = "radio"  id = "experience " name = "score" value = "2"> 2 
        <input type = "radio"  id = "experience " name = "score" value = "3"> 3 
@@ -23,11 +24,14 @@
      </h4>
      <div class="form-group">
         <label>Altri Principi utilizati</label> <br />
-        <select  multiple="multiple" name="secondari" ngModel>
-            <option *ngFor="let principi of secondari" [attr.value]="principi.idPrincipi">{{principi.idPrincipi}}{{principi.nome}}</option>
-        </select>
+        <tr *ngFor="let principi of secondari">
+          <td><input type = "checkbox"  name = "idsprincipi[]"  [attr.value]="principi.idPrincipi">{{principi.idPrincipi}}{{principi.nome}} ngModel</td>
+
+        </tr>
+        
+      
     </div>
     
-    <button  type="submit" (click)="insertExperience(f)">Insert</button>    
+    <button  type="submit" (click)="insertExperience(f,imagen)">Insert</button>    
 
 </div>

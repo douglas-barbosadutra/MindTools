@@ -19,16 +19,16 @@ export class InsertExperienceComponent implements OnInit {
   constructor(private router: Router, private experienceService: ExperienceService, private principiService: PrincipiService) { }
 
   ngOnInit() {
+
+    this.principiService.readPrincipi().subscribe((response) => {
+      this.secondari = response;
+     console.log('Lista principi input caricarita');
+ });
   }
    insertExperience(f: NgForm, imagen: NgForm){
-     this.experience = new Experience(null, null,f.value.commento,f.value.positivo,f.value.negativo,f.value.score, f.value.secondari, imagen.value.imagen)
-     
+     this.experience = new Experience(null, null,f.value.commento,f.value.positivo,f.value.negativo,f.value.score, f.value.secondari, imagen.value.imagen);
+     this.router.navigateByUrl("allExperience");
    
-
-   this.principiService.readPrincipi().subscribe((response) => {
-     this.secondari = response;
-    console.log('Lista principi input caricarita');
-});
    }
    
 
