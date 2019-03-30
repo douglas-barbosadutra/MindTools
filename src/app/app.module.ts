@@ -15,6 +15,8 @@ import { PrincipiReadComponent } from './components/principi/principi-read/princ
 
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
+import { AllExperienceComponent } from './components/experience/all-experience/all-experience.component';
+import { ExperienceService } from './services/experience.service';
 
 
 
@@ -28,8 +30,8 @@ import { RegistrazioneComponent } from './components/registrazione/registrazione
     HomeUserComponent,
     PrincipiReadComponent,
     FeedbackComponent,
-    RegistrazioneComponent
-    
+    RegistrazioneComponent,
+    AllExperienceComponent
 ],
   imports: [
     BrowserModule,
@@ -37,7 +39,7 @@ import { RegistrazioneComponent } from './components/registrazione/registrazione
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ExperienceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

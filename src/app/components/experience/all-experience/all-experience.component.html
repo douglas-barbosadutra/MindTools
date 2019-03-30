@@ -1,3 +1,24 @@
-<p>
-  all-experience works!
-</p>
+<app-menu-admin></app-menu-admin>
+<body class="body">
+    <h1 class="title">Esperienze</h1>
+          <div id="container">
+            <table class="table table-striped">
+              <thead>
+                  <tr>
+                    <th>Principio</th>
+                    <th>Nome</th>
+                    <th>Commento</th>
+                    <th>Score</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let experienceList of experienceList">
+                    <td>{{experienceList.Principio}} </td>
+                    <td>{{experienceList.Nome}} </td>
+                    <td>{{experienceList.Commento}}</td>
+                    <td>{{experienceList.Score}}</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+    </body>

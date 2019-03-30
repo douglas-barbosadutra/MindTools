@@ -11,13 +11,17 @@ import { HomeUserComponent } from './components/home-user/home-user.component';
 
 import { PrincipiReadComponent } from './components/principi/principi-read/principi-read.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+//Experience
+import { AllExperienceComponent } from './components/experience/all-experience/all-experience.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'login', component: LoginComponent},
   {path: 'home-user', component: HomeUserComponent},
   {path: 'PrincipiRead', component:  PrincipiReadComponent},
-  {path: 'feedback', component:  FeedbackComponent}
+  {path: 'feedback', component:  FeedbackComponent},
+  {path: 'AllExperience', component:  AllExperienceComponent},
+
 ];
 
 @NgModule({
