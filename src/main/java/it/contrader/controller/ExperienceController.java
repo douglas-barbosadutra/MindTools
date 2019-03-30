@@ -129,12 +129,9 @@ public class ExperienceController {
  		
  		return experienceDTO;
 	}
-	@RequestMapping(value="/ShowAllExperience", method= RequestMethod.GET)
-	public String ShowAllExperience(HttpServletRequest request) {
-		List<ExperienceUserFeedbackDTO> EUF = experienceService.getAllExperienceUserFeedbackDTO();
-		request.getSession().setAttribute("euf", EUF); 
-		return "AllExperience";
-		
+	@RequestMapping(value="/showAllExperience" , method= RequestMethod.GET)
+	public List<ExperienceUserFeedbackDTO> showAllExperience() {		
+		return experienceService.getAllExperienceUserFeedbackDTO();
 	}
 	
 	@RequestMapping(value="/getImage", method= RequestMethod.GET)
