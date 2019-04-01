@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HomeUserComponent } from './components/home-user/home-user.component';
 import { PrincipiReadComponent } from './components/principi/principi-read/principi-read.component';
-import {InsertExperienceComponent} from './components/experience/insert-experience/insert-experience.component';
+import { InsertExperienceComponent} from './components/experience/insert-experience/insert-experience.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
 import { AllExperienceComponent } from './components/experience/all-experience/all-experience.component';
