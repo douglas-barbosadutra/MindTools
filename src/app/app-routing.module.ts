@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'PrincipiRead', component:  PrincipiReadComponent},
   {path: 'feedback', component:  FeedbackComponent},
   {path: 'AllExperience', component:  AllExperienceComponent},
-  {path: 'InsertExperience', component:  InsertExperienceComponent},
+  {path: 'InsertExperience', component:  InsertExperienceComponent}
 
 ];
 
