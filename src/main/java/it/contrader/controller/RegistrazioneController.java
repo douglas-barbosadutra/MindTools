@@ -4,9 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.model.User;
 import it.contrader.service.UserService;
@@ -23,11 +25,27 @@ public class RegistrazioneController {
 		this.userService = userService;
 	}
 	
-	@RequestMapping(value="/reg", method= RequestMethod.POST)
-	public UserDTO insertUser(@RequestBody UserDTO user) {
-		return userService.insertUser(user);
+	@CrossOrigin
+	@RequestMapping(value = "/reg", method = RequestMethod.POST)
+	public UserDTO insertUser(		
+			
+			@RequestParam(value = "iduser") String iduser,
+			@RequestParam(value = "username") String username,
+			@RequestParam(value = "password") String password,
+			@RequestParam(value = "nome") String nome,
+			@RequestParam(value = "congome") String cognome,
+			@RequestParam(value = "email") String email,			
+			@RequestParam(value = "lingua") String lingua
+			
+			
+	) {
+
+		int idUser = Integer.parseInt(iduser);
+		UserDTO  userDTO = new UserDTO(idUser,  username, password,nome, cognome, email, lingua);
+		userDTO = userService.insertUser(userDTO);
+		return userDTO;
+
 	}
-	
 	
 	
 	
