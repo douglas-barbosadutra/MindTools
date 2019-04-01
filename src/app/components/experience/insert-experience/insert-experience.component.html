@@ -2,17 +2,16 @@
 <h1>Inserisci Experienza</h1>
 
 <div id="container"> 
+    <form #imagen= "ngForm" method="post" enctype="multipart/form-data">
+      <p><label for="image">Choose Image</label></p>
+      <p><input name="file" id="fileToUpload" type="file" /></p>
+      <button type="submit" (click)="insertImagen(imagen)">Upload</button>
+      </form>
   <form #f= "ngForm">
-      <form #imagen= "ngForm" method="post" enctype="multipart/form-data">
-        <p><label for="image">Choose Image</label></p>
-        <p><input name="file" id="fileToUpload" type="file" /></p>
-        <button type="submit" (click)="insertImagen(imagen)">Upload</button>
-        </form>
         <h3>How much was this principle useful for you? </h3>
     <h4><label>Commento</label><br>
-    <textarea type="text" name="commento" placeholder="Inserisci Commento" ngModel></textarea><br> </h4>
-    <h4></h4><label>Aspetto Positivo</label><br>
-
+    <textarea type="text" name="commento" placeholder="Inserisci Commento" ngModel></textarea><br></h4>
+    <h4><label>Aspetto Positivo</label><br>
     <input type="text" name="positivo" placeholder="Inserisci Aspetto Positivo" ngModel><br></h4>
     <h4><label>Aspetto Negativo</label><br>
     <input type="text" name="negativo" placeholder="Inserisci Aspetto Negativo" ngModel><br></h4>
@@ -23,7 +22,7 @@
          <input type = "radio"  id = "experience " name = "score" value = "5"> 5
      </h4>
      <div class="form-group">
-        <label>Altri Principi utilizati</label> <br />
+        <label>Altri Principi utilizati</label><br>
         <tr *ngFor="let principi of secondari">
           <td><input type = "checkbox"  name = "idsprincipi[]"  [attr.value]="principi.idPrincipi">{{principi.idPrincipi}}{{principi.nome}} ngModel</td>
 
@@ -33,5 +32,5 @@
     </div>
     
     <button  type="submit" (click)="insertExperience(f,imagen)">Insert</button>    
-
+  </form>
 </div>
