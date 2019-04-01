@@ -13,6 +13,8 @@ import { PrincipiReadComponent } from './components/principi/principi-read/princ
 import { FeedbackComponent } from './components/feedback/feedback.component';
 //Experience
 import { AllExperienceComponent } from './components/experience/all-experience/all-experience.component';
+//InsertExperience
+import { InsertExperienceComponent } from './components/experience/insert-experience/insert-experience.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -21,6 +23,7 @@ const routes: Routes = [
   {path: 'PrincipiRead', component:  PrincipiReadComponent},
   {path: 'feedback', component:  FeedbackComponent},
   {path: 'AllExperience', component:  AllExperienceComponent},
+  {path: 'InsertExperience', component:  InsertExperienceComponent},
 
 ];
 
