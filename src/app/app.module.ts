@@ -18,6 +18,7 @@ import { ExperienceService } from './services/experience.service';
 import { LoginService } from './services/login.service';
 import { FeedbackService } from './services/feedback.service';
 import { ImagenService } from './services/imagen.service';
+import {RegistrazioneService} from './services/registrazione.service';
 import { PrincipiService } from './services/principi/principi.service';
 
 
@@ -42,7 +43,7 @@ import { PrincipiService } from './services/principi/principi.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ExperienceService, LoginService, FeedbackService, ImagenService, PrincipiService],
+  providers: [ExperienceService, LoginService, FeedbackService, ImagenService, PrincipiService, RegistrazioneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
