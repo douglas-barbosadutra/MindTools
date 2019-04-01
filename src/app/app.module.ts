@@ -17,6 +17,10 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
 import { AllExperienceComponent } from './components/experience/all-experience/all-experience.component';
 import { ExperienceService } from './services/experience.service';
+import { LoginService } from './services/login.service';
+import { FeedbackService } from './services/feedback.service';
+import { ImagenService } from './services/imagen.service';
+import { PrincipiService } from './services/principi/principi.service';
 
 
 
@@ -39,7 +43,7 @@ import { ExperienceService } from './services/experience.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ExperienceService],
+  providers: [ExperienceService, LoginService, FeedbackService, ImagenService, PrincipiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
