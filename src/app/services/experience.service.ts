@@ -13,7 +13,7 @@ export class ExperienceService {
   insertExperience(experience : Experience){
     return this.http.post('http//localhost:8080/Experience/insertExperience', experience);
   }
-  showshowAllExperiences(){
+  showAllExperiences(){
     return this.http.get('http://localhost:8080/Experience/showAllExperiences');
 
   }

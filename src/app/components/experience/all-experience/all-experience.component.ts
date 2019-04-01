@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {ExperienceService} from 'src/services/experience.service';
-import { Experience } from 'src/models/Experience';
+import {ExperienceService} from 'src/app/services/experience.service';
+import { Experience } from 'src/app/models/Experience';
 import { Router } from "@angular/router";
 
 @Component({
