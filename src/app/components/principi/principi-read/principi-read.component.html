@@ -1,7 +1,21 @@
 <body>
-<div  ngRepeat="n in range(0,39)">
 
-  <img src="assets/card/{{n}}front.jpg">
-</div>
+  
+  <div *ngFor="let p of principi; let i=index"> 
+
+      <img id="img{{i}}" src="/assets/card/{{i}}front.jpg" width="170" height="180">
+      
+   <!--   <a ondblclick="(function(){
+        window.location.href = '/Principi/SelezionaPrincipio?idPrincipi={{i}}'; 
+        return false;})();
+      return false;" 
+        onClick="(function(){
+        document.getElementById('img{{i}}').src='/assets/card/{{i}}retro.jpg'; 
+        return false;})();
+        return false;"> 
+        
+        </a>  -->
+      
+  </div>
 
 </body>

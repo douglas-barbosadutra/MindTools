@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class PrincipiReadComponent implements OnInit {
 
+
   public principi : Array<Principi>;
+  
 
      constructor(private principiService:PrincipiService, private router: Router){
 
