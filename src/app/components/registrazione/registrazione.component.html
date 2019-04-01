@@ -1,3 +1,37 @@
-<p>
-  registrazione works!
-</p>
+<body>
+  <div>
+      <div>
+          <h1>Registrati</h1>
+          <form #f="ngForm">
+          
+              <div>
+                  <input type="text"  name="username"  placeholder=" Username" ngModel required autofocus>
+              </div>
+          
+              <div>
+                  <input type="password"  name="password"  placeholder=" Password" ngModel required autofocus>
+              </div>
+          
+              <div>
+                  <input type="text"  name="nome"  placeholder=" Nome" ngModel required autofocus>
+              </div>
+          
+              <div>
+                  <input type="text"  name="cognome" placeholder=" Cognome" ngModel required autofocus>
+              </div>
+          
+              <div>
+                  <input type="text"  name="email"  placeholder=" Email" ngModel required autofocus>  
+              </div>
+  
+              <div>
+                  <input type="text"  name="lingua"  placeholder=" Lingua" ngModel required autofocus>
+              </div>
+          
+              <div>
+                  <button (click)="registrazione(f)">Registrati</button>
+              </div>
+          </form>
+      </div>
+    </div>
+  </body>

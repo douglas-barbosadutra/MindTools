@@ -7,7 +7,6 @@ import { LoginComponent } from './components/login/login.component';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { HomeUserComponent } from './components/home-user/home-user.component';
 import { PrincipiReadComponent } from './components/principi/principi-read/principi-read.component';
 import { InsertExperienceComponent} from './components/experience/insert-experience/insert-experience.component';
@@ -41,7 +40,7 @@ import { PrincipiService } from './services/principi/principi.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ExperienceService, LoginService, FeedbackService, ImagenService, PrincipiService, RegistrazioneService],
   bootstrap: [AppComponent]

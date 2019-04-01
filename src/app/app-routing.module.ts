@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 //Login
 import {LoginComponent} from './components/login/login.component';
 import { HomeUserComponent } from './components/home-user/home-user.component';
+import {RegistrazioneComponent} from './components/registrazione/registrazione.component';
 
 //homeuser
 
@@ -19,6 +20,7 @@ import { InsertExperienceComponent } from './components/experience/insert-experi
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'login', component: LoginComponent},
+  {path: 'registrazione', component: RegistrazioneComponent},
   {path: 'home-user', component: HomeUserComponent},
   {path: 'PrincipiRead', component:  PrincipiReadComponent},
   {path: 'feedback', component:  FeedbackComponent},
