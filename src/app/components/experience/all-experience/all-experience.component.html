@@ -1,6 +1,4 @@
-
-
-    <h1 class="title">Esperienze</h1>
+ <h1 class="title">Esperienze</h1>
           <div id="container">
             <table class="table table-striped">
               <thead>
@@ -12,11 +10,11 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr *ngFor="let experienceList of experienceList">
-                    <td>{{experienceList.Principio}} </td>
-                    <td>{{experienceList.Nome}} </td>
-                    <td>{{experienceList.Commento}}</td>
-                    <td>{{experienceList.Score}}</td>
+                  <tr *ngFor="let e of experienceList">
+                    <td>{{e.Principio.Nome}} </td>
+                    <td>{{e.Nome}} </td>
+                    <td>{{e.Commento}}</td>
+                    <td>{{e.Score}}</td>
                   </tr>
               </tbody>
             </table>

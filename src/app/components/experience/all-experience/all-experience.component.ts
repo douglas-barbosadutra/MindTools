@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import {ExperienceService} from 'src/app/services/experience.service';
 import { Experience } from 'src/app/models/Experience';
 import { Router } from "@angular/router";
+import { ExperienceUserFeedbackDTO } from 'src/app/models/ExperienceUserFeedbackDTO';
+//import { Principi } from 'src/app/models/Principi';
 
 @Component({
   selector: 'app-all-experience',
@@ -11,14 +13,16 @@ import { Router } from "@angular/router";
 })
 
 export class AllExperienceComponent implements OnInit {
-  private experienceList : Array<Experience>;
-  private experience: Experience;
+  public experienceList : Array<ExperienceUserFeedbackDTO>;
   constructor(private experienceService: ExperienceService, private router:  Router) { }
 
   ngOnInit() {
-   this.experienceService.showAllExperiences().subscribe((data: any) =>{
-      if(data != null){
-        this.experienceList = data;
-      }
+    this.experienceService.showAllExperiences().subscribe((response) =>{
+
     })
+  //  this.experienceService.showAllExperiences().subscribe((response) =>{
+  //     alert("PROVA " + response);
+  //       this.experienceList = response;
+      
+  //   })
   }}
