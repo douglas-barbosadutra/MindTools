@@ -4,6 +4,7 @@ import { RegistrazioneService } from "../../services/registrazione.service";
 import { User } from "../../models/User";
 import { Router, NavigationExtras } from '@angular/router';
 
+
 @Component({
   selector: 'app-registrazione',
   templateUrl: './registrazione.component.html',
@@ -20,7 +21,7 @@ export class RegistrazioneComponent implements OnInit {
     registrazione(f: NgForm){
     
   this.registrazioneService.registrazione(f.value.username, f.value.password, f.value.nome, f.value.cognome, f.value.email, f.value.lingua ).subscribe((response) => {
-      console.log("sei entrato qui!!" + f.value.username);
+      
       if (response != null) {        
         this.router.navigateByUrl("/login");
       }

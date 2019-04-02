@@ -23,7 +23,7 @@ export class RegistrazioneService {
 
   registrazione(username: string, password:string, nome: string, cognome: string, email: string, lingua: string): Observable<User> 
   {
-    const params = new HttpParams().set('iduser', '0').set('username', username).set('password', password).set('nome', nome).set('cognome', cognome).
+    const params = new HttpParams().set('iduser', '0').set('username', username).set('password', password).set('nome', nome).set('congome', cognome).
         set('email', email).set('lingua', lingua);
         return this.http.post<User>('http://localhost:8080/Registrazione/reg', params);
 
