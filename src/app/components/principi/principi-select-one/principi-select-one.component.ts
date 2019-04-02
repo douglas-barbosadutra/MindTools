@@ -17,10 +17,7 @@ export class PrincipiSelectOneComponent implements OnInit {
 }
 
   ngOnInit() {
-    this.idPrincipi= this.route.snapshot.queryParams.idPrincipi;
-    this.principiService.selectPrincipio(this.idPrincipi).subscribe((response) => {
-      this.principio = response;
-  }) ;
+    this.idPrincipi= parseInt(sessionStorage.getItem("idPrincipi"));
     
   }
 

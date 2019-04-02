@@ -24,8 +24,8 @@ export class PrincipiReadComponent implements OnInit {
          }) 
         }
 selectLink(idPrincipi: number){
-  sessionStorage.setPrincipi("idPrincipi",JSON.stringify(idPrincipi));
-  this.router.navigateByUrl("homeUser");
+  sessionStorage.setItem("idPrincipi",JSON.stringify(idPrincipi));
+  this.router.navigateByUrl('/PrincipiSelectOne');
 
 }
         
