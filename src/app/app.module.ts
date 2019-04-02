@@ -26,6 +26,7 @@ import { PrincipiSelectOneComponent } from './components/principi/principi-selec
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { PrincipiSelectOneComponent } from './components/principi/principi-selec
     RegistrazioneComponent,
     AllExperienceComponent,
     InsertExperienceComponent,
-    PrincipiSelectOneComponent
+    PrincipiSelectOneComponent,
+  
 ],
   imports: [
     BrowserModule,

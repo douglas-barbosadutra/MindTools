@@ -5,6 +5,7 @@ import { Principi } from '../models/Principi';
 import { Experience } from '../models/Experience';
 import { Observable, of } from 'rxjs';
 import { Feedback } from '../models/Feedback';
+import { FeedbackPrincipiExperience } from '../models/FeedbackPrincipiExperience';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,9 @@ import { Feedback } from '../models/Feedback';
 export class FeedbackService {
   constructor(private http: HttpClient) { }
 
-  readFeedback():Observable<Array<Feedback>>{
+  readFeedback(idExperience: number):Observable<Array<FeedbackPrincipiExperience>>{
 
-        return this.http.get<Array<Feedback>>("http://localhost:8080/Feedback/showFeedback");
+        return this.http.get<Array<FeedbackPrincipiExperience>>("http://localhost:8080/Feedback/showFeedback?idExperience="+idExperience);
         
     }
 

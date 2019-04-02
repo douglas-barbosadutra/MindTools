@@ -4,6 +4,7 @@ import { Feedback } from "src/app/models/Feedback";
 import { Router } from "@angular/router";
 
 import { NgForm } from "@angular/forms";
+import { FeedbackPrincipiExperience } from 'src/app/models/FeedbackPrincipiExperience';
 
 @Component({
   selector: 'app-feedback',
@@ -11,18 +12,18 @@ import { NgForm } from "@angular/forms";
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent implements OnInit {
-  public feedback : Array<Feedback>
-
+  public feedback : FeedbackPrincipiExperience;
+  
   constructor(private feedbackService:FeedbackService, private router: Router) { 
 
   }
 
      ngOnInit(){
 
-         this.feedbackService.readFeedback().subscribe((response) => {
-
-             this.feedback = response;
-
-         })
-        } 
-      }
+         this.feedbackService.readFeedback(1).subscribe((data: any) =>{
+          if(data != null){
+            this.feedback = data;
+            console.log('readFeedback');
+          }
+        })
+      }}

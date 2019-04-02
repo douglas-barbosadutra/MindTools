@@ -1,10 +1,6 @@
-<p>
-  feedback works!
-</p>
-
-
 
   <h1 class="element-margin-left">Ecco i feedback</h1>
+  <body>	
   <table class="bordo rcorners" >	
 
     <tr>
@@ -23,6 +19,9 @@
 
       </th>
 
+      <th>
+
+      </th>
 
 
       <th>
@@ -31,17 +30,30 @@
 
       </th>
 
-      
+      <th>
+
+      </th>
+
 
       <th>PRINCIPI
 
       
 
        </th>
+       <th>
+
+      </th>
+
 
        <th>ALTRI PRINCIPI
 
-      
+      </th>
+  <th>
+
+       </th>
+
+      <th>IMMAGINE
+
 
       </th>
 
@@ -58,13 +70,22 @@
   <tr *ngFor="let f of feedback">	<!--inserisci router link dentro il tr-->
 
   <td>{{f.idfeedback}}</td>
+  <th>
+
+  </th>
 
   <td >{{f.idexperience}}</td>
+  <th>
 
+  </th>
   <td>{{f.idprincipi}}</td>
+  <th>
 
+  </th>
   <td>{{f.secondario}}</td>
+  <th>
 
+  </th>
   <td>{{f.idimagen}</td>
 
  
@@ -73,7 +94,7 @@
   
 
 </table> 
-
+  </body>
 
 
 
