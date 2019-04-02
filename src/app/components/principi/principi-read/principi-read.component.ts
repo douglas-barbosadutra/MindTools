@@ -23,6 +23,9 @@ export class PrincipiReadComponent implements OnInit {
              this.principi = response;
          }) 
         }
+selectLink(idPrincipi: number){
+  this.router.navigateByUrl('/Principi/SelezionaPrincipio'+ idPrincipi);
 
+}
         
 }

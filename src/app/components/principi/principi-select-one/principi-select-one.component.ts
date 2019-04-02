@@ -1,4 +1,7 @@
+import { ActivatedRoute, Router, ActivationEnd } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Principi } from 'src/app/models/Principi';
+import { PrincipiService } from 'src/app/services/principi/principi.service';
 
 @Component({
   selector: 'app-principi-select-one',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipiSelectOneComponent implements OnInit {
 
-  constructor() { }
+  public idPrincipi: number;
+  public principio : Principi;
+
+  constructor(private principiService:PrincipiService, private route: ActivatedRoute, private router: Router){ 
+}
 
   ngOnInit() {
+    this.idPrincipi= this.route.snapshot.queryParams.idPrincipi;
+    this.principiService.selectPrincipio(this.idPrincipi).subscribe((response) => {
+      this.principio = response;
+  }) ;
+    
   }
 
 }

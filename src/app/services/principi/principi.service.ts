@@ -24,4 +24,10 @@ readPrincipi():Observable <Array<Principi>> {
   
 }
 
+selectPrincipio(idPrincipi:number):Observable <Principi> {
+return this.http.get<Principi>('http://localhost:8080/Principi/SelezionaPrincipio?id='+idPrincipi);
+
 }
+
+}
+
