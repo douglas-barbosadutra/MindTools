@@ -2,6 +2,7 @@ package it.contrader.dto;
 
 import it.contrader.model.Experience;
 import it.contrader.model.Feedback;
+import it.contrader.model.Imagen;
 import it.contrader.model.Principi;
 
 import lombok.AllArgsConstructor;
@@ -20,4 +21,5 @@ public class FeedbackDTO {
 	private Experience experience;
 	private Principi principi;
 	private Integer secondario;
+	private Imagen imagen;
 	}

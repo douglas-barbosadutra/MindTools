@@ -46,7 +46,9 @@ public class Feedback {
 	private Experience experience;
 	
 	
-
+	@OneToOne
+	@JoinColumn(name = "idImagen")
+    private Imagen imagen;
 
 	
 
