@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import it.contrader.dto.MatrixDTO;
+import it.contrader.converter.MatrixConverter;
 import it.contrader.dao.MatrixRepository;
 import it.contrader.model.Matrix;
 
@@ -18,9 +19,9 @@ public class MatrixService {
 		this.matrixRepository = matrixRepository;
 	}
 	
-	public List<MatrixDTO> mostraMatrice()
+	public List<MatrixDTO> getMatrix()
 	{
-		
+		return MatrixConverter.toListDTO((List<Matrix>) matrixRepository.findAll());
 	}
 	
 	
