@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-@CrossOrigin(value="*")
+@CrossOrigin
 @RestController
 @RequestMapping("/Principi")
 public class PrincipiController {
