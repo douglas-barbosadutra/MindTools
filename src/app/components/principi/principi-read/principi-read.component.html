@@ -1,22 +1,10 @@
+<head>
+</head>
 <body>
 
-  
-  <div *ngFor="let p of principi; let i=index"> 
 
-      <img id="img{{i}}" src="/assets/card/{{i}}front.jpg" width="170" height="180" href="/Principi/PrincipiSelectOne" (dblclick)="selectLink(p.idPrincipi)">
-      
-      
-   <!--   <a ondblclick="(function(){
-        window.location.href = '/Principi/SelezionaPrincipio?idPrincipi={{i}}'; 
-        return false;})();
-      return false;" 
-        onClick="(function(){
-        document.getElementById('img{{i}}').src='/assets/card/{{i}}retro.jpg'; 
-        return false;})();
-        return false;"> 
-        
-        </a>  -->
-      
-  </div>
+<div *ngFor="let p of principi; let i=index" class="table">
+<img src="/assets/card/{{i+1}}front.jpg" width="170" height="180"(dblclick)="selectLink(p.idPrincipi)">
+</div>
 
 </body>
