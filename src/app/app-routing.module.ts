@@ -16,6 +16,7 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { AllExperienceComponent } from './components/experience/all-experience/all-experience.component';
 //InsertExperience
 import { InsertExperienceComponent } from './components/experience/insert-experience/insert-experience.component';
+import { PrincipiSelectOneComponent } from './components/principi/principi-select-one/principi-select-one.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -25,8 +26,8 @@ const routes: Routes = [
   {path: 'PrincipiRead', component:  PrincipiReadComponent},
   {path: 'feedback', component:  FeedbackComponent},
   {path: 'AllExperience', component:  AllExperienceComponent},
-  {path: 'InsertExperience', component:  InsertExperienceComponent}
-
+  {path: 'InsertExperience', component:  InsertExperienceComponent},
+  {path: 'PrincipiSelectOne', component:  PrincipiSelectOneComponent}
 ];
 
 @NgModule({

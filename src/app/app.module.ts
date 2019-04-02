@@ -19,6 +19,7 @@ import { FeedbackService } from './services/feedback.service';
 import { ImagenService } from './services/imagen.service';
 import {RegistrazioneService} from './services/registrazione.service';
 import { PrincipiService } from './services/principi/principi.service';
+import { PrincipiSelectOneComponent } from './components/principi/principi-select-one/principi-select-one.component';
 
 
 
@@ -34,7 +35,8 @@ import { PrincipiService } from './services/principi/principi.service';
     FeedbackComponent,
     RegistrazioneComponent,
     AllExperienceComponent,
-    InsertExperienceComponent
+    InsertExperienceComponent,
+    PrincipiSelectOneComponent
 ],
   imports: [
     BrowserModule,
