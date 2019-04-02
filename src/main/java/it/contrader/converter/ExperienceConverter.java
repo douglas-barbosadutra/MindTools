@@ -1,6 +1,10 @@
 package it.contrader.converter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import it.contrader.dto.ExperienceDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.model.Experience;
 import it.contrader.model.User;
 
@@ -18,14 +22,13 @@ public class ExperienceConverter {
 			User user = experienceDTO.getUser();
 			experience.setUser(user);
 			experience.setImagen(experienceDTO.getImagen());
-			
+
 		}
 
 		return experience;
-		
-		
+
 	}
-	
+
 	public static ExperienceDTO toDTO(Experience experience) {
 
 		ExperienceDTO experienceDTO = null;
@@ -42,6 +45,14 @@ public class ExperienceConverter {
 
 		return experienceDTO;
 	}
-	 
 
+	public static List<ExperienceDTO> toListDTO(List<Experience> list) {
+		List<ExperienceDTO> listExperienceDTO = new ArrayList<>();
+		if (!list.isEmpty()) {
+			for (Experience Experience : list) {
+				listExperienceDTO.add(ExperienceConverter.toDTO(Experience));
+			}
+		}
+		return listExperienceDTO;
+	}
 }

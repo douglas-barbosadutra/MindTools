@@ -3,6 +3,7 @@ package it.contrader.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import it.contrader.model.Experience;
 
 @Data
 @AllArgsConstructor
@@ -22,7 +23,6 @@ public class UserDTO {
 	private String email;
 	
 	private String lingua;
-	
-	
-	
-}
+
+
+	}

@@ -42,7 +42,7 @@ import it.contrader.service.PrincipiService;
 
 import lombok.Data;
 
-@CrossOrigin(value="*")
+@CrossOrigin(value = "*")
 @RestController
 @RequestMapping("/Experience")
 public class ExperienceController {
@@ -60,96 +60,97 @@ public class ExperienceController {
 	private FeedbackConverter feedbackconverter = new FeedbackConverter();
 	private PrincipiConverter principiConverter = new PrincipiConverter();
 	int valore = 0;
-	
-	
+
 	@Autowired
-	public ExperienceController (ExperienceService experienceService,PrincipiService principiService, FeedbackService feedbackservice, ImagenService imagenService ) {
+	public ExperienceController(ExperienceService experienceService, PrincipiService principiService,
+			FeedbackService feedbackservice, ImagenService imagenService) {
 		this.experienceService = experienceService;
 		this.principiService = principiService;
 		this.feedbackservice = feedbackservice;
 		this.imagenService = imagenService;
 	}
-	
-	@RequestMapping(value="/openInsertExperience",method= RequestMethod.GET)
+
+	@RequestMapping(value = "/openInsertExperience", method = RequestMethod.GET)
 	public String openInsertUser(HttpServletRequest request) {
 		int principio = Integer.parseInt(request.getParameter("principio"));
-		request.getSession().setAttribute("principio", principio); 
-		List <PrincipiDTO> listaPrincipi = principiService.getAllPrincipi();
-		request.getSession().setAttribute("listaPrincipi", listaPrincipi); 
+		request.getSession().setAttribute("principio", principio);
+		List<PrincipiDTO> listaPrincipi = principiService.getAllPrincipi();
+		request.getSession().setAttribute("listaPrincipi", listaPrincipi);
 		return "insertExperience";
 	}
-	
-	@RequestMapping(value="/insertExperience", method= RequestMethod.GET)
+
+	@RequestMapping(value = "/insertExperience", method = RequestMethod.GET)
 	public ExperienceDTO insertUser(HttpServletRequest request) {
-		 Imagen g = (Imagen) request.getSession().getAttribute("imagen");
-		 User user =  (User) request.getSession().getAttribute("utente");
-		 UserDTO userDTO = ConverterUser.toDTO(user);
-		 int id_user = userDTO.getIdUser();
-		 String commento= request.getParameter("commento");
-	     String positivo = request.getParameter("positivo");
-	     String negativo = request.getParameter("negativo");
-	     int idpprincipale = (int) request.getSession().getAttribute("principio");
-	     int score = Integer.parseInt(request.getParameter("score"));
-	     String[]  ids_principi = request.getParameterValues("idsprincipi[]");
-	     experienceDTO.setCommento(commento);
-	     experienceDTO.setPositivo(positivo);
-	     experienceDTO.setNegativo(negativo);
-	     experienceDTO.setScore(score);
-	     experienceDTO.setUser(user);
-	     experienceDTO.setImagen(g);
-	     ExperienceDTO ex = experienceService.insertExperience(experienceDTO);
-         if( ids_principi !=null) {
-       	     feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
-       	     PrincipiDTO p = principiService.getPrincipio(idpprincipale);
-	    	 feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
-	    	 feedbackDTO.setSecondario(valore);
-	    	 this.feedbackservice.insertFeedback(feedbackDTO);
-	     for (int i = 0; i < ids_principi.length; i ++) {
-	    	 String a = ids_principi[i];
-	    	 int id = Integer.parseInt(a);
-	    	 int second = 0;
-	    	 if(id != idpprincipale)
-	    		 second = 1;
-	    	 feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
-	    	 PrincipiDTO b = principiService.getPrincipio(id);
-	         feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(b));
-	    	 feedbackDTO.setSecondario(second);
-	    	 this.feedbackservice.insertFeedback(feedbackDTO);
-	      }
-        }
-        else {
-        	feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
-        	PrincipiDTO p = principiService.getPrincipio(idpprincipale);
-        	feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
-        	feedbackDTO.setSecondario(valore);
-	    	this.feedbackservice.insertFeedback(feedbackDTO);
-        }
-        List<ExperienceUserFeedbackDTO> EUF = experienceService.getAllExperienceUserFeedbackDTO();
- 		request.getSession().setAttribute("euf", EUF); 
- 		
- 		return experienceDTO;
+		Imagen g = (Imagen) request.getSession().getAttribute("imagen");
+		User user = (User) request.getSession().getAttribute("utente");
+		UserDTO userDTO = ConverterUser.toDTO(user);
+		int id_user = userDTO.getIdUser();
+		String commento = request.getParameter("commento");
+		String positivo = request.getParameter("positivo");
+		String negativo = request.getParameter("negativo");
+		int idpprincipale = (int) request.getSession().getAttribute("principio");
+		int score = Integer.parseInt(request.getParameter("score"));
+		String[] ids_principi = request.getParameterValues("idsprincipi[]");
+		experienceDTO.setCommento(commento);
+		experienceDTO.setPositivo(positivo);
+		experienceDTO.setNegativo(negativo);
+		experienceDTO.setScore(score);
+		experienceDTO.setUser(user);
+		experienceDTO.setImagen(g);
+		ExperienceDTO ex = experienceService.insertExperience(experienceDTO);
+		if (ids_principi != null) {
+			feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
+			PrincipiDTO p = principiService.getPrincipio(idpprincipale);
+			feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
+			feedbackDTO.setSecondario(valore);
+			this.feedbackservice.insertFeedback(feedbackDTO);
+			for (int i = 0; i < ids_principi.length; i++) {
+				String a = ids_principi[i];
+				int id = Integer.parseInt(a);
+				int second = 0;
+				if (id != idpprincipale)
+					second = 1;
+				feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
+				PrincipiDTO b = principiService.getPrincipio(id);
+				feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(b));
+				feedbackDTO.setSecondario(second);
+				this.feedbackservice.insertFeedback(feedbackDTO);
+			}
+		} else {
+			feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
+			PrincipiDTO p = principiService.getPrincipio(idpprincipale);
+			feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
+			feedbackDTO.setSecondario(valore);
+			this.feedbackservice.insertFeedback(feedbackDTO);
+		}
+		List<ExperienceUserFeedbackDTO> EUF = experienceService.getAllExperienceUserFeedbackDTO();
+		request.getSession().setAttribute("euf", EUF);
+
+		return experienceDTO;
 	}
+
 	@RequestMapping(value="/showAllExperience" , method= RequestMethod.GET)
-	public List<ExperienceUserFeedbackDTO> showAllExperience() {		
-		return experienceService.getAllExperienceUserFeedbackDTO();
-	}
+	 public List<ExperienceUserFeedbackDTO> showAllExperience() { 
+		int id = Integer.parseInt("idUser");
+		return experienceService.getAllExperienceUserFeedbackbyIdUser(id);
+	}	
+	/* public String showExperience(@RequestParam(value="idUser")int idUser) {
+		int idexperience = Integer.parseInt("idExperience");
+		ExperienceUserFeedbackDTO experience = (ExperienceUserFeedbackDTO) experienceService.getAllExperienceUserFeedbackDTO();
+		return "experience";
+		} */
 	
-	@RequestMapping(value="/getImage", method= RequestMethod.GET)
+	@RequestMapping(value = "/getImage", method = RequestMethod.GET)
 	public void getImage(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		int id =Integer.parseInt(request.getParameter("id"));
-		
-		
+		int id = Integer.parseInt(request.getParameter("id"));
+
 		ExperienceDTO experienceDTO = experienceService.getExperienceByID(id);
-		
-		//System.out.println(experienceDTO.getImagen().getIdImagen());
-        byte[] content = experienceDTO.getImagen().getArchivo();
-        response.setContentType("image/jpg");
-        response.setContentLength(content.length);
-        response.getOutputStream().write(content);
+
+		// System.out.println(experienceDTO.getImagen().getIdImagen());
+		byte[] content = experienceDTO.getImagen().getArchivo();
+		response.setContentType("image/jpg");
+		response.setContentLength(content.length);
+		response.getOutputStream().write(content);
 	}
-	
-	
-	
-	
 
 }
