@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.model.User;
 import it.contrader.service.UserService;
 import it.contrader.dto.UserDTO;
 
-@Controller
+@RestController
 @RequestMapping("/Registrazione")
 public class RegistrazioneController {
 	
@@ -27,7 +28,7 @@ public class RegistrazioneController {
 	
 	@CrossOrigin
 	@RequestMapping(value = "/reg", method = RequestMethod.POST)
-	public UserDTO insertUser(		
+	public UserDTO registrazione(		
 			
 			@RequestParam(value = "iduser") String iduser,
 			@RequestParam(value = "username") String username,
@@ -45,8 +46,8 @@ public class RegistrazioneController {
 		userDTO = userService.insertUser(userDTO);
 		return userDTO;
 
-	}
 	
+	}
 	
 	
 	

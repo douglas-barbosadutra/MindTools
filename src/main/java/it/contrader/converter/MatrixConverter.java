@@ -2,6 +2,8 @@ package it.contrader.converter;
 
 import it.contrader.dto.MatrixDTO;
 import it.contrader.model.Matrix;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MatrixConverter {
 	
@@ -53,5 +55,23 @@ public class MatrixConverter {
 		
 		return matrixDTO;
 	}
+	
+	public static List<MatrixDTO> toListDTO(List<Matrix> list)
+	{
+		List<MatrixDTO> matrixDTO = new ArrayList<>();
+		if(!list.isEmpty()) {
+			for (Matrix m : list) {
+				matrixDTO.add(MatrixConverter.toDTO(m));
+			}
+		}
+		
+		return matrixDTO;
+	}
+	
+	
+	//public static Matrix toEntity(MatrixDTO m) {
+		//Matrix matrix = new Matrix();
+		
+	//}
 
 }
