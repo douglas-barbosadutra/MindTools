@@ -3,7 +3,7 @@
   
   <div *ngFor="let p of principi; let i=index"> 
 
-      <img id="img{{i}}" src="/assets/card/{{i}}front.jpg" width="170" height="180" href="/Principi/PrincipiSelectOne" (dblclick)="selectLink(idPrincipi)">
+      <img id="img{{i}}" src="/assets/card/{{i}}front.jpg" width="170" height="180" href="/Principi/PrincipiSelectOne" (dblclick)="selectLink(p.idPrincipi)">
       
       
    <!--   <a ondblclick="(function(){
