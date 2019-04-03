@@ -20,6 +20,7 @@ import { ImagenService } from './services/imagen.service';
 import {RegistrazioneService} from './services/registrazione.service';
 import { PrincipiService } from './services/principi/principi.service';
 import { PrincipiSelectOneComponent } from './components/principi/principi-select-one/principi-select-one.component';
+import { PrincipiRandomComponent } from './components/principi/principi-random/principi-random.component';
 
 
 
@@ -38,6 +39,7 @@ import { PrincipiSelectOneComponent } from './components/principi/principi-selec
     AllExperienceComponent,
     InsertExperienceComponent,
     PrincipiSelectOneComponent,
+    PrincipiRandomComponent,
   
 ],
   imports: [

@@ -17,6 +17,7 @@ import { AllExperienceComponent } from './components/experience/all-experience/a
 //InsertExperience
 import { InsertExperienceComponent } from './components/experience/insert-experience/insert-experience.component';
 import { PrincipiSelectOneComponent } from './components/principi/principi-select-one/principi-select-one.component';
+import { PrincipiRandomComponent } from './components/principi/principi-random/principi-random.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -28,6 +29,8 @@ const routes: Routes = [
   {path: 'AllExperience', component:  AllExperienceComponent},
   {path: 'InsertExperience', component:  InsertExperienceComponent},
   {path: 'PrincipiSelectOne', component:  PrincipiSelectOneComponent}
+  {path: 'PrincipiRandom', component:  PrincipiRandomComponent}
+
 ];
 
 @NgModule({
