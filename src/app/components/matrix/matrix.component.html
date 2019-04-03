@@ -1,0 +1,30 @@
+<body>
+
+<h1>Matrice</h1>
+		
+		<div>
+			
+			<table>
+			    <thead>
+			      
+			      <tr>
+			        <th>ID</th>
+			        <th>Nome</th>
+			        <th>Modello</th>
+			        <th>Opzioni</th>
+			      </tr>
+			      
+			    </thead>
+			    
+			    <tbody>
+			    	<tr *ngFor="let machineList of machineList">			
+							<td >{{machineList.id}}</td>
+              <td >{{machineList.name}}</td>
+              <td >{{machineList.model}}</td>
+						</tr>
+			    </tbody>
+			    
+		  </table>
+		  	
+    </div>
+    </body>
