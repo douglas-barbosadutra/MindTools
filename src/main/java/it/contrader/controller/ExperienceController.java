@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.criteria.Path;
@@ -26,6 +27,7 @@ import it.contrader.converter.FeedbackConverter;
 import it.contrader.converter.ImagenConverter;
 import it.contrader.converter.PrincipiConverter;
 import it.contrader.dto.ExperienceDTO;
+import it.contrader.dto.ExperienceDTOAggiornato;
 import it.contrader.dto.ExperienceUserFeedbackDTO;
 import it.contrader.dto.FeedbackDTO;
 import it.contrader.dto.ImagenDTO;
@@ -129,17 +131,26 @@ public class ExperienceController {
 		return experienceDTO;
 	}
 
-	@RequestMapping(value="/showAllExperience" , method= RequestMethod.GET)
-	 public List<ExperienceUserFeedbackDTO> showAllExperience() { 
-		int id = Integer.parseInt("idUser");
-		return experienceService.getAllExperienceUserFeedbackbyIdUser(id);
-	}	
-	/* public String showExperience(@RequestParam(value="idUser")int idUser) {
-		int idexperience = Integer.parseInt("idExperience");
-		ExperienceUserFeedbackDTO experience = (ExperienceUserFeedbackDTO) experienceService.getAllExperienceUserFeedbackDTO();
-		return "experience";
-		} */
-	
+	@RequestMapping(value = "/showAllExperience", method = RequestMethod.GET)
+	public List<ExperienceDTOAggiornato> ShowAll() {
+		int id = 1;
+		List<ExperienceDTOAggiornato> listaEsperienze = new ArrayList<>();
+		listaEsperienze = experienceService.getAllExperienceUserFeedbackbyIdUser(id);
+		System.out.println(listaEsperienze);
+		return listaEsperienze;
+	}
+
+	/*
+	 * @RequestMapping(value="/showAllExperience" , method= RequestMethod.GET)
+	 * public List<ExperienceUserFeedbackDTO> showAllExperience() { int id =
+	 * Integer.parseInt("idUser"); return
+	 * experienceService.getAllExperienceUserFeedbackbyIdUser(id); } public String
+	 * showExperience(@RequestParam(value="idUser")int idUser) { int idexperience =
+	 * Integer.parseInt("idExperience"); ExperienceUserFeedbackDTO experience =
+	 * (ExperienceUserFeedbackDTO)
+	 * experienceService.getAllExperienceUserFeedbackDTO(); return "experience"; }
+	 */
+
 	@RequestMapping(value = "/getImage", method = RequestMethod.GET)
 	public void getImage(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		int id = Integer.parseInt(request.getParameter("id"));

@@ -12,6 +12,7 @@ import it.contrader.dao.UserDAO;
 import it.contrader.converter.ExperienceConverter;
 import it.contrader.dao.ExperienceRepository;
 import it.contrader.dto.ExperienceDTO;
+import it.contrader.dto.ExperienceDTOAggiornato;
 import it.contrader.dto.ExperienceUserFeedbackDTO;
 import it.contrader.dto.FeedbackDTO;
 import it.contrader.dto.UserDTO;
@@ -119,33 +120,30 @@ public class ExperienceService {
 
 	}
 
-	public List<ExperienceUserFeedbackDTO> getAllExperienceUserFeedbackbyIdUser(int idUser) {
-		List<ExperienceUserFeedbackDTO> listaexperienceUserFeedbackDTO = new ArrayList<ExperienceUserFeedbackDTO>();
-		UserDTO user = this.userService.findUserByIdUser(idUser);
+	public List<ExperienceDTOAggiornato> getAllExperienceUserFeedbackbyIdUser(int idUser) {
+		List<ExperienceDTOAggiornato> lista = new ArrayList<ExperienceDTOAggiornato>();
+		UserDTO user = this.userService.findUserByIduser(idUser);
+		System.out.println(user.getNome());
 		List<ExperienceDTO> experiences = this.getExperienceByUser(ConverterUser.toEntity(user).getIdUser());
-		// List<UserDTO> experiences = this.userService.getAllUsersByExperience(idUser);
-		List<FeedbackDTO> feedbacks = new ArrayList<FeedbackDTO>();
-		feedbacks = this.feedbackservice.getAllFeedback();
-		for (FeedbackDTO f : feedbacks) {
-			for (ExperienceDTO e : experiences) {
-				if (e.getIdExperience() == f.getExperience().getIdExperience()) {
-					if (f.getSecondario() == 0) {
-						ExperienceUserFeedbackDTO nuovoDTO = new ExperienceUserFeedbackDTO();
-						nuovoDTO.setCognome(user.getCognome());
-						nuovoDTO.setNome(user.getNome());
-						;
-						nuovoDTO.setCommento(e.getCommento());
-						nuovoDTO.setScore(e.getScore());
-						nuovoDTO.setPrincipi(f.getPrincipi());
-						nuovoDTO.setImagen(e.getImagen());
-						listaexperienceUserFeedbackDTO.add(nuovoDTO);
-					}
-				}
+		for (ExperienceDTO experienceDTO : experiences) {
+			System.out.println(experienceDTO.getCommento());
+			ExperienceDTOAggiornato obj = new ExperienceDTOAggiornato();
+			obj.setNomeUtente(user.getNome());
+			obj.setCommentoExperience(experienceDTO.getCommento());
+			obj.setScoreExperience(experienceDTO.getScore());
+			
+			obj.setNomePrincipio(
 
-			}
+			//andare a feeedback atraverso experience, prendere uno principio atraverso feedback e prendere il nome.		
+					
+					
+			);
+			
+			
+			
+			lista.add(obj);
 		}
-
-		return listaexperienceUserFeedbackDTO;
+		return lista;
 	}
 
 	public ExperienceDTO getExperienceByID(Integer id) {

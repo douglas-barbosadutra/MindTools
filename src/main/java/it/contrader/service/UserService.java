@@ -26,18 +26,18 @@ public class UserService {
 		this.userDAO.deleteById(id);
 	}
 
-	 public UserDTO insertUser(UserDTO userDTO) {
-			return ConverterUser.toDTO(userDAO.save(ConverterUser.toEntity(userDTO)));
-		}
+	public UserDTO insertUser(UserDTO userDTO) {
+		return ConverterUser.toDTO(userDAO.save(ConverterUser.toEntity(userDTO)));
+	}
 
 	public List<UserDTO> getAllUsers() {
 		return ConverterUser.toListDTO(userDAO.findAll());
 	}
 
-	/*
-	 * public User findUserById(int id) { return userDAO.findUserById(id); }
-	 */
-	
+	public UserDTO findUserByIduser(int idUser) {
+		return ConverterUser.toDTO(userDAO.findUserByIdUser(idUser));
+	}
+
 	public static void setUserSession(User u) {
 		user = u;
 	}
