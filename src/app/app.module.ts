@@ -21,6 +21,7 @@ import {RegistrazioneService} from './services/registrazione.service';
 import { PrincipiService } from './services/principi/principi.service';
 import { PrincipiSelectOneComponent } from './components/principi/principi-select-one/principi-select-one.component';
 import { PrincipiRandomComponent } from './components/principi/principi-random/principi-random.component';
+import { PrincipiByParolaComponent } from './components/principi/principi-by-parola/principi-by-parola.component';
 
 
 
@@ -40,6 +41,7 @@ import { PrincipiRandomComponent } from './components/principi/principi-random/p
     InsertExperienceComponent,
     PrincipiSelectOneComponent,
     PrincipiRandomComponent,
+    PrincipiByParolaComponent,
   
 ],
   imports: [
