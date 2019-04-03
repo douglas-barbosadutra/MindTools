@@ -15,6 +15,8 @@ import it.contrader.dto.ExperienceDTO;
 import it.contrader.dto.ExperienceDTOAggiornato;
 import it.contrader.dto.ExperienceUserFeedbackDTO;
 import it.contrader.dto.FeedbackDTO;
+import it.contrader.dto.FeedbackPrincipiExperienceDTO;
+import it.contrader.dto.PrincipiDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.model.Experience;
 import it.contrader.model.User;
@@ -123,24 +125,14 @@ public class ExperienceService {
 	public List<ExperienceDTOAggiornato> getAllExperienceUserFeedbackbyIdUser(int idUser) {
 		List<ExperienceDTOAggiornato> lista = new ArrayList<ExperienceDTOAggiornato>();
 		UserDTO user = this.userService.findUserByIduser(idUser);
-		System.out.println(user.getNome());
 		List<ExperienceDTO> experiences = this.getExperienceByUser(ConverterUser.toEntity(user).getIdUser());
 		for (ExperienceDTO experienceDTO : experiences) {
-			System.out.println(experienceDTO.getCommento());
+			FeedbackPrincipiExperienceDTO feedbackDTO = this.feedbackservice.getFeedbackPrincipiExperienceDTO(ExperienceConverter.toEntity(experienceDTO).getIdExperience());
 			ExperienceDTOAggiornato obj = new ExperienceDTOAggiornato();
 			obj.setNomeUtente(user.getNome());
 			obj.setCommentoExperience(experienceDTO.getCommento());
 			obj.setScoreExperience(experienceDTO.getScore());
-			
-			obj.setNomePrincipio(
-
-			//andare a feeedback atraverso experience, prendere uno principio atraverso feedback e prendere il nome.		
-					
-					
-			);
-			
-			
-			
+			obj.setIdPrincipio(feedbackDTO.getId_principi());
 			lista.add(obj);
 		}
 		return lista;

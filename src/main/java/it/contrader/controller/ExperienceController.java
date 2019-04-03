@@ -132,10 +132,9 @@ public class ExperienceController {
 	}
 
 	@RequestMapping(value = "/showAllExperience", method = RequestMethod.GET)
-	public List<ExperienceDTOAggiornato> ShowAll() {
-		int id = 1;
+	public List<ExperienceDTOAggiornato> ShowAll(@RequestParam(value="idUser")int idUser) {
 		List<ExperienceDTOAggiornato> listaEsperienze = new ArrayList<>();
-		listaEsperienze = experienceService.getAllExperienceUserFeedbackbyIdUser(id);
+		listaEsperienze = experienceService.getAllExperienceUserFeedbackbyIdUser(idUser);
 		System.out.println(listaEsperienze);
 		return listaEsperienze;
 	}
