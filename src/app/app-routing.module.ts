@@ -19,7 +19,7 @@ import { InsertExperienceComponent } from './components/experience/insert-experi
 import { PrincipiSelectOneComponent } from './components/principi/principi-select-one/principi-select-one.component';
 import { PrincipiRandomComponent } from './components/principi/principi-random/principi-random.component';
 import { PrincipiByParolaComponent } from './components/principi/principi-by-parola/principi-by-parola.component';
-
+import {MatrixComponent} from './components/matrix/matrix.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'login', component: LoginComponent},
@@ -31,7 +31,8 @@ const routes: Routes = [
   {path: 'InsertExperience', component:  InsertExperienceComponent},
   {path: 'PrincipiSelectOne', component:  PrincipiSelectOneComponent},
   {path: 'PrincipiRandom', component:  PrincipiRandomComponent},
-  {path: 'PrincipiByParola', component:  PrincipiByParolaComponent}
+  {path: 'PrincipiByParola', component:  PrincipiByParolaComponent},
+  {path: 'matrix', component:  MatrixComponent}
 
 ];
 
