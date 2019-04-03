@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.dto.PrincipiDTO;
@@ -45,10 +46,10 @@ public class PrincipiController {
 	}
 	
 	@RequestMapping(value = "/PrincipiByParola", method = RequestMethod.GET)
-	public List <PrincipiDTO> findByPChiave(HttpServletRequest request) {
-		String pChiave = request.getParameter("pChiave"); 
-		List <PrincipiDTO> listaPrincipi = principiService.findByPChiave(pChiave);
-		request.getSession().setAttribute("listaprincipi", listaPrincipi); 		
+	public List <PrincipiDTO> findByPChiave(@RequestParam(value="pChiave") String pChiave) {
+		System.out.println(pChiave);
+		List <PrincipiDTO> listaPrincipi = principiService.findByPChiave(pChiave);	
+		System.out.println(listaPrincipi);
 		return listaPrincipi;
 		
 	}
