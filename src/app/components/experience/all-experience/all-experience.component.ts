@@ -18,7 +18,8 @@ export class AllExperienceComponent implements OnInit {
 
   ngOnInit() {
     this.experienceService.showAllExperiences().subscribe((response) =>{
-
+       //alert("PROVA " + response.nome);
+      this.experienceList = response;
     })
   //  this.experienceService.showAllExperiences().subscribe((response) =>{
   //     alert("PROVA " + response);

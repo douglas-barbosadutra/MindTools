@@ -3,21 +3,15 @@ import  {Imagen} from './Imagen';
 import { Experience } from './Experience';
 
 export class ExperienceUserFeedbackDTO {
-	commento: string;
-    nome: string;
-    cognome: string;
-    score: number;
-	principi: Principi;
-	experience: Experience;
-	imagen: Imagen;
+	nomePrincipio: string;
+    nomeUtente: string;
+    commentoExperience: string;
+    scoreExperience: number;
 	
-    constructor( commento: string, nome: string, cognome: string, score: number, principi: Principi, experience: Experience, imagen: Imagen) {
-        this.commento = commento;    
-        this.nome = nome;    
-        this.cognome = cognome;
-        this.score = score;    
-        this.principi = principi;    
-        this.experience = experience;    
-        this.imagen = imagen;    
+    constructor( nomePrincipio: string, nomeUtente: string, commentoExperience: string, scoreExperience: number) {
+        this.nomePrincipio = nomePrincipio;    
+        this.nomeUtente = nomeUtente;    
+        this.commentoExperience = commentoExperience;  
+        this.scoreExperience = scoreExperience;
     }	
 }

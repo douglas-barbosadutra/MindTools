@@ -22,7 +22,8 @@ import { PrincipiService } from './services/principi/principi.service';
 import { PrincipiSelectOneComponent } from './components/principi/principi-select-one/principi-select-one.component';
 import { PrincipiRandomComponent } from './components/principi/principi-random/principi-random.component';
 import { PrincipiByParolaComponent } from './components/principi/principi-by-parola/principi-by-parola.component';
-
+import {MatrixComponent} from './components/matrix/matrix.component';
+import { MatrixService } from './services/matrix.service';
 
 
 
@@ -42,6 +43,7 @@ import { PrincipiByParolaComponent } from './components/principi/principi-by-par
     PrincipiSelectOneComponent,
     PrincipiRandomComponent,
     PrincipiByParolaComponent,
+    MatrixComponent
   
 ],
   imports: [
@@ -50,7 +52,7 @@ import { PrincipiByParolaComponent } from './components/principi/principi-by-par
     FormsModule,
     HttpClientModule,
   ],
-  providers: [ExperienceService, LoginService, FeedbackService, ImagenService, PrincipiService, RegistrazioneService],
+  providers: [ExperienceService, LoginService, FeedbackService, ImagenService, PrincipiService, RegistrazioneService, MatrixService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
