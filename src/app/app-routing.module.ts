@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'feedback', component:  FeedbackComponent},
   {path: 'AllExperience', component:  AllExperienceComponent},
   {path: 'InsertExperience', component:  InsertExperienceComponent},
-  {path: 'PrincipiSelectOne', component:  PrincipiSelectOneComponent}
+  {path: 'PrincipiSelectOne', component:  PrincipiSelectOneComponent},
   {path: 'PrincipiRandom', component:  PrincipiRandomComponent}
 
 ];
