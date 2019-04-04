@@ -24,6 +24,7 @@ import { PrincipiRandomComponent } from './components/principi/principi-random/p
 import { PrincipiByParolaComponent } from './components/principi/principi-by-parola/principi-by-parola.component';
 import {MatrixComponent} from './components/matrix/matrix.component';
 import { MatrixService } from './services/matrix.service';
+import { ZoomComponent } from './components/zoom/zoom.component';
 
 
 
@@ -43,7 +44,8 @@ import { MatrixService } from './services/matrix.service';
     PrincipiSelectOneComponent,
     PrincipiRandomComponent,
     PrincipiByParolaComponent,
-    MatrixComponent
+    MatrixComponent,
+    ZoomComponent
   
 ],
   imports: [

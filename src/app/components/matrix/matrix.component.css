@@ -1,0 +1,50 @@
+.matrice{
+    width: 1850px;
+    margin: auto;
+    border: 1px solid rgb(0, 0, 0);
+  
+}
+
+
+
+.table td, table th {
+ padding: 5px;
+ vertical-align:middle;
+ border-top: 1px solid #3d75ad;
+ text-align: center;
+    width: 100%;
+ margin: 1 auto;
+border-bottom: 1px #3d75ad;
+caption-side: left;
+border-style: groove;
+}
+
+
+.substance1 {
+    background-color: #814ef7a8;
+}
+
+.substance2{
+    background-color: yellow;
+
+}
+
+.substance3{
+    background-color: rgb(255, 252, 47);
+
+}
+
+.substance4{
+    background-color: rgba(124, 32, 32, 0.747);
+
+}
+
+.substance5{
+    background-color: rgb(0, 162, 255);
+
+}
+
+.substance6{
+    background-color: rgb(212, 92, 228);
+
+}
