@@ -1,0 +1,23 @@
+body{
+    background-image: url('/assets/images/Sfondo.png');
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width:100%;
+    height: 760px;
+    background-position: 50px 50px;
+}
+
+
+.btn-primary {
+	color: #fff;
+	background-color: #007bff;
+	border-color: #007bff;
+}
+
+.centrato {
+    text-align: center;
+    margin-top: 200px;
+}
+
+

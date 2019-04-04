@@ -1,35 +1,36 @@
 <body>
-  <div>
-      <div>
-          <h1>Registrati</h1>
-          <form #f="ngForm">
+  <div >
+      <div class= "conteiner" >
+          
+          <form #f="ngForm" class= "centrato">
           
               <div>
                   <input type="text"  name="username"  placeholder=" Username" ngModel required autofocus>
               </div>
-          
-              <div>
+          <br>             
+           <div>
                   <input type="password"  name="password"  placeholder=" Password" ngModel required autofocus>
               </div>
-          
+              <br> 
               <div>
                   <input type="text"  name="nome"  placeholder=" Nome" ngModel required autofocus>
               </div>
-          
+              <br> 
               <div>
                   <input type="text"  name="congome" placeholder=" Cognome" ngModel required autofocus>
               </div>
-          
+              <br> 
               <div>
                   <input type="text"  name="email"  placeholder=" Email" ngModel required autofocus>  
               </div>
-  
+              <br> 
               <div>
                   <input type="text"  name="lingua"  placeholder=" Lingua" ngModel required autofocus>
               </div>
-          
-              <div>
-                  <button (click)="registrazione(f)">Registrati</button>
+              <br> 
+
+                  <div >
+                  <button class="btn-primary" (click)="registrazione(f)">Registrati</button>
               </div>
           </form>
       </div>

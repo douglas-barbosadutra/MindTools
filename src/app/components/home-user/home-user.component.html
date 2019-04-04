@@ -1,3 +1,4 @@
+<body>
 <ul class ="menu">
 
   <li>
@@ -40,36 +41,37 @@
 
     <div class="dropdown">
 
-    <button class="dropbtn">Path</button>
+    <button class="dropbtn">Matrix</button>
 
     <div class="dropdown-content">
 
-      <a href="/#/ShowPath">Mostra Path</a>
+      <a href="/#/matrix">Show Matrix</a>
 
     </div>
 
  
   </div>
-
+ 
   </li>
 
   <li>
+      <div class="dropdown">
 
-    <div class="dropdown">
-
-    <a href="/#/login" class="dropbtn">Logout</a>
-
-  </div>
-
+          <a href="/#/login" class="dropbtn">Logout</a>
+      
+        </div>
   </li>
+  <form  #f="ngForm">
+      <button class="dropbtn">Cerca per parola chiave </button>
+      <input type = "text"  name="pChiave" placeholder = "inserisci testo" [(ngModel)]="pChiave">
+      <button style="margin-top:1%"  type="submit" (click)="cercaByParola(f)">Cerca</button>
+   </form>
+  
+  
+
+ 
 
 </ul>
 
-<h2>Search By Key Word</h2>
- <form  #f="ngForm">
-   
-   <input type = "text"  name="pChiave" placeholder = "inserisci testo" [(ngModel)]="pChiave">
-   <button style="margin-top:1%"  type="submit" (click)="cercaByParola(f)">Cerca</button>
-</form>
-     
-    
+
+</body>
