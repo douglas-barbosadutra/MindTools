@@ -20,11 +20,11 @@ export class PrincipiByParolaComponent implements OnInit {
      }
 
      ngOnInit(){
-       console.log(sessionStorage.getItem("pChiave"));
-         this.principiService.cerca(sessionStorage.getItem("pChiave")).subscribe((response) => {
-           console.log("principi: "+this.principi);
-             this.principi = response;
-         }) 
+       
+       this.principiService.cerca(sessionStorage.getItem("pChiave")).subscribe((response) => {
+        
+          this.principi = response;
+      }) 
         }
 selectLink(idPrincipi: number){
   sessionStorage.setItem("idPrincipi",JSON.stringify(idPrincipi));
