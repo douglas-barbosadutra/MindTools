@@ -43,7 +43,8 @@ import { MatrixService } from './services/matrix.service';
     PrincipiSelectOneComponent,
     PrincipiRandomComponent,
     PrincipiByParolaComponent,
-    MatrixComponent
+    MatrixComponent,
+    
   
 ],
   imports: [

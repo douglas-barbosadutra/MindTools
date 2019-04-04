@@ -20,6 +20,7 @@ import { PrincipiSelectOneComponent } from './components/principi/principi-selec
 import { PrincipiRandomComponent } from './components/principi/principi-random/principi-random.component';
 import { PrincipiByParolaComponent } from './components/principi/principi-by-parola/principi-by-parola.component';
 import {MatrixComponent} from './components/matrix/matrix.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'login', component: LoginComponent},
@@ -32,7 +33,7 @@ const routes: Routes = [
   {path: 'PrincipiSelectOne', component:  PrincipiSelectOneComponent},
   {path: 'PrincipiRandom', component:  PrincipiRandomComponent},
   {path: 'PrincipiByParola', component:  PrincipiByParolaComponent},
-  {path: 'matrix', component:  MatrixComponent}
+  {path: 'matrix', component:  MatrixComponent},
 
 ];
 
