@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Principi } from 'src/app/models/Principi';
 import { PrincipiService } from 'src/app/services/principi/principi.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -13,15 +14,16 @@ export class PrincipiByParolaComponent implements OnInit {
 
 
   public principi : Array<Principi>;
+  public pChiave : string;
   
 
-     constructor(private principiService:PrincipiService, private router: Router){
+     constructor(private principiService:PrincipiService, private route: ActivatedRoute, private router: Router){
 
      }
 
      ngOnInit(){
-       
-       this.principiService.cerca(sessionStorage.getItem("pChiave")).subscribe((response) => {
+      this.pChiave = this.route.snapshot.paramMap.get('pChiave');
+       this.principiService.cerca(this.pChiave).subscribe((response) => {
         
           this.principi = response;
       }) 

@@ -21,17 +21,9 @@ export class HomeUserComponent implements OnInit {
   }
 
   cercaByParola(f: NgForm){
-    this.principiService.cerca(f.value.pChiave).subscribe((response) => {
-
-     
-        this.principi = response;
-        sessionStorage.setItem("pChiave",JSON.stringify(f.value.pChiave));
-
-        this.router.navigateByUrl('/PrincipiByParola'); 
-
-      
-
-    });
+  
+    this.pChiave=f.value.pChiave;
+    this.router.navigateByUrl('/PrincipiByParola/'+ this.pChiave)
     }
   
   

@@ -68,7 +68,7 @@
 <h2>Search By Key Word</h2>
  <form  #f="ngForm">
    
-    <input type="text" name="cercaByParola" id="inputPChiave"  placeholder="cercaByParola" ngModel required>>
+    <input type="text" name="cercaByParola" id="inputPChiave"  placeholder="cercaByParola" [(ngModel)] = 'pChiave'>
    <button style="margin-top:1%"  type="submit" (click)="cercaByParola(f)">Cerca</button>
 </form>
      
