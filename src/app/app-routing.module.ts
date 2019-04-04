@@ -33,7 +33,7 @@ const routes: Routes = [
   {path: 'InsertExperience', component:  InsertExperienceComponent},
   {path: 'PrincipiSelectOne', component:  PrincipiSelectOneComponent},
   {path: 'PrincipiRandom', component:  PrincipiRandomComponent},
-  {path: 'PrincipiByParola', component:  PrincipiByParolaComponent},
+  {path: 'PrincipiByParola/:searchterm', component:  PrincipiByParolaComponent},
   {path: 'matrix', component:  MatrixComponent},
   {path: 'Parametri', component: ParametriComponent}
 
