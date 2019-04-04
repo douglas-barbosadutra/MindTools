@@ -1,3 +1,11 @@
-<p>
-  principi-by-parola works!
-</p>
+<body>
+
+
+  <div *ngFor="let p of principi; let i=index" class="table">
+    <table>
+      <td>
+  <img src="/assets/card/{{i+1}}front.jpg" width="170" height="180"(dblclick)="selectLink(p.idPrincipi)">
+  </td>
+  </table></div>
+  
+  </body>
