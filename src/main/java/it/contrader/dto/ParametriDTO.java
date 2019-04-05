@@ -9,6 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ParametriDTO {
 	private Integer id;
-	private String nome, nomeIta, descrizione;
-
+	private String nome;
 }

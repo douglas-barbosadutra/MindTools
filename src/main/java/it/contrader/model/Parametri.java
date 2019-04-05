@@ -23,10 +23,5 @@ public class Parametri {
 	@Column(name = "nome")
 	private String nome;
 	
-	@Column(name = "nomeIta")
-	private String nomeIta;
 	
-	@Column(name = "descrizione")
-	private String descrizione;
-
 }
