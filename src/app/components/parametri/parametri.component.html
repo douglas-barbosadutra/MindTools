@@ -1,3 +1,17 @@
-<p>
-  parametri works!
-</p>
+<body>
+<head>
+  <title>Parametri</title>
+</head>
+
+<h1>Parametri</h1>
+
+  <div>
+    <label>Seleziona parametro</label>
+    <select name="parametroSelezionato" ngModel="parametroSelezionato">
+      <option *ngFor="let parametri of parametriList" [attr.value]="">                                                 </option>
+    </select>
+
+  </div>
+  
+
+</body>
