@@ -4,9 +4,9 @@
 <div id="container"> 
     <form #imagen= "ngForm" method="post" enctype="multipart/form-data">
       <p><label for="image">Choose Image</label></p>
-      <p><input name="file" id="fileToUpload" type="file" /></p>
-      <button type="submit" (click)="insertImagen(imagen)">Upload</button>
-      </form>
+      <p><input name="fileToUpload" id="fileToUpload" type="file" (change)="onFileSelected($event)"/></p>
+      <button type="submit" (click)="onUpload()">Upload</button>
+    </form>
   <form #f= "ngForm">
         <h3>How much was this principle useful for you? </h3>
     <h4><label>Commento</label><br>
@@ -31,6 +31,6 @@
       
     </div>
     
-    <button  type="submit" (click)="insertExperience(f,imagen)">Insert</button>    
+    <button  type="submit" (click)="insertExperience(f, imagen)">Insert</button>    
   </form>
 </div>
