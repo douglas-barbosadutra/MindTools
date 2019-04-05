@@ -22,7 +22,8 @@ export class PrincipiByParolaComponent implements OnInit {
      }
 
      ngOnInit(){
-      this.pChiave = this.route.snapshot.paramMap.get('pChiave');
+      this.pChiave = this.route.snapshot.params['pChiave'];  //.paramMap.get('pChiave');
+      alert("aa" + this.pChiave)
        this.principiService.cerca(this.pChiave).subscribe((response) => {
         
           this.principi = response;

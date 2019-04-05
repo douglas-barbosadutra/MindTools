@@ -21,7 +21,7 @@ export class HomeUserComponent implements OnInit {
   }
 
   cercaByParola(f: NgForm){
-  
+   
     this.pChiave=f.value.pChiave;
     this.router.navigateByUrl('/PrincipiByParola/'+ this.pChiave)
     }
