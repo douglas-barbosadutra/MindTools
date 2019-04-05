@@ -13,9 +13,8 @@ import { FeedbackPrincipiExperience } from '../models/FeedbackPrincipiExperience
 export class FeedbackService {
   constructor(private http: HttpClient) { }
 
-  readFeedback(idExperience: number):Observable<Array<FeedbackPrincipiExperience>>{
-
-        return this.http.get<Array<FeedbackPrincipiExperience>>("http://localhost:8080/Feedback/showFeedback?idExperience="+idExperience);
+  readFeedback(idExperience: number):Observable<FeedbackPrincipiExperience>{
+        return this.http.get<FeedbackPrincipiExperience>("http://localhost:8080/Feedback/showFeedback?idExperience="+idExperience);
         
     }
 

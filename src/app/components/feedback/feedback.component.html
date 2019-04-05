@@ -1,21 +1,43 @@
+<h1 class="element-margin-left">Ecco i feedback</h1>
 
-  <h1 class="element-margin-left">Ecco i feedback</h1>
-  <body>	
-  <table class="bordo rcorners" >	
+<body>
+  <table class="bordo rcorners">
 
     <tr>
 
-  <th><h4>FEEDBACK</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="feedback"></td></tr>
+      <th>
+        <h4>FEEDBACK</h4>
+      </th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="feedback"></td>
+    </tr>
 
-  
 
-<tr>
 
-     
+    <tr>
+
 
       <th>
 
-          ID FEEDBACK
+        EXPERIENCE
+
+      </th>
+
+      <th>
+
+      </th>
+
+      <th>
+
+        PRINCIPI
 
       </th>
 
@@ -24,33 +46,30 @@
       </th>
 
 
+      <th>PRINCIPI ING
+
+
+
+      </th>
       <th>
 
-         EXPERIENCE
-
       </th>
 
+      <th>PRINCIPI ITA
+
+
+
+      </th>
       <th>
 
       </th>
 
-
-      <th>PRINCIPI
-
-      
-
-       </th>
-       <th>
+      <th>ALTRI PRINCIPI
 
       </th>
-
-
-       <th>ALTRI PRINCIPI
+      <th>
 
       </th>
-  <th>
-
-       </th>
 
       <th>IMMAGINE
 
@@ -59,42 +78,46 @@
 
       <th>
 
-       </th>
+      </th>
 
 
 
-  </tr>
+    </tr>
 
 
 
-  <tr *ngFor="let f of feedback">	<!--inserisci router link dentro il tr-->
+    <tr>
+      <!--inserisci router link dentro il tr-->
 
-  <td>{{f.idfeedback}}</td>
+      <td>{{feedback.id_experience}}</td>
+      <th>
+
+      </th>
+      <td>{{feedback.id_principi}}</td>
+      <th>
+
+      </th>
+      <td>{{feedback.nome_principioING}}</td>
+      <th>
+
+      </th>
+
+      <td>{{feedback.nome_principioITA}}</td>
+      <th>
+
+      </th>
+      <td>{{feedback.secondario}}</td>
+      <th>
+
+      </th>
+      <td>{{feedback.imagen}}</td>
   <th>
 
   </th>
 
-  <td >{{f.idexperience}}</td>
-  <th>
-
-  </th>
-  <td>{{f.idprincipi}}</td>
-  <th>
-
-  </th>
-  <td>{{f.secondario}}</td>
-  <th>
-
-  </th>
-  <td>{{f.idimagen}</td>
-
- 
 
   </tr>
   
 
 </table> 
-  </body>
-
-
-
+</body>

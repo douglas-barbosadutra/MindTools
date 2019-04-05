@@ -20,10 +20,11 @@ export class FeedbackComponent implements OnInit {
 
      ngOnInit(){
 
-         this.feedbackService.readFeedback(1).subscribe((data: any) =>{
+         this.feedbackService.readFeedback(34).subscribe((data: any) =>{
           if(data != null){
             this.feedback = data;
             console.log('readFeedback');
+            console.log(this.feedback);
           }
-        })
+        });
       }}

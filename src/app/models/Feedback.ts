@@ -3,18 +3,18 @@ import  {Principi} from './Principi';
 
 export class Feedback{
     idFeedback: number;
-    secondario: number;
+    idExperience: number;
     principi: Principi[];
-    experience: Experience[];
+     secondario: Principi[];
 
-    // tslint:disable-next-line:max-line-length
-    constructor( idFeedback: number, secondario: number,principi: Principi[], experience: Experience[])
+     // tslint:disable-next-line:max-line-length
+    constructor( idFeedback: number,idExperience: number, secondario: Principi[],principi: Principi[], )
     {
         this.idFeedback = idFeedback;
+        this.idExperience = idExperience;
         this.secondario =secondario;
         this.principi =principi;
-        this.experience = experience;
-        
+       
     }
 
 }
