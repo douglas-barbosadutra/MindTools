@@ -23,7 +23,7 @@ public class UserDAO {
 	
 	
 	public User login(String user , String password) {
-		User _user = new User ();
+		User _user = null;
 		
 		Connection connection = ConnectionSingleton.getInstance();
 		

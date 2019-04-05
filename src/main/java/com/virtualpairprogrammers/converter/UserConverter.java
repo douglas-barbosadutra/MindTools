@@ -36,6 +36,7 @@ public class UserConverter {
 	public static UserDTO toDTO(User user) {
 
 		UserDTO usersDTO = null;
+		
 		if (user != null) {
 			usersDTO = new UserDTO(user.getIduser(), user.getUser(), user.getPassword(), user.getNome(), user.getCognome(), user.getTipoUser(), user.getLingua());
 		}

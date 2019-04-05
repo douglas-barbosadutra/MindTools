@@ -22,15 +22,17 @@ public class LoginServlet extends HttpServlet {
 		final HttpSession session = request.getSession();
 		session.setAttribute("utente", null);
 		
+		final String user = request.getParameter("username").toString();
+		final String password = request.getParameter("password").toString();
 
 		if (request != null) {
-			final String user = request.getParameter("username").toString();
-			final String password = request.getParameter("password").toString();
+			 UserDTO userDTO = usersService.getUserByUsernameAndPassword(user, password);
 			// recuperiamo l'utente
-			final UserDTO userDTO = usersService.getUserByUsernameAndPassword(user, password);
+			
 			
 
-			if (userDTO != null) {
+		
+		 if (userDTO != null) {
 				session.setAttribute("utente", userDTO);
 				UsersService.user =(UserConverter.toEntity(userDTO));
 

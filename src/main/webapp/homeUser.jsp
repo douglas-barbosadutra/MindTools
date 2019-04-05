@@ -92,9 +92,9 @@
       <button type= "submit" value= "allExperiences" name="action">Tutte le esperienze</button>
      </form></strong></a>
      
-      <a href="#" class="btn-toolset">
-  <strong> <form action="PrincipiServlet?richiesta=logout" method="post" name="richiesta">Logout
-<!--       <button type= "submit" value= "PrincipiServlet?action=logout" name="richiesta">Logout</button> -->
+<a href="#" class="btn-toolset">
+  <strong> <form action="PrincipiServlet?richiesta=logout" method="post">
+      <button type= "submit" value= "PrincipiServlet?action=logout" name="richiesta">Logout</button>
      </form></strong></a>
      
      </center>
