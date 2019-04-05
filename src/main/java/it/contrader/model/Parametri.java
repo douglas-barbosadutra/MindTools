@@ -23,5 +23,7 @@ public class Parametri {
 	@Column(name = "nome")
 	private String nome;
 	
+
+
 	
 }
