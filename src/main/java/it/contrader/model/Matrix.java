@@ -22,6 +22,9 @@ public class Matrix {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(name = "nome")
+	private String nome;
+	
 	@Column(name = "p1")
 	private String p1;
 	
