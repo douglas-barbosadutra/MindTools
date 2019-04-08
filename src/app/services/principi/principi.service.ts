@@ -32,6 +32,11 @@ cerca(pChiave : string):Observable <Array<Principi>> {
   return this.http.get<Array<Principi>>('http://localhost:8080/Principi/PrincipiByParola?pChiave='+pChiave);
   
   }
+
+  random():Observable <Principi> {
+    return this.http.get<Principi>('http://localhost:8080/Principi/PrincipioRandom');
+
+  }
   
 
 

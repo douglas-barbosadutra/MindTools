@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrincipiService } from 'src/app/services/principi/principi.service';
 import { Router } from '@angular/router';
+import { Principi } from 'src/app/models/Principi';
 
 @Component({
   selector: 'app-principi-random',
@@ -9,12 +10,20 @@ import { Router } from '@angular/router';
 })
 export class PrincipiRandomComponent implements OnInit {
 
-  public idPrincipi: number;
+  public principio : Principi;
+  
+  
 
-  constructor(private principiService:PrincipiService, private router:Router) { }
+     constructor(private principiService:PrincipiService, private router: Router){
 
-  ngOnInit() {
+     }
 
-  }
+     ngOnInit(){
+         this.principiService.random().subscribe((response) => {
+             this.principio = response;
+         }) 
+         
+       
+        }
 
 }

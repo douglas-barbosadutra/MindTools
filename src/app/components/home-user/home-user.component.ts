@@ -12,6 +12,7 @@ import { PrincipiService } from 'src/app/services/principi/principi.service';
 export class HomeUserComponent implements OnInit {
 
   public principi : Array<Principi>;
+  public principio : Principi;
   public pChiave: string;
 
   constructor(private principiService:PrincipiService, private router: Router) { }
