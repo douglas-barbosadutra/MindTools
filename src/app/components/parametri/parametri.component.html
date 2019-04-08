@@ -5,13 +5,33 @@
 
 <h1>Parametri</h1>
 
+  <form #f= "ngForm">
   <div>
-    <label>Seleziona parametro</label>
-    <select name="parametroSelezionato" ngModel="parametroSelezionato">
-      <option *ngFor="let parametri of parametriList" [attr.value]="">                                                 </option>
+    <label> parametro da incrementare</label>
+    <select name="parametroSelezionato" [(ngModel)]="nome">
+      <option *ngFor="let parametri of parametriList" [attr.value]="parametri.nome">{{parametri.nome}}</option>                                          
     </select>
 
+
+    <button  type="submit" (click)="insertParametro(f)">Insert</button>    
   </div>
   
+    <div>
+      <label> parametro da diminuire</label>
+      <select name="parametroSelezionato" [(ngModel)]="nome">
+        <option *ngFor="let parametri of parametriList" [attr.value]="parametri.nome">{{parametri.nome}}</option>                                          
+      </select>
+  
+  
+      <button  type="submit" (click)="insertParametro(f)">Insert</button>    
+    </div>
+    </form>
+  
 
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  
 </body>

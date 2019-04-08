@@ -8,6 +8,8 @@ import { tap, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ParametriService {
+  public parametriList: Array<Parametri>;
+  public nome: string;
 
   constructor(private http:HttpClient) { }
 
