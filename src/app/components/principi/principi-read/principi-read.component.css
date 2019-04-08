@@ -1,5 +1,11 @@
-.table{
-    width: 180px;
+
+
+
+.table td table tr{
+    width: 18 0px;
+    
+    display: inline-block;
+    column-gap: 30px; 
     margin: auto;
     border: 1px solid rgb(0, 0, 0);
    
