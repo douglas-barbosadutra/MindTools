@@ -45,19 +45,6 @@ public class ImagenController {
 	private ImagenService imagenService;
 	
 	
-	//public ImagenDTO upload(@RequestParam(value ="file")MultipartFile file) throws IOException{ 
-	/*public ImagenDTO upload(@RequestParam(value ="file")MultipartFile file) throws IOException{ 
-		    MultipartFile file;
-		    System.out.println(file);
-	        String filename=file.getOriginalFilename();
-	        byte barr[]= file.getBytes();
-	    	imagenDTO.setIdImagen(0);
-	        imagenDTO.setNome(filename);
-	        imagenDTO.setArchivo(barr);
-	        Imagen i = imagenService.insertImagen(imagenDTO);
-	        return imagenDTO;  
-	    }  */
-	//public String upload(@RequestParam("file")MultipartFile file) throws IOException{ 	
 	@PostMapping(value="/savefile",
 		    produces = MediaType.APPLICATION_JSON_VALUE,
 		    consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})  

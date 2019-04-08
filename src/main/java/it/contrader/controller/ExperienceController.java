@@ -66,6 +66,8 @@ public class ExperienceController {
 	private FeedbackConverter feedbackconverter = new FeedbackConverter();
 	private PrincipiConverter principiConverter = new PrincipiConverter();
 	int valore = 0;
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_RESET = "\u001B[0m";
 
 	@Autowired
 	public ExperienceController(ExperienceService experienceService, PrincipiService principiService,
@@ -75,20 +77,10 @@ public class ExperienceController {
 		this.feedbackservice = feedbackservice;
 		this.imagenService = imagenService;
 	}
-
-/*	@RequestMapping(value = "/openInsertExperience", method = RequestMethod.GET)
-	public String openInsertUser(HttpServletRequest request) {
-		int principio = Integer.parseInt(request.getParameter("principio"));
-		request.getSession().setAttribute("principio", principio);
-		List<PrincipiDTO> listaPrincipi = principiService.getAllPrincipi();
-		request.getSession().setAttribute("listaPrincipi", listaPrincipi);
-		return "insertExperience";
-	}*/
-	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public ResponseEntity<String> insertExperience(@RequestBody ExperienceDTO experienceDTOo) {
+	public ExperienceDTO insertExperience(@RequestBody ExperienceDTO experienceDTOo) {
 		
-		int idpprincipale = experienceDTO.getIdPrincipi();
+		int idpprincipale = experienceDTOo.getIdPrincipi();
 		experienceDTO.setUser(experienceDTOo.getUser());
 		experienceDTO.setIdExperience(0);
 		experienceDTO.setIdPrincipi(experienceDTOo.getIdPrincipi());
@@ -97,26 +89,16 @@ public class ExperienceController {
 		experienceDTO.setNegativo(experienceDTOo.getNegativo());
 		experienceDTO.setScore(experienceDTOo.getScore());
 		experienceDTO.setImagen(ImagenController.im);
-		System.out.println(experienceDTO.toString());
+		System.out.print(experienceDTOo.getSecon().get(0));
 		ExperienceDTO ex = experienceService.insertExperience(experienceDTO);
-		System.out.print(experienceDTOo.getSecon());
-		
-		
-		if (experienceDTOo.getSecon().isEmpty()) {
+		if (experienceDTOo.getSecon()!= null) {
 			feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
 			PrincipiDTO p = principiService.getPrincipio(idpprincipale);
 			feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
 			feedbackDTO.setSecondario(valore);
 			this.feedbackservice.insertFeedback(feedbackDTO);
-			}
-		 else {
-			feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
-			PrincipiDTO p = principiService.getPrincipio(idpprincipale);
-			feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
-			feedbackDTO.setSecondario(valore);
-			this.feedbackservice.insertFeedback(feedbackDTO);
-			for (int i = 0; i < experienceDTO.getSecon().size(); i++) {
-				String a = experienceDTO.getSecon().get(i);
+			for (int i = 0; i < experienceDTOo.getSecon().size(); i++) {
+				String a = experienceDTOo.getSecon().get(i);
 				int id = Integer.parseInt(a);
 				int second = 0;
 				if (id != idpprincipale)
@@ -126,19 +108,23 @@ public class ExperienceController {
 				feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(b));
 				feedbackDTO.setSecondario(second);
 				this.feedbackservice.insertFeedback(feedbackDTO);
-			
 		   }
-			
 		 }
-	
-		
-		return new ResponseEntity<String>("Experienza ok", HttpStatus.OK);
+		 else {
+		feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
+		PrincipiDTO p = principiService.getPrincipio(idpprincipale);
+		feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
+		feedbackDTO.setSecondario(valore);
+		this.feedbackservice.insertFeedback(feedbackDTO);
+		}
+		return experienceDTO;
 	}
 
 	@RequestMapping(value = "/showAllExperience", method = RequestMethod.GET)
 	public List<ExperienceDTOAggiornato> ShowAll(@RequestParam(value="idUser")int idUser) {
 		List<ExperienceDTOAggiornato> listaEsperienze = new ArrayList<>();
 		listaEsperienze = experienceService.getAllExperienceUserFeedbackbyIdUser(idUser);
+		System.out.println(listaEsperienze);
 		return listaEsperienze;
 	}
 
@@ -154,10 +140,10 @@ public class ExperienceController {
 	 */
 
 	@RequestMapping(value = "/getImage", method = RequestMethod.GET)
-	public void getImage(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
+	public void getImage() throws IOException {
+		//int id = Integer.parseInt(request.getParameter("id"));
 
-		ExperienceDTO experienceDTO = experienceService.getExperienceByID(id);
+	//	ExperienceDTO experienceDTO = experienceService.getExperienceByID(id);
 
 		// System.out.println(experienceDTO.getImagen().getIdImagen());
 		/*byte[] content = experienceDTO.getImagen().getArchivo();
