@@ -25,9 +25,8 @@ export class ExperienceService {
   }
   
   insertExperience(experienceDTO: ExperienceDTO):Observable<any>{
-   
-    alert(experienceDTO);
-    return this.http.post<any>("http//localhost:8080/Experience/insertExperience", experienceDTO);
+    
+    return this.http.post<any>("http://localhost:8080/Experience/insert", experienceDTO);
     
   }
   showAllExperiences(idUser: number):Observable<Array<ExperienceUserFeedbackDTO>>{
