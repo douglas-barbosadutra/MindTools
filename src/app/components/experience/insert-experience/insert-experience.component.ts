@@ -11,6 +11,7 @@ import { HttpClient} from '@angular/common/http';
 import {ImagenService} from 'src/app/services/imagen.service';
 
 import { User } from 'src/app/models/User';
+import { ExperienceDTO } from 'src/app/dto/ExperienceDTO';
 
 @Component({
   selector: 'app-insert-experience',
@@ -28,6 +29,7 @@ export class InsertExperienceComponent implements OnInit {
   private user:User;
   private score:number;
   private idPrincipi: number;
+  private experienceDTO: ExperienceDTO;
   
   
   onFileSelected(event){
@@ -67,10 +69,10 @@ export class InsertExperienceComponent implements OnInit {
    insertExperience(f: NgForm){
     this.user = JSON.parse(sessionStorage.getItem("user"));
     this.idPrincipi = parseInt(sessionStorage.getItem("idPrincipi"));
-    this.experienceService.insertExperience(this.user.idUser,
-       this.idPrincipi,
-       f.value.commento, 
-      f.value.positivo, f.value.negativo, JSON.stringify(this.score),this.secon).subscribe((response) => {
+
+    this.experienceDTO = new ExperienceDTO(this.user.idUser,this.idPrincipi,f.value.commento,f.value.positivo, f.value.negativo,this.score,this.secon);
+
+    this.experienceService.insertExperience(this.experienceDTO).subscribe((response) => {
       
         if (response != null) {   
           console.log("arrivo");  

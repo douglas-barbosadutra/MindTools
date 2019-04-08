@@ -5,6 +5,7 @@ import {Observable, of, BehaviorSubject} from 'rxjs';
 import { ExperienceUserFeedbackDTO } from 'src/app/models/ExperienceUserFeedbackDTO';
 import {Feedback} from 'src/app/models/Feedback';
 import {User} from 'src/app/models/User';
+import { ExperienceDTO } from '../dto/ExperienceDTO';
 
 
 @Injectable({
@@ -23,27 +24,10 @@ export class ExperienceService {
     };
   }
   
-  insertExperience(
-     IDuser: number, 
-     idPrincipi: number,
-      commento: string, 
-      positivo: string, 
-      negativo: string,  
-    score: string, 
-     secon: Array<string>,
-      ):Observable<any>{
-       
-    const params = new HttpParams()
-    .set('user',JSON.stringify(IDuser))
-    .set('idPrincipi',JSON.stringify(idPrincipi))
-    .set('commento',commento)
-    .set('positivo',positivo)
-    .set('negativo',negativo)
-    .set('score',score)
-    .set('idsprincipi[]',JSON.stringify(secon));
+  insertExperience(experienceDTO: ExperienceDTO):Observable<any>{
    
-    alert(params);
-    return this.http.post<any>("http//localhost:8080/Experience/insertExperience", params);
+    alert(experienceDTO);
+    return this.http.post<any>("http//localhost:8080/Experience/insertExperience", experienceDTO);
     
   }
   showAllExperiences(idUser: number):Observable<Array<ExperienceUserFeedbackDTO>>{
