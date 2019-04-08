@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -85,16 +86,8 @@ public class ExperienceController {
 	}*/
 	
 	@RequestMapping(value = "/insertExperience", method = RequestMethod.POST)
-	public ResponseEntity<String> insertExperience(
-			@RequestParam("user") String user,
-			@RequestParam("idPrincipi") String idprincipi,
-			@RequestParam("commento") String commento,
-			@RequestParam("positivo") String positivo,
-			@RequestParam("negativo") String negativo,
-			@RequestParam("score") String score,
-			@RequestParam("idsprincipi[]") String[] ids_principi
-			) {
-		System.out.println("lleguee");
+	public ResponseEntity<String> insertExperience(@RequestBody ExperienceDTO experienceDTO) {
+		System.out.println(experienceDTO);
 		/*Imagen g = ImagenController.im;
 		User user = (User) request.getSession().getAttribute("utente");
 		UserDTO userDTO = ConverterUser.toDTO(user);
