@@ -26,6 +26,8 @@ import {MatrixComponent} from './components/matrix/matrix.component';
 import { MatrixService } from './services/matrix.service';
 import { ParametriService } from './services/parametri.service';
 import { ParametriComponent } from './components/parametri/parametri.component';
+import { ContradictionComponent } from './components/contradiction/contradiction.component';
+
 
 
 
@@ -48,6 +50,8 @@ import { ParametriComponent } from './components/parametri/parametri.component';
     PrincipiByParolaComponent,
     MatrixComponent,
     ParametriComponent,
+    ContradictionComponent,
+   
    
     
     

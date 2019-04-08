@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import {Router} from '@angular/router';
 import { Injectable } from '@angular/core';
 import {NgForm} from '@angular/forms';
@@ -9,10 +9,9 @@ import{PrincipiService} from 'src/app/services/principi/principi.service';
 import { Imagen } from 'src/app/models/Imagen';
 import { HttpClient} from '@angular/common/http';
 import {ImagenService} from 'src/app/services/imagen.service';
-import {HttpHeaders } from '@angular/common/http';
-
 
 import { User } from 'src/app/models/User';
+
 @Component({
   selector: 'app-insert-experience',
   templateUrl: './insert-experience.component.html',
@@ -22,20 +21,38 @@ import { User } from 'src/app/models/User';
   providedIn: 'root'
 })
 export class InsertExperienceComponent implements OnInit {
-public selectedFile:File = null;
-  
+  public selectedFile:File = null;
   private experience : Experience;
   public secondari: Array<Principi>;
-  private imagen:Imagen;
-  private user:Number;
-  public bytes: Array<ArrayBufferTypes>;
+  public secon: Array<string> = new Array();
+  private user:User;
+  private score:number;
+  private idPrincipi: number;
+  
   
   onFileSelected(event){
     this.selectedFile = <File>event.target.files[0];
     
-    
-   
   }
+  onRadioSelected(event){
+    
+    var target = event.target;
+       if (target.checked) {
+        this.score = target;
+       } 
+    console.log(this.score);
+    
+
+  }
+
+
+  onChecked(event){
+    var target = event.target;
+    if(target.checked){
+      this.secon.push(target);
+    }
+  }
+  
 
   constructor(private router: Router, private experienceService: ExperienceService, private principiService: PrincipiService, private http: HttpClient,
     private ImagenService: ImagenService) { }
@@ -44,22 +61,32 @@ public selectedFile:File = null;
 
     this.principiService.readPrincipi().subscribe((response)=> {
       this.secondari = response;
-     console.log('Lista principi input caricarita');
-
-  //   this.user = parseInt(sessionStorage.getItem("user");
-  
  }); 
  
   }
    insertExperience(f: NgForm){
-     this.experience = new Experience(null, null,f.value.commento,f.value.positivo,f.value.negativo,f.value.score, f.value.secondari, null);
-     this.router.navigateByUrl("allExperience");
+    this.user = JSON.parse(sessionStorage.getItem("user"));
+    this.idPrincipi = parseInt(sessionStorage.getItem("idPrincipi"));
+    this.experienceService.insertExperience(this.user.idUser,
+       this.idPrincipi,
+       f.value.commento, 
+      f.value.positivo, f.value.negativo, JSON.stringify(this.score),this.secon).subscribe((response) => {
+      
+        if (response != null) {   
+          console.log("arrivo");  
+          this.router.navigateByUrl("AllExperience");
+        }
+        else
+        this.router.navigateByUrl("InsertExperience");
+        
+  
+      });
    }
 
    onUpload(){
      this.ImagenService.pushFileToStorage( this.selectedFile).subscribe(res=>{
       console.log(res);
-      this.router.navigateByUrl('/InsertExperience');
+      this.router.navigateByUrl("InsertExperience");
     });
   }
 

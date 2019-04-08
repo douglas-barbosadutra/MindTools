@@ -21,6 +21,7 @@ import { PrincipiRandomComponent } from './components/principi/principi-random/p
 import { PrincipiByParolaComponent } from './components/principi/principi-by-parola/principi-by-parola.component';
 import {MatrixComponent} from './components/matrix/matrix.component';
 import {ParametriComponent} from './components/parametri/parametri.component';
+import {ContradictionComponent} from './components/contradiction/contradiction.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -35,7 +36,9 @@ const routes: Routes = [
   {path: 'PrincipiRandom', component:  PrincipiRandomComponent},
   {path: 'PrincipiByParola/:pChiave', component:  PrincipiByParolaComponent},
   {path: 'matrix', component:  MatrixComponent},
-  {path: 'Parametri', component: ParametriComponent}
+  {path: 'Parametri', component: ParametriComponent},
+  {path: 'Contradiction', component: ContradictionComponent}
+
 
 ];
 

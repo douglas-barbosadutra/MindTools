@@ -15,22 +15,23 @@
     <input type="text" name="positivo" placeholder="Inserisci Aspetto Positivo" ngModel><br></h4>
     <h4><label>Aspetto Negativo</label><br>
     <input type="text" name="negativo" placeholder="Inserisci Aspetto Negativo" ngModel><br></h4>
-    <h4>Score: <input type = "radio"  id = "experience " name = "score" value = "1"> 1 
-      <input type = "radio"  id = "experience " name = "score" value = "2"> 2 
-       <input type = "radio"  id = "experience " name = "score" value = "3"> 3 
-        <input type = "radio"  id = "experience " name = "score" value = "4"> 4 
-         <input type = "radio"  id = "experience " name = "score" value = "5"> 5
+    <h4>Score: 
+      <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "1" > 1 
+      <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "2"> 2 
+       <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "3"> 3 
+        <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "4"> 4 
+         <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "5" [checked]='true'> 5
      </h4>
      <div class="form-group">
         <label>Altri Principi utilizati</label><br>
         <tr *ngFor="let principi of secondari">
-          <td><input type = "checkbox"  name = "idsprincipi[]"  [attr.value]="principi.idPrincipi">{{principi.idPrincipi}}{{principi.nome}} ngModel</td>
+          <td><input type = "checkbox" (change)="onChecked($event)"  name = "feedback"  [attr.value]="principi.idPrincipi">{{principi.idPrincipi}}{{principi.nome}} </td>
 
         </tr>
         
       
     </div>
     
-    <button  type="submit" (click)="insertExperience(f, imagen)">Insert</button>    
+    <button  type="submit" (click)="insertExperience(f)">Insert</button>    
   </form>
 </div>

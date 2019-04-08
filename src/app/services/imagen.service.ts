@@ -22,7 +22,7 @@ export class ImagenService {
   pushFileToStorage(file: File) {
     let formdata: FormData = new FormData();
     formdata.append('file', file);
-   // alert(formdata);
+   
     return this.http.post('http://localhost:8080/Imagen/savefile', formdata);
   }
 
