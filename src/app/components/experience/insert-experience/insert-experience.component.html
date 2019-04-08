@@ -1,5 +1,5 @@
 
-<h1>Inserisci Experienza</h1>
+<h1 class="titolo">Inserisci Experienza</h1>
 <body class="esperienze">
 <div id="container"> 
     <form #imagen= "ngForm" method="post" enctype="multipart/form-data">
@@ -8,7 +8,9 @@
       <button type="submit" (click)="onUpload()">Upload</button>
     </form>
   <form #f= "ngForm">
+    <br>
         <h3>How much was this principle useful for you? </h3>
+
     <h4><label>Commento</label><br>
     <textarea type="text" name="commento" placeholder="Inserisci Commento" ngModel></textarea><br></h4>
     <h4><label>Aspetto Positivo</label><br>
@@ -24,7 +26,7 @@
      </h4>
      <div class="form-group">
        
-        <label>Altri Principi utilizati</label><br>
+        <label>Altri Principi utilizzati</label><br>
         <tr *ngFor="let principi of secondari">
           <td><input type = "checkbox" (change)="onChecked($event)"  name = "feedback"  [attr.value]="principi.idPrincipi">{{principi.idPrincipi}}{{principi.nome}} </td>
 
