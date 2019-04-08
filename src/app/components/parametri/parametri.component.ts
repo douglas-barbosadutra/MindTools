@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import {Parametri} from 'src/app/models/Parametri';
 import {ParametriService} from 'src/app/services/parametri.service';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-parametri',
@@ -12,7 +14,7 @@ export class ParametriComponent implements OnInit {
 
   private parametriList : Array<Parametri>;
   private parametri: Parametri;
-
+  public nome: string;
   constructor(private parametriService: ParametriService, private router:  Router) { }
 
   ngOnInit() {
@@ -23,8 +25,14 @@ export class ParametriComponent implements OnInit {
         this.parametriList = data;
        
       }
-    })
+    });
+  }
+    
+    insertParametro(f: NgForm): void
+    {
+      console.log( f.value.parametriList.nome);
+      
+    }
     
   }
   
-}
