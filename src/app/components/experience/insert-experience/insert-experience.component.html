@@ -1,6 +1,6 @@
 
 <h1>Inserisci Experienza</h1>
-
+<body class="esperienze">
 <div id="container"> 
     <form #imagen= "ngForm" method="post" enctype="multipart/form-data">
       <p><label for="image">Choose Image</label></p>
@@ -23,6 +23,7 @@
          <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "5" [checked]='true'> 5
      </h4>
      <div class="form-group">
+       
         <label>Altri Principi utilizati</label><br>
         <tr *ngFor="let principi of secondari">
           <td><input type = "checkbox" (change)="onChecked($event)"  name = "feedback"  [attr.value]="principi.idPrincipi">{{principi.idPrincipi}}{{principi.nome}} </td>
@@ -35,3 +36,4 @@
     <button  type="submit" (click)="insertExperience(f)">Insert</button>    
   </form>
 </div>
+</body>
