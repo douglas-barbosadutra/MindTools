@@ -50,6 +50,7 @@ public class MatrixConverter {
 			matrixDTO.setP37(m.getP37());
 			matrixDTO.setP38(m.getP38());
 			matrixDTO.setP39(m.getP39());
+			matrixDTO.setNome(m.getNome());
 			
 		}
 		
@@ -110,6 +111,7 @@ public class MatrixConverter {
 		matrix.setP37(m.getP37());
 		matrix.setP38(m.getP38());
 		matrix.setP39(m.getP39());
+		matrix.setNome(m.getNome());
 		
 		return matrix;
 		

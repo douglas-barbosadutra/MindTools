@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import it.contrader.controller.ImagenController;
 import it.contrader.converter.ImagenConverter;
 import it.contrader.dao.ImagenRepository;
 import it.contrader.dto.ImagenDTO;
@@ -41,14 +42,14 @@ public class ImagenService {
         }
     }
 	
-	public String upload(MultipartFile file) throws IOException{ 
+	public void upload(MultipartFile file) throws IOException{ 
 		String filename=file.getOriginalFilename();
         byte barr[]= file.getBytes();
     	imagenDTO.setIdImagen(0);
         imagenDTO.setNome(filename);
         imagenDTO.setArchivo(barr);
-        Imagen i = insertImagen(imagenDTO);
-        return "insertExperience";  
+        ImagenController.im = insertImagen(imagenDTO);
+          
     }
 	
 	

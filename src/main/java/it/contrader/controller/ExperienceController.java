@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,7 +47,7 @@ import it.contrader.service.PrincipiService;
 
 import lombok.Data;
 
-@CrossOrigin(value = "*")
+@CrossOrigin()
 @RestController
 @RequestMapping("/Experience")
 public class ExperienceController {
@@ -72,24 +75,30 @@ public class ExperienceController {
 		this.imagenService = imagenService;
 	}
 
-	@RequestMapping(value = "/openInsertExperience", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/openInsertExperience", method = RequestMethod.GET)
 	public String openInsertUser(HttpServletRequest request) {
 		int principio = Integer.parseInt(request.getParameter("principio"));
 		request.getSession().setAttribute("principio", principio);
 		List<PrincipiDTO> listaPrincipi = principiService.getAllPrincipi();
 		request.getSession().setAttribute("listaPrincipi", listaPrincipi);
 		return "insertExperience";
-	}
-
-	@RequestMapping(value = "/insertExperience", method = RequestMethod.GET)
-	public ExperienceDTO insertUser(HttpServletRequest request) {
-		Imagen g = (Imagen) request.getSession().getAttribute("imagen");
+	}*/
+	
+	@RequestMapping(value = "/insertExperience", method = RequestMethod.POST)
+	public ResponseEntity<String> insertExperience(
+			@RequestParam("user") String user,
+			@RequestParam("idPrincipi") String idprincipi,
+			@RequestParam("commento") String commento,
+			@RequestParam("positivo") String positivo,
+			@RequestParam("negativo") String negativo,
+			@RequestParam("score") String score,
+			@RequestParam("idsprincipi[]") String[] ids_principi
+			) {
+		System.out.println("lleguee");
+		/*Imagen g = ImagenController.im;
 		User user = (User) request.getSession().getAttribute("utente");
 		UserDTO userDTO = ConverterUser.toDTO(user);
 		int id_user = userDTO.getIdUser();
-		String commento = request.getParameter("commento");
-		String positivo = request.getParameter("positivo");
-		String negativo = request.getParameter("negativo");
 		int idpprincipale = (int) request.getSession().getAttribute("principio");
 		int score = Integer.parseInt(request.getParameter("score"));
 		String[] ids_principi = request.getParameterValues("idsprincipi[]");
@@ -98,7 +107,7 @@ public class ExperienceController {
 		experienceDTO.setNegativo(negativo);
 		experienceDTO.setScore(score);
 		experienceDTO.setUser(user);
-		experienceDTO.setImagen(g);
+		experienceDTO.setImagen(ImagenController.im);
 		ExperienceDTO ex = experienceService.insertExperience(experienceDTO);
 		if (ids_principi != null) {
 			feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
@@ -126,16 +135,15 @@ public class ExperienceController {
 			this.feedbackservice.insertFeedback(feedbackDTO);
 		}
 		List<ExperienceUserFeedbackDTO> EUF = experienceService.getAllExperienceUserFeedbackDTO();
-		request.getSession().setAttribute("euf", EUF);
+		request.getSession().setAttribute("euf", EUF);*/
 
-		return experienceDTO;
+		return new ResponseEntity<String>("Experienza ok", HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/showAllExperience", method = RequestMethod.GET)
 	public List<ExperienceDTOAggiornato> ShowAll(@RequestParam(value="idUser")int idUser) {
 		List<ExperienceDTOAggiornato> listaEsperienze = new ArrayList<>();
 		listaEsperienze = experienceService.getAllExperienceUserFeedbackbyIdUser(idUser);
-		System.out.println(listaEsperienze);
 		return listaEsperienze;
 	}
 

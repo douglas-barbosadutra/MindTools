@@ -37,6 +37,7 @@ import it.contrader.service.ImagenService;
 public class ImagenController {
 	
 	private ImagenDTO imagenDTO = new ImagenDTO();
+	public static Imagen im = null;
 	
 
 	
@@ -67,7 +68,7 @@ public class ImagenController {
     }
 	 @PostMapping(value="/upload")
 	 @ResponseBody
-	 //public ResponseEntity<?> uploadFile(HttpServletRequest request, @RequestParam("file")MultipartFile file) {
+	 
 	    public ResponseEntity<?> uploadFile(HttpServletRequest request, @RequestParam("file")MultipartFile file) {
 		 request.getSession().setAttribute("file", file);
 		 
