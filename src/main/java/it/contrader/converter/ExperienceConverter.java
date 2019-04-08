@@ -3,12 +3,19 @@ package it.contrader.converter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import it.contrader.dto.ExperienceDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.model.Experience;
 import it.contrader.model.User;
+import it.contrader.service.UserService;
 
 public class ExperienceConverter {
+	
+	private UserService userService;
+	
+	
 	public static Experience toEntity(ExperienceDTO experienceDTO) {
 
 		Experience experience = null;
@@ -19,8 +26,6 @@ public class ExperienceConverter {
 			experience.setPositivo(experienceDTO.getPositivo());
 			experience.setNegativo(experienceDTO.getNegativo());
 			experience.setScore(experienceDTO.getScore());
-			User user = experienceDTO.getUser();
-			experience.setUser(user);
 			experience.setImagen(experienceDTO.getImagen());
 
 		}
@@ -35,11 +40,12 @@ public class ExperienceConverter {
 		if (experience != null) {
 			experienceDTO = new ExperienceDTO();
 			experienceDTO.setIdExperience(experience.getIdExperience());
+			experienceDTO.setIdUser(experience.getUser().getIdUser());
+			experienceDTO.setIdPrincipi(experience.getIdExperience());
 			experienceDTO.setCommento(experience.getCommento());
 			experienceDTO.setPositivo(experience.getPositivo());
 			experienceDTO.setNegativo(experience.getNegativo());
 			experienceDTO.setScore(experience.getScore());
-			experienceDTO.setUser(experience.getUser());
 			experienceDTO.setImagen(experience.getImagen());
 		}
 

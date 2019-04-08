@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExperienceDTO {
+	private int idExperience;
 	private int idUser;
 	private int idPrincipi;
 	private String commento;
@@ -20,5 +21,6 @@ public class ExperienceDTO {
 	private String negativo;
 	private int score;
 	private List<String> secon;
+	private Imagen imagen;
 
 }

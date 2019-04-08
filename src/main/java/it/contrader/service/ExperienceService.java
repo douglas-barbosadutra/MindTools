@@ -82,7 +82,7 @@ public class ExperienceService {
 
 				for (UserDTO u : users) {
 
-					if (u.getIdUser() == e.getUser().getIdUser()) {
+					if (u.getIdUser() == e.getIdUser()) {
 
 						if (e.getIdExperience() == f.getExperience().getIdExperience()) {
 
