@@ -89,7 +89,7 @@ public class ExperienceController {
 	public ResponseEntity<String> insertExperience(@RequestBody ExperienceDTO experienceDTOo) {
 		
 		int idpprincipale = experienceDTO.getIdPrincipi();
-		experienceDTO.setIdUser(experienceDTOo.getIdUser());
+		experienceDTO.setUser(experienceDTOo.getUser());
 		experienceDTO.setIdExperience(0);
 		experienceDTO.setIdPrincipi(experienceDTOo.getIdPrincipi());
 		experienceDTO.setCommento(experienceDTOo.getCommento());
@@ -99,9 +99,17 @@ public class ExperienceController {
 		experienceDTO.setImagen(ImagenController.im);
 		System.out.println(experienceDTO.toString());
 		ExperienceDTO ex = experienceService.insertExperience(experienceDTO);
-		System.out.print(ex.toString());
+		System.out.print(experienceDTOo.getSecon());
 		
-		if (experienceDTOo.getSecon() != null) {
+		
+		if (experienceDTOo.getSecon().isEmpty()) {
+			feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
+			PrincipiDTO p = principiService.getPrincipio(idpprincipale);
+			feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
+			feedbackDTO.setSecondario(valore);
+			this.feedbackservice.insertFeedback(feedbackDTO);
+			}
+		 else {
 			feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
 			PrincipiDTO p = principiService.getPrincipio(idpprincipale);
 			feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
@@ -118,14 +126,11 @@ public class ExperienceController {
 				feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(b));
 				feedbackDTO.setSecondario(second);
 				this.feedbackservice.insertFeedback(feedbackDTO);
-			}
-		} else {
-			feedbackDTO.setExperience(ExperienceConverter.toEntity(ex));
-			PrincipiDTO p = principiService.getPrincipio(idpprincipale);
-			feedbackDTO.setPrincipi(PrincipiConverter.convertToEntity(p));
-			feedbackDTO.setSecondario(valore);
-			this.feedbackservice.insertFeedback(feedbackDTO);
-		}
+			
+		   }
+			
+		 }
+	
 		
 		return new ResponseEntity<String>("Experienza ok", HttpStatus.OK);
 	}

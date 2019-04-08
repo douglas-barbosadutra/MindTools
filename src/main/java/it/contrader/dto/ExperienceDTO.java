@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ExperienceDTO {
 	private int idExperience;
-	private int idUser;
+	private User user;
 	private int idPrincipi;
 	private String commento;
 	private String positivo;

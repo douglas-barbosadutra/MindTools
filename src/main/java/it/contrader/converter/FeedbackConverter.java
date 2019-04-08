@@ -16,7 +16,7 @@ public class FeedbackConverter {
 		feedbackDTO.setExperience(f.getExperience());
 		feedbackDTO.setPrincipi(f.getPrincipi());
 		feedbackDTO.setSecondario(f.getSecondario());
-		feedbackDTO.setImagen(f.getImagen());
+		
 		
 		return feedbackDTO;	
 }
@@ -30,7 +30,7 @@ public static Feedback toEntity(FeedbackDTO feedbackDTO) {
 		feedback.setExperience(feedbackDTO.getExperience());
 		feedback.setPrincipi(feedbackDTO.getPrincipi());
 		feedback.setSecondario(feedbackDTO.getSecondario());
-		feedback.setImagen(feedbackDTO.getImagen());
+		
 	}
 	
 	
