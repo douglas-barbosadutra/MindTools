@@ -37,15 +37,11 @@ export class InsertExperienceComponent implements OnInit {
     
   }
   onRadioSelected(event){
-    
-    
     var target = event.target;
        if (target.checked) {
         this.score = target.value;
        } 
     console.log(this.score);
-    
-
   }
 
 
@@ -71,16 +67,16 @@ export class InsertExperienceComponent implements OnInit {
     this.user = JSON.parse(sessionStorage.getItem("user"));
     this.idPrincipi = parseInt(sessionStorage.getItem("idPrincipi"));
     this.experienceDTO =  new ExperienceDTO(this.user, this.idPrincipi, f.value.commento, f.value.positivo, f.value.negativo, this.score, this.secon)
-     console.log(this.experienceDTO.score);
-     console.log(this.experienceDTO.secon);
+     console.log(this.experienceDTO);
+     
     this.experienceService.insertExperience(this.experienceDTO).subscribe((response) => {
       
         if (response != null) {   
-          console.log("arrivo");  
+         console.log("arrivo");  
           this.router.navigateByUrl("AllExperience");
-        }
-        else
-        this.router.navigateByUrl("InsertExperience");
+       }
+       else
+       this.router.navigateByUrl("InsertExperience");
         
   
       });
