@@ -9,9 +9,9 @@ import{PrincipiService} from 'src/app/services/principi/principi.service';
 import { Imagen } from 'src/app/models/Imagen';
 import { HttpClient} from '@angular/common/http';
 import {ImagenService} from 'src/app/services/imagen.service';
+import { ExperienceDTO } from 'src/app/dto/ExperienceDTO';
 
 import { User } from 'src/app/models/User';
-import { ExperienceDTO } from 'src/app/dto/ExperienceDTO';
 
 @Component({
   selector: 'app-insert-experience',
@@ -38,9 +38,10 @@ export class InsertExperienceComponent implements OnInit {
   }
   onRadioSelected(event){
     
+    
     var target = event.target;
        if (target.checked) {
-        this.score = target;
+        this.score = target.value;
        } 
     console.log(this.score);
     
@@ -51,7 +52,7 @@ export class InsertExperienceComponent implements OnInit {
   onChecked(event){
     var target = event.target;
     if(target.checked){
-      this.secon.push(target);
+      this.secon.push(target.value);
     }
   }
   
@@ -69,9 +70,9 @@ export class InsertExperienceComponent implements OnInit {
    insertExperience(f: NgForm){
     this.user = JSON.parse(sessionStorage.getItem("user"));
     this.idPrincipi = parseInt(sessionStorage.getItem("idPrincipi"));
-
-    this.experienceDTO = new ExperienceDTO(this.user.idUser,this.idPrincipi,f.value.commento,f.value.positivo, f.value.negativo,this.score,this.secon);
-
+    this.experienceDTO =  new ExperienceDTO(this.user, this.idPrincipi, f.value.commento, f.value.positivo, f.value.negativo, this.score, this.secon)
+     console.log(this.experienceDTO.score);
+     console.log(this.experienceDTO.secon);
     this.experienceService.insertExperience(this.experienceDTO).subscribe((response) => {
       
         if (response != null) {   
