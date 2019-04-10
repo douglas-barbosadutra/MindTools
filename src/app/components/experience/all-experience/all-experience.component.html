@@ -1,16 +1,86 @@
+<ul class ="menu">
+    
+    <li>
+  
+      <div class="dropdown">
+  
+      <button class="dropbtn">Principi</button>
+  
+      <div class="dropdown-content">
+  
+  
+        <a href="/#/PrincipiRead">Lista Principi</a>
+        <a href="/#/PrincipiRandom">Principi random</a>
+    
+      </div>
+  
+      </div>
+    </li>
+  
+    <li>
+  
+      <div class="dropdown" >
+  
+      <button class="dropbtn">Esperienze</button>
+  
+      <div class="dropdown-content">
+        
+        <a href="/#/AllExperience">Lista Esperienze</a>
+  
+      </div>
+  
+   
+    </div>
+  
+    </li>
+  
+    <li>
+  
+      <div class="dropdown">
+  
+      <button class="dropbtn">Matrix</button>
+  
+      <div class="dropdown-content">
+  
+        <a href="/#/matrix">Show Matrix</a>
+        <a href="/#/Parametri">Parametri</a>
+  
+      </div>
+    </div>
+   
+    </li>
+  
+    <li>
+        <div class="dropdown">
+  
+            <a href="/#/login" class="dropbtn">Logout</a>
+        
+          </div>
+    </li>
+    <form  #f="ngForm">
+        <button class="dropbtnC">Cerca per parola chiave </button>
+        <input type = "text"  name="pChiave" placeholder = "inserisci testo" [(ngModel)]="pChiave">
+        <button style="margin-top:1%"  type="submit" (click)="cercaByParola(f)">Cerca</button>
+     </form>
+    
+    
+  
+   
+  
+  </ul> 
+ 
  <h1 class="title">Esperienze</h1>
           <div id="container">
             <table class="table table-striped">
               <thead>
                   <tr>
-<<<<<<< HEAD
                     <th>Numero Principio</th>
-=======
+
                     <th>Principio</th>
                     <th>
 
                       </th>
->>>>>>> f26e2bf50bbc53299e30af9010d7f6df7a8942b1
+
                     <th>Nome</th>
                     <th>
 
@@ -46,16 +116,9 @@
 
                       </th>
                     <td>{{e.scoreExperience}}</td>
-<<<<<<< HEAD
                   <img src="/assets/card/{{idPrincipi}}front.jpg" width="170" height="180"(dblclick)="selectLink(idPrincipi=Principio.idPrincipio)">
                   <img src="/assets/card/{{idExperience}}front.jpg" width="170" height="180"(dblclick)="selectLink(idExperience=feedback.idExperience)">
                 </tr>
-=======
-                    <th>
-
-                      </th>
-                  </tr>
->>>>>>> f26e2bf50bbc53299e30af9010d7f6df7a8942b1
               </tbody>
             </table>
           </div>
