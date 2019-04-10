@@ -133,7 +133,7 @@ text-align:center;
     width: 3000px;
     margin: auto;
     border: 1px solid rgb(0, 0, 0);
-  
+  background-color: white;
 }
 
 
@@ -148,16 +148,20 @@ text-align:center;
 border-bottom: 1px #3d75ad;
 caption-side: left;
 border-style: groove;
+
 }
 
 
 .substance1 {
-    background-color: #8252f3a8;
+		background-color: #8252f3a8;
+		
+	
+	
 }
 
 .substance2{
     background-color: yellow;
-
+		
 }
 
 .substance3{
@@ -177,5 +181,13 @@ border-style: groove;
 
 .substance6{
     background-color: rgb(212, 92, 228);
+
+}
+
+.titolo {
+	
+	text-align: left;
+
+	color: rgb(16, 16, 182);
 
 }
