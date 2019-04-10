@@ -24,7 +24,6 @@ export class AllExperienceComponent implements OnInit {
     console.log(this.user);
 
    this.experienceService.showAllExperiences(this.user.idUser).subscribe((response) =>{
-       alert("PROVA " + response);
       this.experienceList = response;
     });
-  }}
+  } }

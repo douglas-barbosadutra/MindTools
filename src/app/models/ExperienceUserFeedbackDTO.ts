@@ -7,7 +7,7 @@ export class ExperienceUserFeedbackDTO {
     nomeUtente: string;
     commentoExperience: string;
     scoreExperience: number;
-	
+    
     constructor( nomePrincipio: string, nomeUtente: string, commentoExperience: string, scoreExperience: number) {
         this.nomePrincipio = nomePrincipio;    
         this.nomeUtente = nomeUtente;    
