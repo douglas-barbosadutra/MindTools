@@ -27,6 +27,7 @@ import { MatrixService } from './services/matrix.service';
 import { ParametriService } from './services/parametri.service';
 import { ParametriComponent } from './components/parametri/parametri.component';
 import { ContradictionComponent } from './components/contradiction/contradiction.component';
+import { AngularDualListBoxModule } from 'angular-dual-listbox';
 
 
 
@@ -62,6 +63,8 @@ import { ContradictionComponent } from './components/contradiction/contradiction
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    AngularDualListBoxModule,
+
   ],
   providers: [ExperienceService, LoginService, FeedbackService, ImagenService, PrincipiService, RegistrazioneService, MatrixService, ParametriService],
   bootstrap: [AppComponent]
