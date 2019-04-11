@@ -20,6 +20,7 @@ import it.contrader.dto.PrincipiDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.model.Experience;
 import it.contrader.model.User;
+import it.contrader.dto.ImagenDTO;
 
 @Service
 public class ExperienceService {
@@ -133,6 +134,7 @@ public class ExperienceService {
 			obj.setCommentoExperience(experienceDTO.getCommento());
 			obj.setScoreExperience(experienceDTO.getScore());
 			obj.setIdPrincipio(feedbackDTO.getId_principi());
+			obj.setArchivo(experienceDTO.getImagen().getArchivo());
 			lista.add(obj);
 		}
 		return lista;

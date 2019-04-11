@@ -20,4 +20,6 @@ public class ExperienceDTOAggiornato {
 	private String nomeUtente;
 	private String commentoExperience;
 	private int scoreExperience;
+	private byte[] archivo;
+
 }

@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -140,16 +141,16 @@ public class ExperienceController {
 	 */
 
 	@RequestMapping(value = "/getImage", method = RequestMethod.GET)
-	public void getImage() throws IOException {
-		//int id = Integer.parseInt(request.getParameter("id"));
+	
+	public @ResponseBody ImagenDTO getImagen(@RequestParam(value="id")int idExperience) throws IOException {
+	ExperienceDTO experienceDTO = experienceService.getExperienceByID(idExperience);
 
-	//	ExperienceDTO experienceDTO = experienceService.getExperienceByID(id);
-
-		// System.out.println(experienceDTO.getImagen().getIdImagen());
-		/*byte[] content = experienceDTO.getImagen().getArchivo();
-		response.setContentType("image/jpg");
-		response.setContentLength(content.length);
-		response.getOutputStream().write(content);*/
+		 System.out.println(experienceDTO.getImagen().getArchivo());
+		byte[] content = experienceDTO.getImagen().getArchivo();
+		return ImagenConverter.toDTO(experienceDTO.getImagen());
+		//response.setContentType("image/jpg");
+		//response.setContentLength(content.length);
+		//response.getOutputStream().write(content);*/
 	}
 
 }

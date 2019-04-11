@@ -23,8 +23,7 @@ public class ExperienceUserFeedbackDTO {
 	private int score;
 	private Principi principi;
 	private Experience experience;
-	private Imagen imagen;
-	
+	private byte[] archivo;	
 	
 	
 }
