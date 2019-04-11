@@ -11,21 +11,29 @@ import { Imagen } from 'src/app/models/Imagen';
 @Component({
   selector: 'app-all-experience',
   templateUrl: './all-experience.component.html',
-  styleUrls: ['./all-experience.component.css']
+  styleUrls: ['./all-experience.component.css'],
 })
 
 export class AllExperienceComponent implements OnInit {
   public experienceList : Array<ExperienceUserFeedbackDTO>;
   user: User;
+  experience: Experience;
   imagen: Imagen;
   constructor(private experienceService: ExperienceService, private router:  Router) { }
 
   ngOnInit() {
     
     this.user = JSON.parse(sessionStorage.getItem("user"));
-    
+    this.experienceService.showAllExperiences(this.user.idUser).subscribe((response) =>{
+    this.experienceList = response});
+  
+  }
+  
+  showAllExperiences(): void{
+    this.experienceList = JSON.parse(sessionStorage.getItem("idExperience"));
+    this.experienceService.showAllExperiences(this.experience.idExperience).subscribe((response) =>{
+    this.experienceList = response});
+  
+ }
 
-   this.experienceService.showAllExperiences(this.user.idUser).subscribe((response) =>{
-      this.experienceList = response;
-    });
-  } }
+}
