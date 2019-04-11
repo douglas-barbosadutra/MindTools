@@ -74,7 +74,7 @@
             <table class="table table-striped">
               <thead>
                   <tr>
-                    <th>Numero Principio</th>
+                    <th >Numero Principio</th>
 
                     <th>Principio</th>
                     <th>
@@ -116,8 +116,24 @@
 
                       </th>
                     <td>{{e.scoreExperience}}</td>
-                  <img src="/assets/card/{{idPrincipi}}front.jpg" width="170" height="180"(dblclick)="selectLink(idPrincipi=Principio.idPrincipio)">
-                  <img src="/assets/card/{{idExperience}}front.jpg" width="170" height="180"(dblclick)="selectLink(idExperience=feedback.idExperience)">
+                    <th>
+
+                    </th>
+                  <td>
+                      <!-- <img alt="" width="200" height="200" 
+  src="@Url.Action("getImage", "Imagen", new { imagen.idimagen })" /> -->
+<th></th>
+                <td>
+                  <img src="/assets/card/{{e.idPrincipio}}front.jpg" width="170" height="180">
+                </td>
+                <th>
+                  
+                </th>
+                <td> <a href="/#/feedback" class="dropbtn">Seleziona Esperienza</a>
+                </td>
+                <th>
+                  
+                </th>
                 </tr>
               </tbody>
             </table>
