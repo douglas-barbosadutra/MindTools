@@ -7,11 +7,14 @@ export class ExperienceUserFeedbackDTO {
     nomeUtente: string;
     commentoExperience: string;
     scoreExperience: number;
-    
-    constructor( nomePrincipio: string, nomeUtente: string, commentoExperience: string, scoreExperience: number) {
+    archivo: ByteLengthChunk[];
+
+    constructor( nomePrincipio: string, nomeUtente: string, commentoExperience: string, scoreExperience: number, archivo: ByteLengthChunk[]
+        ) {
         this.nomePrincipio = nomePrincipio;    
         this.nomeUtente = nomeUtente;    
         this.commentoExperience = commentoExperience;  
         this.scoreExperience = scoreExperience;
+        this.archivo=archivo;
     }	
 }

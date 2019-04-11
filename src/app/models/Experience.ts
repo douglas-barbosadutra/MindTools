@@ -13,6 +13,7 @@ export class Experience {
     feedback: Array<number>;
     
     
+    
 
     // tslint:disable-next-line:max-line-length
     constructor(user: User, idPrincipi: number, commento: string, positivo: string, negativo: string,  score: number, feedback: Array<number>) {

@@ -5,6 +5,7 @@ import { Experience } from 'src/app/models/Experience';
 import { Router } from "@angular/router";
 import { ExperienceUserFeedbackDTO } from 'src/app/models/ExperienceUserFeedbackDTO';
 import { User } from 'src/app/models/User';
+import { Imagen } from 'src/app/models/Imagen';
 //import { Principi } from 'src/app/models/Principi';
 
 @Component({
@@ -16,12 +17,13 @@ import { User } from 'src/app/models/User';
 export class AllExperienceComponent implements OnInit {
   public experienceList : Array<ExperienceUserFeedbackDTO>;
   user: User;
+  imagen: Imagen;
   constructor(private experienceService: ExperienceService, private router:  Router) { }
 
   ngOnInit() {
-    console.log(sessionStorage.getItem("user"));
+    
     this.user = JSON.parse(sessionStorage.getItem("user"));
-    console.log(this.user);
+    
 
    this.experienceService.showAllExperiences(this.user.idUser).subscribe((response) =>{
       this.experienceList = response;

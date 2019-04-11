@@ -74,8 +74,6 @@
             <table class="table table-striped">
               <thead>
                   <tr>
-                    <th >Numero Principio</th>
-
                     <th>Principio</th>
                     <th>
 
@@ -85,51 +83,39 @@
                     <th>
 
                       </th>
-                      <th>
 
-                        </th>
 
-                    <th>Commento</th>
+                    <th>Esperienze</th>
                     <th>
 
                       </th>
-                      <th>
-
-                        </th>
+                    
                     <th>Score</th>
-                    <th>Principio</th>
-                    <th>Esperienze</th>
                   </tr>
               </thead>
               <tbody>
                   <tr *ngFor="let e of experienceList">
-                    <td>{{e.idPrincipio}} </td>
-                    <th>
+                    <td>
+                      <img src="/assets/card/{{e.idPrincipio}}front.jpg" width="170" height="180">
+                    </td> <th>
 
                       </th>
                     <td>{{e.nomeUtente}} </td>
                     <th>
 
                       </th>
-                    <td>{{e.commentoExperience}}</td>
-                    <th>
-
-                      </th>
-                    <td>{{e.scoreExperience}}</td>
-                    <th>
-
-                    </th>
+                 
                   <td>
-                      <!-- <img alt="" width="200" height="200" 
-  src="@Url.Action("getImage", "Imagen", new { imagen.idimagen })" /> -->
+                       <img src="data:image/jpg;base64,{{e.archivo}}" width="170" height="180" (click)="selectLink(e.Esperienza)"/>
 <th></th>
-                <td>
-                  <img src="/assets/card/{{e.idPrincipio}}front.jpg" width="170" height="180">
-                </td>
+<td>{{e.scoreExperience}}</td>
+<th>
+
+</th>
                 <th>
                   
                 </th>
-                <td> <a href="/#/feedback" class="dropbtn">Seleziona Esperienza</a>
+                <td> <a href="/#/feedback" class="dropbtn" id="idExperience">Seleziona Esperienza</a>
                 </td>
                 <th>
                   

@@ -5,15 +5,15 @@ export class Imagen{
     idImagen: number;
     nomeimg: string;
     archivo: ByteLengthChunk[];
-    experience: Experience[];
+    
 
     // tslint:disable-next-line:max-line-length
-    constructor( idImagen: number, nomeimg: string,archivo: ByteLengthChunk[], experience: Experience[])
+    constructor( idImagen: number, nomeimg: string,archivo: ByteLengthChunk[])
     {
         this.idImagen = idImagen;
         this.nomeimg =nomeimg;
         this.archivo =archivo;
-        this.experience = experience;
+        
         
     }
 
