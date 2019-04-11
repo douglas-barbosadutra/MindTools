@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
@@ -45,21 +46,16 @@ public class Principi {
 	@NotNull
 	private String pChiave;
 	
-	@Column(name = "nomeIta")
+	@Column(name = "fronte")
+	@Lob
 	@NotNull
-	private String nomeIta;
-
-	@Column(name = "dPuntiIta")
+	private byte[] fronte;
+	
+	@Column(name = "retro")
+	@Lob
 	@NotNull
-	private String dPuntiIta;
-
-	@Column(name = "dNumeriIta")
-	@NotNull
-	private String dNumeriIta;
-
-	@Column(name = "pChiaveIta")
-	@NotNull
-	private String pChiaveIta;
+	private byte[] retro;
+	
 	
 	@OneToMany(mappedBy="principi")
 	@OnDelete(action=OnDeleteAction.CASCADE)

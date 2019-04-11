@@ -17,8 +17,6 @@ public class PrincipiDTO {
 	private String dPunti;
 	private String dNumeri;
 	private String pChiave;
-	private String nomeIta;
-	private String dPuntiIta;
-	private String dNumeriIta;
-	private String pChiaveIta;
+	private byte[] fronte;
+	private byte[] retro;
 }

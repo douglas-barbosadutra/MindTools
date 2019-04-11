@@ -15,10 +15,9 @@ public class PrincipiConverter {
 		principiDTO.setDPunti(i.getDPunti());
 		principiDTO.setDNumeri(i.getDNumeri());
 		principiDTO.setPChiave(i.getPChiave());
-		principiDTO.setNomeIta(i.getNomeIta());
-		principiDTO.setDPuntiIta(i.getDPuntiIta());
-		principiDTO.setDNumeriIta(i.getDNumeriIta());
-		principiDTO.setPChiaveIta(i.getPChiaveIta());
+		principiDTO.setFronte(i.getFronte());
+		principiDTO.setRetro(i.getRetro());
+		
 		
 		return principiDTO;		
 		}
@@ -30,10 +29,9 @@ public class PrincipiConverter {
 		principi.setDPunti(i.getDPunti());
 		principi.setDNumeri(i.getDNumeri());
 		principi.setPChiave(i.getPChiave());
-		principi.setNomeIta(i.getNomeIta());
-		principi.setDPuntiIta(i.getDPuntiIta());
-		principi.setDNumeriIta(i.getDNumeriIta());
-		principi.setPChiaveIta(i.getPChiaveIta());
+		principi.setFronte(i.getFronte());
+		principi.setRetro(i.getRetro());
+		
 		return principi;	
 	  	}
 	public static List<PrincipiDTO> toListDTO(List<Principi> list) {

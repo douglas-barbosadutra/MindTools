@@ -38,10 +38,8 @@ public class PrincipiController {
 	}
 	
 	@RequestMapping(value = "/SelezionaPrincipio", method = RequestMethod.GET)
-	public PrincipiDTO SelezionaPrincipio(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("idPrincipi"));
+	public PrincipiDTO SelezionaPrincipio(@RequestParam(value="id") int id) {
 		PrincipiDTO principio = principiService.getPrincipio(id);
-		request.getSession().setAttribute("Principio", principio);
 		return principio;
 	}
 	
