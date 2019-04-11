@@ -1,10 +1,10 @@
 <body>
 
 
-  <div *ngFor="let p of principi" class="table">
+  <div class="table" *ngFor="let p of principi">
     <table>
       <td>
-  <img src="/assets/card/{{p.idPrincipi}}front.jpg" width="170" height="180"(dblclick)="selectLink(p.idPrincipi)">
+  <img src="data:image/jpg;base64,{{p.fronte}}" width="170" height="180"(dblclick)="selectLink(p.idPrincipi)">
   </td>
   </table></div>
   
