@@ -30,7 +30,7 @@ export class AllExperienceComponent implements OnInit {
   }
   
   showAllExperiences(): void{
-    this.experienceList = JSON.parse(sessionStorage.getItem("idExperience"));
+    sessionStorage.setItem('idExperience', JSON.stringify(this.experience.idExperience));
     this.experienceService.showAllExperiences(this.experience.idExperience).subscribe((response) =>{
     this.experienceList = response});
   
