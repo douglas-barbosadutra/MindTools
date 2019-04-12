@@ -92,7 +92,8 @@ public class ExperienceService {
 								ExperienceUserFeedbackDTO nuovoDTO = new ExperienceUserFeedbackDTO();
 
 								nuovoDTO.setCognome(u.getCognome());
-
+								
+								nuovoDTO.setIdExperience(e.getIdExperience());
 								nuovoDTO.setNome(u.getNome());
 
 								nuovoDTO.setCommento(e.getCommento());
@@ -103,7 +104,7 @@ public class ExperienceService {
 
 								nuovoDTO.setExperience(f.getExperience());
 
-								nuovoDTO.setImagen(e.getImagen());
+								nuovoDTO.setArchivo(e.getImagen().getArchivo());
 
 								listaexperienceUserFeedbackDTO.add(nuovoDTO);
 
@@ -131,6 +132,7 @@ public class ExperienceService {
 			FeedbackPrincipiExperienceDTO feedbackDTO = this.feedbackservice.getFeedbackPrincipiExperienceDTO(ExperienceConverter.toEntity(experienceDTO).getIdExperience());
 			ExperienceDTOAggiornato obj = new ExperienceDTOAggiornato();
 			obj.setNomeUtente(user.getNome());
+			obj.setIdExperience(experienceDTO.getIdExperience());
 			obj.setCommentoExperience(experienceDTO.getCommento());
 			obj.setScoreExperience(experienceDTO.getScore());
 			obj.setIdPrincipio(feedbackDTO.getId_principi());

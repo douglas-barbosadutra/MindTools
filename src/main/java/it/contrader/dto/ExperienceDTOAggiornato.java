@@ -16,6 +16,7 @@ import it.contrader.model.Imagen;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExperienceDTOAggiornato {
+	private int idExperience;
 	private int idPrincipio;
 	private String nomeUtente;
 	private String commentoExperience;

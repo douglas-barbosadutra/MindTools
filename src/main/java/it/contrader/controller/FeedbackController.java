@@ -30,11 +30,12 @@ public class FeedbackController {
 	
 	
 	@RequestMapping(value="/showFeedback",method= RequestMethod.GET)
-	public FeedbackPrincipiExperienceDTO showFeedback(@RequestParam(value = "idExperience" )int idExperience) {
-	//int idprincipio = Integer.parseInt("idPrincipi");
+	public List<PrincipiDTO> showFeedback(@RequestParam(value = "idExperience" )int idExperience) {
+
 		FeedbackPrincipiExperienceDTO feedb = feedbackService.getFeedbackPrincipiExperienceDTO(idExperience);
 		List<PrincipiDTO> secondari = feedbackService.listaPrincipiSecondari(idExperience);
-		return feedb;
+		System.out.println(secondari.toString());
+		return secondari;
 
 	}
 	
