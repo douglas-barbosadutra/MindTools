@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "angular-dual-listbox": "^4.7.0",
+    "better-queue": "^3.8.10",
     "core-js": "^2.5.4",
     "queue-typescript": "^1.0.1",
     "rxjs": "~6.3.3",

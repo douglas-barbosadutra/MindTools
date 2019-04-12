@@ -69,58 +69,25 @@
   
   </ul> 
  
- <h1 class="title">Esperienze</h1>
+ <h1 class="title" align = "center">Esperienze</h1>
           <div id="container">
-            <table class="table table-striped">
+            <table class="table table-striped" border="1" cellpadding = "10" cellspacing = "10" align = "center">
               <thead>
-                  <tr>
+                    <th>Esperienza</th>
                     <th>Principio</th>
-                    <th>
-
-                      </th>
-
                     <th>Nome</th>
-                    <th>
-
-                      </th>
-
-
-                    <th>Esperienze</th>
-                    <th>
-
-                      </th>
-                    
+                    <th>Commento</th>
                     <th>Score</th>
-                  </tr>
               </thead>
               <tbody>
-                  <tr *ngFor="let e of experienceList">
-                    <td>
-                      <img src="/assets/card/{{e.idPrincipio}}front.jpg" width="170" height="180">
-                    </td> <th>
-
-                      </th>
-                    <td>{{e.nomeUtente}} </td>
-                    <th>
-
-                      </th>
-                 
-                  <td>
-                       <img src="data:image/jpg;base64,{{e.archivo}}" width="170" height="180" (click)="selectLink(e.Esperienza)"/>
-<th></th>
-<td>{{e.scoreExperience}}</td>
-<th>
-
-</th>
-                <th>
-                  
-                </th>
-                <td> <a href="/#/feedback" class="dropbtn" id="idExperience">Seleziona Esperienza</a>
-                </td>
-                <th>
-                  
-                </th>
-                </tr>
+                  <tr *ngFor="let e of experienceList" color ="blue">
+                    <td> <img align="center" valign="middle" src="data:image/jpg;base64,{{e.archivo}}" width="300" height="200" (dblclick)="selectLink(e.idExperience)"/></td>
+                      <td> <img align="center" valign="middle" src="/assets/card/{{e.idPrincipio}}front.jpg" width="280" height="300"></td>
+                    <td align="center" valign="middle">{{e.nomeUtente}} </td>
+                    <td align="center" valign="middle">{{e.commentoExperience}}</td>
+                    <td align="center" valign="middle">{{e.scoreExperience}}</td>
+                    
+                  </tr>
               </tbody>
             </table>
           </div>
