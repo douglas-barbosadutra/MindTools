@@ -7,6 +7,7 @@ import { AngularDualListBoxModule } from 'angular-dual-listbox';
 import { Key } from 'protractor';
 import {Queue} from 'queue-typescript';
 import { of } from 'rxjs';
+import { ProvaComponent } from '../prova/prova.component';
 
 
 @Component({
@@ -55,7 +56,19 @@ export class ParametriComponent implements OnInit {
       this.parametriSelezionati.append(parametri);
     //}
     
-    console.log(this.parametriSelezionati);
+    //console.log(this.parametriSelezionati);
+    
+   
+     this.parametriSelezionati.toArray()
+     
+     this.parametriService.inviaParametriSelezionati(this.parametriSelezionati.toArray());
+
+     
+     
+    
+    
+   
+    
 
     
     

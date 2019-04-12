@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import {Parametri} from 'src/app/models/Parametri';
 import { tap, catchError } from 'rxjs/operators';
+import { Queue } from 'queue-typescript';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { tap, catchError } from 'rxjs/operators';
 export class ParametriService {
   public parametriList: Array<Parametri>;
   public nome: string;
+  
 
   constructor(private http:HttpClient) { }
 
@@ -24,6 +26,13 @@ export class ParametriService {
   readParametri():Observable <Array<Parametri>> {
     return this.http.get<Array<Parametri>>("http://localhost:8080/Parametri/param")
     
+  }
+
+  inviaParametriSelezionati(parametriSelezionati :  Array<Parametri>): Observable<any>
+  {
+    return this.http.post<any>("http://localhost:8080/Parametri/param", parametriSelezionati);
+    
+
   }
   
 }
