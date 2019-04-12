@@ -62,9 +62,17 @@
             <input type = "text"  name="pChiave" placeholder = "inserisci testo" [(ngModel)]="pChiave">
             <button style="margin-top:1%"  type="submit" (click)="cercaByParola(f)">Cerca</button>
          </form>
-        
-        
-      
-       
-      
-      </ul>
+</ul>
+
+<form>
+	<select (change)="choose($event.target.value)">
+		<option *ngFor="let parametri of parametriList" [ngValue]="parametri" > {{parametri.id}}  {{parametri.nome}}
+		</option>
+	</select>
+	
+	<br>
+
+	<ul>
+		<li *ngFor="let parametri of parametriSelezionati">{{parametri}}</li>
+	</ul>
+</form>

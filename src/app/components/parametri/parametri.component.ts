@@ -40,20 +40,20 @@ export class ParametriComponent implements OnInit {
     this.parametriSelezionati = new Queue<Parametri>(... numbers);
   }
 
-   public choose(id: String) : void 
+   public choose(parametri: Parametri) : void 
   {
     
-    console.log(id);
+    //console.log(parametri);
     if(this.parametriSelezionati.length == 2){
       this.parametriSelezionati.removeHead();
     }
     
-    for(let parametri of this.parametriList)
-    {
+    //for(let parametri of this.parametriList)
+    //{
       
-      if(parametri.id == 1)
+      //if(parametri.id == parseInt(id))
       this.parametriSelezionati.append(parametri);
-    }
+    //}
     
     console.log(this.parametriSelezionati);
 
