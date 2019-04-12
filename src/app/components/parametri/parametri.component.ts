@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import {Parametri} from 'src/app/models/Parametri';
 import {ParametriService} from 'src/app/services/parametri.service';
 import { NgForm } from '@angular/forms';
+import { AngularDualListBoxModule } from 'angular-dual-listbox'; 
 import { Key } from 'protractor';
 import {Queue} from 'queue-typescript';
 import { of } from 'rxjs';
@@ -20,7 +21,7 @@ export class ParametriComponent implements OnInit {
   private parametriSceltiList : Array<Parametri>;
   private parametri: Parametri;
   private parametriSelezionati : Queue<Parametri>;
-  
+  private merge: String;
   
   constructor(private parametriService: ParametriService, private router:  Router) { }
   
