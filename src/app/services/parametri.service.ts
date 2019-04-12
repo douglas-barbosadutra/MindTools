@@ -12,7 +12,7 @@ export class ParametriService {
   public parametriList: Array<Parametri>;
   public nome: string;
   
-
+  public prova: string;
   constructor(private http:HttpClient) { }
 
   private handleError<T>(operation = 'operation', result?: T) {
