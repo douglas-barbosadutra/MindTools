@@ -129,17 +129,6 @@ public class ExperienceController {
 		return listaEsperienze;
 	}
 
-	/*
-	 * @RequestMapping(value="/showAllExperience" , method= RequestMethod.GET)
-	 * public List<ExperienceUserFeedbackDTO> showAllExperience() { int id =
-	 * Integer.parseInt("idUser"); return
-	 * experienceService.getAllExperienceUserFeedbackbyIdUser(id); } public String
-	 * showExperience(@RequestParam(value="idUser")int idUser) { int idexperience =
-	 * Integer.parseInt("idExperience"); ExperienceUserFeedbackDTO experience =
-	 * (ExperienceUserFeedbackDTO)
-	 * experienceService.getAllExperienceUserFeedbackDTO(); return "experience"; }
-	 */
-
 	@RequestMapping(value = "/getImage", method = RequestMethod.GET)
 	
 	public @ResponseBody ImagenDTO getImagen(@RequestParam(value="id")int idExperience) throws IOException {
@@ -148,9 +137,7 @@ public class ExperienceController {
 		 System.out.println(experienceDTO.getImagen().getArchivo());
 		byte[] content = experienceDTO.getImagen().getArchivo();
 		return ImagenConverter.toDTO(experienceDTO.getImagen());
-		//response.setContentType("image/jpg");
-		//response.setContentLength(content.length);
-		//response.getOutputStream().write(content);*/
+		
 	}
 
 }

@@ -49,6 +49,7 @@ public class ImagenController {
 		    produces = MediaType.APPLICATION_JSON_VALUE,
 		    consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})  
 	public ResponseEntity<String> upload(@RequestPart("file") MultipartFile file) throws IOException{ 
+		System.out.print("llegueeeee" + file.getName());
 		imagenService.upload(file);
     	return new ResponseEntity<String>("Archivo subido correctamente", HttpStatus.OK);
     	

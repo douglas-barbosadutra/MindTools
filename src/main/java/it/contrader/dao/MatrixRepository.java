@@ -27,7 +27,7 @@ public interface MatrixRepository extends JpaRepository<Matrix, Integer>
    // @Modifying
 	@Transactional
 	@Query(value = "SELECT :param FROM matrix where id = :idparam", nativeQuery=true)
-	public String contradizione(@Param("param") String param, @Param("idparam") Integer idparam);
+	public Matrix contradizione(@Param("param") String param, @Param("idparam") Integer idparam);
 	
 
 }
