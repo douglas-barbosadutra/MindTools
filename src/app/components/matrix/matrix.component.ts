@@ -4,6 +4,7 @@ import {Matrix} from 'src/app/models/Matrix';
 import {MatrixService} from 'src/app/services/matrix.service';
 import { Parametri } from 'src/app/models/Parametri';
 import { NgModel } from '@angular/forms';
+import { TransitiveCompileNgModuleMetadata } from '@angular/compiler';
 
 @Component({
   selector: 'app-matrix',
@@ -32,13 +33,13 @@ export class MatrixComponent implements OnInit {
     
   }
    princ(event){
-    let lista = this.principi.toString;
-    var target = event.target;
     
-
+    var target = event.target;
+    this.principi = target;
+    
     
     console.log(target);
-    console.log(lista);
+    
     
     
 

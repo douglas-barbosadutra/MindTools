@@ -30,7 +30,7 @@ export class ParametriService {
 
   inviaParametriSelezionati(parametriSelezionati :  Array<Parametri>): Observable<any>
   {
-    return this.http.post<any>("http://localhost:8080/Parametri/param", parametriSelezionati);
+    return this.http.post<any>("http://localhost:8080/Matrice/contradizione", parametriSelezionati);
     
 
   }

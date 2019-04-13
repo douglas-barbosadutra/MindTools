@@ -74,5 +74,27 @@
 
 	<ul>
 		<li *ngFor="let parametri of parametriSelezionati">{{parametri}}</li>
-	</ul>
+  </ul>
+  <br>
+  <button  type="submit" (click)="mostrar(f)">Insert</button>  
+  <div  class="table"  *ngFor="let p of principi">
+    <table>
+        &nbsp;
+        &nbsp; 
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp; 
+        &nbsp;
+        &nbsp;
+      <td>
+        <tr>
+          <th>
+  <img src="data:image/jpg;base64,{{p.fronte}}" width="170" height="180">
+          </th>
+  </tr>
+  
+  </table>
+  </div>
+  
 </form>

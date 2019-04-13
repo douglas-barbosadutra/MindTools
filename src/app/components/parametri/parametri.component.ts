@@ -8,6 +8,8 @@ import { Key } from 'protractor';
 import {Queue} from 'queue-typescript';
 import { of } from 'rxjs';
 import { ProvaComponent } from '../prova/prova.component';
+import { Principi } from 'src/app/models/Principi';
+import { error } from 'util';
 
 
 @Component({
@@ -22,6 +24,8 @@ export class ParametriComponent implements OnInit {
   private parametri: Parametri;
   private parametriSelezionati : Queue<Parametri>;
   private merge: String;
+  public principi : Array<Principi>;
+  
   
   constructor(private parametriService: ParametriService, private router:  Router) { }
   
@@ -48,31 +52,24 @@ export class ParametriComponent implements OnInit {
     if(this.parametriSelezionati.length == 2){
       this.parametriSelezionati.removeHead();
     }
-    
-    //for(let parametri of this.parametriList)
-    //{
-      
-      //if(parametri.id == parseInt(id))
       this.parametriSelezionati.append(parametri);
+      
     //}
     
-    //console.log(this.parametriSelezionati);
-    
-   
+    console.log(this.parametriSelezionati.toArray());
+   // var a = this.parametriSelezionati.
      
-     
-     this.parametriService.inviaParametriSelezionati(this.parametriSelezionati.toArray());
-
-     
-     
+  }
+  mostrar(){
     
-    
-   
-    
-
-    
+    this.parametriService.inviaParametriSelezionati(this.parametriSelezionati.toArray()).subscribe((response) => {
+      if (response != null){
+        this.principi = response;
+      }
+      alert("Consulte la matrix");
     
 
+  });
   }
 
 
