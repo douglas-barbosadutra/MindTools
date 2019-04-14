@@ -42,8 +42,8 @@ public class ExperienceConverter {
 		if (experience != null) {
 			experienceDTO = new ExperienceDTO();
 			experienceDTO.setIdExperience(experience.getIdExperience());
-			experienceDTO.setUser(experience.getUser());
-			experienceDTO.setIdPrincipi(experience.getIdExperience());
+			User user = experience.getUser();
+			experienceDTO.setUser(user);
 			experienceDTO.setCommento(experience.getCommento());
 			experienceDTO.setPositivo(experience.getPositivo());
 			experienceDTO.setNegativo(experience.getNegativo());
@@ -55,7 +55,7 @@ public class ExperienceConverter {
 	}
 
 	public static List<ExperienceDTO> toListDTO(List<Experience> list) {
-		List<ExperienceDTO> listExperienceDTO = new ArrayList<>();
+		List<ExperienceDTO> listExperienceDTO = new ArrayList<ExperienceDTO>();
 		if (!list.isEmpty()) {
 			for (Experience Experience : list) {
 				listExperienceDTO.add(ExperienceConverter.toDTO(Experience));

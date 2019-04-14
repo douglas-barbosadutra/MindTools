@@ -64,11 +64,11 @@ public class ExperienceController {
 	private ExperienceConverter experienceConverter = new ExperienceConverter();
 	private ImagenConverter imagenConverter = new ImagenConverter();
 	private FeedbackDTO feedbackDTO = new FeedbackDTO();
+	private List<ExperienceDTOAggiornato> listaEsperienze = new ArrayList<ExperienceDTOAggiornato>();
 	private FeedbackConverter feedbackconverter = new FeedbackConverter();
 	private PrincipiConverter principiConverter = new PrincipiConverter();
 	int valore = 0;
-	public static final String ANSI_RED = "\u001B[31m";
-	public static final String ANSI_RESET = "\u001B[0m";
+	
 
 	@Autowired
 	public ExperienceController(ExperienceService experienceService, PrincipiService principiService,
@@ -123,7 +123,6 @@ public class ExperienceController {
 
 	@RequestMapping(value = "/showAllExperience", method = RequestMethod.GET)
 	public List<ExperienceDTOAggiornato> ShowAll(@RequestParam(value="idUser")int idUser) {
-		List<ExperienceDTOAggiornato> listaEsperienze = new ArrayList<>();
 		listaEsperienze = experienceService.getAllExperienceUserFeedbackbyIdUser(idUser);
 		System.out.println(listaEsperienze);
 		return listaEsperienze;
@@ -132,6 +131,7 @@ public class ExperienceController {
 	@RequestMapping(value = "/getImage", method = RequestMethod.GET)
 	
 	public @ResponseBody ImagenDTO getImagen(@RequestParam(value="id")int idExperience) throws IOException {
+		
 	ExperienceDTO experienceDTO = experienceService.getExperienceByID(idExperience);
 
 		 System.out.println(experienceDTO.getImagen().getArchivo());

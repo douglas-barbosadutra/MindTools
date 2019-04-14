@@ -125,11 +125,15 @@ public class ExperienceService {
 	}
 
 	public List<ExperienceDTOAggiornato> getAllExperienceUserFeedbackbyIdUser(int idUser) {
+		
 		List<ExperienceDTOAggiornato> lista = new ArrayList<ExperienceDTOAggiornato>();
 		UserDTO user = this.userService.findUserByIduser(idUser);
-		List<ExperienceDTO> experiences = this.getExperienceByUser(ConverterUser.toEntity(user).getIdUser());
+		System.out.print(user);
+		List<ExperienceDTO> experiences = this.getExperienceByUser(idUser);
+		
 		for (ExperienceDTO experienceDTO : experiences) {
 			FeedbackPrincipiExperienceDTO feedbackDTO = this.feedbackservice.getFeedbackPrincipiExperienceDTO(ExperienceConverter.toEntity(experienceDTO).getIdExperience());
+			System.out.print("llegoooo"+feedbackDTO);
 			ExperienceDTOAggiornato obj = new ExperienceDTOAggiornato();
 			obj.setNomeUtente(user.getNome());
 			obj.setIdExperience(experienceDTO.getIdExperience());
@@ -139,6 +143,7 @@ public class ExperienceService {
 			obj.setArchivo(experienceDTO.getImagen().getArchivo());
 			lista.add(obj);
 		}
+		System.out.println(lista);
 		return lista;
 	}
 

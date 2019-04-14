@@ -93,7 +93,6 @@ public static List<Feedback> findByExperience(Experience e) {
 					 if(f.getSecondario() == 0) {
 						 nuovoFeedback.setId_principi(f.getPrincipi().getIdPrincipi());
 						 nuovoFeedback.setId_experience(f.getExperience().getIdExperience());
-						
 						 nuovoFeedback.setNome_principiING(p.getNome());
 						 nuovoFeedback.setSecondario(f.getSecondario());
 						 break;
