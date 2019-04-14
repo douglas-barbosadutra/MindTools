@@ -56,7 +56,7 @@ export class ParametriComponent implements OnInit {
       
     //}
     
-    console.log(this.parametriSelezionati.toArray());
+    console.log(JSON.stringify(this.parametriSelezionati.toArray()));
    // var a = this.parametriSelezionati.
      
   }
