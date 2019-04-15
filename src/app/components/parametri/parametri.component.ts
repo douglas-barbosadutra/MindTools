@@ -64,10 +64,10 @@ export class ParametriComponent implements OnInit {
   }
 
   mostrar(){
-    var l = this.parametriSceltiList.push(new Parametri(this.parametriSelezionati.head.id, this.parametriSelezionati.head.nome));
-    var o = this.parametriSceltiList.push(new Parametri(this.parametriSelezionati.tail.id, this.parametriSelezionati.tail.nome));
-    console.log(this.parametriSceltiList);
-    alert(this.parametriSceltiList);
+    // var l = this.parametriSceltiList.push(new Parametri(this.parametriSelezionati.head.id, this.parametriSelezionati.head.nome));
+    // var o = this.parametriSceltiList.push(new Parametri(this.parametriSelezionati.tail.id, this.parametriSelezionati.tail.nome));
+    // console.log(this.parametriSceltiList);
+    // alert(this.parametriSceltiList);
 
     this.parametriService.inviaParametriSelezionati(this.parametriSelezionati.toArray()).subscribe((response) => {
       if (response != null){

@@ -38,7 +38,7 @@ export class AllExperienceComponent implements OnInit {
  }*/
  selectLink(idExperience: number){
   sessionStorage.setItem('idExperience',JSON.stringify(idExperience));
-  alert(idExperience);
+ // alert(idExperience);
   this.router.navigateByUrl('/feedback');
 
 }
