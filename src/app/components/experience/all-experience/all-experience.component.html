@@ -1,93 +1,92 @@
 <ul class ="menu">
     
-    <li>
+  <li>
+
+    <div class="dropdown">
+
+    <button class="dropbtn">Principi</button>
+
+    <div class="dropdown-content">
+
+
+      <a href="/#/PrincipiRead">Lista Principi</a>
+      <a href="/#/PrincipiRandom">Principi random</a>
   
-      <div class="dropdown">
-  
-      <button class="dropbtn">Principi</button>
-  
-      <div class="dropdown-content">
-  
-  
-        <a href="/#/PrincipiRead">Lista Principi</a>
-        <a href="/#/PrincipiRandom">Principi random</a>
-    
-      </div>
-  
-      </div>
-    </li>
-  
-    <li>
-  
-      <div class="dropdown" >
-  
-      <button class="dropbtn">Esperienze</button>
-  
-      <div class="dropdown-content">
-        
-        <a href="/#/AllExperience">Lista Esperienze</a>
-  
-      </div>
-  
-   
     </div>
-  
-    </li>
-  
-    <li>
-  
-      <div class="dropdown">
-  
-      <button class="dropbtn">Matrix</button>
-  
-      <div class="dropdown-content">
-  
-        <a href="/#/matrix">Show Matrix</a>
-        <a href="/#/Parametri">Parametri</a>
-  
-      </div>
+
     </div>
-   
-    </li>
-  
-    <li>
-        <div class="dropdown">
-  
-            <a href="/#/login" class="dropbtn">Logout</a>
-        
-          </div>
-    </li>
-    <form  #f="ngForm">
-        <button class="dropbtnC">Cerca per parola chiave </button>
-        <input type = "text"  name="pChiave" placeholder = "inserisci testo" [(ngModel)]="pChiave">
-        <button style="margin-top:1%"  type="submit" (click)="cercaByParola(f)">Cerca</button>
-     </form>
-    
-    
-  
-   
-  
-  </ul> 
+  </li>
+
+  <li>
+
+    <div class="dropdown" >
+
+    <button class="dropbtn">Esperienze</button>
+
+    <div class="dropdown-content">
+      
+      <a href="/#/AllExperience">Lista Esperienze</a>
+
+    </div>
+
  
- <h1 class="title" align = "center">Esperienze</h1>
-          <div id="container">
-            <table class="table table-striped" border="1" cellpadding = "10" cellspacing = "10" align = "center">
-              <thead>
-                    <th>Esperienza</th>
-                    <th>Principio</th>
-                    <th>Nome</th>
-                    <th>Commento</th>
-                    <th>Score</th>
-              </thead>
-              <tbody>
-                  <tr *ngFor="let e of experienceList" color ="blue">
-                    <td> <img align="center" valign="middle" src="data:image/jpg;base64,{{e.archivo}}" width="300" height="200" (dblclick)="selectLink(e.idExperience)"/></td>
-                      <td> <img align="center" valign="middle" src="/assets/card/{{e.idPrincipio}}front.jpg" width="280" height="300"></td>
-                    <td align="center" valign="middle">{{e.nomeUtente}} </td>
-                    <td align="center" valign="middle">{{e.commentoExperience}}</td>
-                    <td align="center" valign="middle">{{e.scoreExperience}}</td>
-                    
-                  </tr>
-              </tbody>
-            </table>
-          </div>
+  </div>
+
+  </li>
+
+  <li>
+
+    <div class="dropdown">
+
+    <button class="dropbtn">Matrix</button>
+
+    <div class="dropdown-content">
+
+      <a href="/#/matrix">Show Matrix</a>
+      <a href="/#/Parametri">Parametri</a>
+
+    </div>
+  </div>
+ 
+  </li>
+
+  <li>
+      <div class="dropdown">
+
+          <a href="/#/login" class="dropbtn">Logout</a>
+      
+        </div>
+  </li>
+  <form  #f="ngForm">
+      <button class="dropbtnC">Cerca per parola chiave </button>
+      <input type = "text"  name="pChiave" placeholder = "inserisci testo" [(ngModel)]="pChiave">
+      <button style="margin-top:1%"  type="submit" (click)="cercaByParola(f)">Cerca</button>
+   </form>
+  
+  
+
+ 
+
+</ul> 
+
+<h1 class="title" align = "center">Esperienze</h1>
+        <div id="container" align="center">
+          <table class="table table-striped" border="1" cellpadding = "5" cellspacing = "5" align = "center">
+            <thead>
+                  <th bgcolor="#e6e6fa" align="center" valign="middle">Esperienza</th>
+                  <th bgcolor="#e6e6fa" align="center" valign="middle">Principio</th>
+                  <th bgcolor="#e6e6fa" align="center" valign="middle">Nome</th>
+                  <th bgcolor="#e6e6fa" align="center" valign="middle">Commento</th>
+                  <th bgcolor="#e6e6fa" align="center" valign="middle">Score</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of experienceList" color ="blue">
+                  <td> <img align="center" valign="middle" src="data:image/jpg;base64,{{e.archivo}}" width="300" height="200" (dblclick)="selectLink(e.idExperience)"/></td>
+                  <td> <img align="center" valign="middle" src="/assets/card/{{e.idPrincipio}}front.jpg" width="180" height="200"></td>
+                  <td align="center" valign="middle" width="300" height="200">{{e.nomeUtente}} </td>
+                  <td align="justify" valign="middle" width="300" height="200">{{e.commentoExperience}}</td>
+                  <td align="center" valign="middle" width="300" height="200">{{e.scoreExperience}}</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
