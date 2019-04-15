@@ -143,7 +143,7 @@ text-align:center;
 }
 
 .row {
-  display: flex;
+  display: inline-block;
 }
 
 /* Create three equal columns that sits next to each other */
