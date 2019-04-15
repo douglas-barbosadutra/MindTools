@@ -80,17 +80,24 @@
 	
 	<body>
 		
-	<table>
+	<table align="center">
 	
+		
 	
-	<tr><td><img src="data:image/jpg;base64,{{principio.fronte}}"  width="400" height="500"></td><td>     
+	<tr><td><img src="data:image/jpg;base64,{{principio.fronte}}"  width="350" height="450"></td><td>     
 
-	<img src="data:image/jpg;base64,{{principio.retro}}" width="400" height="500"></td></tr>    
+	<img src="data:image/jpg;base64,{{principio.retro}}" width="350" height="450"></td></tr>  
 	
-	<a href="/#/InsertExperience">Inserisci esperienza</a>
+</table>
+	
+	<div class="centrato">
+
+		<button style="margin-top:2%" class="btn btn-primary" type="submit" (click)="experience()">Inserisci la tua esperienza</button>
 
 	
-	</table>
+	</div>
+	
+	
 	
 	</body>
 	</html>
