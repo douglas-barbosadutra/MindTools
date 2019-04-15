@@ -73,11 +73,27 @@
   <br>
   <br>
   <br>
-  <div class="table" *ngFor="let p of principi">
-    <table>
-      <td>
-  <img src="data:image/jpg;base64,{{p.fronte}}" width="170" height="180"(dblclick)="selectLink(p.idPrincipi)">
-  </td>
-  </table></div>
+  <div class="row" *ngFor="let p of principi">
+      
+        
+         
+         
+    &nbsp;
+    &nbsp;
+  <td>
+    <tr>
+      <th>
+<img src="data:image/jpg;base64,{{p.fronte}}" width="220" height="240"(dblclick)="selectLink(p.idPrincipi)">
+
+&nbsp;
+&nbsp;
+
+
+      </th>
+</tr>
+
+
+
+</div>
   
   </body>

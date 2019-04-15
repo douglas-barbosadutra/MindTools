@@ -23,15 +23,14 @@ export class PrincipiByParolaComponent implements OnInit {
 
      ngOnInit(){
       this.pChiave = this.route.snapshot.params['pChiave'];  //.paramMap.get('pChiave');
-      alert(this.pChiave)
+      //alert(this.pChiave)
        this.principiService.cerca(this.pChiave).subscribe((response) => {
         
           this.principi = response;
       }) 
         }
-selectLink(idPrincipi: number){
-  sessionStorage.setItem("idPrincipi",JSON.stringify(idPrincipi));
-  this.router.navigateByUrl('/PrincipiSelectOne');
-
+        selectLink(idPrincipi: number){
+          sessionStorage.setItem("idPrincipi",JSON.stringify(idPrincipi));
+          this.router.navigateByUrl('/PrincipiSelectOne/'+ idPrincipi);
 }
 }

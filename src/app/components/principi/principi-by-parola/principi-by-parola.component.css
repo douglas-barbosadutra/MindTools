@@ -128,3 +128,6 @@
 	text-decoration: none;
 text-align:center;
 }
+.row {
+	display: inline-block;
+  }

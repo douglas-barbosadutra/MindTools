@@ -26,4 +26,9 @@ export class PrincipiRandomComponent implements OnInit {
        
         }
 
+        experience(): void{
+          this.router.navigateByUrl("/InsertExperience");
+      
+        }
+
 }
