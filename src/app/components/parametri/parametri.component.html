@@ -63,7 +63,9 @@
             <button style="margin-top:1%"  type="submit" (click)="cercaByParola(f)">Cerca</button>
          </form>
 </ul>
-
+<br>
+<br>
+<br>
 <form>
 	<select (change)="choose($event.target.value)">
 		<option *ngFor="let parametri of parametriList" [ngValue]="parametri" > {{parametri.id}}  {{parametri.nome}}
