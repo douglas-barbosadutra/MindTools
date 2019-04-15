@@ -28,6 +28,7 @@ public class RegistrazioneController {
 	
 	@CrossOrigin
 	@RequestMapping(value = "/reg", method = RequestMethod.POST)
+	
 	public UserDTO registrazione(		
 			
 			@RequestParam(value = "iduser") String iduser,
@@ -39,12 +40,22 @@ public class RegistrazioneController {
 			@RequestParam(value = "lingua") String lingua
 			
 			
-	) {
+	) 
+	{
 
+		try {
+		
 		int idUser = Integer.parseInt(iduser);
 		UserDTO  userDTO = new UserDTO(idUser,  username, password,nome, cognome, email, lingua);
 		userDTO = userService.insertUser(userDTO);
 		return userDTO;
+		}
+		catch(Exception e )
+		{
+			e.printStackTrace();
+			UserDTO userDTO1 = new UserDTO();
+			return userDTO1 = null;
+		}
 
 	
 	}
