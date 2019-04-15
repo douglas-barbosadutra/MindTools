@@ -36,6 +36,7 @@ export class MatrixComponent implements OnInit {
     
     var target = event.target;
     this.principi = target;
+    var e = document.
     
     
     console.log(target);
