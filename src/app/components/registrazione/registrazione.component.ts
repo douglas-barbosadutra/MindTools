@@ -27,6 +27,7 @@ export class RegistrazioneComponent implements OnInit {
       }
       else
       this.router.navigateByUrl("/registrazione");
+      alert("Username già in uso");
 
     });
   }
