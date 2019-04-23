@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.mapping.Array;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,16 +47,18 @@ public class MatrixController {
 		
 	}
 	
+	
+	
 	@RequestMapping(value = "/matrix", method = RequestMethod.GET)
-	public List <MatrixDTO>  ShowMatrix(HttpServletRequest request) {
+	public ResponseEntity<List <MatrixDTO>>  ShowMatrix(HttpServletRequest request) {
 		 List <MatrixDTO> matrice = matrixService.getMatrix();
 		 request.getSession().setAttribute("matrice", matrice);
 		 
-		 return matrice;	
+		 return ResponseEntity.status(HttpStatus.OK).body(matrice);	
 	}
 	@JsonCreator
 	@RequestMapping(value = "/contradizione", method = RequestMethod.POST)
-	public List<PrincipiDTO>  princiList(@RequestBody ArrayList<String> parametri){
+	public ResponseEntity<List<PrincipiDTO>> princiList(@RequestBody ArrayList<String> parametri){
 		String idarr = parametri.get(0);
 		String paramarr = parametri.get(1);
 		String[] id = idarr.split(" ");
@@ -90,7 +94,7 @@ public class MatrixController {
 			}
 		}
 		
-		return lista;
+		return ResponseEntity.status(HttpStatus.OK).body(lista);
 	}
 	
 	

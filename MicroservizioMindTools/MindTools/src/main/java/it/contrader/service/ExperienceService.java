@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.contrader.converter.ConverterUser;
+//import it.contrader.converter.ConverterUser;
 import it.contrader.converter.ExperienceConverter;
-import it.contrader.dao.UserDAO;
+//import it.contrader.dao.UserDAO;
 import it.contrader.converter.ExperienceConverter;
 import it.contrader.dao.ExperienceRepository;
 import it.contrader.dto.ExperienceDTO;
@@ -17,23 +17,23 @@ import it.contrader.dto.ExperienceUserFeedbackDTO;
 import it.contrader.dto.FeedbackDTO;
 import it.contrader.dto.FeedbackPrincipiExperienceDTO;
 import it.contrader.dto.PrincipiDTO;
-import it.contrader.dto.UserDTO;
+//import it.contrader.dto.UserDTO;
 import it.contrader.model.Experience;
-import it.contrader.model.User;
-import it.contrader.dto.ImagenDTO;
+//import it.contrader.model.User;
+
 
 @Service
 public class ExperienceService {
 	private final ExperienceRepository experienceRepository;
 	private final FeedbackService feedbackservice;
-	private final UserService userService;
+	//private final UserService userService;
 
 	@Autowired
-	public ExperienceService(ExperienceRepository experienceRepository, FeedbackService feedbackservice,
-			UserService userService) {
+	public ExperienceService(ExperienceRepository experienceRepository, FeedbackService feedbackservice
+			) {
 		this.experienceRepository = experienceRepository;
 		this.feedbackservice = feedbackservice;
-		this.userService = userService;
+	
 	}
 
 	public ExperienceDTO insertExperience(ExperienceDTO experienceDTO) {
@@ -42,7 +42,7 @@ public class ExperienceService {
 		return ExperienceConverter.toDTO(e);
 	}
 
-	public List<ExperienceDTO> allExperience(User user) {
+	/*public List<ExperienceDTO> allExperience(User user) {
 		List<ExperienceDTO> ex = new ArrayList();
 		List<Experience> entity = experienceRepository.findAll();
 		entity.forEach(experience -> ex.add(ExperienceConverter.toDTO(experience)));
@@ -149,6 +149,6 @@ public class ExperienceService {
 
 	public ExperienceDTO getExperienceByID(Integer id) {
 		return ExperienceConverter.toDTO(experienceRepository.getOne(id));
-	}
+	}*/
 
 }

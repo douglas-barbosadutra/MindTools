@@ -1,53 +1,43 @@
 package it.contrader.controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.criteria.Path;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.multipart.MultipartFile;
 
-import it.contrader.converter.ConverterUser;
+import io.jsonwebtoken.ExpiredJwtException;
+//import it.contrader.converter.ConverterUser;
 import it.contrader.converter.ExperienceConverter;
 import it.contrader.converter.FeedbackConverter;
-import it.contrader.converter.ImagenConverter;
 import it.contrader.converter.PrincipiConverter;
 import it.contrader.dto.ExperienceDTO;
 import it.contrader.dto.ExperienceDTOAggiornato;
-import it.contrader.dto.ExperienceUserFeedbackDTO;
 import it.contrader.dto.FeedbackDTO;
-import it.contrader.dto.ImagenDTO;
 import it.contrader.dto.PrincipiDTO;
-import it.contrader.dto.UserDTO;
+//import it.contrader.dto.UserDTO;
 import it.contrader.model.Experience;
 import it.contrader.model.Feedback;
-import it.contrader.model.Imagen;
-import it.contrader.model.User;
+//import it.contrader.model.User;
 import it.contrader.service.ExperienceService;
 import it.contrader.service.FeedbackService;
 import it.contrader.service.ImagenService;
 import it.contrader.service.PrincipiService;
-
-import lombok.Data;
+import it.contrader.utils.JwtUtils;
 
 @CrossOrigin(value="*")
 @RestController
@@ -58,11 +48,9 @@ public class ExperienceController {
 	private final FeedbackService feedbackservice;
 	private final ImagenService imagenService;
 	private ExperienceDTO experienceDTO = new ExperienceDTO();
-	private ImagenDTO imagenDTO = new ImagenDTO();
 	private Experience experience = new Experience();
 	private Feedback feedback = new Feedback();
 	private ExperienceConverter experienceConverter = new ExperienceConverter();
-	private ImagenConverter imagenConverter = new ImagenConverter();
 	private FeedbackDTO feedbackDTO = new FeedbackDTO();
 	private List<ExperienceDTOAggiornato> listaEsperienze = new ArrayList<ExperienceDTOAggiornato>();
 	private FeedbackConverter feedbackconverter = new FeedbackConverter();
@@ -78,18 +66,23 @@ public class ExperienceController {
 		this.feedbackservice = feedbackservice;
 		this.imagenService = imagenService;
 	}
-	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public ExperienceDTO insertExperience(@RequestBody ExperienceDTO experienceDTOo) {
-		
+	
+	@RequestMapping(value = "/insert", method = RequestMethod.POST,
+			produces = MediaType.APPLICATION_JSON_VALUE,
+		    consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
+	@ResponseBody
+	public ResponseEntity<ExperienceDTO> insertExperience(@RequestBody ExperienceDTO experienceDTOo, @RequestPart("file") MultipartFile file)throws IOException {
+		System.out.println("entrooo");
+		byte barr[]= file.getBytes();
 		int idpprincipale = experienceDTOo.getIdPrincipi();
-		experienceDTO.setUser(experienceDTOo.getUser());
+	//	experienceDTO.setUser(experienceDTOo.getUser());
 		experienceDTO.setIdExperience(0);
 		experienceDTO.setIdPrincipi(experienceDTOo.getIdPrincipi());
 		experienceDTO.setCommento(experienceDTOo.getCommento());
 		experienceDTO.setPositivo(experienceDTOo.getPositivo());
 		experienceDTO.setNegativo(experienceDTOo.getNegativo());
 		experienceDTO.setScore(experienceDTOo.getScore());
-		experienceDTO.setImagen(ImagenController.im);
+		experienceDTO.setImagen(barr);
 		System.out.print(experienceDTOo.getSecon().get(0));
 		ExperienceDTO ex = experienceService.insertExperience(experienceDTO);
 		if (experienceDTOo.getSecon()!= null) {
@@ -118,26 +111,26 @@ public class ExperienceController {
 		feedbackDTO.setSecondario(valore);
 		this.feedbackservice.insertFeedback(feedbackDTO);
 		}
-		return experienceDTO;
+		return ResponseEntity.status(HttpStatus.OK).body(experienceDTO);
 	}
+	
 
 	@RequestMapping(value = "/showAllExperience", method = RequestMethod.GET)
-	public List<ExperienceDTOAggiornato> ShowAll(@RequestParam(value="idUser")int idUser) {
+	public ResponseEntity<List<ExperienceDTOAggiornato>> ShowAll(@RequestParam(value="idUser")int idUser) {
 		listaEsperienze = experienceService.getAllExperienceUserFeedbackbyIdUser(idUser);
 		System.out.println(listaEsperienze);
-		return listaEsperienze;
+		return ResponseEntity.status(HttpStatus.OK).body(listaEsperienze);
 	}
-
-	@RequestMapping(value = "/getImage", method = RequestMethod.GET)
+    private int getRankFromJwt(String jwt) throws ExpiredJwtException, UnsupportedEncodingException {
+		
+		Map<String, Object> data = JwtUtils.jwt2Map(jwt);
+		int rank = Integer.parseInt(data.get("scope").toString());
+		
+		return rank;
+	}
 	
-	public @ResponseBody ImagenDTO getImagen(@RequestParam(value="id")int idExperience) throws IOException {
-		
-	ExperienceDTO experienceDTO = experienceService.getExperienceByID(idExperience);
 
-		 System.out.println(experienceDTO.getImagen().getArchivo());
-		byte[] content = experienceDTO.getImagen().getArchivo();
-		return ImagenConverter.toDTO(experienceDTO.getImagen());
-		
-	}
+	
+	
 
 }

@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -30,9 +31,9 @@ public class Experience {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idExperience;
 	
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name="idUser")
-	private User user;
+	private User user;*/
 	
 	@Column(name = "commento")
 	private String commento;
@@ -51,9 +52,11 @@ public class Experience {
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	private List<Feedback> feedback;
 	
-	@OneToOne
-	@JoinColumn(name = "idImagen")
-    private Imagen imagen;
+	@Column(name = "imagen")
+	@Lob
+	@NotNull
+	private byte[] imagen;
+	
 	
 
 

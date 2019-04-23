@@ -6,14 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import it.contrader.dto.ExperienceDTO;
-import it.contrader.dto.UserDTO;
+//import it.contrader.dto.UserDTO;
 import it.contrader.model.Experience;
-import it.contrader.model.User;
-import it.contrader.service.UserService;
+//import it.contrader.model.User;
+//import it.contrader.service.UserService;
 
 public class ExperienceConverter {
 	
-	private UserService userService;
+	//private UserService userService;
 	
 	
 	public static Experience toEntity(ExperienceDTO experienceDTO) {
@@ -26,8 +26,9 @@ public class ExperienceConverter {
 			experience.setPositivo(experienceDTO.getPositivo());
 			experience.setNegativo(experienceDTO.getNegativo());
 			experience.setScore(experienceDTO.getScore());
-			User user = experienceDTO.getUser();
-			experience.setUser(user);
+			experience.setImagen(experienceDTO.getImagen());
+		//	User user = experienceDTO.getUser();
+		//	experience.setUser(user);
 			experience.setImagen(experienceDTO.getImagen());
 
 		}
@@ -42,9 +43,10 @@ public class ExperienceConverter {
 		if (experience != null) {
 			experienceDTO = new ExperienceDTO();
 			experienceDTO.setIdExperience(experience.getIdExperience());
-			User user = experience.getUser();
-			experienceDTO.setUser(user);
+		//	User user = experience.getUser();
+		//	experienceDTO.setUser(user);
 			experienceDTO.setCommento(experience.getCommento());
+			experienceDTO.setImagen(experience.getImagen());
 			experienceDTO.setPositivo(experience.getPositivo());
 			experienceDTO.setNegativo(experience.getNegativo());
 			experienceDTO.setScore(experience.getScore());

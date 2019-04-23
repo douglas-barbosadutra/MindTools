@@ -1,9 +1,9 @@
 package it.contrader.dto;
 
 import it.contrader.model.Experience;
-import it.contrader.model.Imagen;
+
 import it.contrader.model.Principi;
-import it.contrader.model.User;
+//import it.contrader.model.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +22,7 @@ public class FeedbackPrincipiExperienceDTO {
 	private String nome_principioITA;
 	private String nome_principiING;
 	private int secondario;
-	private Imagen imagen;
+	
 	List<PrincipiDTO> secondari;
 	
 	public List<PrincipiDTO> getSecondari() {
