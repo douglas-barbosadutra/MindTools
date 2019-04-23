@@ -1,0 +1,182 @@
+<body>
+		<ul class ="menu">
+    
+				<li>
+			
+					<div class="dropdown">
+			
+					<button class="dropbtn">Principi</button>
+			
+					<div class="dropdown-content">
+			
+			
+						<a href="/#/PrincipiRead">Lista Principi</a>
+						<a href="/#/PrincipiRandom">Principi random</a>
+				
+					</div>
+			
+					</div>
+				</li>
+			
+				<li>
+			
+					<div class="dropdown" >
+			
+					<button class="dropbtn">Esperienze</button>
+			
+					<div class="dropdown-content">
+						
+						<a href="/#/AllExperience">Lista Esperienze</a>
+			
+					</div>
+			
+			 
+				</div>
+			
+				</li>
+			
+				<li>
+			
+					<div class="dropdown">
+			
+					<button class="dropbtn">Matrix</button>
+			
+					<div class="dropdown-content">
+			
+						<a href="/#/matrix">Show Matrix</a>
+						<a href="/#/Parametri">Parametri</a>
+			
+					</div>
+				</div>
+			 
+				</li>
+			
+				<li>
+						<div class="dropdown">
+			
+								<a href="/#/login" class="dropbtn">Logout</a>
+						
+							</div>
+				</li>
+				<form  #f="ngForm">
+						<button class="dropbtnC">Cerca per parola chiave </button>
+						<input type = "text"  name="pChiave" placeholder = "inserisci testo" [(ngModel)]="pChiave">
+						<button style="margin-top:1%"  type="submit" (click)="cercaByParola(f)">Cerca</button>
+				 </form>
+				
+				
+			
+			 
+			
+			</ul>
+			
+			<br>
+			<br>		
+
+
+<h1 class="titolo">Matrice</h1>
+		
+		<div class="matrice">
+			
+			<table class= "table" >
+			
+					     <tr>
+						
+			        		<th>Id</th>
+							<th class="substance1">Peso di un oggetto in movimento</th>
+			        		<th class="substance1">Peso di un oggetto statico</th>
+							<th class="substance1">Lunghezza di un oggetto in movimento</th>
+							<th class="substance1">Lunghezza di un oggetto statico</th>
+							<th class="substance1">Area di un oggetto in movimento</th>
+							<th class="substance1">Area di un oggetto statico</th>
+						
+
+							<th class="substance2">Volume di un oggetto in movimento</th>
+							<th class="substance2">Volume di un oggetto statico</th>
+							<th class="substance2">Velocità</th>
+							<th class="substance2">Forza</th>
+							<th class="substance2">Tensione,Pressione</th>
+							<th class="substance2">Forma</th>
+							<th class="substance2">Stabilità di un oggetto</th>
+							<th class="substance2">Resistenza</th>
+
+							<th class="substance3">Durata di un oggetto in movimento</th>
+							<th class="substance3">Durata di un oggetto statico</th>
+							<th class="substance3">Temperatura</th>
+							<th class="substance3">Luminosità</th>
+							<th class="substance3">Energia impiegata per muovere un oggetto</th>
+							<th class="substance3">Energia impiegata per non muovere un oggetto</th>
+
+							<th class="substance4">Potenza</th>
+							<th class="substance4">Spreco di energia</th>
+							<th class="substance4">Perdita di sostanza</th>
+							<th class="substance4">Perdita di informazione</th>
+							<th class="substance4">Perdita di tempo</th>
+							<th class="substance4">Quantità della sostanza </th>
+							<th class="substance4">Affidabilità</th>
+							<th class="substance4">Precisione della misurazione</th>
+							<th class="substance4">Precisione della fabbricazione</th>
+
+							<th class="substance5">Fattori dannosi che agiscono sull' oggetto </th>
+							<th class="substance5">Effetti collaterali dannosi</th>
+							<th class="substance5">Producibiità</th>
+							<th class="substance5">Comodità d'uso</th>
+							<th class="substance5">Riparabilità</th>
+
+							<th class="substance6">Adattabilità</th>
+							<th class="substance6">Complessità del dispositivo</th>
+							<th class="substance6">Complessità del controllo</th>
+							<th class="substance6">Livello di automazione</th>
+							<th class="substance6">Produttività</th>
+			            </tr>
+			    
+
+			    	<tr *ngFor="let matrix of matrixList">			
+							
+
+						<td >{{matrix.id}}</td>
+						<a href="/#/Contradiction" (click)="princ($event)"  (ngModel)="matrix"><td>{{matrix.p1}}</td></a>	
+							<td >{{matrix.p2}}</td>
+							<td >{{matrix.p3}}</td>
+							<td >{{matrix.p4}}</td>
+							<td >{{matrix.p5}}</td>
+							<td >{{matrix.p6}}</td>
+							<td >{{matrix.p7}}</td>
+							<td >{{matrix.p8}}</td>
+							<td >{{matrix.p9}}</td>
+							<td >{{matrix.p10}}</td>
+							<td >{{matrix.p11}}</td>
+							<td >{{matrix.p12}}</td>
+							<td >{{matrix.p13}}</td>
+							<td >{{matrix.p14}}</td>
+							<td >{{matrix.p15}}</td>
+							<td >{{matrix.p16}}</td>
+							<td >{{matrix.p17}}</td>
+							<td >{{matrix.p18}}</td>
+							<td >{{matrix.p19}}</td>
+							<td >{{matrix.p20}}</td>
+							<td >{{matrix.p21}}</td>
+							<td >{{matrix.p22}}</td>
+							<td >{{matrix.p23}}</td>
+							<td >{{matrix.p24}}</td>
+							<td >{{matrix.p25}}</td>
+							<td >{{matrix.p26}}</td>
+							<td >{{matrix.p27}}</td>
+							<td >{{matrix.p28}}</td>
+							<td >{{matrix.p29}}</td>
+							<td >{{matrix.p30}}</td>
+							<td >{{matrix.p31}}</td>
+							<td >{{matrix.p32}}</td>
+							<td >{{matrix.p33}}</td>
+							<td >{{matrix.p34}}</td>
+							<td >{{matrix.p35}}</td>
+							<td >{{matrix.p36}}</td>
+							<td >{{matrix.p37}}</td>
+							<td >{{matrix.p38}}</td>
+							<td >{{matrix.p39}}</td>	
+						</tr> 
+					 	 
+		  </table>
+			
+    </div>
+    </body>

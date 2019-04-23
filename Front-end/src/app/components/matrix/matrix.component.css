@@ -1,0 +1,193 @@
+.dropbtn {
+
+	background-color: rgb(9, 9, 61);
+
+	color: white;
+
+	padding: 16px;
+
+	font-size: 20px;
+
+	border: none;
+	width: 125px;
+
+}
+
+.dropbtnC
+{
+
+	background-color: rgb(9, 9, 61);
+
+	color: white;
+
+	padding: 16px;
+
+	font-size: 18px;
+
+	border: none;
+	width: 250px;
+
+}
+
+
+.dropdown {
+
+  width: 100%;
+
+}
+
+
+
+.dropdown-content {
+
+  display: none;
+
+  position: absolute;
+
+  background-color: lightblue;
+
+  width: 125px;
+
+  z-index: 1;
+
+}
+
+
+
+.dropdown-content a {
+
+  color: rgb(95, 110, 196);
+
+  padding: 12px 16px;
+
+  text-decoration: none;
+
+  display: block;
+
+}
+
+.dropdown-content a:hover {
+
+	background-color: white;
+
+}
+
+
+
+.dropdown:hover .dropdown-content {
+
+	display: block;
+
+}
+
+
+
+.dropdown:hover .dropbtn {
+
+	background-color:  rgb(9, 9, 61);
+
+}
+
+
+
+.menu {
+
+	list-style-type: none;
+
+	margin: 0;
+
+	padding: 0;
+
+	overflow: hidden;
+
+	background-color: rgb(9, 9, 61);
+	
+	
+
+}
+
+
+
+.menu li {
+
+  float: left;
+
+}
+
+
+
+.menu li a {
+
+	display: block;
+
+	text-align: center;
+
+	padding: 14px 16px;
+
+  
+	text-decoration: none;
+text-align:center;
+}
+
+.matrice{
+    width: 3000px;
+    margin: auto;
+    border: 1px solid rgb(0, 0, 0);
+  background-color: white;
+}
+
+
+
+.table td, table th {
+ padding: 5px;
+ vertical-align:middle;
+ border-top: 1px solid #3d75ad;
+ text-align: center;
+    width: 100%;
+ margin: 1 auto;
+border-bottom: 1px #3d75ad;
+caption-side: left;
+border-style: groove;
+
+}
+
+
+.substance1 {
+		background-color: #8252f3a8;
+		
+	
+	
+}
+
+.substance2{
+    background-color: yellow;
+		
+}
+
+.substance3{
+    background-color: rgb(255, 252, 47);
+
+}
+
+.substance4{
+    background-color: rgba(124, 32, 32, 0.747);
+
+}
+
+.substance5{
+    background-color: rgb(0, 162, 255);
+
+}
+
+.substance6{
+    background-color: rgb(212, 92, 228);
+
+}
+
+.titolo {
+	
+	text-align: left;
+
+	color: rgb(16, 16, 182);
+
+}

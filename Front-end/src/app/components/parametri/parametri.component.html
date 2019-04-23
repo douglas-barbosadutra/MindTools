@@ -1,0 +1,100 @@
+<ul class ="menu">
+    
+        <li>
+      
+          <div class="dropdown">
+      
+          <button class="dropbtn">Principi</button>
+      
+          <div class="dropdown-content">
+      
+      
+            <a href="/#/PrincipiRead">Lista Principi</a>
+            <a href="/#/PrincipiRandom">Principi random</a>
+        
+          </div>
+      
+          </div>
+        </li>
+      
+        <li>
+      
+          <div class="dropdown" >
+      
+          <button class="dropbtn">Esperienze</button>
+      
+          <div class="dropdown-content">
+            
+            <a href="/#/AllExperience">Lista Esperienze</a>
+      
+          </div>
+      
+       
+        </div>
+      
+        </li>
+      
+        <li>
+      
+          <div class="dropdown">
+      
+          <button class="dropbtn">Matrix</button>
+      
+          <div class="dropdown-content">
+      
+            <a href="/#/matrix">Show Matrix</a>
+            <a href="/#/Parametri">Parametri</a>
+      
+          </div>
+        </div>
+       
+        </li>
+      
+        <li>
+            <div class="dropdown">
+      
+                <a href="/#/login" class="dropbtn">Logout</a>
+            
+              </div>
+        </li>
+        <form  #f="ngForm">
+            <button class="dropbtnC">Cerca per parola chiave </button>
+            <input type = "text"  name="pChiave" placeholder = "inserisci testo" [(ngModel)]="pChiave">
+            <button style="margin-top:1%"  type="submit" (click)="cercaByParola(f)">Cerca</button>
+         </form>
+</ul>
+
+<form>
+	<select (change)="choose($event.target.value)">
+		<option *ngFor="let parametri of parametriList" [ngValue]="parametri" > {{parametri.id}}  {{parametri.nome}}
+		</option>
+	</select>
+	
+	<br>
+
+	<ul>
+		<li *ngFor="let parametri of parametriSelezionati">{{parametri}}</li>
+  </ul>
+  <br>
+  <button  type="submit" (click)="mostrar(f)">Insert</button>  
+  <div  class="table"  *ngFor="let p of principi">
+    <table>
+        &nbsp;
+        &nbsp; 
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp; 
+        &nbsp;
+        &nbsp;
+      <td>
+        <tr>
+          <th>
+  <img src="data:image/jpg;base64,{{p.fronte}}" width="170" height="180">
+          </th>
+  </tr>
+  
+  </table>
+  </div>
+  
+</form>

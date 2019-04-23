@@ -1,0 +1,109 @@
+<ul class ="menu">
+    
+    <li>
+  
+      <div class="dropdown">
+  
+      <button class="dropbtn">Principi</button>
+  
+      <div class="dropdown-content">
+  
+  
+        <a href="/#/PrincipiRead">Lista Principi</a>
+        <a href="/#/PrincipiRandom">Principi random</a>
+    
+      </div>
+  
+      </div>
+    </li>
+  
+    <li>
+  
+      <div class="dropdown" >
+  
+      <button class="dropbtn">Esperienze</button>
+  
+      <div class="dropdown-content">
+        
+        <a href="/#/AllExperience">Lista Esperienze</a>
+  
+      </div>
+  
+   
+    </div>
+  
+    </li>
+  
+    <li>
+  
+      <div class="dropdown">
+  
+      <button class="dropbtn">Matrix</button>
+  
+      <div class="dropdown-content">
+  
+        <a href="/#/matrix">Show Matrix</a>
+        <a href="/#/Parametri">Parametri</a>
+  
+      </div>
+    </div>
+   
+    </li>
+  
+    <li>
+        <div class="dropdown">
+  
+            <a href="/#/login" class="dropbtn">Logout</a>
+        
+          </div>
+    </li>
+    <form  #f="ngForm">
+        <button class="dropbtnC">Cerca per parola chiave </button>
+        <input type = "text"  name="pChiave" placeholder = "inserisci testo" [(ngModel)]="pChiave">
+        <button style="margin-top:1%"  type="submit" (click)="cercaByParola(f)">Cerca</button>
+    </form>
+   
+  
+  </ul>
+<br>
+<br>
+
+<h1 class="titolo">Inserisci Experienza</h1>
+<body class="esperienze">
+    <div id="container"> 
+      <form #f= "ngForm">
+        <br>
+            <h3>How much was this principle useful for you? </h3>
+    
+        <h4><label>Commento</label><br>
+        <textarea type="text" name="commento" placeholder="Inserisci Commento" ngModel></textarea><br></h4>
+        <h4><label>Aspetto Positivo</label><br>
+        <input type="text" name="positivo" placeholder="Inserisci Aspetto Positivo" ngModel><br></h4>
+        <h4><label>Aspetto Negativo</label><br>
+        <input type="text" name="negativo" placeholder="Inserisci Aspetto Negativo" ngModel><br></h4>
+        <h4>Score: 
+          <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "1" > 1 
+          <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "2"> 2 
+           <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "3"> 3 
+            <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "4"> 4 
+             <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "5" [checked]='true'> 5
+         </h4>
+         <div class="form-group">
+           
+            <label>Altri Principi utilizzati</label><br>
+            <tr *ngFor="let principi of secondari">
+              <td><input type = "checkbox" (change)="onChecked($event)"  name = "feedback"  [attr.value]="principi.idPrincipi">{{principi.idPrincipi}}{{principi.nome}} </td>
+    
+            </tr>
+            
+          
+        </div>
+        <form #imagen= "ngForm" method="post" enctype="multipart/form-data">
+          <p><label for="image">Choose Image</label></p>
+          <p><input name="fileToUpload" id="fileToUpload" type="file" (change)="onFileSelected($event)"/></p>
+          <button type="submit" (click)="onUpload()">Upload</button>
+        </form>
+        <button  type="submit" (click)="insertExperience(f)">Insert</button>    
+      </form>
+    </div>
+    </body>
