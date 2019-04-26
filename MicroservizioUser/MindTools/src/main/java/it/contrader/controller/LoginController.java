@@ -41,6 +41,7 @@ public class LoginController {
 				
 				String jwt = loginService.createJwt(""+userDTO.getIdUser(), userDTO.getUsername(), userDTO.getPassword(),new Date());
 				UserLoggedDTO userLogged = new UserLoggedDTO(jwt, userDTO.getRank());
+				System.out.println(jwt);
 				return ResponseEntity.status(HttpStatus.OK).header("jwt", jwt).body(userLogged);
 			}
 			catch (UnsupportedEncodingException e) {
