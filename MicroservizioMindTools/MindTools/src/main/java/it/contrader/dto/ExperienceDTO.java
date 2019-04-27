@@ -2,6 +2,7 @@ package it.contrader.dto;
 
 import java.util.List;
 
+import it.contrader.model.Imagen;
 
 //import it.contrader.model.User;
 
@@ -14,13 +15,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ExperienceDTO {
 	private int idExperience;
-	//private User user;
+	private int idUser;
 	private int idPrincipi;
 	private String commento;
 	private String positivo;
 	private String negativo;
 	private int score;
 	private List<String> secon;
-	private byte[] imagen;
+	private Imagen imagen;
 
 }

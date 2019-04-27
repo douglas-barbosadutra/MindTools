@@ -1,4 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Insert Experience</title>
+        <script type="text/javascript" src="jquery"></script>
+        
+        
+    </head>
 <ul class ="menu">
+
     
     <li>
   
@@ -70,6 +79,8 @@
 
 <h1 class="titolo">Inserisci Experienza</h1>
 <body class="esperienze">
+   
+
     <div id="container"> 
       <form #f= "ngForm">
         <br>
@@ -86,24 +97,28 @@
           <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "2"> 2 
            <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "3"> 3 
             <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "4"> 4 
-             <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "5" [checked]='true'> 5
+            <input type = "radio" (change)="onRadioSelected($event)"  ngModel ="experience.score" name = "score" value = "5" [checked]="true"> 5
          </h4>
          <div class="form-group">
            
             <label>Altri Principi utilizzati</label><br>
             <tr *ngFor="let principi of secondari">
               <td><input type = "checkbox" (change)="onChecked($event)"  name = "feedback"  [attr.value]="principi.idPrincipi">{{principi.idPrincipi}}{{principi.nome}} </td>
-    
+  
             </tr>
-            
           
         </div>
-        <form #imagen= "ngForm" method="post" enctype="multipart/form-data">
-          <p><label for="image">Choose Image</label></p>
-          <p><input name="fileToUpload" id="fileToUpload" type="file" (change)="onFileSelected($event)"/></p>
-          <button type="submit" (click)="onUpload()">Upload</button>
-        </form>
-        <button  type="submit" (click)="insertExperience(f)">Insert</button>    
+      
+        <button id ="saveAll" type="submit" (click)="insertExperience(f)">Insert</button>    
       </form>
     </div>
+    <div id="imagensession"> 
+        <form #imagen= "ngForm" method="post" enctype="multipart/form-data">
+          <p><label for="image">Seleziona Imagen</label></p>
+          <p><input name="fileToUpload" id="fileToUpload" type="file" (change)="onFileSelected($event)"/></p>
+          
+        </form>
+    </div>
+   
     </body>
+    </html>

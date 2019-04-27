@@ -19,7 +19,8 @@ export class PrincipiRandomComponent implements OnInit {
      }
 
      ngOnInit(){
-         this.principiService.random().subscribe((response) => {
+         var a = localStorage.getItem("jwt");
+         this.principiService.random(a).subscribe((response) => {
              this.principio = response;
          }) 
          

@@ -15,8 +15,9 @@ export class ContradictionComponent implements OnInit {
   constructor(private principiService:PrincipiService, private router: Router) { }
 
   ngOnInit() {
-    this.principiService.readPrincipi().subscribe((response) => {
-      this.principi = response;
+    var a = ""
+    this.principiService.readPrincipi(a).subscribe((response) => {
+     // this.principi = response;
   }) 
   }
 

@@ -27,9 +27,8 @@ public class ExperienceConverter {
 			experience.setNegativo(experienceDTO.getNegativo());
 			experience.setScore(experienceDTO.getScore());
 			experience.setImagen(experienceDTO.getImagen());
-		//	User user = experienceDTO.getUser();
-		//	experience.setUser(user);
-			experience.setImagen(experienceDTO.getImagen());
+			experience.setIdUser(experienceDTO.getIdUser());
+	
 
 		}
 
@@ -43,8 +42,7 @@ public class ExperienceConverter {
 		if (experience != null) {
 			experienceDTO = new ExperienceDTO();
 			experienceDTO.setIdExperience(experience.getIdExperience());
-		//	User user = experience.getUser();
-		//	experienceDTO.setUser(user);
+		   experienceDTO.setIdUser(experience.getIdUser());
 			experienceDTO.setCommento(experience.getCommento());
 			experienceDTO.setImagen(experience.getImagen());
 			experienceDTO.setPositivo(experience.getPositivo());

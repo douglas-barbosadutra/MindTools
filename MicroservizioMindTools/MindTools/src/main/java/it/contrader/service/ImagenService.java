@@ -1,5 +1,4 @@
 package it.contrader.service;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,11 +11,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import it.contrader.controller.ImagenController;
-
-//import it.contrader.model.Imagen;
+import it.contrader.converter.ImagenConverter;
+import it.contrader.dao.ImagenRepository;
+import it.contrader.dto.ImagenDTO;
+import it.contrader.model.Imagen;
 
 @Service
-public class ImagenService {/*
+public class ImagenService {
 	private final ImagenRepository imagenRepository;
 	private String upload_folder = ".//src//main//resources//files//";
 	private ImagenDTO imagenDTO = new ImagenDTO();
@@ -53,6 +54,6 @@ public class ImagenService {/*
 	
 
    
-	*/
+	
 
 }

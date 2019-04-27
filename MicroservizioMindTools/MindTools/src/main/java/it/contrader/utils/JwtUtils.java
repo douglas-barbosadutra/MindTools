@@ -14,9 +14,9 @@ public class JwtUtils {
 	
 	/**
      * this method generate the Jwt token to be sent to the client
-     * @param subject "RGNLSN87H13D761R"
+     * @param subject "88022835134"
      * @param date    new Date(1300819380)
-     * @param name    "Alessandro Argentieri"
+     * @param name    "Jane Gonzalez"
      * @param scope   "user"
      * @return String jwt
      * @throws java.io.UnsupportedEncodingException

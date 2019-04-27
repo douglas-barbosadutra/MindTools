@@ -10,8 +10,10 @@ import { Imagen } from 'src/app/models/Imagen';
 import { HttpClient} from '@angular/common/http';
 import {ImagenService} from 'src/app/services/imagen.service';
 import { ExperienceDTO } from 'src/app/dto/ExperienceDTO';
-
+import * as $ from 'jquery';
 import { User } from 'src/app/models/User';
+import {ParamDTO} from 'src/app/dto/ParamDTO';
+
 
 @Component({
   selector: 'app-insert-experience',
@@ -30,10 +32,18 @@ export class InsertExperienceComponent implements OnInit {
   private score:number;
   private idPrincipi: number;
   private experienceDTO: ExperienceDTO;
+  public paramDTO: ParamDTO;
+  archivo: ByteLengthChunk[];
+   
   
   
   onFileSelected(event){
     this.selectedFile = <File>event.target.files[0];
+    console.log(this.selectedFile);
+    this.ImagenService.pushFileToStorage( this.selectedFile).subscribe(res=>{
+      console.log(res);
+    });
+
     
   }
   onRadioSelected(event){
@@ -57,37 +67,37 @@ export class InsertExperienceComponent implements OnInit {
     private ImagenService: ImagenService) { }
 
   ngOnInit() {
-
-    this.principiService.readPrincipi().subscribe((response)=> {
-      this.secondari = response;
+//     $(document).ready(function(){
+//       $("#imagensession").hide();         /* it shows the sign in and hide the operation sections */
+//        /* it sets the new url when the page is loaded */
+// });
+    var a = localStorage.getItem("jwt");
+    this.principiService.readPrincipi(a).subscribe((response)=> {
+    this.secondari = response;
  }); 
+  
  
   }
    insertExperience(f: NgForm){
-    this.user = JSON.parse(sessionStorage.getItem("user"));
+    var a = localStorage.getItem("jwt");
     this.idPrincipi = parseInt(sessionStorage.getItem("idPrincipi"));
-    this.experienceDTO =  new ExperienceDTO(this.user, this.idPrincipi, f.value.commento, f.value.positivo, f.value.negativo, this.score, this.secon)
+    this.experienceDTO =  new ExperienceDTO(this.idPrincipi, f.value.commento, f.value.positivo,f.value.negativo, this.score, this.secon)
      console.log(this.experienceDTO);
+     this.paramDTO = new ParamDTO(a, this.experienceDTO)
+
      
-    this.experienceService.insertExperience(this.experienceDTO).subscribe((response) => {
-      
+    this.experienceService.insertExperience(this.paramDTO ).subscribe((response) => {
         if (response != null) {   
          console.log("arrivo");  
           this.router.navigateByUrl("AllExperience");
        }
        else
        this.router.navigateByUrl("InsertExperience");
-        
-  
       });
    }
 
-   onUpload(){
-     this.ImagenService.pushFileToStorage( this.selectedFile).subscribe(res=>{
-      console.log(res);
-      this.router.navigateByUrl("InsertExperience");
-    });
-  }
+   
+  
 
    
 

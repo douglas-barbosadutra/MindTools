@@ -7,7 +7,7 @@ import { AngularDualListBoxModule } from 'angular-dual-listbox';
 import { Key } from 'protractor';
 import {Queue} from 'queue-typescript';
 import { of } from 'rxjs';
-import { ProvaComponent } from '../prova/prova.component';
+
 import { Principi } from 'src/app/models/Principi';
 import { error } from 'util';
 

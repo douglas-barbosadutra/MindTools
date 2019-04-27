@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ParamDTO {
+public class TokenDTO {
 	
 	private String jwt;
-	private Object param;
+	private int server;
 }

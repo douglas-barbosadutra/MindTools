@@ -22,20 +22,12 @@ export class AllExperienceComponent implements OnInit {
   constructor(private experienceService: ExperienceService, private router:  Router) { }
 
   ngOnInit() {
-    
+    var a = localStorage.getItem("jwt");
     this.user = JSON.parse(sessionStorage.getItem("user"));
-    this.experienceService.showAllExperiences(this.user.idUser).subscribe((response) =>{
+    this.experienceService.showAllExperiences(a).subscribe((response) =>{
     this.experienceList = response});
-    //sessionStorage.setItem('idExperience', JSON.stringify(this.experience.idExperience));
-  
   }
-  /*
-  showAllExperiences(): void{
-    
-    this.experienceService.showAllExperiences(this.experience.idExperience).subscribe((response) =>{
-    this.experienceList = response});
-  
- }*/
+
  selectLink(idExperience: number){
   sessionStorage.setItem('idExperience',JSON.stringify(idExperience));
   alert(idExperience);

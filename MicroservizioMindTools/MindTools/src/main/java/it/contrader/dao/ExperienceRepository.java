@@ -13,6 +13,6 @@ import java.util.List;
 public interface ExperienceRepository extends JpaRepository<Experience, Integer> {
 	
 	public Experience findByIdExperience(Integer idExperience);
-//	public List<Experience> findByUser(User user);
+	public List<Experience> findByIdUser(Integer idUser);
 
 }

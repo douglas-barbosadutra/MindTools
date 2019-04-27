@@ -21,7 +21,7 @@ import io.jsonwebtoken.ExpiredJwtException;
 import it.contrader.model.User;
 import it.contrader.service.UserService;
 import it.contrader.utils.JwtUtils;
-import it.contrader.dto.ParamDTO;
+import it.contrader.dto.TokenDTO;
 import it.contrader.dto.UserDTO;
 
 @RestController
@@ -38,7 +38,7 @@ public class RegistrazioneController {
 	@CrossOrigin
 	@RequestMapping(value = "/reg", method = RequestMethod.POST)
 
-	public ResponseEntity<UserDTO> registrazione(@RequestBody ParamDTO param)
+	public ResponseEntity<UserDTO> registrazione(@RequestBody TokenDTO param)
 
 	{
 		LinkedHashMap user = (LinkedHashMap) param.getParam();

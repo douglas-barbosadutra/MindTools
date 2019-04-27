@@ -20,7 +20,7 @@ export class MatrixService {
 }
 
 readMatrix():Observable <Array<Matrix>> {
-  return this.http.get<Array<Matrix>>("http://localhost:8080/Matrice/matrix")
+  return this.http.get<Array<Matrix>>("http://localhost:8094/Matrice/matrix")
   
 }
 

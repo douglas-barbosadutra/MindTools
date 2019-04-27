@@ -23,7 +23,7 @@ export class ImagenService {
     let formdata: FormData = new FormData();
     formdata.append('file', file);
    
-    return this.http.post('http://localhost:8080/Imagen/savefile', formdata);
+    return this.http.post('http://localhost:8094/Imagen/savefile', formdata);
   }
 
   insertImagen(file: NgForm) {

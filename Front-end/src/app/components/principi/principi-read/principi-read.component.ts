@@ -19,7 +19,9 @@ export class PrincipiReadComponent implements OnInit {
      }
 
      ngOnInit(){
-         this.principiService.readPrincipi().subscribe((response) => {
+       var a = localStorage.getItem("jwt");
+         this.principiService.readPrincipi(a).subscribe((response) => {
+            console.log(response)
              this.principi = response;
          }) 
         }

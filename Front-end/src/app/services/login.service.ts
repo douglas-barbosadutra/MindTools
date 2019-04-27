@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { tap, catchError } from 'rxjs/operators';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpParams, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/User';
 import { Observable, of } from 'rxjs';
+import { TokenDTO } from '../dto/TokenDTO';
+import {UserLoggedDTO} from 'src/app/dto/UserLoggedDTO';
 
 @Injectable({
     providedIn: 'root'
@@ -19,10 +21,11 @@ export class LoginService {
         };
     }
 
-    login(username: string, password: string): Observable<User> {
-        const params = new HttpParams().set('username', username).set('password', password);
-        return this.http.post<User>('http://localhost:8080/Login/authentication', params).pipe(tap((response) => console.log(username), catchError(this.handleError("login error", {}))));
+    login(username: string, password: string): Observable<TokenDTO> {
+       const params = new HttpParams().set('username', username).set('password', password);
+        return this.http.post<TokenDTO>('http://localhost:8080/Login/authentication',params);
       }
+      
 
     //logOut() {
         //if (typeof (Storage) !== 'undefined') {

@@ -24,13 +24,13 @@ export class ParametriService {
   }
 
   readParametri():Observable <Array<Parametri>> {
-    return this.http.get<Array<Parametri>>("http://localhost:8080/Parametri/param")
+    return this.http.get<Array<Parametri>>("http://localhost:8094/Parametri/param")
     
   }
 
   inviaParametriSelezionati(parametriSelezionati :  Array<Parametri>): Observable<any>
   {
-    return this.http.post<any>("http://localhost:8080/Matrice/contradizione", parametriSelezionati);
+    return this.http.post<any>("http://localhost:8094/Matrice/contradizione", parametriSelezionati);
     
 
   }

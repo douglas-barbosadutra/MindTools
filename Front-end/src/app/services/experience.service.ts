@@ -6,6 +6,7 @@ import { ExperienceUserFeedbackDTO } from 'src/app/models/ExperienceUserFeedback
 import {Feedback} from 'src/app/models/Feedback';
 import {User} from 'src/app/models/User';
 import { ExperienceDTO } from '../dto/ExperienceDTO';
+import {ParamDTO} from 'src/app/dto/ParamDTO';
 
 
 @Injectable({
@@ -24,13 +25,13 @@ export class ExperienceService {
     };
   }
   
-  insertExperience(experienceDTO: ExperienceDTO):Observable<any>{
+  insertExperience(paramDTO: ParamDTO):Observable<any>{
     
-    return this.http.post<any>("http://localhost:8080/Experience/insert", experienceDTO);
+    return this.http.post<any>("http://localhost:8094/Experience/insert",paramDTO);
     
   }
-  showAllExperiences(idUser: number):Observable<Array<ExperienceUserFeedbackDTO>>{
-    return this.http.get<Array<ExperienceUserFeedbackDTO>> ("http://localhost:8080/Experience/showAllExperience?idUser=" +idUser);
+  showAllExperiences(token:string):Observable<Array<ExperienceUserFeedbackDTO>>{
+    return this.http.get<Array<ExperienceUserFeedbackDTO>> ("http://localhost:8094/Experience/showAllExperience?jwt="+token);
   }
 
 }

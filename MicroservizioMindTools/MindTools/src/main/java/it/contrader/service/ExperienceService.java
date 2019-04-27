@@ -5,10 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-//import it.contrader.converter.ConverterUser;
 import it.contrader.converter.ExperienceConverter;
-//import it.contrader.dao.UserDAO;
 import it.contrader.converter.ExperienceConverter;
 import it.contrader.dao.ExperienceRepository;
 import it.contrader.dto.ExperienceDTO;
@@ -17,9 +14,8 @@ import it.contrader.dto.ExperienceUserFeedbackDTO;
 import it.contrader.dto.FeedbackDTO;
 import it.contrader.dto.FeedbackPrincipiExperienceDTO;
 import it.contrader.dto.PrincipiDTO;
-//import it.contrader.dto.UserDTO;
 import it.contrader.model.Experience;
-//import it.contrader.model.User;
+
 
 
 @Service
@@ -47,12 +43,10 @@ public class ExperienceService {
 		List<Experience> entity = experienceRepository.findAll();
 		entity.forEach(experience -> ex.add(ExperienceConverter.toDTO(experience)));
 		return ex;
-	}
+	}*/
 
 	public List<ExperienceDTO> getExperienceByUser(Integer idUser) {
-		User user = new User();
-		user.setIdUser(idUser);
-		return ExperienceConverter.toListDTO(experienceRepository.findByUser(user));
+		return ExperienceConverter.toListDTO(experienceRepository.findByIdUser(idUser));
 	}
 
 	public List<ExperienceDTO> allExperience() {
@@ -66,7 +60,7 @@ public class ExperienceService {
 		return ex;
 
 	}
-
+/*
 	public List<ExperienceUserFeedbackDTO> getAllExperienceUserFeedbackDTO() {
 
 		List<ExperienceUserFeedbackDTO> listaexperienceUserFeedbackDTO = new ArrayList<ExperienceUserFeedbackDTO>();
@@ -123,19 +117,19 @@ public class ExperienceService {
 		return listaexperienceUserFeedbackDTO;
 
 	}
-
+*/
 	public List<ExperienceDTOAggiornato> getAllExperienceUserFeedbackbyIdUser(int idUser) {
 		
 		List<ExperienceDTOAggiornato> lista = new ArrayList<ExperienceDTOAggiornato>();
-		UserDTO user = this.userService.findUserByIduser(idUser);
-		System.out.print(user);
+		//UserDTO user = this.userService.findUserByIduser(idUser);
+		//System.out.print(user);
 		List<ExperienceDTO> experiences = this.getExperienceByUser(idUser);
 		
 		for (ExperienceDTO experienceDTO : experiences) {
 			FeedbackPrincipiExperienceDTO feedbackDTO = this.feedbackservice.getFeedbackPrincipiExperienceDTO(ExperienceConverter.toEntity(experienceDTO).getIdExperience());
 			System.out.print("llegoooo"+feedbackDTO);
 			ExperienceDTOAggiornato obj = new ExperienceDTOAggiornato();
-			obj.setNomeUtente(user.getNome());
+			//obj.setNomeUtente(user.getNome());
 			obj.setIdExperience(experienceDTO.getIdExperience());
 			obj.setCommentoExperience(experienceDTO.getCommento());
 			obj.setScoreExperience(experienceDTO.getScore());
@@ -149,6 +143,6 @@ public class ExperienceService {
 
 	public ExperienceDTO getExperienceByID(Integer id) {
 		return ExperienceConverter.toDTO(experienceRepository.getOne(id));
-	}*/
+	}
 
 }

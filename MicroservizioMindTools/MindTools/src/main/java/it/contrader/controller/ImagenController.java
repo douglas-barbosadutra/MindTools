@@ -27,13 +27,15 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 
+import it.contrader.dto.ImagenDTO;
+import it.contrader.model.Imagen;
 //import it.contrader.model.Imagen;
 import it.contrader.service.ImagenService;
 
 @CrossOrigin(value="*")
 @RestController
 @RequestMapping("/Imagen")
-public class ImagenController {/*
+public class ImagenController {
 	
 	private ImagenDTO imagenDTO = new ImagenDTO();
 	public static Imagen im = null;
@@ -70,6 +72,6 @@ public class ImagenController {/*
 	        }
 	        return new ResponseEntity<Object>("Archivo subido correctamente", HttpStatus.OK);
 	    }
-	*/
+	
 
 }

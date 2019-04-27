@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Principi } from 'src/app/models/Principi';
 import { PrincipiService } from 'src/app/services/principi/principi.service';
 import { Router,ActivatedRoute } from '@angular/router';
+import {ParamDTO} from 'src/app/dto/ParamDTO'
 
 
 
@@ -15,7 +16,8 @@ export class PrincipiByParolaComponent implements OnInit {
 
   public principi : Array<Principi>;
   public pChiave : string;
-  
+  paramDTO:ParamDTO;
+
 
      constructor(private principiService:PrincipiService, private route: ActivatedRoute, private router: Router){
 
@@ -23,7 +25,8 @@ export class PrincipiByParolaComponent implements OnInit {
 
      ngOnInit(){
       this.pChiave = this.route.snapshot.params['pChiave'];  //.paramMap.get('pChiave');
-      alert(this.pChiave)
+      var a = localStorage.getItem("jwt");
+      this.paramDTO = new ParamDTO(a,this.pChiave);
        this.principiService.cerca(this.pChiave).subscribe((response) => {
         
           this.principi = response;

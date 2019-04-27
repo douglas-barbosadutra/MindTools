@@ -21,6 +21,13 @@ export class HomeUserComponent implements OnInit {
     
   }
 
+  getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2)
+        return parts.pop().split(";").shift();
+}
+
   cercaByParola(f: NgForm){
    
     this.pChiave=f.value.pChiave;

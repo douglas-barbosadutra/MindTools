@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <ul class ="menu">
     
     <li>
@@ -75,7 +77,6 @@
               <thead>
                     <th>Esperienza</th>
                     <th>Principio</th>
-                    <th>Nome</th>
                     <th>Commento</th>
                     <th>Score</th>
               </thead>
@@ -83,7 +84,6 @@
                   <tr *ngFor="let e of experienceList" color ="blue">
                     <td> <img align="center" valign="middle" src="data:image/jpg;base64,{{e.archivo}}" width="300" height="200" (dblclick)="selectLink(e.idExperience)"/></td>
                       <td> <img align="center" valign="middle" src="/assets/card/{{e.idPrincipio}}front.jpg" width="280" height="300"></td>
-                    <td align="center" valign="middle">{{e.nomeUtente}} </td>
                     <td align="center" valign="middle">{{e.commentoExperience}}</td>
                     <td align="center" valign="middle">{{e.scoreExperience}}</td>
                     
@@ -91,3 +91,4 @@
               </tbody>
             </table>
           </div>
+</html>

@@ -51,12 +51,16 @@ public class Experience {
 	@OneToMany(mappedBy="experience")
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	private List<Feedback> feedback;
+
 	
-	@Column(name = "imagen")
-	@Lob
+	@Column(name = "idUser")
 	@NotNull
-	private byte[] imagen;
+	private Integer idUser;
 	
+	@OneToOne
+	@NotNull
+	@JoinColumn(name = "idImagen")
+    private Imagen imagen;
 	
 
 
