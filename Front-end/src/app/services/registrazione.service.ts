@@ -3,6 +3,7 @@ import { tap, catchError } from 'rxjs/operators';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { User } from '../models/User';
 import {Observable, of, BehaviorSubject} from 'rxjs';
+import {ParamDTO} from 'src/app/dto/ParamDTO';
 
 
 @Injectable({
@@ -21,11 +22,8 @@ export class RegistrazioneService {
     };
   }
 
-  registrazione(username: string, password:string, nome: string, cognome: string, email: string, lingua: string): Observable<User> 
+  registrazione(paramDTO : ParamDTO):Observable<any>
   {
-    const params = new HttpParams().set('iduser', '0').set('username', username).set('password', password).set('nome', nome).set('congome', cognome).
-        set('email', email).set('lingua', lingua);
-        return this.http.post<User>('http://localhost:8080/Registrazione/reg', params);
-
+    return this.http.post<any>("http://localhost:8094/Registrazione/reg",paramDTO);
   }
 }
