@@ -8,5 +8,5 @@ import lombok.Data;
 public class TokenDTO {
 	
 	private String jwt;
-	private int server;
+	private Object param;
 }
